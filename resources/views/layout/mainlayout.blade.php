@@ -26,17 +26,12 @@
 
     <link rel="stylesheet" href="css/sidebar.css">
 
-    <style>
-        body {
-            background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 49%, rgba(0, 212, 255, 1) 100%);
-        }
-    </style>
     @yield('head')
 </head>
 
 <body>
 
-    @include('partials.sidebar')
+    @include('partials.navbar')
 
     @yield('content')
 
