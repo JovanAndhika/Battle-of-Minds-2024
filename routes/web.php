@@ -12,10 +12,10 @@ Route::post('/registration/store', [PesertaController::class, 'storeRegistration
 
 
 //LOGIN
-Route::get('/login', [PesertaController::class, 'login'])->name('login');
+Route::get('/login', [PesertaController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [PesertaController::class, 'authenticate'])->name('authenticate');
 
-Route::group(['middleware' => 'admin'], function(){
+Route::group(['middleware' => 'auth'], function(){
 Route::get('/f36dbb75466650c2294914b6e2fa3058', [AdminController::class, 'adminIndex'])->name('adminIndex');
 });
 
