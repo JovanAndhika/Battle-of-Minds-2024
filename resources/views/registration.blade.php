@@ -2,16 +2,16 @@
 
 
 @section('head')
-    <style>
-        body{
-            color: white;
-            min-height: 100vh;
-        }
+<style>
+    body {
+        color: black;
+        min-height: 100vh;
+    }
 
-        .form-text{
-            color: white
-        }
-    </style>
+    .form-text {
+        color: black
+    }
+</style>
 @endsection
 
 @section('content')
@@ -63,9 +63,6 @@
                     <label for="inputConfirmPassword5" class="form-label">Confirm Password</label>
                     <input type="password" id="inputConfirmPassword5" class="form-control" name="passConfirmPeserta" aria-describedby="passwordHelpBlock" value="{{ old('passConfirmPeserta') }}" required>
                     <div id="confirmPasswordError" class="invalid-feedback" style="display: none;">Password is not the same</div>
-                    <div id="passwordHelpBlock" class="form-text">
-                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-                    </div>
                 </div>
             </div>
 
@@ -136,7 +133,7 @@
 
                 <div class="mb-3 col-md-6">
                     <label for="alergi" class="form-label">Apakah ada anggota yang mempunyai alergi?</label>
-                    <input type="text" class="form-control @error('alergi') is-invalid @enderror" id="alergi" name="alergi" placeholder="Jika tidak bisa inputkan '-'" value="{{ old('jenisAlergi') }}" required>
+                    <input type="text" class="form-control @error('alergi') is-invalid @enderror" id="alergi" name="alergi" placeholder="Jika tidak ada, bisa inputkan '-'" value="{{ old('jenisAlergi') }}" required>
                     @error('alergi')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -146,7 +143,7 @@
             <div class="row">
                 <div class="mb-3 col-md-6">
                     <label for="buktiTransaksi" class="form-label">Bukti transaksi</label>
-                    <input class="form-control @error('buktiTransaksi') is-invalid @enderror" type="file" id="buktiTransaksi" name="buktiTransaksi">
+                    <input class="form-control @error('buktiTransaksi') is-invalid @enderror" type="file" id="buktiTransaksi" name="buktiTransaksi" required>
                     @error('buktiTransaksi')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -159,6 +156,22 @@
 </div>
 
 <script>
-
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Menghentikan aksi bawaan formulir
+        Swal.fire({
+            title: "Confirm Registration?",
+            text: "Click yes to register",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, register"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Lanjutkan dengan pengiriman formulir jika pengguna menekan tombol "Yes"
+                this.submit();
+            }
+        });
+    });
 </script>
 @endsection
