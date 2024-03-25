@@ -27,7 +27,7 @@
             <div class="row center ">
                 <div class="d-flex col-lg-8">
 
-                    <img src="{{ asset('storage/assetsEric/starrailASta.jpg') }}" class="img-fluid " alt="">
+                    <img src="{{ asset('storage/assetsEric/w.jpg') }}" class="img-fluid " alt="">
                 </div>
                 <div class="col-8 col-lg-4">
 
