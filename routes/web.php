@@ -19,7 +19,7 @@ Route::post('/login', [PesertaController::class, 'authenticate'])->name('authent
 Route::post('/logout', [PesertaController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => 'auth'], function(){
-Route::get('/f36dbb75466650c2294914b6e2fa3058', [AdminController::class, 'adminIndex'])->name('adminIndex');
+Route::get('/adminRole', [AdminController::class, 'adminIndex'])->name('adminIndex');
 });
 
 

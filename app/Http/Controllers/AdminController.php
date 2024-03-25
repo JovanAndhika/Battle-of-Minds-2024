@@ -16,6 +16,8 @@ class AdminController extends Controller
         return view('admin.adminHomepage', ['title' => 'BOM 2024 | PETRA CHRISTIAN UNIVERSITY']);
     }
 
+    // Nanti admin bisa validasi peserta yang mendaftar
+    
 }
 
 ?>

@@ -14,6 +14,7 @@
 </style>
 @endsection
 
+@include('partials.navbarshort')
 @section('content')
 <div class="container container-registration">
 
@@ -34,12 +35,51 @@
                 <!-- Tambahkan pengecekan error untuk field lainnya dengan pola yang serupa -->
             </div>
 
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="kontakSekolah" class="form-label">Kontak Sekolah (ex: email, no.telp)</label>
+                    <input type="text" id="kontakSekolah" name="kontakSekolah" class="form-control @error('kontakSekolah') is-invalid @enderror" placeholder="" value="{{ old('kontakSekolah') }}" required>
+                    @error('kontakSekolah')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
 
             <div class="row">
                 <div class="mb-3 col-md-6">
                     <label for="usernameKelompok" class="form-label">Username Kelompok</label>
                     <input type="text" class="form-control @error('usernameKelompok') is-invalid @enderror" id="usernameKelompok" name="usernameKelompok" placeholder="" value="{{ old('usernameKelompok') }}" required>
                     @error('usernameKelompok')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="kelas" class="form-label">Kelas</label>
+                    <input type="text" id="kelas" name="kelas" class="form-control @error('kelas') is-invalid @enderror" placeholder="" value="{{ old('kelas') }}" required>
+                    @error('kelas')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="jurusan" class="form-label">Jurusan</label>
+                    <input type="text" id="jurusan" name="jurusan" class="form-control @error('jurusan') is-invalid @enderror" placeholder="" value="{{ old('jurusan') }}" required>
+                    @error('kjurusan')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="kontakPerwakilan" class="form-label">Kontak perwakilan kelompok (&nbsp;idline/wa&nbsp;)</label>
+                    <input type="text" id="kontakPerwakilan" name="kontakPerwakilan" class="form-control @error('kontakPerwakilan') is-invalid @enderror" placeholder="" value="{{ old('kontakPerwakilan') }}" required>
+                    @error('kontakPerwakilan')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
@@ -60,26 +100,32 @@
 
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label for="inputConfirmPassword5" class="form-label">Confirm Password</label>
-                    <input type="password" id="inputConfirmPassword5" class="form-control" name="passConfirmPeserta" aria-describedby="passwordHelpBlock" value="{{ old('passConfirmPeserta') }}" required>
+                    <label for="confirmPass" class="form-label">Confirm Password</label>
+                    <input type="password" id="confirmPass" class="form-control" name="confirmPass" aria-describedby="passwordHelpBlock" value="{{ old('confirmPass') }}" required>
                     <div id="confirmPasswordError" class="invalid-feedback" style="display: none;">Password is not the same</div>
                 </div>
             </div>
 
             <script>
-                document.getElementById("inputConfirmPassword5").addEventListener("keyup", function() {
+                document.getElementById("confirmPass").addEventListener("keyup", function() {
                     var password = document.getElementById("inputPassword5").value;
-                    var confirmPassword = document.getElementById("inputConfirmPassword5").value;
+                    var confirmPassword = document.getElementById("confirmPass").value;
                     var confirmPasswordError = document.getElementById("confirmPasswordError");
 
                     if (password === confirmPassword) {
+                        $(document).ready(function() {
+                            $('#btn-submit').prop('disabled', false);
+                        });
                         confirmPasswordError.style.display = "none";
                     } else {
+                        $(document).ready(function() {
+
+                            $('#btn-submit').prop('disabled', true);
+                        });
                         confirmPasswordError.style.display = "block";
                     }
                 });
             </script>
-
 
             <div class="row">
                 <div class="mb-3 col-md-6">
@@ -91,9 +137,19 @@
                 </div>
 
                 <div class="mb-3 col-md-6">
-                    <label for="emailKetua" class="form-label">Email Ketua</label>
+                    <label for="emailKetua" class="form-label">Email Ketua (Member 1)</label>
                     <input type="email" class="form-control @error('emailKetua') is-invalid @enderror" id="emailKetua" name="emailKetua" placeholder="example@gmail.com" value="{{ old('emailKetua') }}" required>
                     @error('emailKetua')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="kerabatSatu" class="form-label">Kontak Kerabat Member 1 yang bisa dihubungi</label>
+                    <input type="text" id="kerabatSatu" name="kerabatSatu" class="form-control @error('kerabatSatu') is-invalid @enderror" placeholder="" value="{{ old('kerabatSatu') }}" required>
+                    @error('kerabatSatu')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
@@ -109,9 +165,28 @@
                 </div>
 
                 <div class="mb-3 col-md-6">
+                    <label for="kerabatDua" class="form-label">Kontak Kerabat Member 2 yang bisa dihubungi</label>
+                    <input type="text" id="kerabatDua" name="kerabatDua" class="form-control @error('kerabatDua') is-invalid @enderror" placeholder="" value="{{ old('kerabatDua') }}" required>
+                    @error('kerabatDua')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="mb-3 col-md-6">
                     <label for="namaKetiga" class="form-label">Nama Member 3</label>
                     <input type="text" id="namaKetiga" name="namaKetiga" class="form-control @error('namaKetiga') is-invalid @enderror" placeholder="" value="{{ old('namaKetiga') }}" required>
                     @error('namaKetiga')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label for="kerabatTiga" class="form-label">Kontak Kerabat Member 3 yang bisa dihubungi</label>
+                    <input type="text" id="kerabatTiga" name="kerabatTiga" class="form-control @error('kerabatTiga') is-invalid @enderror" placeholder="" value="{{ old('kerabatTiga') }}" required>
+                    @error('kerabatTiga')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
@@ -133,7 +208,7 @@
 
                 <div class="mb-3 col-md-6">
                     <label for="alergi" class="form-label">Apakah ada anggota yang mempunyai alergi?</label>
-                    <input type="text" class="form-control @error('alergi') is-invalid @enderror" id="alergi" name="alergi" placeholder="Jika tidak ada, bisa inputkan '-'" value="{{ old('jenisAlergi') }}" required>
+                    <input type="text" class="form-control @error('alergi') is-invalid @enderror" id="alergi" name="alergi" placeholder="Jika tidak ada, bisa inputkan '-'" value="{{ old('alergi') }}" required>
                     @error('alergi')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -149,8 +224,8 @@
                     @enderror
                 </div>
             </div>
-
-            <button type="submit" class="btn btn-primary btn-lg mt-2">Submit</button>
+            
+            <button type="submit" id="btn-submit" class="btn btn-primary btn-lg mt-2">Submit</button>
         </form>
     </div>
 </div>

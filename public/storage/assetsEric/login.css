@@ -9,7 +9,7 @@ body{
     align-items: center;
     display: flex;
     background-color: #ffffff;
-    background-image: url("starrailASta.jpg");
+    background-image: url("herta.png");
     background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -74,9 +74,11 @@ form{
     animation: fadeleft 0.75s;
 }
 button{
-    padding-left: 3rem;
+    padding-left: 1rem;
     padding-right: 3rem;
     padding-bottom: 0.5rem;
+    width: 20%;
+    height: 10%;
     border: none;
     background: transparent;
     cursor: pointer;
