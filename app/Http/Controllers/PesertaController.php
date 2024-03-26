@@ -96,7 +96,9 @@ class PesertaController extends Controller
 
             // LOGIN PESERTA
         } else if ($nrpPanitia == 0) {
-            $cekUsernameKelompok = Peserta::Where('usernameKelompok', $request->nrp)->count();
+            $cekUsernameKelompok = Peserta::Where('usernameKelompok', $request->nrp)
+            ->Where('is_validated', 1)
+            ->count();
             $passPeserta = DB::table('pesertas')->select('passPeserta')->where('usernameKelompok', $request->nrp)->value('password');
             $inputPass = $request->password;
 
@@ -104,6 +106,8 @@ class PesertaController extends Controller
                 $usernameKelompok = DB::table('pesertas')->select('usernameKelompok')->where('usernameKelompok', $request->nrp)->value('usernameKelompok');
                 return redirect()->route('eliminationone')->with('usernameKelompok', $usernameKelompok);
             }
+
+            return redirect("{{ route('login')")->with('not_validated', 'You are still not validated');
         }
     }
 
