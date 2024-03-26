@@ -95,6 +95,7 @@
     </style>
 @endsection
 
+@include('partials.navbarshort')
 @section('content')
 <div class="container container-registration">
     
@@ -116,6 +117,15 @@
                 <!-- Tambahkan pengecekan error untuk field lainnya dengan pola yang serupa -->
             </div>
 
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="kontakSekolah" class="form-label">Kontak Sekolah (ex: email, no.telp)</label>
+                    <input type="text" id="kontakSekolah" name="kontakSekolah" class="form-control @error('kontakSekolah') is-invalid @enderror" placeholder="" value="{{ old('kontakSekolah') }}" required>
+                    @error('kontakSekolah')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
 
             <div class="row">
                 <div class="mb-3 col-md-6">
@@ -148,26 +158,29 @@
                     <label for="inputConfirmPassword5" class="form-label">Confirm Password</label>
                     <input type="password" id="inputConfirmPassword5" class="form-control" name="passConfirmPeserta" aria-describedby="passwordHelpBlock" placeholder="Masukkan confirm password" value="{{ old('passConfirmPeserta') }}" required>
                     <div id="confirmPasswordError" class="invalid-feedback" style="display: none;">Password is not the same</div>
-                    <div id="passwordHelpBlock" class="form-text">
-                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-                    </div>
                 </div>
             </div>
 
             <script>
-                document.getElementById("inputConfirmPassword5").addEventListener("keyup", function() {
+                document.getElementById("confirmPass").addEventListener("keyup", function() {
                     var password = document.getElementById("inputPassword5").value;
-                    var confirmPassword = document.getElementById("inputConfirmPassword5").value;
+                    var confirmPassword = document.getElementById("confirmPass").value;
                     var confirmPasswordError = document.getElementById("confirmPasswordError");
 
                     if (password === confirmPassword) {
+                        $(document).ready(function() {
+                            $('#btn-submit').prop('disabled', false);
+                        });
                         confirmPasswordError.style.display = "none";
                     } else {
+                        $(document).ready(function() {
+
+                            $('#btn-submit').prop('disabled', true);
+                        });
                         confirmPasswordError.style.display = "block";
                     }
                 });
             </script>
-
 
             <div class="row">
                 <div class="mb-3 col-md-6">
@@ -207,6 +220,14 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
+
+                <div class="mb-3 col-md-6">
+                    <label for="kerabatTiga" class="form-label">Kontak Kerabat Member 3 yang bisa dihubungi</label>
+                    <input type="text" id="kerabatTiga" name="kerabatTiga" class="form-control @error('kerabatTiga') is-invalid @enderror" placeholder="" value="{{ old('kerabatTiga') }}" required>
+                    @error('kerabatTiga')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
             </div>
 
             <div class="row">
@@ -227,7 +248,7 @@
                 <div class="mb-3 col-md-6">
                 <!-- <i class="fas fa-allergies"></i> -->
                     <label for="alergi" class="form-label">Apakah ada anggota yang mempunyai alergi?</label>
-                    <input type="text" class="form-control @error('alergi') is-invalid @enderror" id="alergi" name="alergi" placeholder="Jika tidak bisa inputkan '-'" value="{{ old('jenisAlergi') }}" required>
+                    <input type="text" class="form-control @error('alergi') is-invalid @enderror" id="alergi" name="alergi" placeholder="Jika tidak ada, bisa inputkan '-'" value="{{ old('alergi') }}" required>
                     @error('alergi')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -237,7 +258,7 @@
             <div class="row">
                 <div class="mb-3 col-md-6">
                     <label for="buktiTransaksi" class="form-label">Bukti transaksi</label>
-                    <input class="form-control @error('buktiTransaksi') is-invalid @enderror" type="file" id="buktiTransaksi" name="buktiTransaksi">
+                    <input class="form-control @error('buktiTransaksi') is-invalid @enderror" type="file" id="buktiTransaksi" name="buktiTransaksi" required>
                     @error('buktiTransaksi')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -250,6 +271,22 @@
 </div>
 
 <script>
-
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Menghentikan aksi bawaan formulir
+        Swal.fire({
+            title: "Confirm Registration?",
+            text: "Click yes to register",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, register"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Lanjutkan dengan pengiriman formulir jika pengguna menekan tombol "Yes"
+                this.submit();
+            }
+        });
+    });
 </script>
 @endsection
