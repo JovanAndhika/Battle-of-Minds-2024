@@ -16,7 +16,7 @@
             // Tampilkan SweetAlert
             Swal.fire({
                 title: "Registration Success",
-                text: "Terima kasih telah mendaftar",
+                text: "Anda baru bisa login setelah tervalidasi Admin",
                 icon: "success"
             });
         </script>

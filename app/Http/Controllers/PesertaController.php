@@ -29,7 +29,7 @@ class PesertaController extends Controller
 
     public function storeRegistration(Request $request)
     {
-        
+
         // Validasi input
         $validatedData = $request->validate([
             'asalSekolah' => 'required|string|max:120',
@@ -51,10 +51,10 @@ class PesertaController extends Controller
             'buktiTransaksi' => 'image|file|max:10000',
         ]);
 
-    
+
         $validatedData['confirmPass'] = Hash::make($validatedData['confirmPass']);
 
-        
+
         if ($request->file('buktiTransaksi')) {
             $file = $request->file('buktiTransaksi');
 
@@ -104,14 +104,21 @@ class PesertaController extends Controller
 
             // LOGIN PESERTA
         } else if ($nrpPanitia == 0) {
-            $cekUsernameKelompok = Peserta::Where('usernameKelompok', $request->nrp)->count();
+            $cekUsernameKelompok = Peserta::Where('usernameKelompok', $request->nrp)
+                ->Where('is_validated', 1)
+                ->count();
             $passPeserta = DB::table('pesertas')->select('passPeserta')->where('usernameKelompok', $request->nrp)->value('password');
             $inputPass = $request->password;
 
+            $id = $cekUsernameKelompok->id;
+            
             if ($cekUsernameKelompok == 1 && Hash::check($inputPass, $passPeserta)) {
                 $usernameKelompok = DB::table('pesertas')->select('usernameKelompok')->where('usernameKelompok', $request->nrp)->value('usernameKelompok');
                 return redirect()->route('eliminationone')->with('usernameKelompok', $usernameKelompok);
             }
+
+            return redirect("{{ route('login')")->with('not_validated', 'You are still not validated')
+                ->with('id_kelompok', $id);
         }
     }
 
@@ -131,7 +138,7 @@ class PesertaController extends Controller
         return view('Eliminasi1.mainpage', ['title' => 'BOM 2024 | ELIMINATION 1']);
     }
 
-    public function soaleliminationone(){
-        
+    public function soaleliminationone()
+    {
     }
 }

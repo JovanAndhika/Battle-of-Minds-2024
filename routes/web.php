@@ -1,9 +1,10 @@
 <?php
 
+use App\Models\Peserta;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PaketAController;
 use App\Http\Controllers\PesertaController;
-use App\Models\Peserta;
 
 Route::get('/', [PesertaController::class, 'index'])->name('index');
 
@@ -28,3 +29,4 @@ Route::get('/adminRole', [AdminController::class, 'adminIndex'])->name('admin');
 //ELIMINASI 1
 //PESERTA
 Route::get('/eliminationone', [PesertaController::class, 'eliminationone'])->name('eliminationone');
+Route::get('/eliminationone/paketa', [PaketAController::class, 'mainview'])->name('paketA');

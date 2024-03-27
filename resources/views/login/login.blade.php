@@ -43,6 +43,13 @@
                     </div>
                     @endif
 
+                    @if(session()->has('not_validated'))
+                    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                        {{ session('not_validated') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @endif
+
                     <div class="input-box text-center" id="usernameBox">
                         <input type="text" name="nrp" id="nrp" required placeholder="Username">
                     </div>
