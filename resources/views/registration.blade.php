@@ -6,6 +6,7 @@
     body {
         color: black;
         min-height: 100vh;
+        background-repeat:  no-repeat;
     }
 
     .form-text {

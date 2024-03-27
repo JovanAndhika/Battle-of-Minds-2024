@@ -1,48 +1,12 @@
-<div class="container container-guide">
-    <div class="d-flex justify-content-center">
-        <h3 id="title-guide">Guide</h3>
+<section class="guide-section my-24" id="guide">
+    <div class="flex justify-center items-center h-">
+        <h1 class="faq-title mb-6 text text-4xl font-bold text-center leading-normal w-4/5 max-md:text-3xl" data-text="Guide">
+            Guide</h1>
     </div>
-
-    <!-- Pricepool -->
-    <h5>Pricepool</h5>
-    <div class="container d-flex justify-content-center px-4">
-        <div class="col card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Panduan Hadiah</p>
-            </div>
-        </div>
-        <div class="col card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Guide untuk hadiah</p>
-            </div>
+    <div class="flex justify-center items-center md:h-[580px] max-md:h-[450px]">
+        <div class="md:w-[760px] md:h-[580px] sm:w-[480px] sm:h-[400px] max-sm:w-[300px] max-sm:h-[400px]">
+            <iframe src="https://drive.google.com/file/d/1EBHf4VHFxGYfmNGSnvUd75ouNZtZ2WCy/preview" frameborder="0"
+                class="h-full w-full" allow="autoplay"></iframe>
         </div>
     </div>
-
-    <!-- Module -->
-    <h5>Module</h5>
-    <div class="container d-flex justify-content-center px-4">
-        <div class="col card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Panduan pendafataran</p>
-            </div>
-        </div>
-        <div class="col card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Guide untuk lomba</p>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<style>
-    @media screen and (max-width: 600px) {
-        .container-guide {
-            margin: 20% 0;
-        }
-    }
-</style>
+</section>
