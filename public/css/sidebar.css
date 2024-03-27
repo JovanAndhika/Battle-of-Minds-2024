@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Geologica&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
 
 * {
     margin: 0;
@@ -19,9 +18,9 @@
     backdrop-filter: blur(40px);
     z-index: 100;
     padding: 6px 14px;
-    transition: .5s;
-
+    transition: .5s cubic-bezier(.02, .89, .52, 1.01);
     box-shadow: 5px 0 200px 5px blue;
+    float: left;
 }
 
 .sidebar.active {
@@ -115,6 +114,7 @@
     border-left: 2px solid rgba(255, 255, 255, 0.8);
 }
 
+
 .list .list-item a i {
     text-align: center;
     padding: 0 15px;
@@ -123,14 +123,14 @@
 .sidebar .link-name {
     opacity: 0;
     pointer-events: none;
-    transition: .3s;
+    transition: .2s;
     margin-top: 3px;
 }
 
 .sidebar.active .link-name {
     opacity: 1;
     pointer-events: auto;
-    transition-delay: calc(.084s*var(--i));
+    transition-delay: calc(.072s*var(--i));
 }
 
 #register-item {
@@ -185,4 +185,36 @@
 
 .ham6.active .bottom {
     stroke-dashoffset: -132px;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        height: 80px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .sidebar.active {
+        height: 100%;
+        border-bottom-right-radius: 0px;
+        width: 220px;
+        transition: .2s ease-in-out;
+    }
+
+    .sidebar .list .list-item a i,
+    .sidebar .list .list-item a {
+        /* opacity: 0; */
+        display: none;
+    }
+
+    .sidebar.active .list .list-item a i,
+    .sidebar.active .list .list-item a {
+        /* transition-delay: calc(.084s*var(--j)); */
+        transition: .5s ease 1s;
+        /* opacity: 1; */
+        display: flex;
+    }
+
+    .sidebar .logo-menu .toggle-btn {
+        margin-bottom: 15px;
+    }
 }

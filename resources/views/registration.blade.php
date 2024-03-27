@@ -5,15 +5,12 @@
     <style>
         body{
             color: white;
-            min-height: 100vh;
             background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 49%, rgba(0, 212, 255, 1) 100%);
-            background-size: cover;
-            background-position: center;
-            font-weight: 800;
+            height: 200vh !important;
         }
 
         .form-text{
-            color: white
+            color: white;
         }
 
         .title {
@@ -30,7 +27,7 @@
 
          /*logo */
          i {
-            font-size: 20px; 
+            font-size: 20px;
             margin-right: 5px;
         }
 
