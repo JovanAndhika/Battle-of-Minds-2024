@@ -10,6 +10,7 @@
             background-size: cover;
             background-position: center;
             font-weight: 800;
+            background-repeat: no-repeat;
         }
 
         .form-text{
