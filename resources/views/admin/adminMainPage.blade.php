@@ -4,5 +4,5 @@
 @auth
     <div class="container">Welcome Back {{ auth()->user()->username }}</div>
 @endauth
-    <div><h1>Ini homepage Admin</h1></div>
+    <div><h1>Ini Main Page Admin isinya tabel data</h1></div>
 @endsection
