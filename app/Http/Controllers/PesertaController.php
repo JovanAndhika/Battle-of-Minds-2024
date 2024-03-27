@@ -56,7 +56,15 @@ class PesertaController extends Controller
 
         
         if ($request->file('buktiTransaksi')) {
-            $validatedData['buktiTransaksi'] = $request->file('buktiTransaksi')->store('public/folder-transaksi');
+            $file = $request->file('buktiTransaksi');
+
+            $nama_bukti_transaksi = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file->getClientOriginalExtension();
+            $fileNameToStore = $nama_bukti_transaksi . '.' . $extension;
+
+            
+            $validatedData['buktiTransaksi'] = $file->storeAs('bukti-transaksi/', $fileNameToStore, 'public');
+            $file->move(public_path('bukti-transaksi'), $fileNameToStore);
         }
 
         Peserta::create($validatedData);
