@@ -7,8 +7,9 @@
             color: white;
             min-height: 100vh;
             background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 49%, rgba(0, 212, 255, 1) 100%);
-            background-size: cover;
+            background-attachment: fixed;
             background-position: center;
+            backdrop-filter:blur(10px);
             font-weight: 800;
         }
 
@@ -17,30 +18,39 @@
         }
 
         .title {
-            font-size: 45px;
+            font-size: 43px;
             font-weight: bold;
             margin: 20px;
+            text-shadow:
+            0 0 4px #fff,
+            0 0 10px #fff,
+            0 0 38px #48abe0,
+            0 0 73px #48abe0;
         }
 
         .form-content {
+            background: rgb(255,255,255,0.2) ;
             border: 5px solid white;
             padding: 30px;
-            box-shadow: 1px 5px 5px 1px #888888;
+            box-shadow: 2px 10px 10px 2px #888888;
         }
 
          /*logo */
          i {
-            font-size: 20px; 
+            font-size: 22px; 
             margin-right: 5px;
         }
 
         .btn{  
-            background-color:#004792;
+            background-color:#0070BB;
             width: 100%;
+            font-weight: bold;
+    
         }
 
         .btn:hover{
-            background-color: #0070BB;
+            background-color:#318CE7;
+            
         }
 
         /* field input */
@@ -88,7 +98,10 @@
         select:focus,
         textarea:focus {
             background-color: rgba(255, 255, 255, 0.5);
-            border-color: 2px solid #004170 ;
+            outline: none;
+            border-color: #48abe0;
+            box-shadow: 0 0 7px #48abe0;
+            
         }
 
        
@@ -119,8 +132,9 @@
 
             <div class="row">
                 <div class="mb-3 col-md-6">
+                <i class="fa-solid fa-address-book"></i>
                     <label for="kontakSekolah" class="form-label">Kontak Sekolah (ex: email, no.telp)</label>
-                    <input type="text" id="kontakSekolah" name="kontakSekolah" class="form-control @error('kontakSekolah') is-invalid @enderror" placeholder="" value="{{ old('kontakSekolah') }}" required>
+                    <input type="text" id="kontakSekolah" name="kontakSekolah" class="form-control @error('kontakSekolah') is-invalid @enderror" placeholder="Masukkan kontak sekolah" value="{{ old('kontakSekolah') }}" required>
                     @error('kontakSekolah')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -193,7 +207,7 @@
                 </div>
 
                 <div class="mb-3 col-md-6">
-                <!-- <i class="fas fa-envelope"> -->
+                <i class="fas fa-envelope"></i>
                     <label for="emailKetua" class="form-label">Email Ketua</label>
                     <input type="email" class="form-control @error('emailKetua') is-invalid @enderror" id="emailKetua" name="emailKetua" placeholder="example@gmail.com" value="{{ old('emailKetua') }}" required>
                     @error('emailKetua')
@@ -204,7 +218,7 @@
 
             <div class="row">
                 <div class="mb-3 col-md-6">
-                <!-- <i class="fas fa-person"> -->
+                <i class="fas fa-person"></i>
                     <label for="namaKedua" class="form-label">Nama Member 2</label>
                     <input type="text" id="namaKedua" name="namaKedua" class="form-control @error('namaKedua') is-invalid @enderror" placeholder="Masukkan nama member 2" value="{{ old('namaKedua') }}" required>
                     @error('namaKedua')
@@ -213,7 +227,7 @@
                 </div>
 
                 <div class="mb-3 col-md-6">
-                <!-- <i class="fas fa-person"> -->
+                <i class="fas fa-person"></i>
                     <label for="namaKetiga" class="form-label">Nama Member 3</label>
                     <input type="text" id="namaKetiga" name="namaKetiga" class="form-control @error('namaKetiga') is-invalid @enderror" placeholder="Masukkan nama member 3" value="{{ old('namaKetiga') }}" required>
                     @error('namaKetiga')
@@ -223,7 +237,7 @@
 
                 <div class="mb-3 col-md-6">
                     <label for="kerabatTiga" class="form-label">Kontak Kerabat Member 3 yang bisa dihubungi</label>
-                    <input type="text" id="kerabatTiga" name="kerabatTiga" class="form-control @error('kerabatTiga') is-invalid @enderror" placeholder="" value="{{ old('kerabatTiga') }}" required>
+                    <input type="text" id="kerabatTiga" name="kerabatTiga" class="form-control @error('kerabatTiga') is-invalid @enderror" placeholder="Masukkan kontak kerabat" value="{{ old('kerabatTiga') }}" required>
                     @error('kerabatTiga')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -232,7 +246,7 @@
 
             <div class="row">
                 <div class="mb-3 col-md-6">
-                <!-- <i class="fas fa-utensils"> -->
+                <i class="fas fa-utensils"></i>
                     <label for="jenisKonsumsi" class="mb-2">Jenis Konsumsi</label>
                     <select class="form-select @error('jenisKonsumsi') is-invalid @enderror" id="jenisKonsumsi" name="jenisKonsumsi" aria-label="Default select example" required>
                         <option selected>Pilih jenis konsumsi...</option>
