@@ -29,24 +29,44 @@ class PesertaController extends Controller
 
     public function storeRegistration(Request $request)
     {
+
         // Validasi input
         $validatedData = $request->validate([
-            'asalSekolah' => 'required|string|max:100',
+            'asalSekolah' => 'required|string|max:120',
+            'kontakSekolah' => 'required|string|max:60',
             'usernameKelompok' => 'required|string|max:30',
-            'passPeserta' => 'required|string|min:8|max:20',
+            'kelas' => 'required|string|max:20',
+            'jurusan' => 'required|string|max:20',
+            'kontakPerwakilan' => 'required|string|max:50',
+            'confirmPass' => 'required|string|min:8|max:20',
             'namaKetua' => 'required|string|max:100',
             'emailKetua' => 'required|email:dns|max:100',
+            'kerabatSatu' => 'required|string|max:40',
             'namaKedua' => 'required|string|max:100',
+            'kerabatDua' => 'required|string|max:40',
             'namaKetiga' => 'required|string|max:100',
+            'kerabatTiga' => 'required|string|max:40',
             'jenisKonsumsi' => 'required|string|in:normal,vege,vegan|max:100',
             'alergi' => 'required|string|max:100',
             'buktiTransaksi' => 'image|file|max:10000',
         ]);
 
-        $validatedData['passPeserta'] = Hash::make($validatedData['passPeserta']);
+
+        $validatedData['confirmPass'] = Hash::make($validatedData['confirmPass']);
+
+
         if ($request->file('buktiTransaksi')) {
-            $validatedData['buktiTransaksi'] = $request->file('buktiTransaksi')->store('public/folder-transaksi');
+            $file = $request->file('buktiTransaksi');
+
+            $nama_bukti_transaksi = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file->getClientOriginalExtension();
+            $fileNameToStore = $nama_bukti_transaksi . '.' . $extension;
+
+            
+            $validatedData['buktiTransaksi'] = $file->storeAs('bukti-transaksi/', $fileNameToStore, 'public');
+            $file->move(public_path('bukti-transaksi'), $fileNameToStore);
         }
+
         Peserta::create($validatedData);
 
         // Kembalikan respons ke halaman yang sesuai
@@ -77,21 +97,28 @@ class PesertaController extends Controller
 
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
-                return redirect()->intended('/f36dbb75466650c2294914b6e2fa3058');
+                return redirect()->intended('/adminRole');
             }
             return back()->with('loginError', 'Login credentials invalid!');
 
 
             // LOGIN PESERTA
         } else if ($nrpPanitia == 0) {
-            $cekUsernameKelompok = Peserta::Where('usernameKelompok', $request->nrp)->count();
+            $cekUsernameKelompok = Peserta::Where('usernameKelompok', $request->nrp)
+                ->Where('is_validated', 1)
+                ->count();
             $passPeserta = DB::table('pesertas')->select('passPeserta')->where('usernameKelompok', $request->nrp)->value('password');
             $inputPass = $request->password;
 
+            $id = $cekUsernameKelompok->id;
+            
             if ($cekUsernameKelompok == 1 && Hash::check($inputPass, $passPeserta)) {
                 $usernameKelompok = DB::table('pesertas')->select('usernameKelompok')->where('usernameKelompok', $request->nrp)->value('usernameKelompok');
                 return redirect()->route('eliminationone')->with('usernameKelompok', $usernameKelompok);
             }
+
+            return redirect("{{ route('login')")->with('not_validated', 'You are still not validated')
+                ->with('id_kelompok', $id);
         }
     }
 
@@ -106,10 +133,12 @@ class PesertaController extends Controller
     }
 
 
-
-
     public function eliminationone()
     {
         return view('Eliminasi1.mainpage', ['title' => 'BOM 2024 | ELIMINATION 1']);
+    }
+
+    public function soaleliminationone()
+    {
     }
 }

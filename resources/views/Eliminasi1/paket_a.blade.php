@@ -2,7 +2,7 @@
 
 @section('content')
 <div>
-    <h1>Ini halaman utama Eliminasi 1</h1>
+    <h1>Ini halaman PaketA</h1>
 </div>
 <table>
     <thead>

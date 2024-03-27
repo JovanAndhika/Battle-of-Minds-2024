@@ -9,7 +9,7 @@ body{
     align-items: center;
     display: flex;
     background-color: #ffffff;
-    background-image: url("starrailASta.jpg");
+    background-image: url("herta.png");
     background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -19,11 +19,12 @@ body{
     justify-content: center;
     margin: 1.5rem;
     text-align: center;
-    background: rgba( 8, 49, 104, 0.5 );
+    background: rgba( 164, 34, 218, 0.35 );
 box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 4px );
--webkit-backdrop-filter: blur( 4px );
+backdrop-filter: blur( 12px );
+-webkit-backdrop-filter: blur( 12px );
 border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 overflow: hidden;
     animation: fadeup 0.25s ;
 }
@@ -74,9 +75,11 @@ form{
     animation: fadeleft 0.75s;
 }
 button{
-    padding-left: 3rem;
+    padding-left: 1rem;
     padding-right: 3rem;
     padding-bottom: 0.5rem;
+    width: 20%;
+    height: 10%;
     border: none;
     background: transparent;
     cursor: pointer;
