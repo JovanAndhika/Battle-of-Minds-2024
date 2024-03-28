@@ -3,6 +3,7 @@
 @section('head')
 <link rel="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        
         body{
             color: white;
             min-height: 100vh;
@@ -30,7 +31,7 @@
 
         .form-content {
             background: rgb(255,255,255,0.2) ;
-            border: 5px solid white;
+            border: 4px solid white;
             padding: 30px;
             box-shadow: 2px 10px 10px 2px #888888;
         }
@@ -53,14 +54,47 @@
             
         }
 
+        .row {
+            margin-bottom: 20px; 
+        }
+
+        /* floating labels */
+       .form-floating label {
+            position: absolute;    
+            outline: none;
+            padding: 0 30 px;        
+            height: 35px;           
+            transition: 0.4s ease;
+            z-index: 1;  
+
+        }
+
+        .form-floating input:focus ~ label{
+            background: blue;
+            z-index: 11111;
+
+        }
+
+        .form-floating input:focus ~ label,
+        .form-floating input:not(:placeholder-shown) ~ label {
+            top: -12px;
+            left: 5px;
+            font-size: 18px;
+            padding-top: 5px;
+            box-shadow: none;
+            border-radius: 5px;   
+            color: black;                  
+            transform: translateY(-50%) scale(0.8); 
+        }
+
         /* field input */
-        input[type="text"], 
+        input[type="text"],  
         input[type="email"], 
         input[type="password"], 
         select#jenisKonsumsi,
         select, 
         textarea {
-            background-color: transparent; 
+            background: transparent;
             border: 3px solid #ccc; 
             border-radius: 5px;    
             padding: 10px;
@@ -68,7 +102,7 @@
         }
 
         input[type="file"] {
-            background-color: transparent; 
+            background:transparent;
             border: 3px solid #ccc; 
             border-radius: 5px;    
             color: white; 
@@ -76,20 +110,11 @@
 
         select#jenisKonsumsi {
             color: #72A0C1; 
-            border-color: 1px solid #004170;
-            font-size: 15px; 
+            font-size: 16px; 
+            font-weight: bold;
         }
 
-        /* placeholder */
-        input[type="text"]::placeholder,
-        input[type="email"]::placeholder,
-        input[type="password"]::placeholder,
-        select::placeholder,
-        select#jenisKonsumsi::placeholder,
-        textarea::placeholder {
-            color: #B0E0E6; 
-            font-size: 15px; 
-        }
+ 
 
         /* input field */
         input[type="text"]:focus,
@@ -97,11 +122,11 @@
         input[type="password"]:focus,
         select:focus,
         textarea:focus {
-            background-color: rgba(255, 255, 255, 0.5);
+            background: transparent;
             outline: none;
-            border-color: #48abe0;
-            box-shadow: 0 0 7px #48abe0;
-            
+            box-shadow: none;
+            border-color: white;
+            z-index: 1111;
         }
 
        
@@ -118,23 +143,31 @@
 
         <form method="POST" action="{{ route('storeRegistration') }}" enctype="multipart/form-data" id="registrationForm">
             @csrf
+
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <i class="fas fa-school"></i>
-                    <label for="asalSekolah" class="form-label">Asal Sekolah</label>
-                    <input type="text" class="form-control @error('asalSekolah') is-invalid @enderror" id="asalSekolah" name="asalSekolah" placeholder="Masukkan asal sekolah" value="{{ old('asalSekolah') }}" required>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="asalSekolah" name="asalSekolah" placeholder=" " value="{{ old('asalSekolah') }}" required>
+                        <label for="asalSekolah">
+                            <i class="fas fa-school"></i>
+                            Asal Sekolah</label>
+                    </div>
                     @error('asalSekolah')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-                <!-- Tambahkan pengecekan error untuk field lainnya dengan pola yang serupa -->
             </div>
 
             <div class="row">
                 <div class="mb-3 col-md-6">
-                <i class="fa-solid fa-address-book"></i>
-                    <label for="kontakSekolah" class="form-label">Kontak Sekolah (ex: email, no.telp)</label>
-                    <input type="text" id="kontakSekolah" name="kontakSekolah" class="form-control @error('kontakSekolah') is-invalid @enderror" placeholder="Masukkan kontak sekolah" value="{{ old('kontakSekolah') }}" required>
+                    <div class="form-floating">
+                        <input type="text" id="kontakSekolah" name="kontakSekolah" class="form-control @error('kontakSekolah') is-invalid @enderror" placeholder="Masukkan kontak sekolah" value="{{ old('kontakSekolah') }}" required>
+                        <label for="kontakSekolah" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"/><rect width="18" height="18" x="3" y="4" rx="2"/><circle cx="12" cy="10" r="2"/><line x1="8" x2="8" y1="2" y2="4"/><line x1="16" x2="16" y1="2" y2="4"/></svg>
+                            Kontak Sekolah (ex: email, no.telp)
+                        </label>
+                    </div>
+                   
                     @error('kontakSekolah')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -143,34 +176,46 @@
 
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <i class="fas fa-user"></i>
-                    <label for="usernameKelompok" class="form-label">Username Kelompok</label>
+                <div class="form-floating">
                     <input type="text" class="form-control @error('usernameKelompok') is-invalid @enderror" id="usernameKelompok" name="usernameKelompok" placeholder="Masukkan username kelompok" value="{{ old('usernameKelompok') }}" required>
+                    <label for="usernameKelompok" class="form-label">
+                    <i class="fas fa-user"></i>                       
+                        Username Kelompok
+                    </label>
                     @error('usernameKelompok')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
+                </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <i class="fas fa-lock"></i>
-                    <label for="inputPassword5" class="form-label">Password</label>
-                    <input type="password" id="inputPassword5" class="form-control @error('passPeserta') is-invalid @enderror" name="passPeserta" aria-describedby="passwordHelpBlock" placeholder="Masukkan password" value="{{ old('passPeserta') }}" required>
-                    @error('passPeserta')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                    <div id="passwordHelpBlock" class="form-text">
-                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                    <div class="form-floating">
+                        <input type="password" id="inputPassword5" class="form-control @error('passPeserta') is-invalid @enderror" name="passPeserta" aria-describedby="passwordHelpBlock" placeholder="Masukkan password" value="{{ old('passPeserta') }}" required>                       
+                        <label for="inputPassword5" class="form-label">
+                        <i class="fas fa-lock"></i>    
+                        Password
+                    </label>
+                        @error('passPeserta')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        <div id="passwordHelpBlock" class="form-text">
+                            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="mb-3 col-md-6">
-                <i class="fas fa-lock"></i>
-                    <label for="inputConfirmPassword5" class="form-label">Confirm Password</label>
+                <div class="form-floating">
                     <input type="password" id="inputConfirmPassword5" class="form-control" name="passConfirmPeserta" aria-describedby="passwordHelpBlock" placeholder="Masukkan confirm password" value="{{ old('passConfirmPeserta') }}" required>
+                    <label for="inputConfirmPassword5" class="form-label">
+                    <i class="fas fa-lock"></i>
+                        Confirm Password</label>
+                </div>
+               
                     <div id="confirmPasswordError" class="invalid-feedback" style="display: none;">Password is not the same</div>
                 </div>
             </div>
@@ -198,18 +243,26 @@
 
             <div class="row">
                 <div class="mb-3 col-md-6">
-                <i class="fas fa-person"></i>
-                    <label for="namaKetua" class="form-label">Nama Ketua (Member 1)</label>
+                    <div class="form-floating">
                     <input type="text" class="form-control @error('namaKetua') is-invalid @enderror" id="namaKetua" name="namaKetua" placeholder="Masukkan nama ketua" value="{{ old('namaKetua') }}" required>
+                    <label for="namaKetua">
+                        <i class="fas fa-user"></i>
+                        Nama Ketua (Member 1)
+                        </label>
+                    </div>
                     @error('namaKetua')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <div class="mb-3 col-md-6">
-                <i class="fas fa-envelope"></i>
-                    <label for="emailKetua" class="form-label">Email Ketua</label>
-                    <input type="email" class="form-control @error('emailKetua') is-invalid @enderror" id="emailKetua" name="emailKetua" placeholder="example@gmail.com" value="{{ old('emailKetua') }}" required>
+                    <div class="form-floating">
+                        <input type="email" class="form-control @error('emailKetua') is-invalid @enderror" id="emailKetua" name="emailKetua" placeholder="example@gmail.com" value="{{ old('emailKetua') }}" required>
+                        <label for="emailKetua">
+                            <i class="fas fa-envelope"></i>
+                            Email Ketua
+                        </label>
+                    </div>
                     @error('emailKetua')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -218,26 +271,39 @@
 
             <div class="row">
                 <div class="mb-3 col-md-6">
-                <i class="fas fa-person"></i>
-                    <label for="namaKedua" class="form-label">Nama Member 2</label>
-                    <input type="text" id="namaKedua" name="namaKedua" class="form-control @error('namaKedua') is-invalid @enderror" placeholder="Masukkan nama member 2" value="{{ old('namaKedua') }}" required>
+                    <div class="form-floating">
+                        <input type="text" id="namaKedua" name="namaKedua" class="form-control @error('namaKedua') is-invalid @enderror" placeholder="Masukkan nama member 2" value="{{ old('namaKedua') }}" required>
+                        <label for="namaKedua">
+                        <i class="fas fa-user"></i>
+                        Nama Member 2
+                        </label>
+                    </div>
                     @error('namaKedua')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <div class="mb-3 col-md-6">
-                <i class="fas fa-person"></i>
-                    <label for="namaKetiga" class="form-label">Nama Member 3</label>
-                    <input type="text" id="namaKetiga" name="namaKetiga" class="form-control @error('namaKetiga') is-invalid @enderror" placeholder="Masukkan nama member 3" value="{{ old('namaKetiga') }}" required>
+                    <div class="form-floating">
+                        <input type="text" id="namaKetiga" name="namaKetiga" class="form-control @error('namaKetiga') is-invalid @enderror" placeholder="Masukkan nama member 3" value="{{ old('namaKetiga') }}" required>
+                        <label for="namaKetiga">
+                            <i class="fas fa-user"></i>
+                            Nama Member 3
+                        </label>
+                    </div>
                     @error('namaKetiga')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <div class="mb-3 col-md-6">
-                    <label for="kerabatTiga" class="form-label">Kontak Kerabat Member 3 yang bisa dihubungi</label>
-                    <input type="text" id="kerabatTiga" name="kerabatTiga" class="form-control @error('kerabatTiga') is-invalid @enderror" placeholder="Masukkan kontak kerabat" value="{{ old('kerabatTiga') }}" required>
+                    <div class="form-floating">
+                        <input type="text" id="kerabatTiga" name="kerabatTiga" class="form-control @error('kerabatTiga') is-invalid @enderror" placeholder="Masukkan kontak kerabat" value="{{ old('kerabatTiga') }}" required>
+                        <label for="kerabatTiga">
+                            <i class="fas fa-user"></i>
+                            Kontak Kerabat Member 3 
+                        </label>
+                    </div>
                     @error('kerabatTiga')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -260,7 +326,7 @@
                 </div>
 
                 <div class="mb-3 col-md-6">
-                <!-- <i class="fas fa-allergies"></i> -->
+                <i class="fas fa-allergies"></i>
                     <label for="alergi" class="form-label">Apakah ada anggota yang mempunyai alergi?</label>
                     <input type="text" class="form-control @error('alergi') is-invalid @enderror" id="alergi" name="alergi" placeholder="Jika tidak ada, bisa inputkan '-'" value="{{ old('alergi') }}" required>
                     @error('alergi')
