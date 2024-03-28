@@ -65,13 +65,13 @@
             padding: 0 30 px;        
             height: 35px;           
             transition: 0.4s ease;
-            z-index: 1;  
+            z-index: 10;  
 
         }
 
         .form-floating input:focus ~ label{
-            background: blue;
-            z-index: 11111;
+            background: white;
+        
 
         }
 
@@ -116,7 +116,7 @@
 
  
 
-        /* input field */
+        /* input field focus*/
         input[type="text"]:focus,
         input[type="email"]:focus,
         input[type="password"]:focus,
@@ -126,7 +126,7 @@
             outline: none;
             box-shadow: none;
             border-color: white;
-            z-index: 1111;
+           
         }
 
        
