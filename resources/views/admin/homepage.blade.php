@@ -8,7 +8,4 @@
             <h1 class="font-bold text-3xl">Welcome Back {{ auth()->user()->username }}</h1>
         </div>
     @endauth
-    <div class="container">
-        <h1 class="font-bold text-xl">Ini homepage Admin</h1>
-    </div>
 @endsection
