@@ -21,12 +21,12 @@ Route::post('/logout', [PesertaController::class, 'logout'])->name('logout');
 
 
 //ADMIN
-Route::group(['middleware' => 'auth'], function(){
-Route::get('/adminRole', [AdminController::class, 'adminIndex'])->name('admin');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/adminRole', [AdminController::class, 'adminIndex'])->name('admin');
     Route::get('/peserta', [AdminController::class, 'peserta'])->name('listPeserta');
     Route::post('/validate', [AdminController::class, 'validasi'])->name('validate');
-Route::get('/adminRole/selection', [AdminController::class, 'adminSelection'])->name('adminSelection');
-Route::post('adminRole/setSelection/{peserta}', [AdminController::class, 'setReady'])->name('setReady');
+    Route::get('/adminRole/selection', [AdminController::class, 'adminSelection'])->name('adminSelection');
+    Route::post('adminRole/setSelection/{peserta}', [AdminController::class, 'setReady'])->name('setReady');
 });
 
 

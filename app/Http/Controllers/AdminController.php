@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Data_jawaban;
-use App\Models\Peserta;
-use DB;
 use App\Models\User;
+use App\Models\Peserta;
+use App\Models\Data_jawaban;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\Peserta;
 
 class AdminController extends Controller
 {
@@ -24,14 +22,16 @@ class AdminController extends Controller
     }
 
     // Nanti admin bisa validasi peserta yang mendaftar
-    public function adminSelection(){
+    public function adminSelection()
+    {
         $pesertas = Peserta::all();
         return view('admin.adminEliminationSelect', ['title' => 'Selection', 'pesertas' => $pesertas]);
     }
 
-    public function setReady(Peserta $peserta){
+    public function setReady(Peserta $peserta)
+    {
         $jumlahPeserta = DB::table('pesertas')->count();
-        for($i = 1; $i <= $jumlahPeserta; $i++){
+        for ($i = 1; $i <= $jumlahPeserta; $i++) {
             Data_jawaban::create([
                 'kelompok_id' => $peserta->id,
                 'soal_no' => '1',
@@ -42,7 +42,7 @@ class AdminController extends Controller
                 'kelompok_id' => $peserta->id,
                 'soal_no' => '2',
                 'jawaban' => 'z'
-            ]); 
+            ]);
 
             Data_jawaban::create([
                 'kelompok_id' => $peserta->id,
@@ -70,15 +70,6 @@ class AdminController extends Controller
             ]);
         }
         return redirect()->route('adminSelection')->with('set_success', 'set is succes');
-    }
-}
-    public function adminIndex()
-    {
-
-        return view('admin.homepage', [
-            'title' => 'BOM 2024 | PETRA CHRISTIAN UNIVERSITY',
-            'active' => 'home'
-        ]);
     }
 
     // Nanti admin bisa validasi peserta yang mendaftar
