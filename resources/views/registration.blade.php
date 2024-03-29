@@ -36,14 +36,16 @@
             box-shadow: 2px 10px 10px 2px #888888;
         }
 
-         /*logo */
-         svg {
-            width: 35px; 
-            height: 35px; 
-            margin-right: 5px;
-            padding-bottom: 5px;
+         /*icon */
+        .form-label{
+            display:flex;
         }
 
+        .form-label svg{
+            margin-right: 10px; 
+        }
+
+     
         /* submit button */
         .btn{  
             background-color:#0070BB;
@@ -72,6 +74,7 @@
         select#jenisKonsumsi,
         select, 
         textarea {
+            
             background: transparent;
             border: 3px solid #ccc; 
             border-radius: 5px;    
@@ -168,8 +171,8 @@
                 <div class="mb-3 col-md-6">
                     <div class="form-floating">
                         <input type="text" class="form-control" id="asalSekolah" name="asalSekolah" placeholder=" " value="{{ old('asalSekolah') }}" required>
-                        <label for="asalSekolah">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-school"><path d="M14 22v-4a2 2 0 1 0-4 0v4"/><path d="m18 10 4 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8l4-2"/><path d="M18 5v17"/><path d="m4 6 8-4 8 4"/><path d="M6 5v17"/><circle cx="12" cy="9" r="2"/></svg>  
+                        <label for="asalSekolah" class="form-label">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-school"><path d="M14 22v-4a2 2 0 1 0-4 0v4"/><path d="m18 10 4 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8l4-2"/><path d="M18 5v17"/><path d="m4 6 8-4 8 4"/><path d="M6 5v17"/><circle cx="12" cy="9" r="2"/></svg>  
                             Asal Sekolah</label>
                     </div>
                     @error('asalSekolah')
@@ -265,7 +268,7 @@
                 <div class="mb-3 col-md-6">
                     <div class="form-floating">
                     <input type="text" class="form-control @error('namaKetua') is-invalid @enderror" id="namaKetua" name="namaKetua" placeholder="Masukkan nama ketua" value="{{ old('namaKetua') }}" required>
-                    <label for="namaKetua">
+                    <label for="namaKetua" class="form-label">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>
                         Nama Ketua (Member 1)
                         </label>
@@ -278,7 +281,7 @@
                 <div class="mb-3 col-md-6">
                     <div class="form-floating">
                         <input type="email" class="form-control @error('emailKetua') is-invalid @enderror" id="emailKetua" name="emailKetua" placeholder="example@gmail.com" value="{{ old('emailKetua') }}" required>
-                        <label for="emailKetua">
+                        <label for="emailKetua" class="form-label">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-at-sign"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg>
                             Email Ketua
                         </label>
@@ -293,7 +296,7 @@
                 <div class="mb-3 col-md-6">
                     <div class="form-floating">
                         <input type="text" id="namaKedua" name="namaKedua" class="form-control @error('namaKedua') is-invalid @enderror" placeholder="Masukkan nama member 2" value="{{ old('namaKedua') }}" required>
-                        <label for="namaKedua">
+                        <label for="namaKedua" class="form-label">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>
                         Nama Member 2
                         </label>
@@ -306,7 +309,7 @@
                 <div class="mb-3 col-md-6">
                     <div class="form-floating">
                         <input type="text" id="namaKetiga" name="namaKetiga" class="form-control @error('namaKetiga') is-invalid @enderror" placeholder="Masukkan nama member 3" value="{{ old('namaKetiga') }}" required>
-                        <label for="namaKetiga">
+                        <label for="namaKetiga" class="form-label">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>
                             Nama Member 3
                         </label>
@@ -319,7 +322,7 @@
                 <div class="mb-3 col-md-6">
                     <div class="form-floating">
                         <input type="text" id="kerabatTiga" name="kerabatTiga" class="form-control @error('kerabatTiga') is-invalid @enderror" placeholder="Masukkan kontak kerabat" value="{{ old('kerabatTiga') }}" required>
-                        <label for="kerabatTiga">
+                        <label for="kerabatTiga" class="form-label">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"/><rect width="18" height="18" x="3" y="4" rx="2"/><circle cx="12" cy="10" r="2"/><line x1="8" x2="8" y1="2" y2="4"/><line x1="16" x2="16" y1="2" y2="4"/></svg>
                             Kontak Kerabat Member 3 
                         </label>
