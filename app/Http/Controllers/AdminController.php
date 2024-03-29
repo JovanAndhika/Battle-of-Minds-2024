@@ -79,7 +79,8 @@ class AdminController extends Controller
         return view('admin.listPeserta', [
             'title' => 'BOM 2024 | List Peserta BOM',
             'active' => 'peserta',
-            'pesertas' => Peserta::all()
+            'pesertas' => Peserta::all(),
+            'jumlah_peserta' => DB::table('pesertas')->count()
         ]);
     }
 

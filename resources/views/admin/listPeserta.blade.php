@@ -1,11 +1,15 @@
 @extends('admin.layout.main')
 
 @section('content')
-<style>
-    select.dt-input {
-        width: 65px !important;
-        margin-right: 5px !important;
-    }
+    <style>
+        body {
+            background-color: #d4d4d4
+        }
+
+        select.dt-input {
+            width: 65px !important;
+            margin-right: 5px !important;
+        }
 
     .gambar-pembayaran {
         margin: auto;
@@ -13,6 +17,27 @@
         width: auto;
     }
 </style>
+        .gambar-pembayaran {
+            margin: auto;
+            max-height: 600px;
+            width: auto;
+        }
+
+        .dt-search {
+            display: flex !important;
+            justify-content: start !important;
+        }
+
+        .dt-search label {
+            display: none
+        }
+
+        .dt-input {
+            border-radius: 10px !important;
+            width: 300px !important;
+            margin-bottom: 5px
+        }
+    </style>
 
 @include('admin.components.navbar')
 
@@ -27,37 +52,58 @@
 </script>
 @endif
 
-<div class="container mx-auto mt-10">
-    <h1 class="font-bold text-4xl flex justify-start" style="padding-left: 4%">Data Peserta</h1>
-</div>
 
-<div class="flex justify-center items-center mt-10">
-    <div class="relative overflow-x-auto w-10/12">
-        <table id="myTable" class="display stripe" style="width: 100%">
-            <thead class="bg-gray-800 text-gray-50">
-                <tr>
-                    <th>Username</th>
-                    <th>Sekolah</th>
-                    <th>Kontak</th>
-                    <th>Kelas</th>
-                    <th>Jurusan</th>
-                    <th>Bukti Pembayaran</th>
-                    <th>Data Anggota</th>
-                    <th>Validasi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($pesertas as $peserta)
-                <tr>
-                    <td>{{ $peserta->usernameKelompok }}</td>
-                    <td>{{ $peserta->asalSekolah }}</td>
-                    <td>{{ $peserta->kontakPerwakilan }}</td>
-                    <td>{{ $peserta->kelas }}</td>
-                    <td>{{ $peserta->jurusan }}</td>
-                    <td>
-                        <button type="button" data-modal-target='modal-pembayaran{{ $loop->iteration }}' data-modal-toggle='modal-pembayaran{{ $loop->iteration }}' class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">View
-                            Bukti</button>
-                    </td>
+    <section class="cards">
+        <div class="flex lg:flex-row min-[320px]:flex-col justify-center">
+            <div
+                class="mx-2 flex items-center max-w-sm p-6 border border-gray-200 rounded-lg shadow bg-gray-800 border-gray-700 mt-5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-user">
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                </svg>
+                <div class="ms-5">
+                    <h5 class="my-2 text-2xl font-semibold tracking-tight text-gray-400">Jumlah Peserta
+                    </h5>
+                    <p class="mb-3 font-normal text-white">{{ $jumlah_peserta }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="flex justify-center">
+        <div class="flex justify-center mt-10 p-5 bg-white w-11/12 rounded-lg">
+            <div class="relative overflow-x-auto w-11/12">
+                <table id="myTable" class="display stripe" style="width: 100%">
+                    <thead class="bg-gray-800 text-gray-50">
+                        <tr>
+                            <th>No</th>
+                            <th>Username</th>
+                            <th>Sekolah</th>
+                            <th>Kontak</th>
+                            <th>Kelas</th>
+                            <th>Jurusan</th>
+                            <th>Bukti Pembayaran</th>
+                            <th>Data Anggota</th>
+                            <th>Validasi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($pesertas as $peserta)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $peserta->usernameKelompok }}</td>
+                                <td>{{ $peserta->asalSekolah }}</td>
+                                <td>{{ $peserta->kontakPerwakilan }}</td>
+                                <td>{{ $peserta->kelas }}</td>
+                                <td>{{ $peserta->jurusan }}</td>
+                                <td>
+                                    <button type="button" data-modal-target='modal-pembayaran{{ $loop->iteration }}'
+                                        data-modal-toggle='modal-pembayaran{{ $loop->iteration }}'
+                                        class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">View
+                                        Bukti</button>
+                                </td>
 
                     {{-- ================================== MODAL DATA PEMBAYARAN ====================================== --}}
                     <div id="modal-pembayaran{{ $loop->iteration }}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -163,7 +209,30 @@
 @endsection
 
 @section('script')
-<script>
-    let table = new DataTable('#myTable')
-</script>
+    <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable({
+                'bInfo': false,
+                'bLengthChange': false,
+                'language': {
+                    searchPlaceholder: 'Search for Peserta'
+                },
+                columnDefs: [{
+                    targets: '_all',
+                    className: 'dt-body-left'
+                }],
+                columns: [
+                    null, null, null, {
+                        width: '15%'
+                    },
+                    null, {
+                        width: '1%'
+                    }, {
+                        width: '15%'
+                    },
+                    null, null
+                ]
+            });
+        });
+    </script>
 @endsection

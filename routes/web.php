@@ -19,10 +19,8 @@ Route::post('/login/store', [PesertaController::class, 'authenticate'])->name('a
 // LOGOUT
 Route::post('/logout', [PesertaController::class, 'logout'])->name('logout');
 
-
-//ADMIN
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/adminRole', [AdminController::class, 'adminIndex'])->name('admin');
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], function () {
+    Route::get('/', [AdminController::class, 'peserta'])->name('index');
     Route::get('/peserta', [AdminController::class, 'peserta'])->name('listPeserta');
     Route::post('/validate', [AdminController::class, 'validasi'])->name('validate');
     Route::get('/adminRole/selection', [AdminController::class, 'adminSelection'])->name('adminSelection');
@@ -35,3 +33,4 @@ Route::group(['middleware' => 'auth'], function () {
 //PESERTA
 //ELIMINASI 1
 Route::get('/eliminationone', [PesertaController::class, 'eliminationone'])->name('eliminationone');
+Route::get('/eliminationone/paketa', [PaketAController::class, 'mainview'])->name('paketA');
