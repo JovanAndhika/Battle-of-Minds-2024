@@ -88,13 +88,13 @@
             border-radius: 5px;
             color: white;
             z-index: 1;
-            padding: 14px;
+            padding: 16px;
             
         }
 
-        #file-upload-button{
-            height: 100%;
-        }
+        /* #buktiTransaksi{
+            height: 16px;
+        } */
 
         select#jenisKonsumsi,  
         #alergi::placeholder {
@@ -123,7 +123,7 @@
             
         }
 
-         /* Custom floating labels */
+         /* floating labels */
         .floating-label {
             position: relative;
             margin-bottom: 5px;
@@ -148,7 +148,6 @@
             padding: 15px;
             height: 40px;
             z-index: 0;
-            margin-left: 10px;
             transform-origin: left top;
             border-radius: 10px;
         }
@@ -170,6 +169,37 @@
             transition: 0.4s ease;
             background: white;
         } 
+
+
+        /* responsive */
+        /* @media screen and (max-width: 767px) {
+            .mb-3.col-md-6 {
+                width: 100%;
+                margin-right: 0; 
+            }
+
+            .mb-3.col-md-6 label {
+                display: block; 
+                overflow: hidden; 
+                white-space: nowrap; 
+                text-overflow: ellipsis; 
+            }
+        } */
+        
+        @media screen and (min-width: 768px) and (max-width: 1200px) {
+            .mb-3.col-md-6 {
+                display: inline-block;
+                width: 48%; 
+                margin-right: 2%; 
+            }
+
+            .mb-3.col-md-6 label {
+                display: inline-block;
+                overflow: hidden; 
+                white-space: nowrap; 
+                text-overflow: ellipsis; 
+            }
+         }
 
     </style>
 @endsection
@@ -444,7 +474,7 @@
 
                             Bukti transaksi</label>
                         <input class="form-control @error('buktiTransaksi') is-invalid @enderror" type="file" 
-                            id="file-upload-button" name="buktiTransaksi" required>
+                            id="buktiTransaksi" name="buktiTransaksi" required>
                         @error('buktiTransaksi')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
