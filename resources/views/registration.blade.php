@@ -88,6 +88,12 @@
             border-radius: 5px;
             color: white;
             z-index: 1;
+            padding: 14px;
+            
+        }
+
+        #file-upload-button{
+            height: 100%;
         }
 
         select#jenisKonsumsi,  
@@ -102,6 +108,7 @@
             color: black;
         }
 
+        
 
         /* NEW FLOATING LABEL */
         input[type="text"]:focus,
@@ -113,6 +120,7 @@
             outline: none;
             box-shadow: none;
             border-color: white;
+            
         }
 
          /* Custom floating labels */
@@ -140,6 +148,9 @@
             padding: 15px;
             height: 40px;
             z-index: 0;
+            margin-left: 10px;
+            transform-origin: left top;
+            border-radius: 10px;
         }
       
 
@@ -153,7 +164,7 @@
             font-size: 18px;
             padding-top: 5px;
             box-shadow: none;
-            border-radius: 5px;
+            border-radius: 10px;
             color: black;
             transform: translateY(-50%) scale(0.8);
             transition: 0.4s ease;
@@ -432,8 +443,8 @@
                             </svg>
 
                             Bukti transaksi</label>
-                        <input class="form-control @error('buktiTransaksi') is-invalid @enderror" type="file"
-                            id="buktiTransaksi" name="buktiTransaksi" required>
+                        <input class="form-control @error('buktiTransaksi') is-invalid @enderror" type="file" 
+                            id="file-upload-button" name="buktiTransaksi" required>
                         @error('buktiTransaksi')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
