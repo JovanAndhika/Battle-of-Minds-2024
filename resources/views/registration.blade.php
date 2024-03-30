@@ -136,15 +136,20 @@
         .floating-label label {
             position: absolute;
             outline: none;
-            left: 10px;
             top: 0;
             padding: 15px;
-            height: 37px;
+            height: 40px;
             z-index: 0;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden; 
+                    
         }
+      
 
         .floating-label input:focus {
             color: white;
+           
         }
 
         .floating-label input:focus~label,
