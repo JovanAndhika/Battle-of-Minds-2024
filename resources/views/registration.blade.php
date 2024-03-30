@@ -140,10 +140,6 @@
             padding: 15px;
             height: 40px;
             z-index: 0;
-            width: 100%;
-            white-space: nowrap;
-            overflow: hidden; 
-                    
         }
       
 
