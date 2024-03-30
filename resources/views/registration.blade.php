@@ -141,6 +141,7 @@
             padding: 15px;
             height: 37px;
             z-index: 0;
+            transform-origin: left top;
         }
 
         .floating-label input:focus {
