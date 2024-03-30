@@ -156,7 +156,6 @@
             padding: 15px;
             height: 40px;
             z-index: 0;
-            margin-left: 10px;
             transform-origin: left top;
             border-radius: 10px;
         }
@@ -177,7 +176,39 @@
             transform: translateY(-50%) scale(0.8);
             transition: 0.4s ease;
             background: white;
-        }
+        } 
+
+
+        /* responsive */
+        /* @media screen and (max-width: 767px) {
+            .mb-3.col-md-6 {
+                width: 100%;
+                margin-right: 0; 
+            }
+
+            .mb-3.col-md-6 label {
+                display: block; 
+                overflow: hidden; 
+                white-space: nowrap; 
+                text-overflow: ellipsis; 
+            }
+        } */
+        
+        @media screen and (min-width: 768px) and (max-width: 1200px) {
+            .mb-3.col-md-6 {
+                display: inline-block;
+                width: 48%; 
+                margin-right: 2%; 
+            }
+
+            .mb-3.col-md-6 label {
+                display: inline-block;
+                overflow: hidden; 
+                white-space: nowrap; 
+                text-overflow: ellipsis; 
+            }
+         }
+
     </style>
 @endsection
 
