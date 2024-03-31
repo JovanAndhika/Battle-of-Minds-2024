@@ -15,18 +15,22 @@ Route::post('/registration/store', [PesertaController::class, 'storeRegistration
 
 //LOGIN
 Route::get('/login', [PesertaController::class, 'login'])->name('login');
-Route::post('/login', [PesertaController::class, 'authenticate'])->name('authenticate');
+Route::post('/login/store', [PesertaController::class, 'authenticate'])->name('authenticate');
 // LOGOUT
 Route::post('/logout', [PesertaController::class, 'logout'])->name('logout');
 
-Route::group(['middleware' => 'auth'], function(){
-Route::get('/adminRole', [AdminController::class, 'adminIndex'])->name('admin');
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], function () {
+    Route::get('/', [AdminController::class, 'peserta'])->name('index');
     Route::get('/peserta', [AdminController::class, 'peserta'])->name('listPeserta');
     Route::post('/validate', [AdminController::class, 'validasi'])->name('validate');
+    Route::get('/adminRole/selection', [AdminController::class, 'adminSelection'])->name('adminSelection');
+    Route::post('adminRole/setSelection/{peserta}', [AdminController::class, 'setReady'])->name('setReady');
 });
 
 
-//ELIMINASI 1
+
+
 //PESERTA
+//ELIMINASI 1
 Route::get('/eliminationone', [PesertaController::class, 'eliminationone'])->name('eliminationone');
 Route::get('/eliminationone/paketa', [PaketAController::class, 'mainview'])->name('paketA');

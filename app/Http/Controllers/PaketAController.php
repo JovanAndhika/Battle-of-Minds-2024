@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Data_jawaban;
+use App\Models\Peserta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PaketAController extends Controller
 {
@@ -12,8 +14,4 @@ class PaketAController extends Controller
         return view('Eliminasi1.paket_a', ['title' => 'Paket A']);
     }
 
-    public function setReady(Request $request){
-        
-        
-    }
 }

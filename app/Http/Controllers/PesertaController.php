@@ -59,7 +59,13 @@ class PesertaController extends Controller
 
 
         $validatedData['confirmPass'] = Hash::make($validatedData['confirmPass']);
+        $password = $request->input('passPeserta');
 
+        $booleanCheck = Hash::check($password, $validatedData['confirmPass']);
+
+        if(!$booleanCheck){
+            return back()->with('password_not_same', 'password is not the same');
+        }
 
         if ($request->file('buktiTransaksi')) {
             $file = $request->file('buktiTransaksi');
