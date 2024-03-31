@@ -253,7 +253,6 @@
             clip: rect(83px, auto, 40px, 30px);
         }
     }
-
 </style>
 
 <section class="faq-section w-screen flex justify-center items-center flex-col sticky top-16 z-[-1] h-fit" id="faq">
@@ -262,7 +261,7 @@
             data-text="Frequently Asked Questions">Frequently Asked Questions</h1>
     </div>
     <div class="accordion w-screen lg:w-4/5 md:w-3/4 sm:w-3/5 max-sm:w-4/5">
-        <div class="accordion-item !my-8">
+        <div class="accordion-item">
             <div class="accordion-item-header sm:text-lg max-sm:text-base">
                 Apa itu BoM?
             </div>
@@ -275,7 +274,7 @@
                 </div>
             </div>
         </div>
-        <div class="accordion-item !my-8">
+        <div class="accordion-item">
             <div class="accordion-item-header sm:text-lg max-sm:text-base">
                 Siapa saja yang bisa mengikuti kegiatan BoM?
             </div>
@@ -286,7 +285,7 @@
                 </div>
             </div>
         </div>
-        <div class="accordion-item !my-8">
+        <div class="accordion-item">
             <div class="accordion-item-header sm:text-lg max-sm:text-base">
                 Question 3
             </div>
@@ -298,6 +297,16 @@
                 </div>
             </div>
         </div>
+        <div class="accordion-item">
+            <div class="accordion-item-header sm:text-lg max-sm:text-base">
+                Question 4
+            </div>
+            <div class="accordion-item-body">
+                <div class="accordion-item-body-content sm:text-lg max-sm:text-base">
+                    HTTP, aka HyperText Transfer Protocol, is the underlying protocol used by the World Wide Web and
+                    this protocol defines how messages are formatted and transmitted, and what actions Web servers and
+                    browsers should take in response to various commands.
+                </div>
         <div class="accordion-item !my-8">
             <div class="accordion-item-header sm:text-lg max-sm:text-base">
                 Question 4
@@ -310,6 +319,16 @@
                 </div>
             </div>
         </div>
+        <div class="accordion-item">
+            <div class="accordion-item-header sm:text-lg max-sm:text-base">
+                Question 5
+            </div>
+            <div class="accordion-item-body">
+                <div class="accordion-item-body-content sm:text-lg max-sm:text-base">
+                    CORS, aka Cross-Origin Resource Sharing, is a mechanism that enables many resources (e.g. images,
+                    stylesheets, scripts, fonts) on a web page to be requested from another domain outside the domain
+                    from which the resource originated.
+                </div>
         <div class="accordion-item !my-8">
             <div class="accordion-item-header sm:text-lg max-sm:text-base">
                 Question 5
@@ -324,6 +343,61 @@
         </div>
     </div>
 </section>
+
+
+<script>
+    const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+
+    accordionItemHeaders.forEach(accordionItemHeader => {
+        accordionItemHeader.addEventListener("click", event => {
+
+
+            const currentlyActiveAccordionItemHeader = document.querySelector(
+                ".accordion-item-header.active");
+            if (currentlyActiveAccordionItemHeader && currentlyActiveAccordionItemHeader !==
+                accordionItemHeader) {
+                currentlyActiveAccordionItemHeader.classList.toggle("active");
+                currentlyActiveAccordionItemHeader.nextElementSibling.style.maxHeight = 0;
+            }
+
+            accordionItemHeader.classList.toggle("active");
+            const accordionItemBody = accordionItemHeader.nextElementSibling;
+            if (accordionItemHeader.classList.contains("active")) {
+                accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+            } else {
+                accordionItemBody.style.maxHeight = 0;
+            }
+
+        });
+    });
+</script>
+
+
+<script>
+    const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+    accordionItemHeaders.forEach(accordionItemHeader => {
+        accordionItemHeader.addEventListener("click", event => {
+
+
+            const currentlyActiveAccordionItemHeader = document.querySelector(
+                ".accordion-item-header.active");
+            if (currentlyActiveAccordionItemHeader && currentlyActiveAccordionItemHeader !==
+                accordionItemHeader) {
+                currentlyActiveAccordionItemHeader.classList.toggle("active");
+                currentlyActiveAccordionItemHeader.nextElementSibling.style.maxHeight = 0;
+            }
+
+            accordionItemHeader.classList.toggle("active");
+            const accordionItemBody = accordionItemHeader.nextElementSibling;
+            if (accordionItemHeader.classList.contains("active")) {
+                accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+            } else {
+                accordionItemBody.style.maxHeight = 0;
+            }
+
+        });
+    });
+</script>
 
 
 <script>

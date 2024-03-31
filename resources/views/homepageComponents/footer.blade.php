@@ -74,13 +74,103 @@
         }
     }
 
+
+    @keyframes unicorn-slide {
+        0% {
+            background-position: 0% 50%
+        }
+
+        50% {
+            background-position: 100% 50%
+        }
+
+        100% {
+            background-position: 0% 50%
+        }
+    }
+
+    @-webkit-keyframes unicorn-slide {
+        0% {
+            background-position: 0% 50%
+        }
+
+        50% {
+            background-position: 100% 50%
+        }
+
+        100% {
+            background-position: 0% 50%
+    .footer-container {
+        background: linear-gradient(360deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 49%, rgb(0, 173, 208) 100%);
+    }
+
+    #ig-logo {
+        background: linear-gradient(45deg, #ffde85 0%, #f7792a 30%, #f7504f 40%, #d82b81 60%, #d82b81 75%, #9536c2 100%);
+        background-clip: text;
+        -webkit-background-clip: text !important;
+        color: transparent;
+        margin-left: 2.5px;
+    }
+
+    .contacts {
+        background: linear-gradient(180deg, transparent 0%, transparent 49%, rgb(0, 213, 255) 100%) !important;
+        transition: .3s ease;
+        /* animation: digital 2.5s linear infinite; */
+    }
+
+    .contacts:hover {
+        box-shadow: 0px -28px 15px 0px rgba(0, 212, 255, 1) inset;
+    }
+
+
+    .contacts i {
+        animation: flying 2.5s linear infinite;
+    }
+
+    .contact-text {
+        font-family: 'Geologica', sans-serif;
+    }
+
+    #line-logo {
+        margin-left: 2px;
+    }
+
+    #tiktok-logo {
+        text-shadow: 2px 2px 1px rgb(253, 85, 85), -2px -2px 1px rgb(99, 213, 252);
+        margin-left: 5px;
+    }
+
+    @keyframes digital {
+        from {
+
+            background-position: bottom;
+        }
+
+        to {
+            background-position: top;
+        }
+    }
+
+    @keyframes flying {
+        from {
+            transform: translateY(4.5px);
+        }
+
+        50% {
+            transform: translateY(-4px);
+        }
+
+        to {
+            transform: translateY(4.5px);
+        }
+    }
 </style>
-<section class="footer-section z-10">
+<section class="footer-section z-10 mt-[200px]">
     <canvas class="h-screen w-screen z-10 absolute" id="reglCanvas"></canvas>
     {{-- <div class="footer-container h-screen bg-slate-500 z-10"> --}}
     <div
         class="footer-grid-layout px-32 py-10 h-screen w-screen grid grid-cols-2 grid-rows-2 max-lg:grid-rows-3 max-md:grid-rows-4 max-md:grid-cols-1
-            max-md:px-24 max-md:py-10 absolute z-20" id="footer">
+            max-md:px-24 max-md:py-10 absolute z-20">
         <h1
             class="font-bold text-5xl w-[450px] leading-normal max-lg:text-4xl max-lg:w-96 max-lg:col-span-2 max-md:col-span-1
                 max-md:text-3xl max-md:w-[300px] max-md:justify-self-center">

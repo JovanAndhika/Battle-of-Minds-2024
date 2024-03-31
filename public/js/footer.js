@@ -56,12 +56,12 @@ void main() {
     b = (b + 1.0) / 2.0;
 
     gl_FragColor = vec4(
-        (r[1] * 0.5 + r[1]) / 3.0 * (r[2] * 0.5 + 0.5),
-        (g[1] * 0.0 + g[1]) / 4.3 * (g[2] * 0.5 + 0.5),
-        (b[1] * 0.5 + b[1]) / 2.0 * (b[2] * 0.5 + 0.5),
+        (r[1] * 0.0 + r[1]) / 2.5 * (r[2] * 0.5 + 0.5),
+        (g[1] * 0.0 + g[1]) / 1.3 * (g[2] * 0.2 + 0.5),
+        (b[1] * 1.2 + b[1]) / 0.0 * (b[2] * 0.9 + 0.5),
         0
     );
-}   
+}
 `,
     attributes: {
         position: regl.buffer([
@@ -85,7 +85,7 @@ void main() {
 const timeOffset = Math.random() * 60000;
 
 regl.frame(({ time }) => {
-    const trueTime = time * 600 + timeOffset;
+    const trueTime = time * 2000 + timeOffset;
 
     const angle1 = trueTime / 120000 * Math.PI * 2;
     const angle2 = angle1 + 0.5;
