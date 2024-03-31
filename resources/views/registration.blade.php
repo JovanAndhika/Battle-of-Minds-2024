@@ -198,13 +198,13 @@
 
             .floating-label input:focus~label[for="kontakSekolah"],
             .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] {
-                padding-top: 5px;
+                padding-top: 15px;
 
             }
 
             .floating-label input:focus~label[for="kontakSekolah"] svg,
             .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] svg {
-                margin-top: 5px; 
+                margin-top: -5px; 
             }
 
             label.form-label{
@@ -213,7 +213,7 @@
                 height: 45px;
                 font-size: 12px;  
             }
-/* 
+
             label.form-label[for="kontakSekolah"] {
                 top: -5px;
             }
@@ -223,8 +223,8 @@
                 margin-top: -5px;
 
             }
-            
- */
+       
+ 
 
  
             .form-label svg {
