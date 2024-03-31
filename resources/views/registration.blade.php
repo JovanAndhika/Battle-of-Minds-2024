@@ -88,6 +88,20 @@
             border-radius: 5px;
             color: white;
             z-index: 1;
+            padding: 14px;
+        }
+
+        #file-upload-button,
+        ::-webkit-file-upload-button{
+            height: 50px !important;
+            padding: 19px 15px 15px 27px !important;
+            
+        }
+
+        .input-transaksi{
+            padding: 0 !important;
+            height: 50px !important;
+            font-weight: bold;
         }
 
         select#jenisKonsumsi,  
@@ -118,8 +132,7 @@
          /* Custom floating labels */
         .floating-label {
             position: relative;
-            margin-bottom: 5px;
-            
+            margin-bottom: 5px;    
         }
 
         .floating-label input,
@@ -150,16 +163,137 @@
 
         .floating-label input:focus~label,
         .floating-label input:not(:placeholder-shown)~label {
-            font-size: 18px;
+            font-size: 17px;
             padding-top: 5px;
             box-shadow: none;
-            border-radius: 5px;
+            border-radius: 10px;
             color: black;
             transform: translateY(-50%) scale(0.8);
             transition: 0.4s ease;
             background: white;
         } 
 
+            /* responsive */
+            @media screen and (max-width: 768px) {
+            .row, #namaKetua, #namaKetiga {
+                margin-bottom: 15px;
+            }
+
+            .title{
+                font-size: 35px;
+            }
+
+            select#jenisKonsumsi,  
+            #alergi::placeholder {
+                font-size: 12px;
+            }
+
+            .floating-label input:focus~label,
+            .floating-label input:not(:placeholder-shown)~label {
+                left: 10px;
+                font-size: 12px;
+                padding-top: 14px;
+                
+            } 
+
+            .floating-label input:focus~label[for="kontakSekolah"],
+            .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] {
+                padding-top: 5px;
+
+            }
+
+            .floating-label input:focus~label[for="kontakSekolah"] svg,
+            .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] svg {
+                margin-top: 5px; 
+            }
+
+            label.form-label{
+                left: 0px;
+                top: 5px;
+                height: 45px;
+                font-size: 12px;  
+            }
+/* 
+            label.form-label[for="kontakSekolah"] {
+                top: -5px;
+            }
+
+
+            svg.lucide.lucide-contact{
+                margin-top: -5px;
+
+            }
+            
+ */
+
+ 
+            .form-label svg {
+                margin-right: 10px;
+                margin-top: -5px;
+            }
+
+   
+            #alergi.form-control{
+                position: relative;
+                top: -5px;  
+                padding: 11px;  
+            }
+
+            #jenisKonsumsi.form-select{
+                position: relative;
+                top: -15px;   
+            }
+
+            .form-control.input-transaksi{
+                position: relative;
+                top: -20px;  
+                padding: 12px; 
+            }
+
+            #file-upload-button,
+            ::-webkit-file-upload-button{
+                height: 46px !important;
+            }
+
+            .input-transaksi{
+                font-size: 12px;
+                height: 46px !important;
+            }
+
+       
+            @media screen and (min-width: 768px) and (max-width: 1200px) {
+                select#jenisKonsumsi,  
+                #alergi::placeholder {
+                font-size: 14px;
+                }
+
+            .floating-label input:focus~label,
+            .floating-label input:not(:placeholder-shown)~label {
+                font-size: 14px;                
+            } 
+
+            .floating-label input:focus~label[for="kontakSekolah"],
+            .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] {
+                padding-top: 5px;
+
+            }
+        
+            label.form-label{
+                font-size: 14px;  
+                
+            }
+
+            label.form-label[for="alergi"] {
+                position: relative;
+                top: -15px;
+            }
+
+      
+
+
+        }
+        
+       
     </style>
 @endsection
 
@@ -432,8 +566,8 @@
                             </svg>
 
                             Bukti transaksi</label>
-                        <input class="form-control @error('buktiTransaksi') is-invalid @enderror" type="file"
-                            id="buktiTransaksi" name="buktiTransaksi" required>
+                        <input class="form-control input-transaksi @error('buktiTransaksi') is-invalid @enderror"
+                            type="file" name="buktiTransaksi" required>
                         @error('buktiTransaksi')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
