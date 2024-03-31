@@ -114,6 +114,8 @@
                 <!-- Tambahkan pengecekan error untuk field lainnya dengan pola yang serupa -->
             </div>
 
+            
+
             <div class="row">
                 <div class="mb-3 col-md-6">
                     <label for="kontakSekolah" class="form-label">Kontak Sekolah (ex: email, no.telp)</label>

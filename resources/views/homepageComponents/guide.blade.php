@@ -1,5 +1,5 @@
 <section class="guide-section my-24" id="guide">
-    <div class="flex justify-center items-center h-">
+    <div class="flex justify-center items-center box">
         <h1 class="faq-title mb-6 text text-4xl font-bold text-center leading-normal w-4/5 max-md:text-3xl" data-text="Guide">
             Guide</h1>
     </div>
