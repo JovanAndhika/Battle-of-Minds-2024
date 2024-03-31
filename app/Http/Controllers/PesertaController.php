@@ -19,6 +19,12 @@ class PesertaController extends Controller
         return view('homepage', ['title' => 'BOM 2024 | PETRA CHRISTIAN UNIVERSITY']);
     }
 
+    //INDEX
+    public function buram()
+    {
+
+        return view('buram', ['title' => 'BOM 2024 | PETRA CHRISTIAN UNIVERSITY']);
+    }
 
     // REGISTRATION HANDLER
     public function registration()
@@ -68,7 +74,7 @@ class PesertaController extends Controller
             $extension = $file->getClientOriginalExtension();
             $fileNameToStore = $nama_bukti_transaksi . '.' . $extension;
 
-            
+
             $validatedData['buktiTransaksi'] = $file->storeAs('bukti-transaksi/', $fileNameToStore, 'public');
             $file->move(public_path('bukti-transaksi'), $fileNameToStore);
         }
@@ -117,7 +123,7 @@ class PesertaController extends Controller
             $inputPass = $request->password;
 
             $id = $cekUsernameKelompok->id;
-            
+
             if ($cekUsernameKelompok == 1 && Hash::check($inputPass, $passPeserta)) {
                 $usernameKelompok = DB::table('pesertas')->select('usernameKelompok')->where('usernameKelompok', $request->nrp)->value('usernameKelompok');
                 return redirect()->route('eliminationone')->with('usernameKelompok', $usernameKelompok);

@@ -74,14 +74,13 @@
         }
     }
 
-
 </style>
 <section class="footer-section z-10">
     <canvas class="h-screen w-screen z-10 absolute" id="reglCanvas"></canvas>
     {{-- <div class="footer-container h-screen bg-slate-500 z-10"> --}}
     <div
         class="footer-grid-layout px-32 py-10 h-screen w-screen grid grid-cols-2 grid-rows-2 max-lg:grid-rows-3 max-md:grid-rows-4 max-md:grid-cols-1
-            max-md:px-24 max-md:py-10 absolute z-20">
+            max-md:px-24 max-md:py-10 absolute z-20" id="footer">
         <h1
             class="font-bold text-5xl w-[450px] leading-normal max-lg:text-4xl max-lg:w-96 max-lg:col-span-2 max-md:col-span-1
                 max-md:text-3xl max-md:w-[300px] max-md:justify-self-center">
