@@ -90,7 +90,6 @@
 </style>
 @endsection
 
-@include('partials.navbarshort')
 @section('content')
 <div class="container container-registration">
 

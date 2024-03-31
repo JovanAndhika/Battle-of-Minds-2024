@@ -100,6 +100,10 @@
 
         100% {
             background-position: 0% 50%
+        }
+    }
+
+    
     .footer-container {
         background: linear-gradient(360deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 49%, rgb(0, 173, 208) 100%);
     }

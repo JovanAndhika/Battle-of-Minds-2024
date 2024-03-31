@@ -11,15 +11,27 @@ use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
-    //INDEX
-    public function adminIndex()
-    {
+    // Nanti admin bisa validasi peserta yang mendaftar
 
-        return view('admin.homepage', [
-            'title' => 'BOM 2024 | PETRA CHRISTIAN UNIVERSITY',
-            'active' => 'home'
+    public function peserta()
+    {
+        return view('admin.listPeserta', [
+            'title' => 'BOM 2024 | List Peserta BOM',
+            'active' => 'peserta',
+            'pesertas' => Peserta::all(),
+            'jumlah_peserta' => DB::table('pesertas')->count()
         ]);
     }
+
+    public function validasi(Request $request)
+    {
+        DB::table('pesertas')->where('id', $request->id)
+            ->update(['is_validated' => 1]);
+
+
+        return redirect()->route('admin.index')->with('success', 'Berhasil melakukan validasi !');
+    }
+
 
     // Nanti admin bisa validasi peserta yang mendaftar
     public function adminSelection()
@@ -42,26 +54,5 @@ class AdminController extends Controller
             }
         }
         return redirect()->route('adminSelection')->with('set_success', 'set is succes');
-    }
-
-    // Nanti admin bisa validasi peserta yang mendaftar
-
-    public function peserta()
-    {
-        return view('admin.listPeserta', [
-            'title' => 'BOM 2024 | List Peserta BOM',
-            'active' => 'peserta',
-            'pesertas' => Peserta::all(),
-            'jumlah_peserta' => DB::table('pesertas')->count()
-        ]);
-    }
-
-    public function validasi(Request $request)
-    {
-        DB::table('pesertas')->where('id', $request->id)
-            ->update(['is_validated' => 1]);
-
-
-        return redirect()->route('listPeserta')->with('success', 'Berhasil melakukan validasi !');
     }
 }
