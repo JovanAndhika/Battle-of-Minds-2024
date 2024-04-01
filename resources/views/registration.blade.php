@@ -196,19 +196,6 @@
                 
             } 
 
-            /* KONTAK SEKOLAH */
-            .floating-label input:focus~label[for="kontakSekolah"],
-            .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] {
-                padding-top: 15px;
-
-            }
-
-            /* SVG */
-            .floating-label input:focus~label[for="kontakSekolah"] svg,
-            .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] svg {
-                margin-top: -5px; 
-            }
-
             label.form-label{
                 left: 0px;
                 top: 5px;
@@ -220,13 +207,6 @@
                 top: 5px;
             }
 
-
-            /* svg.lucide.lucide-contact{
-                position: relative;
-  
-
-            } */
-            
             .form-label svg {
                 margin-right: 10px;
                 margin-top: -5px;
@@ -260,31 +240,43 @@
                 height: 46px !important;
             }
 
-
-               /* KONTAK SEKOLAH */
+            
+            /* KONTAK SEKOLAH */
             .floating-label input:focus~label[for="kontakSekolah"],
             .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] {
                 padding-top: 15px;
 
             }
 
-            @media screen (max-width: 768px) {
-            /* FOCUS: KONTAK SEKOLAH */
-            /* ????? */
-            /* label[for="kontakSekolah"]:focus {
-                top: -100px;
-            } */
-   
-            /* FOCUS SVG */
+            /* SVG */
             .floating-label input:focus~label[for="kontakSekolah"] svg,
             .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] svg {
-            margin-top: -5px !important; 
+                margin-top: -5px; 
             }
 
-            /* LABEL KONTAK SEKOLAH */
-            label.form-label[for="kontakSekolah"] {
-                top: 5px !important;
+
+            /* KONTAK SEKOLAH */
+            .floating-label input:focus~label[for="kontakSekolah"],
+            .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] {
+                padding-top: 15px;
+
             }
+
+            /* FOCUS: KONTAK SEKOLAH */
+            label[for="kontakSekolah"]:focus {
+                top: -100px;
+            }
+   
+            /* FOCUS SVG */
+            /* .floating-label input:focus~label[for="kontakSekolah"] svg,
+            .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] svg {
+            margin-top: -5px !important; 
+            } */
+
+            /* LABEL KONTAK SEKOLAH */
+            /* label.form-label[for="kontakSekolah"] {
+                top: 5px !important;
+            } */
 
 
             /* SVG LABEL KONTAK SEKOLAH */
@@ -330,16 +322,40 @@
                 top: -15px;
             }
 
+            /* MAX 1200 WIDTH */
             /* ????? */
             /* LABEL KONTAK SEKOLAH */
             label.form-label[for="kontakSekolah"] {
-                top: -10px !important;
+                top: -20px !important;
             }
 
             /* SVG LABEL KONTAK SEKOLAH */
             label.form-label[for="kontakSekolah"] svg {
                 margin-top: 5px;
             }
+
+            /* FOCUS: KONTAK SEKOLAH */
+            label[for="kontakSekolah"]:focus {
+                top: -100px;
+            }
+   
+            /* FOCUS SVG */
+            .floating-label input:focus~label[for="kontakSekolah"] svg,
+            .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] svg {
+            margin-top: -5px !important; 
+            }
+
+            /* LABEL KONTAK SEKOLAH */
+            label.form-label[for="kontakSekolah"] {
+                top: 5px !important;
+            }
+
+
+            /* SVG LABEL KONTAK SEKOLAH */
+            label.form-label[for="kontakSekolah"] svg {
+                margin-top: 5px;
+            }
+
 
         }
         
