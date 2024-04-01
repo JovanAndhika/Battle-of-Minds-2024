@@ -7,7 +7,7 @@
 
 <div>
     @foreach ($pesertas as $peserta)
-    <form action="{{ route('admin.setReady', ['peserta' => $peserta] )}}" method="post">
+    <form action="{{ route('setReady', ['peserta' => $peserta] )}}" method="post">
         @csrf
         <button type="submit" class="btn btn-primary">Set</button>
     </form>

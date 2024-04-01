@@ -1,6 +1,6 @@
 <nav class="nav navbar navbar-expand-lg navbar-light">
     <div class="nav-container container-fluid">
-        <a class="navbar-brand" href="{{ route('index') }}"><img id="logo-bom" src="{{ asset('asset/logo-main.png') }}" alt="logo bom 2024"></a>
+        <a class="navbar-brand" href="#">Logo BOM 2024 </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -16,19 +16,3 @@
         </div>
     </div>
 </nav>
-
-<style>
-    nav{
-        z-index: 99;
-        background-color: rgba(200, 200, 255, 0.1);
-    }
-
-    .navbar-light .navbar-nav .nav-link{
-        color: white;
-    }
-
-    #logo-bom{
-        height: 5%;
-        width: 15%;
-    }
-</style>

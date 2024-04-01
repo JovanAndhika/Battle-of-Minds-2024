@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
             'kerabatTiga' => 'kepo',
             'jenisKonsumsi' => 'vegan',
             'alergi' => 'debu',
-            'buktiTransaksi' => 'bukti-transaksi//success.jpg',
+            'buktiTransaksi' => 'bukti-transaksi//Screenshot (553).png',
             'created_at' => Carbon::now()->setTime(23,59,59)->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->setTime(23,59,59)->format('Y-m-d H:i:s')
         ]);

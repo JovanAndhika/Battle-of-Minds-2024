@@ -90,6 +90,7 @@
 </style>
 @endsection
 
+@include('partials.navbarshort')
 @section('content')
 <div class="container container-registration">
 
@@ -126,6 +127,17 @@
             <div class="row">
                 <div class="mb-3 col-md-6">
                     <i class="fas fa-user"></i>
+                    <label for="usernameKelompok" class="form-label">Username Kelompok</label>
+                    <input type="text" class="form-control @error('usernameKelompok') is-invalid @enderror" id="usernameKelompok" name="usernameKelompok" placeholder="Masukkan username kelompok" value="{{ old('usernameKelompok') }}" required>
+                    @error('usernameKelompok')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <i class="fas fa-user"></i>
                     <label for="kelas" class="form-label">Kelas</label>
                     <input type="text" class="form-control @error('kelas') is-invalid @enderror" id="kelas" name="kelas" placeholder="Masukkan kelas" value="{{ old('kelas') }}" required>
                     @error('kelas')
@@ -140,17 +152,6 @@
                     <label for="jurusan" class="form-label">Jurusan</label>
                     <input type="text" class="form-control @error('jurusan') is-invalid @enderror" id="jurusan" name="jurusan" placeholder="Masukkan jurusan (IPA/IPS/BAHASA)" value="{{ old('jurusan') }}" required>
                     @error('jurusan')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="mb-3 col-md-6">
-                    <i class="fas fa-user"></i>
-                    <label for="usernameKelompok" class="form-label">Username Kelompok</label>
-                    <input type="text" class="form-control @error('usernameKelompok') is-invalid @enderror" id="usernameKelompok" name="usernameKelompok" placeholder="Masukkan username kelompok" value="{{ old('usernameKelompok') }}" required>
-                    @error('usernameKelompok')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>

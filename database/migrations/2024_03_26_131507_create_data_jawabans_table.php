@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('kelompok_id');
             $table->foreign('kelompok_id')->references('id')->on('pesertas');
-            $table->integer('soal_no');
+            $table->string('soal_no');
             $table->foreign('soal_no')->references('soal_no')->on('kuncis_paket_a');
             $table->string('jawaban')->default('z');
             $table->timestamps();

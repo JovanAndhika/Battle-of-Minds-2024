@@ -13,13 +13,11 @@
 
     .contacts {
         background: linear-gradient(180deg, transparent 0%, transparent 49%, rgb(255, 255, 255) 100%) !important;
-        background: linear-gradient(180deg, transparent 0%, transparent 49%, rgb(255, 255, 255) 100%) !important;
         transition: .3s ease;
         /* animation: digital 2.5s linear infinite; */
     }
 
     .contacts:hover {
-        box-shadow: 0px -28px 15px 0px rgba(255, 255, 255, 1) inset;
         box-shadow: 0px -28px 15px 0px rgba(255, 255, 255, 1) inset;
     }
 
@@ -82,11 +80,6 @@
     <div class="footer-grid-layout py-10 lg:px-32 lg:pr-16 md:pr-10 md:px-24 h-[730px] w-screen grid grid-cols-2 grid-rows-2 max-lg:grid-rows-3 max-md:grid-rows-4 max-md:grid-cols-1
             max-md:px-0 max-md:py-10 absolute z-20"
         id="footer">
-    <canvas class="h-[730px] w-screen z-10 absolute" id="reglCanvas"></canvas>
-    {{-- <div class="footer-container h-[730px] bg-slate-500 z-10"> --}}
-    <div class="footer-grid-layout py-10 lg:px-32 lg:pr-16 md:pr-10 md:px-24 h-[730px] w-screen grid grid-cols-2 grid-rows-2 max-lg:grid-rows-3 max-md:grid-rows-4 max-md:grid-cols-1
-            max-md:px-0 max-md:py-10 absolute z-20"
-        id="footer">
         <h1
             class="font-bold text-5xl w-[450px] max-lg:text-4xl max-lg:w-96 max-lg:col-span-2 max-md:col-span-1
                 max-md:text-3xl max-md:w-[300px] max-md:justify-self-center sm:leading-normal max-sm:leading-normal max-md:text-center">
@@ -137,11 +130,6 @@
                 </li>
             </div>
         </ul>
-        <div
-            class="logo-univ justify-self-end self-end pb-1 xl:w-[600px] md:w-[400px] max-md:w-[280px] max-md:justify-self-center">
-            <img class="xl:w-[600px] md:w-[400px] max-sm:w-[280px]" src="{{ asset('asset/sc-bom-white.png') }}"
-                alt="LogoSC">
-        </div>
         <div
             class="logo-univ justify-self-end self-end pb-1 xl:w-[600px] md:w-[400px] max-md:w-[280px] max-md:justify-self-center">
             <img class="xl:w-[600px] md:w-[400px] max-sm:w-[280px]" src="{{ asset('asset/sc-bom-white.png') }}"
