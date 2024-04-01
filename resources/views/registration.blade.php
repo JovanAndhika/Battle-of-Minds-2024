@@ -43,15 +43,11 @@
         margin-right: 10px;
     }
 
-
-
-
     /* submit button */
     .btn {
         background-color: #0070BB;
         width: 100%;
         font-weight: bold;
-
     }
 
     .btn:hover {
@@ -116,7 +112,6 @@
         color: black;
     }
 
-
     /* NEW FLOATING LABEL */
     input[type="text"]:focus,
     input[type="email"]:focus,
@@ -173,6 +168,7 @@
         background: white;
     }
 
+
     /* responsive */
     @media screen and (max-width: 768px) {
 
@@ -199,6 +195,18 @@
 
         }
 
+        /* KONTAK SEKOLAH */
+        .floating-label input:focus~label[for="kontakSekolah"],
+        .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] {
+            padding-top: 15px;
+        }
+
+        /* SVG */
+        .floating-label input:focus~label[for="kontakSekolah"] svg,
+        .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] svg {
+            margin-top: -5px;
+        }
+
         label.form-label {
             left: 0px;
             top: 5px;
@@ -207,14 +215,24 @@
         }
 
         label.form-label[for="kontakSekolah"] {
+            top: -5px;
             top: 5px;
         }
+
+        svg.lucide.lucide-contact {
+            margin-top: -5px;
+        }
+
+        /* svg.lucide.lucide-contact{
+                position: relative;
+  
+ 
+            } */
 
         .form-label svg {
             margin-right: 10px;
             margin-top: -5px;
         }
-
 
         #alergi.form-control {
             position: relative;
@@ -243,44 +261,33 @@
             height: 46px !important;
         }
 
-
         /* KONTAK SEKOLAH */
+        .floating-label input:focus~label[for="kontakSekolah"],
         .floating-label input:focus~label[for="kontakSekolah"],
         .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] {
             padding-top: 15px;
-
         }
-
-        /* SVG */
-        .floating-label input:focus~label[for="kontakSekolah"] svg,
-        .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] svg {
-            margin-top: -5px;
-        }
+    }
 
 
-        /* KONTAK SEKOLAH */
-        .floating-label input:focus~label[for="kontakSekolah"],
-        .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] {
-            padding-top: 15px;
-
-        }
-
+    @media screen and (min-width: 300px) and (max-width: 768px) {
         /* FOCUS: KONTAK SEKOLAH */
-        label[for="kontakSekolah"]:focus {
-            top: -100px;
-        }
+        /* ????? */
+        /* label[for="kontakSekolah"]:focus {
+                top: -100px;
+            } */
 
         /* FOCUS SVG */
-        /* .floating-label input:focus~label[for="kontakSekolah"] svg,
-            .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] svg {
-            margin-top: -5px !important; 
-            } */
+        .floating-label input:focus~label[for="kontakSekolah"] svg,
+        .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] svg {
+            margin-top: -5px !important;
+        }
 
         /* LABEL KONTAK SEKOLAH */
-        /* label.form-label[for="kontakSekolah"] {
-                top: 5px !important;
-            } */
-
+        label.form-label[for="kontakSekolah"] {
+            top: -5px;
+            top: 5px !important;
+        }
 
         /* SVG LABEL KONTAK SEKOLAH */
         label.form-label[for="kontakSekolah"] svg {
@@ -289,8 +296,7 @@
     }
 
 
-    @media only screen and (max-width: 1200px) {
-
+    @media screen and (min-width: 768px) and (max-width: 1200px) {
         select#jenisKonsumsi,
         #alergi::placeholder {
             font-size: 14px;
@@ -305,7 +311,6 @@
         .floating-label input:focus~label[for="kontakSekolah"],
         .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] {
             padding-top: 5px;
-
         }
 
         label.form-label {
@@ -319,42 +324,21 @@
             top: -15px;
         }
 
-        /* MAX 1200 WIDTH */
         /* ????? */
         /* LABEL KONTAK SEKOLAH */
         label.form-label[for="kontakSekolah"] {
+            background: yellow !important;
             top: -20px !important;
+            top: -10px !important;
         }
 
         /* SVG LABEL KONTAK SEKOLAH */
         label.form-label[for="kontakSekolah"] svg {
             margin-top: 5px;
         }
-
-        /* FOCUS: KONTAK SEKOLAH */
-        label[for="kontakSekolah"]:focus {
-            top: -100px;
-        }
-
-        /* FOCUS SVG */
-        .floating-label input:focus~label[for="kontakSekolah"] svg,
-        .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] svg {
-            margin-top: -5px !important;
-        }
-
-        /* LABEL KONTAK SEKOLAH */
-        label.form-label[for="kontakSekolah"] {
-            top: 5px !important;
-        }
-
-
-        /* SVG LABEL KONTAK SEKOLAH */
-        label.form-label[for="kontakSekolah"] svg {
-            margin-top: 5px;
-        }
-
     }
 </style>
+
 @endsection
 
 @include('partials.navbarshort')
@@ -555,6 +539,8 @@
                 </div>
             </div>
 
+            
+
             <div class="row">
                 <div class="mb-3 col-md-6">
                     <i class="fas fa-user"></i>
@@ -565,7 +551,6 @@
                     @enderror
                 </div>
             </div>
-
 
 
             <div class="row">
@@ -586,7 +571,7 @@
                     @enderror
                 </div>
 
-                <div class="mb-3 col-md-6">
+                <div class="col-md-6">
                     <label for="kerabatDua" class="form-label">Kontak Kerabat member 2 yang bisa dihubungi</label>
                     <input type="text" id="kerabatDua" name="kerabatDua" class="form-control @error('kerabatDua') is-invalid @enderror" placeholder="(no.wa / no.telp)" value="{{ old('kerabatDua') }}" required>
                     @error('kerabatDua')
@@ -594,7 +579,6 @@
                     @enderror
                 </div>
             </div>
-
 
 
             <div class="row">
@@ -614,26 +598,25 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-            </div>
 
-
-            <div class="mb-3 col-md-6">
-                <div class="floating-label">
-                    <input type="text" id="kerabatTiga" name="kerabatTiga" class="form-control @error('kerabatTiga') is-invalid @enderror" placeholder="" value="{{ old('kerabatTiga') }}" required>
-                    <label for="kerabatTiga" class="form-label">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
-                            <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
-                            <rect width="18" height="18" x="3" y="4" rx="2" />
-                            <circle cx="12" cy="10" r="2" />
-                            <line x1="8" x2="8" y1="2" y2="4" />
-                            <line x1="16" x2="16" y1="2" y2="4" />
-                        </svg>
-                        Kontak Kerabat Member 3
-                    </label>
+                <div class="mb-3 col-md-6">
+                    <div class="floating-label">
+                        <input type="text" id="kerabatTiga" name="kerabatTiga" class="form-control @error('kerabatTiga') is-invalid @enderror" placeholder="" value="{{ old('kerabatTiga') }}" required>
+                        <label for="kerabatTiga" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
+                                <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
+                                <rect width="18" height="18" x="3" y="4" rx="2" />
+                                <circle cx="12" cy="10" r="2" />
+                                <line x1="8" x2="8" y1="2" y2="4" />
+                                <line x1="16" x2="16" y1="2" y2="4" />
+                            </svg>
+                            Kontak Kerabat Member 3
+                        </label>
+                    </div>
+                    @error('kerabatTiga')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
-                @error('kerabatTiga')
-                <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
             </div>
     </div>
 
