@@ -6,6 +6,11 @@
         background-color: #d4d4d4
     }
 
+    div.dt-container {
+        width: 100vw;
+        margin: 0 3%;
+    }
+
     select.dt-input {
         width: 65px !important;
         margin-right: 5px !important;
@@ -16,7 +21,7 @@
         max-height: 600px;
         width: auto;
     }
-    
+
     .dt-search {
         display: flex !important;
         justify-content: start !important;
@@ -35,17 +40,6 @@
 
 
 @include('admin.components.navbar')
-
-
-@if (session()->has('success'))
-<script>
-    Swal.fire({
-        icon: 'success',
-        title: 'Berhasil',
-        text: '{{ session("success") }}'
-    })
-</script>
-@endif
 
 
 <section class="cards">
@@ -67,8 +61,8 @@
 <div class="flex justify-center">
     <div class="flex justify-center mt-10 p-5 bg-white w-11/12 rounded-lg">
         <div class="relative overflow-x-auto w-11/12">
-            <table id="myTable" class="display stripe" style="width: 100%">
-                <thead class="bg-gray-800 text-gray-50">
+            <table id="myTable" class="display" style="width:100%">
+                <thead>
                     <tr>
                         <th>No</th>
                         <th>Username</th>
@@ -79,6 +73,10 @@
                         <th>Bukti Pembayaran</th>
                         <th>Data Anggota</th>
                         <th>Validasi</th>
+                        <th>Anggota 1</th>
+                        <th>Anggota 2</th>
+                        <th>Anggota 3</th>
+                        <th>Kontak Sekolah</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -175,54 +173,66 @@
                             <form action="{{ route('admin.validate') }}" method="post" id="form{{ $loop->iteration }}">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $peserta->id }}">
-                                <button type="button" onclick="Swal.fire({
-                                            icon: 'question',
-                                            title: 'Confirmation',
-                                            text: 'Are you sure u want to validate?',
-                                            showCancelButton: true,
-                                        }).then((result) => {
-                                            if (result.isConfirmed) {
-                                                document.getElementById('form{{ $loop->iteration }}').submit();
-                                            }
-                                        });" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Validate</button>
+                                <button type="submit" onclick="swalAlert()" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Validate</button>
                             </form>
+                            <script>
+                                function swalAlert(e) {
+                                    Swal.fire({
+                                        title: "Validated!",
+                                        text: "Account has been validated",
+                                        icon: "success"
+                                    });
+                                    document.getElementById('{{ $loop->iteration }}').submit();
+                                }
+                            </script>
                             @else
                             Already Validated
                             @endif
                         </td>
+                        <td>{{ $peserta->namaKetua }}</td>
+                        <td>{{ $peserta->namaKedua }}</td>
+                        <td>{{ $peserta->namaKetiga }}</td>
+                        <td>{{ $peserta->kontakSekolah }}</td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-    @endsection
+</div>
+@endsection
 
-    @section('script')
-    <script>
-        $(document).ready(function() {
-            $('#myTable').DataTable({
-                'bInfo': false,
-                'bLengthChange': false,
-                'language': {
-                    searchPlaceholder: 'Search for Peserta'
-                },
-                columnDefs: [{
-                    targets: '_all',
-                    className: 'dt-body-left'
-                }],
-                columns: [
-                    null, null, null, {
-                        width: '15%'
-                    },
-                    null, {
-                        width: '1%'
-                    }, {
-                        width: '15%'
-                    },
-                    null, null
-                ]
-            });
-        });
-    </script>
-    @endsection
+@section('script')
+<script>
+    new DataTable('#myTable', {
+        scrollX: true,
+        'bInfo': false,
+        'bLengthChange': false,
+        'language': {
+            searchPlaceholder: 'Search for Peserta'
+        },
+        columnDefs: [{
+            targets: '_all',
+            className: 'dt-body-left'
+        }],
+        // columns: [
+            // null, null, null, {
+            //     width: '15%'
+            // },
+            // null, {
+            //     width: '1%'
+            // }, {
+            //     width: '15%'
+            // },
+            // null, null
+        // ],
+
+        layout: {
+            topStart: {
+                buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+            }
+        },
+
+    });
+</script>
+@endsection
