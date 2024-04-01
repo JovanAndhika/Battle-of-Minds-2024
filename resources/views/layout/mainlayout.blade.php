@@ -25,15 +25,11 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <link rel="stylesheet" href="css/sidebar.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Geologica&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
-    </style>
+
     @yield('head')
 </head>
 
 <body>
-    @include('partials.navbarshort')
 
     @yield('content')
 

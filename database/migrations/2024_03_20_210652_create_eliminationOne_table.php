@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kuncis_paket_a', function (Blueprint $table) {
-            $table->string('soal_no')->unique();
-            $table->string('jawaban');
+        Schema::create('eliminationone', function (Blueprint $table) {
+            $table->id();
+            $table->string('soal1');
+            $table->string('soal2');
+            $table->string('visibilityState');
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kuncis_paket_a');
+        Schema::dropIfExists('eliminationone');
     }
 };

@@ -45,22 +45,10 @@
         line-height: 1.5rem;
         border-top: 3px solid;
         letter-spacing: 0;
-        background-color: transparent !important;
-        font-family: 'Geologica', sans-serif;
-        /* Ganti dengan gambar atau nilai yang sesuai */
-        border-image: linear-gradient(to right, transparent, white, transparent) 1;
-    }
-
-
-    /* .accordion-item-body-content {
-        padding: 1rem;
-        line-height: 1.5rem;
-        border-top: 3px solid;
-        letter-spacing: 0;
         background-color: !important;
         font-family: 'Geologica', sans-serif;
         border-image: linear-gradient(to right, transparent, white, transparent) 1;
-    } */
+    }
 
     .text {
         position: relative;
@@ -265,14 +253,16 @@
             clip: rect(83px, auto, 40px, 30px);
         }
     }
+
 </style>
 
 <section class="faq-section w-screen flex justify-center items-center flex-col sticky top-16 z-[-1] h-fit" id="faq">
     <div class="flex justify-center items-center h-24 text-3xl font-bold">
-        <h1 class="faq-title text text-4xl text-center leading-normal w-4/5 max-md:text-3xl" data-text="Frequently Asked Questions">Frequently Asked Questions</h1>
+        <h1 class="faq-title text text-4xl text-center leading-normal w-4/5 max-md:text-3xl"
+            data-text="Frequently Asked Questions">Frequently Asked Questions</h1>
     </div>
     <div class="accordion w-screen lg:w-4/5 md:w-3/4 sm:w-3/5 max-sm:w-4/5">
-        <div class="accordion-item">
+        <div class="accordion-item !my-8">
             <div class="accordion-item-header sm:text-lg max-sm:text-base">
                 Apa itu BoM?
             </div>
@@ -285,7 +275,7 @@
                 </div>
             </div>
         </div>
-        <div class="accordion-item">
+        <div class="accordion-item !my-8">
             <div class="accordion-item-header sm:text-lg max-sm:text-base">
                 Siapa saja yang bisa mengikuti kegiatan BoM?
             </div>
@@ -296,7 +286,7 @@
                 </div>
             </div>
         </div>
-        <div class="accordion-item">
+        <div class="accordion-item !my-8">
             <div class="accordion-item-header sm:text-lg max-sm:text-base">
                 Question 3
             </div>
@@ -308,7 +298,7 @@
                 </div>
             </div>
         </div>
-        <div class="accordion-item">
+        <div class="accordion-item !my-8">
             <div class="accordion-item-header sm:text-lg max-sm:text-base">
                 Question 4
             </div>
@@ -318,47 +308,26 @@
                     this protocol defines how messages are formatted and transmitted, and what actions Web servers and
                     browsers should take in response to various commands.
                 </div>
-                <div class="accordion-item !my-8">
-                    <div class="accordion-item-header sm:text-lg max-sm:text-base">
-                        Question 4
-                    </div>
-                    <div class="accordion-item-body">
-                        <div class="accordion-item-body-content sm:text-lg max-sm:text-base">
-                            HTTP, aka HyperText Transfer Protocol, is the underlying protocol used by the World Wide Web and
-                            this protocol defines how messages are formatted and transmitted, and what actions Web servers and
-                            browsers should take in response to various commands.
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <div class="accordion-item !my-8">
+            <div class="accordion-item-header sm:text-lg max-sm:text-base">
+                Question 5
+            </div>
+            <div class="accordion-item-body">
+                <div class="accordion-item-body-content sm:text-lg max-sm:text-base">
+                    CORS, aka Cross-Origin Resource Sharing, is a mechanism that enables many resources (e.g. images,
+                    stylesheets, scripts, fonts) on a web page to be requested from another domain outside the domain
+                    from which the resource originated.
                 </div>
-                <div class="accordion-item">
-                    <div class="accordion-item-header sm:text-lg max-sm:text-base">
-                        Question 5
-                    </div>
-                    <div class="accordion-item-body">
-                        <div class="accordion-item-body-content sm:text-lg max-sm:text-base">
-                            CORS, aka Cross-Origin Resource Sharing, is a mechanism that enables many resources (e.g. images,
-                            stylesheets, scripts, fonts) on a web page to be requested from another domain outside the domain
-                            from which the resource originated.
-                        </div>
-                        <div class="accordion-item !my-8">
-                            <div class="accordion-item-header sm:text-lg max-sm:text-base">
-                                Question 5
-                            </div>
-                            <div class="accordion-item-body">
-                                <div class="accordion-item-body-content sm:text-lg max-sm:text-base">
-                                    CORS, aka Cross-Origin Resource Sharing, is a mechanism that enables many resources (e.g. images,
-                                    stylesheets, scripts, fonts) on a web page to be requested from another domain outside the domain
-                                    from which the resource originated.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 
 <script>
     const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
-
     accordionItemHeaders.forEach(accordionItemHeader => {
         accordionItemHeader.addEventListener("click", event => {
 
