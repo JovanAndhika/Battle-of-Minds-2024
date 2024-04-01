@@ -217,18 +217,16 @@
             }
 
             label.form-label[for="kontakSekolah"] {
-                top: -5px;
+                top: 5px;
             }
 
 
-            svg.lucide.lucide-contact{
-                margin-top: -5px;
+            /* svg.lucide.lucide-contact{
+                position: relative;
+  
 
-            }
-       
- 
-
- 
+            } */
+            
             .form-label svg {
                 margin-right: 10px;
                 margin-top: -5px;
@@ -264,13 +262,13 @@
 
 
                /* KONTAK SEKOLAH */
-               .floating-label input:focus~label[for="kontakSekolah"],
+            .floating-label input:focus~label[for="kontakSekolah"],
             .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] {
                 padding-top: 15px;
 
             }
 
-            @media screen and (min-width: 300px) and (max-width: 768px) {
+            @media screen (max-width: 768px) {
             /* FOCUS: KONTAK SEKOLAH */
             /* ????? */
             /* label[for="kontakSekolah"]:focus {
@@ -285,8 +283,9 @@
 
             /* LABEL KONTAK SEKOLAH */
             label.form-label[for="kontakSekolah"] {
-                top: -5px;
+                top: 5px !important;
             }
+
 
             /* SVG LABEL KONTAK SEKOLAH */
             label.form-label[for="kontakSekolah"] svg {
@@ -302,7 +301,7 @@
         }
 
        
-            @media screen and (min-width: 768px) and (max-width: 1200px) {
+            @media screen (max-width: 1200px) {
                 select#jenisKonsumsi,  
                 #alergi::placeholder {
                 font-size: 14px;
@@ -322,6 +321,7 @@
         
             label.form-label{
                 font-size: 14px;  
+                padding: 100px;
                 
             }
 
@@ -333,8 +333,7 @@
             /* ????? */
             /* LABEL KONTAK SEKOLAH */
             label.form-label[for="kontakSekolah"] {
-                background: yellow !important;
-                top: -20px !important;
+                top: -10px !important;
             }
 
             /* SVG LABEL KONTAK SEKOLAH */
