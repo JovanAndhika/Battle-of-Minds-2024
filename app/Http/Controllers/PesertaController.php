@@ -19,6 +19,12 @@ class PesertaController extends Controller
         return view('homepage', ['title' => 'BOM 2024 | PETRA CHRISTIAN UNIVERSITY']);
     }
 
+    //INDEX
+    public function buram()
+    {
+
+        return view('buram', ['title' => 'BOM 2024 | PETRA CHRISTIAN UNIVERSITY']);
+    }
 
     // REGISTRATION HANDLER
     public function registration()
@@ -53,10 +59,24 @@ class PesertaController extends Controller
 
 
         $validatedData['confirmPass'] = Hash::make($validatedData['confirmPass']);
+        $password = $request->input('passPeserta');
 
+        $booleanCheck = Hash::check($password, $validatedData['confirmPass']);
+
+        if(!$booleanCheck){
+            return back()->with('password_not_same', 'password is not the same');
+        }
 
         if ($request->file('buktiTransaksi')) {
-            $validatedData['buktiTransaksi'] = $request->file('buktiTransaksi')->store('public/folder-transaksi');
+            $file = $request->file('buktiTransaksi');
+
+            $nama_bukti_transaksi = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file->getClientOriginalExtension();
+            $fileNameToStore = $nama_bukti_transaksi . '.' . $extension;
+
+
+            $validatedData['buktiTransaksi'] = $file->storeAs('bukti-transaksi/', $fileNameToStore, 'public');
+            $file->move(public_path('bukti-transaksi'), $fileNameToStore);
         }
 
         Peserta::create($validatedData);
@@ -103,7 +123,7 @@ class PesertaController extends Controller
             $inputPass = $request->password;
 
             $id = $cekUsernameKelompok->id;
-            
+
             if ($cekUsernameKelompok == 1 && Hash::check($inputPass, $passPeserta)) {
                 $usernameKelompok = DB::table('pesertas')->select('usernameKelompok')->where('usernameKelompok', $request->nrp)->value('usernameKelompok');
                 return redirect()->route('eliminationone')->with('usernameKelompok', $usernameKelompok);

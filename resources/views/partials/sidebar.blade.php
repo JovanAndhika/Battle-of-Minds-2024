@@ -33,7 +33,7 @@
                         stroke-linejoin="round" class="lucide lucide-user-round-plus">
                         <path d="M2 21a8 8 0 0 1 13.292-6" />
                         <circle cx="10" cy="8" r="5" />
-                        <path d="M19 16v6" />
+                        <path d="M19 16v6" />`
                         <path d="M22 19h-6" />
                     </svg>
                 </i>
@@ -41,7 +41,7 @@
             </a>
         </li>
         <li class="list-item">
-            <a href="{{ route('index') }}">
+            <a href="#">
                 <i>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -88,7 +88,7 @@
             </a>
         </li>
         <li class="list-item">
-            <a href="#">
+            <a href="#guide">
                 <i>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -104,7 +104,7 @@
             </a>
         </li>
         <li class="list-item">
-            <a href="#">
+            <a href="#faq">
                 <i><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" class="lucide lucide-message-circle-question">
@@ -131,6 +131,20 @@
                     </svg>
                 </i>
                 <span class="link-name" style="--i:7">Quiz</span>
+            </a>
+        </li>
+
+        <li class="list-item">
+            <a href="#footer">
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-messages-square">
+                        <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2z" />
+                        <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
+                    </svg>
+                </i>
+                <span class="link-name" style="--i:8">Contacts</span>
             </a>
         </li>
 
