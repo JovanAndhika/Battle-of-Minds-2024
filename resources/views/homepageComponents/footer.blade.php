@@ -13,12 +13,13 @@
 
     .contacts {
         background: linear-gradient(180deg, transparent 0%, transparent 49%, rgb(255, 255, 255) 100%) !important;
-        transition: .3s ease;
+        transition: .4s ease;
         /* animation: digital 2.5s linear infinite; */
     }
 
     .contacts:hover {
         box-shadow: 0px -28px 15px 0px rgba(255, 255, 255, 1) inset;
+        border-top: 2.5px solid white;
     }
 
 
