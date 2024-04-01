@@ -23,9 +23,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], fu
     Route::get('/', [AdminController::class, 'peserta'])->name('index');
     Route::post('/validate', [AdminController::class, 'validasi'])->name('validate');
     Route::get('/adminRole/selection', [AdminController::class, 'adminSelection'])->name('adminSelection');
-    Route::post('adminRole/setSelection/{peserta}', [AdminController::class, 'setReady'])->name('setReady');
+    Route::post('adminRole/makeDataAll', [AdminController::class, 'makeDataAll'])->name('makeDataAll');
+    Route::post('adminRole/setSelection', [AdminController::class, 'setReadyA'])->name('setReadyA');
 });
-
 
 
 

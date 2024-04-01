@@ -12,7 +12,7 @@
     }
 
     select.dt-input {
-        width: 65px !important;
+        width: 10% !important;
         margin-right: 5px !important;
     }
 

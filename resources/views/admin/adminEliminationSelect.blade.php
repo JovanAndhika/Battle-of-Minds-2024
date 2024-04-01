@@ -1,18 +1,104 @@
-@extends('layout.mainlayout')
+@extends('admin.layout.main')
 
 @section('content')
-<div>
-    <h1>Ini halaman utama Eliminasi 1</h1>
+<style>
+    body {
+        background-color: #d4d4d4
+    }
+
+    div.dt-container {
+        width: 100vw;
+        margin: 0 3%;
+    }
+
+    select.dt-input {
+        width: 65px !important;
+        margin-right: 5px !important;
+    }
+
+    .dt-search {
+        display: flex !important;
+        justify-content: start !important;
+    }
+
+    .dt-search label {
+        display: none
+    }
+
+    .dt-input {
+        border-radius: 10px !important;
+        width: 300px !important;
+        margin-bottom: 5px
+    }
+</style>
+
+@include('admin.components.navbar')
+<div class="flex justify-center">
+    <div class="flex justify-center mt-10 p-5 bg-white w-11/12 rounded-lg">
+        <div class="relative overflow-x-auto w-11/12">
+            <table id="myTable" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Paket A</th>
+                        <th>Paket B</th>
+                        <th>Paket C</th>
+                        <th>Paket D</th>
+                        <th>Paket E</th>
+                        <th>Paket F</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Set Jawaban</td>
+                        <td>
+                            <form action="{{ route('admin.setReadyA') }}" method="post">
+                                @csrf
+                                <button type="submit" id="1-submit-a" class="btn btn-primary">Set Paket A</button>
+                            </form>
+                            <script>
+                                $("#1-submit-a").on("click", function() {
+                                    $("#1-submit-a").prop("disabled", true);
+                                });
+                            </script>
+                        </td>
+                        <td>B</td>
+                        <td>C</td>
+                        <td>D</td>
+                        <td>E</td>
+                        <td>F</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+@endsection
 
-<div>
-    @foreach ($pesertas as $peserta)
-    <form action="{{ route('admin.setReady', ['peserta' => $peserta] )}}" method="post">
-        @csrf
-        <button type="submit" class="btn btn-primary">Set</button>
-    </form>
-    @endforeach
-
-
-</div>
+@section('script')
+<script>
+    new DataTable('#myTable', {
+        scrollX: true,
+        'bInfo': false,
+        'bLengthChange': false,
+        'language': {
+            searchPlaceholder: 'Search for Peserta'
+        },
+        columnDefs: [{
+            targets: '_all',
+            className: 'dt-body-left'
+        }],
+        // columns: [
+        // null, null, null, {
+        //     width: '15%'
+        // },
+        // null, {
+        //     width: '1%'
+        // }, {
+        //     width: '15%'
+        // },
+        // null, null
+        // ],
+    });
+</script>
 @endsection

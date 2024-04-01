@@ -8,6 +8,7 @@ use App\Models\Data_jawaban;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Set_jawaban_status;
 
 class AdminController extends Controller
 {
@@ -37,22 +38,34 @@ class AdminController extends Controller
     public function adminSelection()
     {
         $pesertas = Peserta::all();
-        return view('admin.adminEliminationSelect', ['title' => 'Selection', 'pesertas' => $pesertas, 'active' => 'peserta']);
+        $makeDataAll = Set_jawaban_status::all();
+        return view('admin.adminEliminationSelect', [
+            'title' => 'Selection',
+            'pesertas' => $pesertas,
+            'active' => 'peserta',
+            'makeDataAll' => $makeDataAll
+        ]);
     }
 
-    public function setReady(Peserta $peserta)
+    public function setReadyA()
     {
-        $jumlahPeserta = DB::table('pesertas')->count();
-        for ($i = 1; $i <= $jumlahPeserta; $i++) {
-
+        $pesertas = Peserta::all();
+        
+        foreach ($pesertas as $p) {
             for ($j = 1; $j <= 50; $j++) {
                 Data_jawaban::create([
-                    'kelompok_id' => $peserta->id,
+                    'kelompok_id' => $p->id,
                     'soal_no' => $j,
                     'jawaban' => 'z'
                 ]);
             }
+
+            $affected = DB::table('set_jawabans_status')
+                ->where('kelompok_id', $p->id)
+                ->update(['status_paket_a' => true]);
         }
+
+
         return redirect()->route('adminSelection')->with('set_success', 'set is succes');
     }
 }
