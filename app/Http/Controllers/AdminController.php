@@ -23,11 +23,6 @@ class AdminController extends Controller
     }
 
     // Nanti admin bisa validasi peserta yang mendaftar
-    public function adminSelection()
-    {
-        $pesertas = Peserta::all();
-        return view('admin.adminEliminationSelect', ['title' => 'Selection', 'pesertas' => $pesertas]);
-    }
 
     public function setReady(Peserta $peserta)
     {
@@ -99,12 +94,10 @@ class AdminController extends Controller
     public function adminSelection()
     {
         $pesertas = Peserta::all();
-        $makeDataAll = Set_jawaban_status::all();
         return view('admin.adminEliminationSelect', [
             'title' => 'Selection',
             'pesertas' => $pesertas,
             'active' => 'peserta',
-            'makeDataAll' => $makeDataAll
         ]);
     }
 
