@@ -297,6 +297,7 @@
 
 
     @media screen and (min-width: 768px) and (max-width: 1200px) {
+
         select#jenisKonsumsi,
         #alergi::placeholder {
             font-size: 14px;
@@ -539,7 +540,7 @@
                 </div>
             </div>
 
-            
+
 
             <div class="row">
                 <div class="mb-3 col-md-6">
@@ -571,14 +572,26 @@
                     @enderror
                 </div>
 
-                <div class="col-md-6">
-                    <label for="kerabatDua" class="form-label">Kontak Kerabat member 2 yang bisa dihubungi</label>
-                    <input type="text" id="kerabatDua" name="kerabatDua" class="form-control @error('kerabatDua') is-invalid @enderror" placeholder="(no.wa / no.telp)" value="{{ old('kerabatDua') }}" required>
+                <div class="mb-3 col-md-6">
+                    <div class="floating-label">
+                        <input type="text" id="kerabatDua" name="kerabatDua" class="form-control @error('kerabatDua') is-invalid @enderror" placeholder="" value="{{ old('kerabatDua') }}" required>
+                        <label for="kerabatDua" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
+                                <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
+                                <rect width="18" height="18" x="3" y="4" rx="2" />
+                                <circle cx="12" cy="10" r="2" />
+                                <line x1="8" x2="8" y1="2" y2="4" />
+                                <line x1="16" x2="16" y1="2" y2="4" />
+                            </svg>
+                            Kontak Kerabat Member 3
+                        </label>
+                    </div>
                     @error('kerabatDua')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
+
 
 
             <div class="row">
@@ -618,63 +631,63 @@
                     @enderror
                 </div>
             </div>
+
+
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="jenisKonsumsi" class="form-label mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-utensils">
+                            <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+                            <path d="M7 2v20" />
+                            <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
+                        </svg>Jenis Konsumsi</label>
+                    <select class="form-select @error('jenisKonsumsi') is-invalid @enderror" id="jenisKonsumsi" name="jenisKonsumsi" aria-label="Default select example" required>
+                        <option selected>Pilih jenis konsumsi...</option>
+                        <option value="normal">Normal</option>
+                        <option value="vege">Vege</option>
+                        <option value="vegan">Vegan</option>
+                    </select>
+                    @error('jenisKonsumsi')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label for="alergi" class="form-label"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase-medical">
+                            <path d="M12 11v4" />
+                            <path d="M14 13h-4" />
+                            <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                            <path d="M18 6v14" />
+                            <path d="M6 6v14" />
+                            <rect width="20" height="14" x="2" y="6" rx="2" />
+                        </svg>Apakah ada anggota yang mempunyai alergi?</label>
+                    <input type="text" class="form-control @error('alergi') is-invalid @enderror" id="alergi" name="alergi" placeholder="Jika tidak ada, bisa inputkan '-'" value="{{ old('alergi') }}" required style="color: white;">
+                    @error('alergi')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="buktiTransaksi" class="form-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-dollar-sign">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+                            <path d="M12 18V6" />
+                        </svg>
+
+                        Bukti transaksi</label>
+                    <input class="form-control input-transaksi @error('buktiTransaksi') is-invalid @enderror" type="file" name="buktiTransaksi" required>
+                    @error('buktiTransaksi')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <button type="submit" id="btn-submit" class="btn btn-primary btn-lg mt-2">SUBMIT</button>
+        </form>
     </div>
-
-    <div class="row">
-        <div class="mb-3 col-md-6">
-            <label for="jenisKonsumsi" class="form-label mb-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-utensils">
-                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
-                    <path d="M7 2v20" />
-                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
-                </svg>Jenis Konsumsi</label>
-            <select class="form-select @error('jenisKonsumsi') is-invalid @enderror" id="jenisKonsumsi" name="jenisKonsumsi" aria-label="Default select example" required>
-                <option selected>Pilih jenis konsumsi...</option>
-                <option value="normal">Normal</option>
-                <option value="vege">Vege</option>
-                <option value="vegan">Vegan</option>
-            </select>
-            @error('jenisKonsumsi')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-        </div>
-
-        <div class="mb-3 col-md-6">
-            <label for="alergi" class="form-label"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase-medical">
-                    <path d="M12 11v4" />
-                    <path d="M14 13h-4" />
-                    <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
-                    <path d="M18 6v14" />
-                    <path d="M6 6v14" />
-                    <rect width="20" height="14" x="2" y="6" rx="2" />
-                </svg>Apakah ada anggota yang mempunyai alergi?</label>
-            <input type="text" class="form-control @error('alergi') is-invalid @enderror" id="alergi" name="alergi" placeholder="Jika tidak ada, bisa inputkan '-'" value="{{ old('alergi') }}" required style="color: white;">
-            @error('alergi')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="mb-3 col-md-6">
-            <label for="buktiTransaksi" class="form-label">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-dollar-sign">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
-                    <path d="M12 18V6" />
-                </svg>
-
-                Bukti transaksi</label>
-            <input class="form-control input-transaksi @error('buktiTransaksi') is-invalid @enderror" type="file" name="buktiTransaksi" required>
-            @error('buktiTransaksi')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-        </div>
-    </div>
-
-    <button type="submit" id="btn-submit" class="btn btn-primary btn-lg mt-2">SUBMIT</button>
-    </form>
-</div>
 </div>
 
 <script>
