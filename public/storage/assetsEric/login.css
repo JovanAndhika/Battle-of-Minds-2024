@@ -71,14 +71,13 @@ form {
 #passwordBox {
     animation: fadeup 0.65s;
 }
+
 .login {
-    align-items: center;
-    justify-content: center;
-    text-align: center;
     margin-top: 1.5rem;
     margin-bottom: 2.5rem;
     animation: fadeleft 0.75s;
 }
+
 button {
     padding-left: 5px;
     padding-top: 5%;
@@ -167,11 +166,6 @@ img {
     }
 
     .login {
-        margin-top: 1.5rem;
-        margin-bottom: 2.5rem;
-        animation: fadeleft 0.75s;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
+        padding-left: 7%;
     }
 }
