@@ -36,7 +36,6 @@
         margin-bottom: 5px
     }
 </style>
-@include('admin.components.navbar')
 
 <section class="cards">
     <div class="flex lg:flex-row min-[320px]:flex-col justify-center">
@@ -57,7 +56,7 @@
     <div class="flex justify-center mt-10 p-5 bg-white w-11/12 rounded-lg">
         <div class="relative overflow-x-auto w-11/12">
             <table id="myTable" class="display stripe" style="width: 100%">
-                <thead class="bg-white-800 text-gray-50">
+                <thead class="bg-gray-900 text-gray-50">
                     <tr>
                         <th>No</th>
                         <th>Username</th>
@@ -168,14 +167,23 @@
                             </form>
 
                             <script>
-                                function swalAlert(e) {
+                                document.getElementById("form{{ $loop->iteration }}").addEventListener("submit", function(event) {
+                                    event.preventDefault(); // Menghentikan aksi bawaan formulir
                                     Swal.fire({
-                                        title: "Validated!",
-                                        text: "Account has been validated",
-                                        icon: "success"
+                                        title: "Confirm Validation?",
+                                        text: "Click yes to validate",
+                                        icon: "warning",
+                                        showCancelButton: true,
+                                        confirmButtonColor: "#3085d6",
+                                        cancelButtonColor: "#d33",
+                                        confirmButtonText: "Yes, Validate"
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            // Lanjutkan dengan pengiriman formulir jika pengguna menekan tombol "Yes"
+                                            this.submit();
+                                        }
                                     });
-                                    document.getElementById('{{ $loop->iteration }}').submit();
-                                }
+                                });
                             </script>
                             @else
                             Already Validated

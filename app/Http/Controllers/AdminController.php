@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Peserta;
 use App\Models\Data_jawaban;
 use Illuminate\Http\Request;
@@ -44,22 +43,25 @@ class AdminController extends Controller
     }
 
 
-    // Nanti admin bisa validasi peserta yang mendaftar
+    // MENU SET SOAL
     public function adminSelection()
     {
         $pesertas = Peserta::all();
-        return view('admin.adminEliminationSelect', [
+        return view('admin.adminSelectionSelect', [
             'title' => 'Selection',
             'pesertas' => $pesertas,
             'active' => 'peserta',
         ]);
     }
 
+
+    // SET PAKET A
     public function setReadyA()
     {
         $pesertas = Peserta::all();
-        
         foreach ($pesertas as $p) {
+
+
             for ($j = 1; $j <= 50; $j++) {
                 Data_jawaban::create([
                     'kelompok_id' => $p->id,
@@ -68,12 +70,12 @@ class AdminController extends Controller
                 ]);
             }
 
-            $affected = DB::table('set_jawabans_status')
-                ->where('kelompok_id', $p->id)
-                ->update(['status_paket_a' => true]);
+            $affected = Set_jawaban_status::create([
+                'kelompok_id' => $p->id,
+                'status_paket_a' => true
+            ]);
         }
-
-
-        return redirect()->route('adminSelection')->with('set_success', 'set is succes');
+        
+        return redirect()->route('admin.adminSelection')->with('set_success', 'set is succes');
     }
 }

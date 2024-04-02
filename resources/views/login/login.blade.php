@@ -12,9 +12,6 @@
     <!-- Bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-
-
-
     </style>
     <title>LOGIN BOM</title>
 </head>
@@ -30,10 +27,10 @@
                     <img src="{{ asset('storage/assetsEric/spaceHerta1.png') }}" class="img-fluid " alt="">
                 </div>
 
-                <div class="col-8 col-lg-4">
+                <div class="col-lg-4">
 
                     <div class="center login">
-                        <h2 class="text-center text-white">LOGIN</h2>
+                        <h2 class="text-white">LOGIN</h2>
                     </div>
 
                     @if(session()->has('loginError'))
