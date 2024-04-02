@@ -7,11 +7,12 @@
             font-family: 'Orbitron', sans-serif;
             letter-spacing: 0.15rem;
         }
-/* 
-        input {
-            font-family: 'Geologica', sans-serif !important;
-            letter-spacing: 0.09rem !important;
-        } */
+
+        /*
+            input {
+                font-family: 'Geologica', sans-serif !important;
+                letter-spacing: 0.09rem !important;
+            } */
 
         body {
             color: white;
@@ -197,7 +198,7 @@
             height: 31px;
         }
 
-        .lucide-briefcase-medical{
+        .lucide-briefcase-medical {
             width: 24px !important;
             height: 24px !important;
         }
@@ -243,6 +244,7 @@
 
             .title {
                 font-size: 2.2rem;
+                margin-top: 80px;
             }
 
             select#jenisKonsumsi,
@@ -353,7 +355,7 @@
     </style>
 @endsection
 
-@include('partials.navbarshort')
+@include('partials.sidebar')
 @section('content')
     <div class="container container-registration">
 
@@ -778,10 +780,9 @@
 
                     <div class="mb-3 col-md-6">
                         <label for="alergi" class="form-label alergi-label">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-briefcase-medical">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-briefcase-medical">
                                 <path d="M12 11v4" />
                                 <path d="M14 13h-4" />
                                 <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
