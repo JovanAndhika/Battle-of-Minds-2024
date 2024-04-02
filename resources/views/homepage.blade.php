@@ -3,7 +3,7 @@
 @section('head')
     <style>
         body {
-            background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 49%, rgba(0, 212, 255, 1) 100%);
+            background: linear-gradient(180deg, rgb(26, 0, 36) 0%, rgb(63, 9, 121) 49%, rgb(96, 10, 255) 100%);
             color: white;
             overflow-x: hidden;
             position: relative;
@@ -22,7 +22,7 @@
             z-index: 110;
         }
 
-        .loader {
+        .loader {   
             position: absolute;
             top: 50%;
             left: 50%;
@@ -139,6 +139,7 @@
 @section('content')
     {{-- <div class="content"> --}}
         @include('homepageComponents.about')
+        @include('homepageComponents.prizepool')
         {{-- @include('homepageComponents.timeline') --}}
         @include('homepageComponents.guide')
         @include('homepageComponents.faq')
