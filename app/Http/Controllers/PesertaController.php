@@ -143,12 +143,9 @@ class PesertaController extends Controller
     }
 
 
-    public function eliminationone()
+    public function view()
     {
-        return view('Eliminasi1.mainpage', ['title' => 'BOM 2024 | ELIMINATION 1']);
+        return view('user.view', ['title' => 'BOM 2024 | COMING SOON']);
     }
 
-    public function soaleliminationone()
-    {
-    }
 }

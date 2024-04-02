@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Peserta;
 use App\Models\Data_jawaban;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\Set_jawaban_status;
 
 class AdminController extends Controller
 {
@@ -55,11 +53,13 @@ class AdminController extends Controller
         ]);
     }
 
+
     public function setReadyA()
     {
         $pesertas = Peserta::all();
-        
         foreach ($pesertas as $p) {
+
+
             for ($j = 1; $j <= 50; $j++) {
                 Data_jawaban::create([
                     'kelompok_id' => $p->id,
