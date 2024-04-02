@@ -1,120 +1,117 @@
-@font-face {
-    font-family: 'Dash-Horizon';
-    src: url("Dashhorizon-eZ5wg.otf");
+@import url("https://fonts.googleapis.com/css2?family=Geologica&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Orbitron", sans-serif !important; /* Ubah font family menjadi Orbitron */
+    letter-spacing: 0.1rem;
 }
 
-body{
+body {
     min-height: 100vh;
     justify-content: center;
     align-items: center;
     display: flex;
     background-color: #ffffff;
     background-image: url("herta.png");
-    background-position:center;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     /* background-image: linear-gradient(315deg, #ffffff 0%, #5899e2 74%); */
 }
-.box{
+.box {
     justify-content: center;
-    margin: 1.5rem;
+    margin: 1.2rem;
     text-align: center;
-    background: rgba( 164, 34, 218, 0.35 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 12px );
--webkit-backdrop-filter: blur( 12px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
-overflow: hidden;
-    animation: fadeup 0.25s ;
+    background: rgba(164, 34, 218, 0.35);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    overflow: hidden;
+    animation: fadeup 0.25s;
 }
-.center{
+.center {
     justify-content: center;
     align-items: center;
 }
-.input-box input{
+.input-box input {
     border: none;
     background: transparent;
     outline: none;
     color: aliceblue;
     border-bottom: 2px solid white;
-    padding-right: 5rem;
+    /* padding-right: 5rem; */
     transition: 1s;
-
 }
-form{
+form {
     margin: auto;
     width: 100%;
 }
-.input-box input::placeholder{
-    font-family: 'Dash-Horizon';
+.input-box input::placeholder {
     color: azure;
-    margin: 1.5rem;
     transition: 0.5s;
     letter-spacing: 0.5rem;
-
-
 }
-.input-box{
+
+.input-box {
     margin-bottom: 2rem;
     margin-top: 2rem;
-    margin-right: 3rem;
+    /* margin-right: 2rem; */
     transition: 0.5s;
 }
-#usernameBox{
-    animation: fadeup 0.90s;
+
+#usernameBox {
+    animation: fadeup 0.9s;
 }
-#passwordBox{
+#passwordBox {
     animation: fadeup 0.65s;
 }
-.login{
-    position: relative;
-    left: -3%;
+.login {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     margin-top: 1.5rem;
     margin-bottom: 2.5rem;
     animation: fadeleft 0.75s;
 }
-button{
-    position: relative;
-    left: -6%;
-    padding-left: 1.6rem;
-    padding-right: 3rem;
-    padding-bottom: 0.5rem;
+button {
+    padding-left: 5px;
+    padding-top: 5%;
+    padding-bottom: 5%;
     width: 100px;
-    height: 10%;
+    height: 20%;
     border: none;
     background: transparent;
     cursor: pointer;
     color: white;
-    font-family: 'Dash-Horizon';
     transition: all 0.5s;
     letter-spacing: 0.25rem;
     animation: faderight 0.75s;
-    
 }
 
-button:hover{
+button:hover {
     background-color: aqua;
-    color: #00008B;
+    color: #00008b;
 }
 
+.input-box:hover input {
+    border-color: #00ced1;
+}
+.input-box:hover input::placeholder {
+    color: #00ced1;
+}
 
-.input-box:hover input{
-   border-color: #00CED1;
-   
-    
-}
-.input-box:hover input::placeholder{
-    color: #00CED1;
-}
-h2{
-    font-family: 'Dash-Horizon';
+h2 {
     font-size: 4rem;
     letter-spacing: 1rem;
 }
-  
 
-img{
+img {
     border-bottom-left-radius: 40px;
     border-top-left-radius: 40px;
     overflow: hidden;
@@ -122,82 +119,59 @@ img{
 }
 
 @keyframes fadeup {
-    from{
+    from {
         opacity: 0;
         transform: translateY(25px);
     }
-    to{
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 @keyframes fadeleft {
-    from{
+    from {
         opacity: 0;
         transform: translateX(100px);
     }
-    to{
+    to {
         opacity: 1;
         transform: translateX(0);
     }
 }
 @keyframes faderight {
-    from{
+    from {
         opacity: 0;
         transform: translateX(-100px);
     }
-    to{
+    to {
         opacity: 1;
         transform: translateX(0);
     }
 }
 
+
 @media only screen and (max-width: 600px) {
-    button{
-        position: relative;
-        left: 0%;
-        padding-left: 1.6rem;
-        padding-right: 3rem;
-        padding-bottom: 0.5rem;
-        width: 100px;
-        height: 10%;
-        border: none;
-        background: transparent;
-        cursor: pointer;
-        color: white;
-        font-family: 'Dash-Horizon';
-        transition: all 0.5s;
-        letter-spacing: 0.25rem;
-        animation: faderight 0.75s;
-        
+    .box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        background: rgba(164, 34, 218, 0.35);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        overflow: hidden;
+        animation: fadeup 0.25s;
     }
 
-    .login{
-        position: relative;
-        left: 0%;
+    .login {
         margin-top: 1.5rem;
         margin-bottom: 2.5rem;
         animation: fadeleft 0.75s;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
-
-    .input-box{
-        position: relative;
-        left: -10%;
-        width: 100px;
-        margin-bottom: 2rem;
-        margin-top: 2rem;
-        margin-right: 1rem;
-        transition: 0.5s;
-    }
-
-    .input-box input{
-        border: none;
-        background: transparent;
-        outline: none;
-        color: aliceblue;
-        border-bottom: 2px solid white;
-        padding-right: 4rem;
-        transition: 1s;
-    
-    }
-  }
+}
