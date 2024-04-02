@@ -25,11 +25,11 @@
         <form action="{{ route('authenticate') }}" method="post">
             @csrf
 
-            <div class="row center ">
+            <div class="row center">
                 <div class="d-flex col-lg-8">
-
                     <img src="{{ asset('storage/assetsEric/spaceHerta1.png') }}" class="img-fluid " alt="">
                 </div>
+
                 <div class="col-8 col-lg-4">
 
                     <div class="center login">

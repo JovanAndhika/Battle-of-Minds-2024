@@ -398,9 +398,22 @@
 
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <i class="fas fa-user"></i>
-                    <label for="kelas" class="form-label">Kelas</label>
-                    <input type="text" class="form-control @error('kelas') is-invalid @enderror" id="kelas" name="kelas" placeholder="Masukkan kelas" value="{{ old('kelas') }}" required>
+                    <div class="floating-label">
+                        <input type="text" class="form-control @error('kelas') is-invalid @enderror" id="kelas" name="kelas" placeholder="" value="{{ old('kelas') }}" required>
+                        <label for="kelas" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-university">
+                                <circle cx="12" cy="10" r="1" />
+                                <path d="M22 20V8h-4l-6-4-6 4H2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2" />
+                                <path d="M6 17v.01" />
+                                <path d="M6 13v.01" />
+                                <path d="M18 17v.01" />
+                                <path d="M18 13v.01" />
+                                <path d="M14 22v-5a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v5" />
+                            </svg>
+                            Kelas</label>
+
+                    </div>
+
                     @error('kelas')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -409,9 +422,16 @@
 
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <i class="fas fa-user"></i>
-                    <label for="jurusan" class="form-label">Jurusan</label>
-                    <input type="text" class="form-control @error('jurusan') is-invalid @enderror" id="jurusan" name="jurusan" placeholder="Masukkan jurusan (IPA/IPS/BAHASA)" value="{{ old('jurusan') }}" required>
+                    <div class="floating-label">
+                        <input type="text" class="form-control @error('jurusan') is-invalid @enderror" id="jurusan" name="jurusan" placeholder="" value="{{ old('jurusan') }}" required>
+                        <label for="jurusan" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap">
+                                <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+                                <path d="M22 10v6" />
+                                <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+                            </svg>
+                            Jurusan (IPA/IPS/BAHASA)</label>
+                    </div>
                     @error('jurusan')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -438,9 +458,20 @@
 
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <i class="fas fa-user"></i>
-                    <label for="kontakPerwakilan" class="form-label">Kontak Perwakilan Kelompok ( id line / nomor wa )</label>
-                    <input type="text" class="form-control @error('kontakPerwakilan') is-invalid @enderror" id="kontakPerwakilan" name="kontakPerwakilan" placeholder="Masukkan kontak perwakilan kelompok" value="{{ old('kontakPerwakilan') }}" required>
+                    <div class="floating-label">
+                        <input type="text" class="form-control @error('kontakPerwakilan') is-invalid @enderror" id="kontakPerwakilan" name="kontakPerwakilan" placeholder="" value="{{ old('kontakPerwakilan') }}" required>
+                        <label for="kontakPerwakilan" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
+                                <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
+                                <rect width="18" height="18" x="3" y="4" rx="2" />
+                                <circle cx="12" cy="10" r="2" />
+                                <line x1="8" x2="8" y1="2" y2="4" />
+                                <line x1="16" x2="16" y1="2" y2="4" />
+                            </svg>
+                            Kontak Perwakilan Kelompok
+                        </label>
+                    </div>
+
                     @error('kontakPerwakilan')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -472,9 +503,19 @@
 
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <i class="fas fa-lock"></i>
-                    <label for="inputConfirmPassword5" class="form-label">Confirm Password</label>
-                    <input type="password" id="confirmPass" class="form-control @error('confirmPass') is-invalid @enderror" name="confirmPass" aria-describedby="passwordHelpBlock" placeholder="Masukkan confirm password" value="{{ old('confirmPass') }}" required>
+                    <div class="floating-label">
+                        <input type="password" id="confirmPass" class="form-control @error('confirmPass') is-invalid @enderror" name="confirmPass" aria-describedby="passwordHelpBlock" placeholder="" value="{{ old('confirmPass') }}" required>
+                        <label for="inputConfirmPassword5" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-keyhole">
+                                <circle cx="12" cy="16" r="1" />
+                                <rect x="3" y="10" width="18" height="12" rx="2" />
+                                <path d="M7 10V7a5 5 0 0 1 10 0v3" />
+                            </svg>
+                            Confirm Password</label>
+
+                    </div>
+
+
                     <div id="confirmPasswordError" class="invalid-feedback" style="display: none;">Password is not the same</div>
                     @error('confirmPass')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -544,9 +585,18 @@
 
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <i class="fas fa-user"></i>
-                    <label for="kerabatSatu" class="form-label">Kontak kerabat member 1 yang bisa dihubungi</label>
-                    <input type="text" class="form-control @error('kerabatSatu') is-invalid @enderror" id="kerabatSatu" name="kerabatSatu" placeholder="(no.wa / no.telp)" value="{{ old('kerabatSatu') }}" required>
+                    <div class="floating-label">
+                        <input type="text" class="form-control @error('kerabatSatu') is-invalid @enderror" id="kerabatSatu" name="kerabatSatu" placeholder="" value="{{ old('kerabatSatu') }}" required>
+                        <label for="kerabatSatu" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
+                                <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
+                                <rect width="18" height="18" x="3" y="4" rx="2" />
+                                <circle cx="12" cy="10" r="2" />
+                                <line x1="8" x2="8" y1="2" y2="4" />
+                                <line x1="16" x2="16" y1="2" y2="4" />
+                            </svg>
+                            Kontak kerabat member 1 </label>
+                    </div>
                     @error('kerabatSatu')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
