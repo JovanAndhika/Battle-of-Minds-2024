@@ -30,7 +30,7 @@
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css" /> --}}
     <link rel="stylesheet" href="css/sidebar.css">
 
-    <style>
+    <style> 
         @import url('https://fonts.googleapis.com/css2?family=Geologica&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
