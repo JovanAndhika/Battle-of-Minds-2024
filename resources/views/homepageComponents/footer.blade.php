@@ -19,6 +19,7 @@
 
     .contacts:hover {
         box-shadow: 0px -28px 15px 0px rgba(255, 255, 255, 1) inset;
+        border-top: 1.8px solid rgba(255, 255, 255, 1);
     }
 
     .contacts i {
@@ -76,8 +77,10 @@
     <canvas class="h-[730px] w-screen z-10 absolute" id="reglCanvas"></canvas>
     {{-- <div class="footer-container h-[730px] bg-slate-500 z-10"> --}}
     <div class="footer-grid-layout py-10 lg:px-32 lg:pr-16 md:pr-10 md:px-24 h-[730px] w-screen grid grid-cols-2 grid-rows-2 max-lg:grid-rows-3 max-md:grid-rows-4 max-md:grid-cols-1
-            max-md:px-0 max-md:py-10 absolute z-20" id="footer">
-        <h1 class="font-bold text-5xl w-[450px] max-lg:text-4xl max-lg:w-96 max-lg:col-span-2 max-md:col-span-1
+            max-md:px-0 max-md:py-10 absolute z-20"
+        id="footer">
+        <h1
+            class="footer-title font-bold text-5xl w-[450px] max-lg:text-4xl max-lg:w-96 max-lg:col-span-2 max-md:col-span-1
                 max-md:text-3xl max-md:w-[300px] max-md:justify-self-center sm:leading-normal max-sm:leading-normal max-md:text-center">
             Are you ready to be the part of Battle of Minds?</h1>
         <div class="justify-self-end self-center max-lg:col-span-2 max-lg:justify-self-start max-md:col-span-1 max-md:justify-self-center">
@@ -88,7 +91,9 @@
             <li class="font-bold text-3xl text-center w-60 py-1 max-md:text-2xl">Contact Us</li>
             <div class="grid grid-cols-3">
                 <li class="py-3 flex w-20 justify-center items-center">
-                    <a data-tooltip-target="line" data-tooltip-placement="left" href="https://line.me/R/ti/p/@639vlaiy?oat_content=url" class="contacts rounded-xl w-14 h-16 text-[#4cc764] text-4xl p-5 text-center flex justify-center items-center">
+                    <a data-tooltip-target="line" data-tooltip-placement="bottom"
+                        href="https://line.me/R/ti/p/@639vlaiy?oat_content=url"
+                        class="contacts rounded-xl w-14 h-16 text-[#4cc764] text-4xl p-5 text-center flex justify-center items-center">
                         <i class="fa-brands fa-line" id="line-logo"></i>
                     </a>
                     <div id="line" role="tooltip" class="contact-text absolute z-101 invisible font-bold inline-block px-3 py-2 text-sm bg-white text-blue-800 rounded-lg shadow-sm opacity-0 tooltip">
@@ -105,7 +110,8 @@
                     </div>
                 </li>
                 <li class="py-3 flex w-20 justify-center items-center">
-                    <a data-tooltip-target="tiktok" data-tooltip-placement="right" href="" class="contacts rounded-xl w-14 h-16 text-black text-4xl p-5 text-center flex justify-center items-center">
+                    <a data-tooltip-target="tiktok" data-tooltip-placement="bottom" href=""
+                        class="contacts rounded-xl w-14 h-16 text-black text-4xl p-5 text-center flex justify-center items-center">
                         <i class="fa-brands fa-tiktok" id="tiktok-logo"></i></a>
                     <div id="tiktok" role="tooltip" class="contact-text absolute z-10 invisible font-bold inline-block px-3 py-2 text-sm bg-white text-blue-800 rounded-lg shadow-sm opacity-0 tooltip">
                         @BoMPetra

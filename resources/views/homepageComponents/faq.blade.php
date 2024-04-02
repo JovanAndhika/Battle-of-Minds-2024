@@ -7,7 +7,7 @@
     .accordion-item {
         margin: 1rem 0;
         border-radius: 0.5rem;
-        box-shadow: 2px 2px 5px 5px rgba(0, 0, 255, 0.35);
+        box-shadow: 0px 0px 50px 10px rgba(255, 255, 255, 1);
     }
 
     .accordion-item-header {
@@ -38,6 +38,7 @@
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.2s ease-out;
+
     }
 
     .accordion-item-body-content {
@@ -47,7 +48,8 @@
         letter-spacing: 0;
         /* background-color: !important; */
         font-family: 'Geologica', sans-serif;
-        border-image: linear-gradient(to right, transparent, white, transparent) 1;
+        /* border-image: linear-gradient(to right, rgba(255, 255, 255, 1), white, transparent, white, rgba(255, 255, 255, 1)) 1; */
+        border-image:white;
     }
 
     .text {
@@ -257,7 +259,8 @@
 
 <section class="faq-section w-screen flex justify-center items-center flex-col sticky top-16 z-[-1] h-fit" id="faq">
     <div class="flex justify-center items-center h-24 text-3xl font-bold">
-        <h1 class="faq-title text text-4xl text-center leading-normal w-4/5 max-md:text-3xl" data-text="Frequently Asked Questions">Frequently Asked Questions</h1>
+        <h1 class="faq-title text text-5xl text-center leading-normal w-4/5 max-md:text-3xl"
+            data-text="Frequently Asked Questions">Frequently Asked Questions</h1>
     </div>
     <div class="accordion w-screen lg:w-4/5 md:w-3/4 sm:w-3/5 max-sm:w-4/5">
         <div class="accordion-item !my-8">
