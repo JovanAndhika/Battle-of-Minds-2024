@@ -109,7 +109,7 @@ class PesertaController extends Controller
 
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
-                return redirect()->intended('/adminRole');
+                return redirect()->intended('/admin');
             }
             return back()->with('loginError', 'Login credentials invalid!');
 
@@ -119,18 +119,16 @@ class PesertaController extends Controller
             $cekUsernameKelompok = Peserta::Where('usernameKelompok', $request->nrp)
                 ->Where('is_validated', 1)
                 ->count();
-            $passPeserta = DB::table('pesertas')->select('passPeserta')->where('usernameKelompok', $request->nrp)->value('password');
+            $passPeserta = DB::table('pesertas')->select('confirmPass')->where('usernameKelompok', $request->nrp)->value('password');
             $inputPass = $request->password;
 
-            $id = $cekUsernameKelompok->id;
 
             if ($cekUsernameKelompok == 1 && Hash::check($inputPass, $passPeserta)) {
                 $usernameKelompok = DB::table('pesertas')->select('usernameKelompok')->where('usernameKelompok', $request->nrp)->value('usernameKelompok');
                 return redirect()->route('eliminationone')->with('usernameKelompok', $usernameKelompok);
             }
 
-            return redirect("{{ route('login')")->with('not_validated', 'You are still not validated')
-                ->with('id_kelompok', $id);
+            return redirect()->route('login')->with('not_validated', "You aren't validated nor registered");
         }
     }
 

@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
             'jurusan' => 'IPS',
             'kontakPerwakilan' => 'asssss',
             'confirmPass' => Hash::make('password'),
-            'namaKetua' => 'Hasan',
+            'namaKetua' => 'Hasan Surabaya ABCDEFGH',
             'emailKetua' => 'abcsefg@gmail.com',
             'kerabatSatu' => 'kepo',
             'namaKedua' => 'Yasan',
@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
             'kerabatTiga' => 'kepo',
             'jenisKonsumsi' => 'vegan',
             'alergi' => 'debu',
-            'buktiTransaksi' => 'bukti-transaksi//Screenshot (553).png',
+            'buktiTransaksi' => 'bukti-transaksi//komal.jpg',
             'created_at' => Carbon::now()->setTime(23,59,59)->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->setTime(23,59,59)->format('Y-m-d H:i:s')
         ]);

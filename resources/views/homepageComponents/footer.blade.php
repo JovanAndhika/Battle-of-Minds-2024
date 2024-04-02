@@ -13,7 +13,7 @@
 
     .contacts {
         background: linear-gradient(180deg, transparent 0%, transparent 49%, rgb(255, 255, 255) 100%) !important;
-        transition: .4s ease;
+        transition: .3s ease;
         /* animation: digital 2.5s linear infinite; */
     }
 
@@ -21,7 +21,6 @@
         box-shadow: 0px -28px 15px 0px rgba(255, 255, 255, 1) inset;
         border-top: 1.8px solid rgba(255, 255, 255, 1);
     }
-
 
     .contacts i {
         animation: flying 2.5s linear infinite;
@@ -42,7 +41,6 @@
 
     @keyframes digital {
         from {
-
             background-position: bottom;
         }
 
@@ -85,12 +83,10 @@
             class="footer-title font-bold text-5xl w-[450px] max-lg:text-4xl max-lg:w-96 max-lg:col-span-2 max-md:col-span-1
                 max-md:text-3xl max-md:w-[300px] max-md:justify-self-center sm:leading-normal max-sm:leading-normal max-md:text-center">
             Are you ready to be the part of Battle of Minds?</h1>
-        <div
-            class="justify-self-end self-center max-lg:col-span-2 max-lg:justify-self-start max-md:col-span-1 max-md:justify-self-center">
+        <div class="justify-self-end self-center max-lg:col-span-2 max-lg:justify-self-start max-md:col-span-1 max-md:justify-self-center">
             {{-- Container Logo Sponsor --}}
         </div>
-        <ul
-            class="container-sosmed list-none flex flex-col justify-center items-center justify-self-start self-end pb-0 max-lg:col-span-1
+        <ul class="container-sosmed list-none flex flex-col justify-center items-center justify-self-start self-end pb-0 max-lg:col-span-1
                 max-md:justify-self-center max-md:pb-0">
             <li class="font-bold text-3xl text-center w-60 py-1 max-md:text-2xl">Contact Us</li>
             <div class="grid grid-cols-3">
@@ -100,20 +96,15 @@
                         class="contacts rounded-xl w-14 h-16 text-[#4cc764] text-4xl p-5 text-center flex justify-center items-center">
                         <i class="fa-brands fa-line" id="line-logo"></i>
                     </a>
-                    <div id="line" role=""
-                        class="contact-text absolute invisible font-bold inline-block px-3 py-2 text-sm bg-white text-blue-800 rounded-lg shadow-sm opacity-0 tooltip">
+                    <div id="line" role="tooltip" class="contact-text absolute z-101 invisible font-bold inline-block px-3 py-2 text-sm bg-white text-blue-800 rounded-lg shadow-sm opacity-0 tooltip">
                         @612dapw
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
                 </li>
                 <li class="py-3 flex w-20 justify-center items-center">
-                    <a data-tooltip-target="instagram" data-tooltip-placement="bottom"
-                        href="https://www.instagram.com/battleofminds.pcu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                        class="contacts rounded-xl w-14 h-16 text-4xl p-5 text-center flex justify-center items-center">
+                    <a data-tooltip-target="instagram" data-tooltip-placement="bottom" href="https://www.instagram.com/battleofminds.pcu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="contacts rounded-xl w-14 h-16 text-4xl p-5 text-center flex justify-center items-center">
                         <i class="fa-brands fa-instagram" id="ig-logo"></i></a>
-
-                    <div id="instagram" role="tooltip"
-                        class="contact-text absolute z-10 invisible font-bold inline-block px-3 py-2 text-sm bg-white text-blue-800 rounded-lg shadow-sm opacity-0 tooltip">
+                    <div id="instagram" role="tooltip" class="contact-text absolute z-10 invisible font-bold inline-block px-3 py-2 text-sm bg-white text-blue-800 rounded-lg shadow-sm opacity-0 tooltip">
                         @BOMPetra
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
@@ -122,19 +113,15 @@
                     <a data-tooltip-target="tiktok" data-tooltip-placement="bottom" href=""
                         class="contacts rounded-xl w-14 h-16 text-black text-4xl p-5 text-center flex justify-center items-center">
                         <i class="fa-brands fa-tiktok" id="tiktok-logo"></i></a>
-                    <div id="tiktok" role="tooltip"
-                        class="contact-text absolute z-10 invisible font-bold inline-block px-3 py-2 text-sm bg-white text-blue-800 rounded-lg shadow-sm opacity-0 tooltip">
+                    <div id="tiktok" role="tooltip" class="contact-text absolute z-10 invisible font-bold inline-block px-3 py-2 text-sm bg-white text-blue-800 rounded-lg shadow-sm opacity-0 tooltip">
                         @BoMPetra
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
-
                 </li>
             </div>
         </ul>
-        <div
-            class="logo-univ justify-self-end self-end pb-1 xl:w-[600px] md:w-[400px] max-md:w-[280px] max-md:justify-self-center">
-            <img class="xl:w-[600px] md:w-[400px] max-sm:w-[280px]" src="{{ asset('asset/sc-bom-white.png') }}"
-                alt="LogoSC">
+        <div class="logo-univ justify-self-end self-end pb-1 xl:w-[600px] md:w-[400px] max-md:w-[280px] max-md:justify-self-center">
+            <img class="xl:w-[600px] md:w-[400px] max-sm:w-[280px]" src="{{ asset('asset/sc-bom-white.png') }}" alt="LogoSC">
         </div>
     </div>
     {{-- </div> --}}

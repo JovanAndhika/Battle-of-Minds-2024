@@ -8,6 +8,7 @@ use App\Models\Data_jawaban;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Set_jawaban_status;
 
 class AdminController extends Controller
 {
@@ -21,59 +22,8 @@ class AdminController extends Controller
         ]);
     }
 
-    // Nanti admin bisa validasi peserta yang mendaftar
-    public function adminSelection()
-    {
-        $pesertas = Peserta::all();
-        return view('admin.adminEliminationSelect', ['title' => 'Selection', 'pesertas' => $pesertas]);
-    }
-
-    public function setReady(Peserta $peserta)
-    {
-        $jumlahPeserta = DB::table('pesertas')->count();
-        for ($i = 1; $i <= $jumlahPeserta; $i++) {
-            Data_jawaban::create([
-                'kelompok_id' => $peserta->id,
-                'soal_no' => '1',
-                'jawaban' => 'z'
-            ]);
-
-            Data_jawaban::create([
-                'kelompok_id' => $peserta->id,
-                'soal_no' => '2',
-                'jawaban' => 'z'
-            ]);
-
-            Data_jawaban::create([
-                'kelompok_id' => $peserta->id,
-                'soal_no' => '3',
-                'jawaban' => 'z'
-            ]);
-
-            Data_jawaban::create([
-                'kelompok_id' => $peserta->id,
-                'soal_no' => '4',
-                'jawaban' => 'z'
-            ]);
-
-            Data_jawaban::create([
-                'kelompok_id' => $peserta->id,
-                'soal_no' => '5',
-                'jawaban' => 'z'
-            ]);
-
-
-            Data_jawaban::create([
-                'kelompok_id' => $peserta->id,
-                'soal_no' => '6',
-                'jawaban' => 'z'
-            ]);
-        }
-        return redirect()->route('adminSelection')->with('set_success', 'set is succes');
-    }
 
     // Nanti admin bisa validasi peserta yang mendaftar
-
     public function peserta()
     {
         return view('admin.listPeserta', [
@@ -90,6 +40,40 @@ class AdminController extends Controller
             ->update(['is_validated' => 1]);
 
 
-        return redirect()->route('listPeserta')->with('success', 'Berhasil melakukan validasi !');
+        return redirect()->route('admin.index')->with('success', 'Berhasil melakukan validasi !');
+    }
+
+
+    // Nanti admin bisa validasi peserta yang mendaftar
+    public function adminSelection()
+    {
+        $pesertas = Peserta::all();
+        return view('admin.adminEliminationSelect', [
+            'title' => 'Selection',
+            'pesertas' => $pesertas,
+            'active' => 'peserta',
+        ]);
+    }
+
+    public function setReadyA()
+    {
+        $pesertas = Peserta::all();
+        
+        foreach ($pesertas as $p) {
+            for ($j = 1; $j <= 50; $j++) {
+                Data_jawaban::create([
+                    'kelompok_id' => $p->id,
+                    'soal_no' => $j,
+                    'jawaban' => 'z'
+                ]);
+            }
+
+            $affected = DB::table('set_jawabans_status')
+                ->where('kelompok_id', $p->id)
+                ->update(['status_paket_a' => true]);
+        }
+
+
+        return redirect()->route('adminSelection')->with('set_success', 'set is succes');
     }
 }

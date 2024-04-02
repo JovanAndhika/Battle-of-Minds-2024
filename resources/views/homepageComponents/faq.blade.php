@@ -46,7 +46,7 @@
         line-height: 1.5rem;
         border-top: 3px solid;
         letter-spacing: 0;
-        background-color: !important;
+        /* background-color: !important; */
         font-family: 'Geologica', sans-serif;
         /* border-image: linear-gradient(to right, rgba(255, 255, 255, 1), white, transparent, white, rgba(255, 255, 255, 1)) 1; */
         border-image:white;
@@ -276,6 +276,7 @@
                 </div>
             </div>
         </div>
+
         <div class="accordion-item !my-8">
             <div class="accordion-item-header sm:text-lg max-sm:text-base">
                 Siapa saja yang bisa mengikuti kegiatan BoM?
@@ -287,6 +288,7 @@
                 </div>
             </div>
         </div>
+
         <div class="accordion-item !my-8">
             <div class="accordion-item-header sm:text-lg max-sm:text-base">
                 Question 3
@@ -299,6 +301,7 @@
                 </div>
             </div>
         </div>
+
         <div class="accordion-item !my-8">
             <div class="accordion-item-header sm:text-lg max-sm:text-base">
                 Question 4
@@ -311,9 +314,11 @@
                 </div>
             </div>
         </div>
+
         <div class="accordion-item !my-8">
             <div class="accordion-item-header sm:text-lg max-sm:text-base">
                 Question 5
+  
             </div>
             <div class="accordion-item-body">
                 <div class="accordion-item-body-content sm:text-lg max-sm:text-base">
@@ -326,12 +331,10 @@
     </div>
 </section>
 
-
 <script>
     const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
     accordionItemHeaders.forEach(accordionItemHeader => {
         accordionItemHeader.addEventListener("click", event => {
-
 
             const currentlyActiveAccordionItemHeader = document.querySelector(
                 ".accordion-item-header.active");
@@ -340,7 +343,6 @@
                 currentlyActiveAccordionItemHeader.classList.toggle("active");
                 currentlyActiveAccordionItemHeader.nextElementSibling.style.maxHeight = 0;
             }
-
             accordionItemHeader.classList.toggle("active");
             const accordionItemBody = accordionItemHeader.nextElementSibling;
             if (accordionItemHeader.classList.contains("active")) {
@@ -348,7 +350,6 @@
             } else {
                 accordionItemBody.style.maxHeight = 0;
             }
-
         });
     });
 </script>
