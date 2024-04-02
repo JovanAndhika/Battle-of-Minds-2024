@@ -57,7 +57,7 @@
     <div class="flex justify-center mt-10 p-5 bg-white w-11/12 rounded-lg">
         <div class="relative overflow-x-auto w-11/12">
             <table id="myTable" class="display stripe" style="width: 100%">
-                <thead class="bg-white-800 text-gray-50">
+                <thead class="bg-gray-900 text-gray-50">
                     <tr>
                         <th>No</th>
                         <th>Username</th>
