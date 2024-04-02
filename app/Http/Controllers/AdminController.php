@@ -47,9 +47,12 @@ class AdminController extends Controller
     public function adminSelection()
     {
         $pesertas = Peserta::all();
+        $cekPaketA = DB::table('set_jawabans_status')->where('status_paket_a', true)->limit(1)->value('status_paket_a');
+        
         return view('admin.adminSelectionSelect', [
             'title' => 'Selection',
             'pesertas' => $pesertas,
+            'cekPaketA' => $cekPaketA,
             'active' => 'peserta',
         ]);
     }
@@ -62,7 +65,7 @@ class AdminController extends Controller
         foreach ($pesertas as $p) {
 
 
-            for ($j = 1; $j <= 50; $j++) {
+            for ($j = 1; $j <= 2; $j++) {
                 Data_jawaban::create([
                     'kelompok_id' => $p->id,
                     'soal_no' => $j,

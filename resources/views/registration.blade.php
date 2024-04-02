@@ -3,6 +3,9 @@
 @section('head')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
+    *{
+        font-family: "Orbitron", sans-serif !important; /* Ubah font family menjadi Orbitron */
+    }
     body {
         color: white;
         min-height: 100vh;

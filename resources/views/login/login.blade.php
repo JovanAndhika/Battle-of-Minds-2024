@@ -29,7 +29,7 @@
 
                 <div class="col-lg-4">
 
-                    <div class="center login">
+                    <div class="center login text-center">
                         <h2 class="text-white">LOGIN</h2>
                     </div>
 
