@@ -32,7 +32,7 @@
     }
 </style>
 
-@include('admin.components.navbar')
+
 <div class="flex justify-center">
     <div class="flex justify-center mt-10 p-5 bg-white w-11/12 rounded-lg">
         <div class="relative overflow-x-auto w-11/12">
@@ -52,15 +52,10 @@
                     <tr>
                         <td>Set Jawaban</td>
                         <td>
-                            <form action="{{ route('admin.setReadyA') }}" method="post">
-                                @csrf
-                                <button type="submit" id="1-submit-a" class="btn btn-primary">Set Paket A</button>
-                            </form>
-                            <script>
-                                $("#1-submit-a").on("click", function() {
-                                    $("#1-submit-a").prop("disabled", true);
-                                });
-                            </script>
+                        <form action="{{ route('admin.setReadyA') }}" method="post">
+                            @csrf
+                            <button type="submit">Tekan</button>
+                        </form>
                         </td>
                         <td>B</td>
                         <td>C</td>

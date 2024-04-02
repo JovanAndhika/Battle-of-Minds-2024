@@ -23,10 +23,10 @@ Route::post('/logout', [PesertaController::class, 'logout'])->name('logout');
 // ADMIN
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', [AdminController::class, 'peserta'])->name('index');
-    Route::post('/validate', [AdminController::class, 'validasi'])->name('validate');
     Route::get('/selection', [AdminController::class, 'adminSelection'])->name('adminSelection');
-    Route::post('/makeDataAll', [AdminController::class, 'makeDataAll'])->name('makeDataAll');
-    Route::post('/setSelection', [AdminController::class, 'setReadyA'])->name('setReadyA');
+
+    Route::post('/validate', [AdminController::class, 'validasi'])->name('validate');
+    Route::post('/setPaketA', [AdminController::class, 'setReadyA'])->name('setReadyA');
 });
 
 

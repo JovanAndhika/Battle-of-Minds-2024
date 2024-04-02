@@ -36,7 +36,6 @@
         margin-bottom: 5px
     }
 </style>
-@include('admin.components.navbar')
 
 <section class="cards">
     <div class="flex lg:flex-row min-[320px]:flex-col justify-center">
@@ -168,14 +167,23 @@
                             </form>
 
                             <script>
-                                function swalAlert(e) {
+                                document.getElementById("form{{ $loop->iteration }}").addEventListener("submit", function(event) {
+                                    event.preventDefault(); // Menghentikan aksi bawaan formulir
                                     Swal.fire({
-                                        title: "Validated!",
-                                        text: "Account has been validated",
-                                        icon: "success"
+                                        title: "Confirm Validation?",
+                                        text: "Click yes to validate",
+                                        icon: "warning",
+                                        showCancelButton: true,
+                                        confirmButtonColor: "#3085d6",
+                                        cancelButtonColor: "#d33",
+                                        confirmButtonText: "Yes, Validate"
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            // Lanjutkan dengan pengiriman formulir jika pengguna menekan tombol "Yes"
+                                            this.submit();
+                                        }
                                     });
-                                    document.getElementById('{{ $loop->iteration }}').submit();
-                                }
+                                });
                             </script>
                             @else
                             Already Validated
