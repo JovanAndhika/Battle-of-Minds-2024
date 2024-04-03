@@ -26,6 +26,11 @@
 
     <link rel="stylesheet" href="css/sidebar.css">
 
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Geologica&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
+    </style>
     @yield('head')
 </head>
 
