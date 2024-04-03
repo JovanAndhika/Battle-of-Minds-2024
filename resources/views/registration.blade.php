@@ -168,86 +168,56 @@
     }
 
     /* RESPONSIVE */
-    @media screen (max-width: 768px) {
+    @media screen and (min-width: 300px) and (max-width: 768px) {
+        /* FOCUS: KONTAK SEKOLAH */
+        /* ????? */
 
-        .row,
-        #namaKetua,
-        #namaKetiga,
-        #kerabatTiga {
-            margin-bottom: 15px;
+        /* LABEL KONTAK SEKOLAH */
+        label.form-label[for="kontakSekolah"] {
+            padding-top: 5px !important;
         }
 
-        .title {
-            font-size: 35px;
+        /* LABEL KONTAK JURUSAN */
+        label.form-label[for="jurusan"] {
+            padding-top: 5px !important;
         }
 
-        select#jenisKonsumsi,
-        #alergi::placeholder {
-            font-size: 11px;
+        /* LABEL KONTAK PERWAKILAN */
+        label.form-label[for="kontakPerwakilan"] {
+            padding-top: 5px !important;
         }
 
-        .floating-label input:focus~label,
-        .floating-label input:not(:placeholder-shown)~label {
-            left: 10px;
-            font-size: 11px;
-            padding-top: 14px;
+        /* LABEL KONTAK usernameKelompok */
+        label.form-label[for="usernameKelompok"] {
+            padding-top: 5px !important;
         }
 
-        .form-label svg {
-            margin-right: 10px;
-            margin-top: -5px;
+        /* LABEL KONTAK confirmPass */
+        label.form-label[for="confirmPass"] {
+            padding-top: 5px !important;
         }
 
-        #alergi.form-control {
-            position: relative;
-            top: -5px;
-            padding: 11px;
+        /* LABEL KONTAK namaKetua */
+        label.form-label[for="namaKetua"] {
+            padding-top: 5px !important;
         }
 
-        #jenisKonsumsi.form-select {
-            position: relative;
-            top: -15px;
+        /* LABEL KONTAK kerabatSatu*/
+        label.form-label[for="kerabatSatu"] {
+            padding-top: 5px !important;
         }
 
-        .form-control.input-transaksi {
-            position: relative;
-            top: -20px;
-            padding: 12px;
+        /* LABEL KONTAK kerabatDua*/
+        label.form-label[for="kerabatDua"] {
+            padding-top: 5px !important;
         }
 
-        #file-upload-button,
-        ::-webkit-file-upload-button {
-            height: 46px !important;
+        /* LABEL KONTAK kerabatTiga*/
+        label.form-label[for="kerabatTiga"] {
+            padding-top: 5px !important;
         }
 
-        .input-transaksi {
-            font-size: 12px;
-            height: 46px !important;
-        }
-
-        @media screen and (max-width: 1200px) {
-
-            select#jenisKonsumsi,
-            #alergi::placeholder {
-                font-size: 14px;
-            }
-
-            .floating-label input:focus~label,
-            .floating-label input:not(:placeholder-shown)~label {
-                font-size: 14px;
-                width: 100%;
-            }
-
-            label.form-label {
-                font-size: 14px;
-                padding: 100px;
-            }
-
-            label.form-label[for="alergi"] {
-                position: relative;
-                top: -15px;
-            }
-        }
+    }
 </style>
 @endsection
 
@@ -412,7 +382,7 @@
                     <div class="mb-3">
                         <div class="floating-label">
                             <input type="password" id="confirmPass" class="form-control @error('confirmPass') is-invalid @enderror" name="confirmPass" aria-describedby="passwordHelpBlock" placeholder="" value="{{ old('confirmPass') }}" required>
-                            <label for="inputConfirmPassword5" class="form-label">
+                            <label for="confirmPass" class="form-label">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-keyhole">
                                     <circle cx="12" cy="16" r="1" />
                                     <rect x="3" y="10" width="18" height="12" rx="2" />
