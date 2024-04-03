@@ -12,12 +12,22 @@
     <!-- Bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    </style>
+    <link rel="stylesheet" href="css/sidebar.css">
     <title>LOGIN BOM</title>
+
+    <style>
+        .login{
+            padding: 0;
+        }
+        .login-button{
+            border-radius: 40px;
+            width: 200px;
+        }
+    </style>
 </head>
 
 <body>
-
+@include('partials.sidebar')
     <div class="box rounded-5 border border-blue center">
         <form action="{{ route('authenticate') }}" method="post">
             @csrf
@@ -48,14 +58,14 @@
                     @endif
 
                     <div class="input-box text-center" id="usernameBox">
-                        <input type="text" name="nrp" id="nrp" required placeholder="Username">
+                        <input type="text" name="nrp" id="nrp" required placeholder="Username" autocomplete="off">
                     </div>
 
                     <div class="input-box text-center" id="passwordBox">
-                        <input type="password" name="password" id="password" placeholder="P45sw0rd" required>
+                        <input type="password" name="password" id="password" placeholder="Password" required>
                     </div>
                     <div class="col-12 text-center my-4 px-4 py-1">
-                        <button type="submit" class="button border rounded-pill" style="color: white;">Login</button>
+                        <button type="submit" class="button border login-button" style="color: white;">Login</button>
                     </div>
                 </div>
             </div>
