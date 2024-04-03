@@ -3,9 +3,11 @@
 @section('head')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-    *{
-        font-family: "Orbitron", sans-serif !important; /* Ubah font family menjadi Orbitron */
+    * {
+        font-family: "Orbitron", sans-serif !important;
+        /* Ubah font family menjadi Orbitron */
     }
+
     body {
         color: white;
         min-height: 100vh;
@@ -273,6 +275,30 @@
     }
 
 
+    @media screen and (min-width: 200px) and (max-width: 300px) {
+
+        /* LABEL KONTAK SEKOLAH */
+        label.form-label[for="kontakSekolah"] {
+            padding-top: 0 !important;
+        }
+
+        /* SVG LABEL KONTAK SEKOLAH */
+        label.form-label[for="kontakSekolah"] svg {
+            padding-top: 5px;
+        }
+
+        /* LABEL KONTAK JURUSAN */
+        label.form-label[for="jurusan"] {
+            padding-top: 5px !important;
+        }
+
+        /* LABEL KONTAK PERWAKILAN */
+        label.form-label[for="kontakPerwakilan"] {
+            padding-top: 5px !important;
+        }
+    }
+
+
     @media screen and (min-width: 300px) and (max-width: 768px) {
         /* FOCUS: KONTAK SEKOLAH */
         /* ????? */
@@ -288,13 +314,23 @@
 
         /* LABEL KONTAK SEKOLAH */
         label.form-label[for="kontakSekolah"] {
-            top: -5px;
-            top: 5px !important;
+            padding-top: 5px !important;
         }
 
         /* SVG LABEL KONTAK SEKOLAH */
         label.form-label[for="kontakSekolah"] svg {
-            margin-top: 5px;
+            padding-top: 5px;
+        }
+
+
+        /* LABEL KONTAK JURUSAN */
+        label.form-label[for="jurusan"] {
+            padding-top: 5px !important;
+        }
+
+        /* LABEL KONTAK PERWAKILAN */
+        label.form-label[for="kontakPerwakilan"] {
+            padding-top: 5px !important;
         }
     }
 
@@ -328,10 +364,10 @@
             top: -15px;
         }
 
+
         /* ????? */
         /* LABEL KONTAK SEKOLAH */
         label.form-label[for="kontakSekolah"] {
-            background: yellow !important;
             top: -20px !important;
             top: -10px !important;
         }
@@ -357,7 +393,7 @@
             @csrf
 
             <div class="row">
-                <div class="mb-3 col-md-6">
+                <div class="mb-3">
                     <div class="floating-label">
                         <input type="text" class="form-control" id="asalSekolah" name="asalSekolah" placeholder=" " value="{{ old('asalSekolah') }}" required>
                         <label for="asalSekolah" class="form-label">
@@ -378,7 +414,7 @@
             </div>
 
             <div class="row">
-                <div class="mb-3 col-md-6">
+                <div class="mb-3">
                     <div class="floating-label">
                         <input type="text" id="kontakSekolah" name="kontakSekolah" class="form-control @error('kontakSekolah') is-invalid @enderror" placeholder="" value="{{ old('kontakSekolah') }}" required>
                         <label for="kontakSekolah" class="form-label">
@@ -400,7 +436,7 @@
             </div>
 
             <div class="row">
-                <div class="mb-3 col-md-6">
+                <div class="mb-3">
                     <div class="floating-label">
                         <input type="text" class="form-control @error('kelas') is-invalid @enderror" id="kelas" name="kelas" placeholder="" value="{{ old('kelas') }}" required>
                         <label for="kelas" class="form-label">
@@ -424,7 +460,7 @@
             </div>
 
             <div class="row">
-                <div class="mb-3 col-md-6">
+                <div class="mb-3">
                     <div class="floating-label">
                         <input type="text" class="form-control @error('jurusan') is-invalid @enderror" id="jurusan" name="jurusan" placeholder="" value="{{ old('jurusan') }}" required>
                         <label for="jurusan" class="form-label">
@@ -442,7 +478,7 @@
             </div>
 
             <div class="row">
-                <div class="mb-3 col-md-6">
+                <div class="mb-3">
                     <div class="floating-label">
                         <input type="text" class="form-control @error('usernameKelompok') is-invalid @enderror" id="usernameKelompok" name="usernameKelompok" placeholder="" value="{{ old('usernameKelompok') }}" required>
                         <label for="usernameKelompok" class="form-label">
@@ -460,7 +496,7 @@
             </div>
 
             <div class="row">
-                <div class="mb-3 col-md-6">
+                <div class="mb-3">
                     <div class="floating-label">
                         <input type="text" class="form-control @error('kontakPerwakilan') is-invalid @enderror" id="kontakPerwakilan" name="kontakPerwakilan" placeholder="" value="{{ old('kontakPerwakilan') }}" required>
                         <label for="kontakPerwakilan" class="form-label">
@@ -482,7 +518,7 @@
             </div>
 
             <div class="row">
-                <div class="mb-3 col-md-6">
+                <div class="mb-3">
                     <div class="floating-label">
                         <input type="password" id="inputPassword5" class="form-control @error('passPeserta') is-invalid @enderror" name="passPeserta" aria-describedby="passwordHelpBlock" placeholder="" value="{{ old('passPeserta') }}" required>
                         <label for="inputPassword5" class="form-label">
@@ -505,7 +541,7 @@
 
 
             <div class="row">
-                <div class="mb-3 col-md-6">
+                <div class="mb-3">
                     <div class="floating-label">
                         <input type="password" id="confirmPass" class="form-control @error('confirmPass') is-invalid @enderror" name="confirmPass" aria-describedby="passwordHelpBlock" placeholder="" value="{{ old('confirmPass') }}" required>
                         <label for="inputConfirmPassword5" class="form-label">
@@ -517,14 +553,12 @@
                             Confirm Password</label>
 
                     </div>
-
-
                     <div id="confirmPasswordError" class="invalid-feedback" style="display: none;">Password is not the same</div>
                     @error('confirmPass')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                     @if (session()->has('password_not_same'))
-                    <div class="invalid-feedback">password is not the same</div>
+                    <div id="confirmPasswordDifferent" class="alert alert-danger" style="display: block;">Password is not the same</div>
                     @endif
                 </div>
             </div>
