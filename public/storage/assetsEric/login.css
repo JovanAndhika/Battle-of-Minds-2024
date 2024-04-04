@@ -80,8 +80,6 @@ form {
 }
 
 .login {
-    position: relative;
-    left: 2%;
     margin-top: 1.5rem;
     margin-bottom: 2.5rem;
     animation: fadeleft 0.75s;
@@ -180,7 +178,6 @@ img {
     }
 
     .login {
-        position: relative;
-        left: 3%;
+        padding-left: 7%;
     }
 }

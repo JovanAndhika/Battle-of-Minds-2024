@@ -39,7 +39,7 @@
 
                 <div class="col-lg-4">
 
-                    <div class="center login text-center">
+                    <div class="center login">
                         <h2 class="text-white">LOGIN</h2>
                     </div>
 
