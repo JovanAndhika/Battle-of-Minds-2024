@@ -1,27 +1,27 @@
 @extends('layout.mainlayout')
 
 @section('head')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        * {
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 0.15rem;
-        }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    * {
+        font-family: 'Orbitron', sans-serif;
+        letter-spacing: 0.15rem;
+    }
 
-        /*
+    /*
                                     input {
                                         font-family: 'Geologica', sans-serif !important;
                                         letter-spacing: 0.09rem !important;
                                     } */
 
-        body {
-            color: white;
-            min-height: 100vh;
-            background: linear-gradient(180deg, rgb(26, 0, 36) 0%, rgb(63, 9, 121) 49%, rgb(96, 10, 255) 100%);
-            background-attachment: fixed;
-            background-position: center;
-            font-weight: 800;
-        }
+    body {
+        color: white;
+        min-height: 100vh;
+        background: linear-gradient(180deg, rgb(26, 0, 36) 0%, rgb(63, 9, 121) 49%, rgb(96, 10, 255) 100%);
+        background-attachment: fixed;
+        background-position: center;
+        font-weight: 800;
+    }
 
     .form-text {
         color: white
@@ -46,12 +46,12 @@
         box-shadow: 2px 10px 10px 2px #888888;
     }
 
-        .form-label {
-            display: grid;
-            grid-template-columns: auto auto;
-            user-select: none;
-            margin: 0;
-        }
+    .form-label {
+        display: grid;
+        grid-template-columns: auto auto;
+        user-select: none;
+        margin: 0;
+    }
 
 
     .form-label svg {
@@ -155,24 +155,24 @@
         width: 100%;
     }
 
-        .floating-label label {
-            position: absolute;
-            outline: none;
-            left: 10px;
-            top: 0;
-            padding: 15px;
-            padding-left: 8px;
-            height: 37px;
-            transition: 0.3s ease;
-            transform-origin: left top;
-            cursor: text;
-            font-size: 1rem;
-            align-self: flex-end;
-        }
+    .floating-label label {
+        position: absolute;
+        outline: none;
+        left: 10px;
+        top: 0;
+        padding: 15px;
+        padding-left: 8px;
+        height: 37px;
+        transition: 0.3s ease;
+        transform-origin: left top;
+        cursor: text;
+        font-size: 1rem;
+        align-self: flex-end;
+    }
 
-        .form-select {
-            font-size: 1rem;
-        }
+    .form-select {
+        font-size: 1rem;
+    }
 
     .floating-label input:focus {
         color: white;
@@ -190,154 +190,154 @@
         background: white;
     }
 
-        .bukti-label,
-        .alergi-label,
-        .label-konsumsi {
-            padding-bottom: 10px;
-            height: 31px;
+    .bukti-label,
+    .alergi-label,
+    .label-konsumsi {
+        padding-bottom: 10px;
+        height: 31px;
+    }
+
+    .lucide-briefcase-medical {
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    /* responsive */
+
+
+
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+        :root {
+            font-size: 14px;
         }
 
-        .lucide-briefcase-medical {
-            width: 24px !important;
-            height: 24px !important;
+        .floating-label label {
+            padding: 18px 8px;
+            font-size: 0.9rem;
         }
 
-        /* responsive */
-
-        
-
-        @media screen and (min-width: 768px) and (max-width: 992px) {
-            :root {
-                font-size: 14px;
-            }
-
-            .floating-label label {
-                padding: 18px 8px;
-                font-size: 0.9rem;
-            }
-
-            .floating-label input:focus,
-            .floating-label input:not(:placeholder-shown) {
-                padding: 18px 0 10px 14px;
-            }
-
-            .floating-label input:focus~label,
-            .floating-label input:not(:placeholder-shown)~label {
-                padding: 9px 8px;
-                transform: translateY(-50%) scale(0.9);
-            }
-
-            .form-label svg {
-                width: 24px;
-                height: 24px;
-                margin-top: -5px;
-            }
-
-            .form-select,
-            .input-alergi::placeholder {
-                font-size: 0.9rem !important;
-            }
-
-            .form-select {
-                height: 52.2px;
-            }
+        .floating-label input:focus,
+        .floating-label input:not(:placeholder-shown) {
+            padding: 18px 0 10px 14px;
         }
 
-        @media screen and (max-width: 768px) {
-
-            .title {
-                font-size: 2rem;
-                margin-top: 80px;
-            }
-
-            :root {
-                font-size: 14px;
-            }
-
-            .floating-label label {
-                padding: 18px 8px;
-                font-size: 0.9rem;
-            }
-
-            .floating-label input:focus,
-            .floating-label input:not(:placeholder-shown) {
-                padding: 18px 0 10px 14px;
-            }
-
-            .floating-label input:focus~label,
-            .floating-label input:not(:placeholder-shown)~label {
-                padding: 9px 8px;
-                transform: translateY(-50%) scale(0.9);
-            }
-
-            .form-label svg {
-                width: 24px;
-                height: 24px;
-                margin-top: -5px;
-            }
-
-            .form-select,
-            .input-alergi::placeholder {
-                font-size: 0.9rem !important;
-            }
-
-            .form-select {
-                height: 52.2px;
-            }
-
-
-
-
+        .floating-label input:focus~label,
+        .floating-label input:not(:placeholder-shown)~label {
+            padding: 9px 8px;
+            transform: translateY(-50%) scale(0.9);
         }
 
-        @media screen and (min-width: 320px) and (max-width: 462px) {
-            .floating-label label[for="kontakSekolah"] {
-                padding: 9px 8px;
-            }
-
-            .floating-label label[for="kontakSekolah"] svg {
-                margin-top: 0;
-            }
-
-            .floating-label input:focus~label[for="kontakSekolah"],
-            .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] {
-                padding: 1px 8px;
-                transform: translateY(-50%) scale(0.9);
-            }
+        .form-label svg {
+            width: 24px;
+            height: 24px;
+            margin-top: -5px;
         }
 
-        @media screen and (min-width: 320px) and (max-width: 393px) {
-            .floating-label label[for="jurusan"] {
-                padding: 9px 8px;
-            }
-
-            .floating-label label[for="jurusan"] svg {
-                margin-top: 0;
-            }
-
-            .floating-label input:focus~label[for="jurusan"],
-            .floating-label input:not(:placeholder-shown)~label[for="jurusan"] {
-                padding: 1px 8px;
-                transform: translateY(-50%) scale(0.9);
-            }
+        .form-select,
+        .input-alergi::placeholder {
+            font-size: 0.9rem !important;
         }
 
-        @media screen and (min-width: 320px) and (max-width: 408px) {
-            .floating-label label[for="jurusan"] {
-                padding: 9px 8px;
-            }
-
-            .floating-label label[for="jurusan"] svg {
-                margin-top: 0;
-            }
-
-            .floating-label input:focus~label[for="jurusan"],
-            .floating-label input:not(:placeholder-shown)~label[for="jurusan"] {
-                padding: 1px 8px;
-                transform: translateY(-50%) scale(0.9);
-            }
+        .form-select {
+            height: 52.2px;
         }
-    </style>
+    }
+
+    @media screen and (max-width: 768px) {
+
+        .title {
+            font-size: 2rem;
+            margin-top: 80px;
+        }
+
+        :root {
+            font-size: 14px;
+        }
+
+        .floating-label label {
+            padding: 18px 8px;
+            font-size: 0.9rem;
+        }
+
+        .floating-label input:focus,
+        .floating-label input:not(:placeholder-shown) {
+            padding: 18px 0 10px 14px;
+        }
+
+        .floating-label input:focus~label,
+        .floating-label input:not(:placeholder-shown)~label {
+            padding: 9px 8px;
+            transform: translateY(-50%) scale(0.9);
+        }
+
+        .form-label svg {
+            width: 24px;
+            height: 24px;
+            margin-top: -5px;
+        }
+
+        .form-select,
+        .input-alergi::placeholder {
+            font-size: 0.9rem !important;
+        }
+
+        .form-select {
+            height: 52.2px;
+        }
+
+
+
+
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 462px) {
+        .floating-label label[for="kontakSekolah"] {
+            padding: 9px 8px;
+        }
+
+        .floating-label label[for="kontakSekolah"] svg {
+            margin-top: 0;
+        }
+
+        .floating-label input:focus~label[for="kontakSekolah"],
+        .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] {
+            padding: 1px 8px;
+            transform: translateY(-50%) scale(0.9);
+        }
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 393px) {
+        .floating-label label[for="jurusan"] {
+            padding: 9px 8px;
+        }
+
+        .floating-label label[for="jurusan"] svg {
+            margin-top: 0;
+        }
+
+        .floating-label input:focus~label[for="jurusan"],
+        .floating-label input:not(:placeholder-shown)~label[for="jurusan"] {
+            padding: 1px 8px;
+            transform: translateY(-50%) scale(0.9);
+        }
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 408px) {
+        .floating-label label[for="jurusan"] {
+            padding: 9px 8px;
+        }
+
+        .floating-label label[for="jurusan"] svg {
+            margin-top: 0;
+        }
+
+        .floating-label input:focus~label[for="jurusan"],
+        .floating-label input:not(:placeholder-shown)~label[for="jurusan"] {
+            padding: 1px 8px;
+            transform: translateY(-50%) scale(0.9);
+        }
+    }
+</style>
 @endsection
 
 @include('partials.sidebar')
@@ -496,244 +496,244 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="row">
-                    <div class="mb-3">
-                        <div class="floating-label">
-                            <input type="password" id="confirmPass" class="form-control @error('confirmPass') is-invalid @enderror" name="confirmPass" aria-describedby="passwordHelpBlock" placeholder="" value="{{ old('confirmPass') }}" required>
-                            <label for="confirmPass" class="form-label">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-keyhole">
-                                    <circle cx="12" cy="16" r="1" />
-                                    <rect x="3" y="10" width="18" height="12" rx="2" />
-                                    <path d="M7 10V7a5 5 0 0 1 10 0v3" />
-                                </svg>
-                                Confirm Password</label>
-
-                        </div>
-                        <div id="confirmPasswordError" class="invalid-feedback" style="display: none;">Password is not the same</div>
-                        @error('confirmPass')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                        @if (session()->has('password_not_same'))
-                        <div id="confirmPasswordDifferent" class="alert alert-danger" style="display: block;">Password is not the same</div>
-                        @endif
-                    </div>
-                </div>
-                <script>
-                    document.getElementById("confirmPass").addEventListener("keyup", function() {
-                        var password = document.getElementById("inputPassword5").value;
-                        var confirmPassword = document.getElementById("confirmPass").value;
-                        var confirmPasswordError = document.getElementById("confirmPasswordError");
-                        if (password === confirmPassword) {
-                            $(document).ready(function() {
-                                $('#btn-submit').prop('disabled', false);
-                            });
-                            confirmPasswordError.style.display = "none";
-                        } else {
-                            $(document).ready(function() {
-                                $('#btn-submit').prop('disabled', true);
-                            });
-                            confirmPasswordError.style.display = "block";
-                        }
-                    });
-                </script>
-
-
-
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <div class="floating-label">
-                            <input type="text" class="form-control @error('namaKetua') is-invalid @enderror" id="namaKetua" name="namaKetua" placeholder="" value="{{ old('namaKetua') }}" required>
-                            <label for="namaKetua" class="form-label">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round">
-                                    <path d="M18 21a8 8 0 0 0-16 0" />
-                                    <circle cx="10" cy="8" r="5" />
-                                    <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
-                                </svg>
-                                Nama Ketua (Member 1)
-                            </label>
-                        </div>
-                        @error('namaKetua')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3 col-md-6">
-                        <div class="floating-label">
-                            <input type="email" class="form-control @error('emailKetua') is-invalid @enderror" id="emailKetua" name="emailKetua" placeholder="" value="{{ old('emailKetua') }}" required>
-                            <label for="emailKetua" class="form-label">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-at-sign">
-                                    <circle cx="12" cy="12" r="4" />
-                                    <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8" />
-                                </svg>
-                                Email Ketua
-                            </label>
-                        </div>
-                        @error('emailKetua')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div>
-
-
-
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <div class="floating-label">
-                            <input type="text" class="form-control @error('kerabatSatu') is-invalid @enderror" id="kerabatSatu" name="kerabatSatu" placeholder="" value="{{ old('kerabatSatu') }}" required>
-                            <label for="kerabatSatu" class="form-label">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
-                                    <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
-                                    <rect width="18" height="18" x="3" y="4" rx="2" />
-                                    <circle cx="12" cy="10" r="2" />
-                                    <line x1="8" x2="8" y1="2" y2="4" />
-                                    <line x1="16" x2="16" y1="2" y2="4" />
-                                </svg>
-                                Kontak kerabat member 1 </label>
-                        </div>
-                        @error('kerabatSatu')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <div class="floating-label">
-                            <input type="text" id="namaKedua" name="namaKedua" class="form-control @error('namaKedua') is-invalid @enderror" placeholder="" value="{{ old('namaKedua') }}" required>
-                            <label for="namaKedua" class="form-label">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round">
-                                    <path d="M18 21a8 8 0 0 0-16 0" />
-                                    <circle cx="10" cy="8" r="5" />
-                                    <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
-                                </svg>
-                                Nama Member 2
-                            </label>
-                        </div>
-                        @error('namaKedua')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3 col-md-6">
-                        <div class="floating-label">
-                            <input type="text" id="kerabatDua" name="kerabatDua" class="form-control @error('kerabatDua') is-invalid @enderror" placeholder="" value="{{ old('kerabatDua') }}" required>
-                            <label for="kerabatDua" class="form-label">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
-                                    <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
-                                    <rect width="18" height="18" x="3" y="4" rx="2" />
-                                    <circle cx="12" cy="10" r="2" />
-                                    <line x1="8" x2="8" y1="2" y2="4" />
-                                    <line x1="16" x2="16" y1="2" y2="4" />
-                                </svg>
-                                Kontak Kerabat Member 2
-                            </label>
-                        </div>
-                        @error('kerabatDua')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div>
-
-
-
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <div class="floating-label">
-                            <input type="text" id="namaKetiga" name="namaKetiga" class="form-control @error('namaKetiga') is-invalid @enderror" placeholder="" value="{{ old('namaKetiga') }}" required>
-                            <label for="namaKetiga" class="form-label">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round">
-                                    <path d="M18 21a8 8 0 0 0-16 0" />
-                                    <circle cx="10" cy="8" r="5" />
-                                    <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
-                                </svg>
-                                Nama Member 3
-                            </label>
-                        </div>
-                        @error('namaKetiga')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3 col-md-6">
-                        <div class="floating-label">
-                            <input type="text" id="kerabatTiga" name="kerabatTiga" class="form-control @error('kerabatTiga') is-invalid @enderror" placeholder="" value="{{ old('kerabatTiga') }}" required>
-                            <label for="kerabatTiga" class="form-label">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
-                                    <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
-                                    <rect width="18" height="18" x="3" y="4" rx="2" />
-                                    <circle cx="12" cy="10" r="2" />
-                                    <line x1="8" x2="8" y1="2" y2="4" />
-                                    <line x1="16" x2="16" y1="2" y2="4" />
-                                </svg>
-                                Kontak Kerabat Member 3
-                            </label>
-                        </div>
-                        @error('kerabatTiga')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label for="jenisKonsumsi" class="form-label label-konsumsi">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-utensils">
-                                <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
-                                <path d="M7 2v20" />
-                                <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
-                            </svg>Jenis Konsumsi</label>
-                        <select class="form-select @error('jenisKonsumsi') is-invalid @enderror" id="jenisKonsumsi" name="jenisKonsumsi" aria-label="Default select example" required>
-                            <option selected>Pilih jenis konsumsi...</option>
-                            <option value="normal">Normal</option>
-                            <option value="vege">Vege</option>
-                            <option value="vegan">Vegan</option>
-                        </select>
-                        @error('jenisKonsumsi')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3 col-md-6">
-                        <label for="alergi" class="form-label alergi-label">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase-medical">
-                                <path d="M12 11v4" />
-                                <path d="M14 13h-4" />
-                                <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
-                                <path d="M18 6v14" />
-                                <path d="M6 6v14" />
-                                <rect width="20" height="14" x="2" y="6" rx="2" />
-                            </svg>Alergi anggota
-                        </label>
-                        <input type="text" class="input-alergi form-control @error('alergi') is-invalid @enderror"
-                            id="alergi" name="alergi" placeholder="Jika tidak ada, isi dengan '-'"
-                            value="{{ old('alergi') }}" required style="color: white;">
-                        @error('alergi')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label for="buktiTransaksi" class="form-label bukti-label">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-dollar-sign">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
-                                <path d="M12 18V6" />
+            <div class="row">
+                <div class="mb-3">
+                    <div class="floating-label">
+                        <input type="password" id="confirmPass" class="form-control @error('confirmPass') is-invalid @enderror" name="confirmPass" aria-describedby="passwordHelpBlock" placeholder="" value="{{ old('confirmPass') }}" required>
+                        <label for="confirmPass" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-keyhole">
+                                <circle cx="12" cy="16" r="1" />
+                                <rect x="3" y="10" width="18" height="12" rx="2" />
+                                <path d="M7 10V7a5 5 0 0 1 10 0v3" />
                             </svg>
+                            Confirm Password</label>
 
-                            Bukti transaksi</label>
-                        <input class="form-control input-transaksi @error('buktiTransaksi') is-invalid @enderror" type="file" name="buktiTransaksi" required>
-                        @error('buktiTransaksi')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
                     </div>
+                    <div id="confirmPasswordError" class="invalid-feedback" style="display: none;">Password is not the same</div>
+                    @error('confirmPass')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                    @if (session()->has('password_not_same'))
+                    <div id="confirmPasswordDifferent" class="alert alert-danger" style="display: block;">Password is not the same</div>
+                    @endif
+                </div>
+            </div>
+
+            <script>
+                document.getElementById("confirmPass").addEventListener("keyup", function() {
+                    var password = document.getElementById("inputPassword5").value;
+                    var confirmPassword = document.getElementById("confirmPass").value;
+                    var confirmPasswordError = document.getElementById("confirmPasswordError");
+                    if (password === confirmPassword) {
+                        $(document).ready(function() {
+                            $('#btn-submit').prop('disabled', false);
+                        });
+                        confirmPasswordError.style.display = "none";
+                    } else {
+                        $(document).ready(function() {
+                            $('#btn-submit').prop('disabled', true);
+                        });
+                        confirmPasswordError.style.display = "block";
+                    }
+                });
+            </script>
+
+
+
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <div class="floating-label">
+                        <input type="text" class="form-control @error('namaKetua') is-invalid @enderror" id="namaKetua" name="namaKetua" placeholder="" value="{{ old('namaKetua') }}" required>
+                        <label for="namaKetua" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round">
+                                <path d="M18 21a8 8 0 0 0-16 0" />
+                                <circle cx="10" cy="8" r="5" />
+                                <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
+                            </svg>
+                            Nama Ketua (Member 1)
+                        </label>
+                    </div>
+                    @error('namaKetua')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
 
-                <button type="submit" id="btn-submit" class="submit-button btn btn-primary btn-lg mt-2">SUBMIT</button>
+                <div class="mb-3 col-md-6">
+                    <div class="floating-label">
+                        <input type="email" class="form-control @error('emailKetua') is-invalid @enderror" id="emailKetua" name="emailKetua" placeholder="" value="{{ old('emailKetua') }}" required>
+                        <label for="emailKetua" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-at-sign">
+                                <circle cx="12" cy="12" r="4" />
+                                <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8" />
+                            </svg>
+                            Email Ketua
+                        </label>
+                    </div>
+                    @error('emailKetua')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <div class="floating-label">
+                        <input type="text" class="form-control @error('kerabatSatu') is-invalid @enderror" id="kerabatSatu" name="kerabatSatu" placeholder="" value="{{ old('kerabatSatu') }}" required>
+                        <label for="kerabatSatu" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
+                                <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
+                                <rect width="18" height="18" x="3" y="4" rx="2" />
+                                <circle cx="12" cy="10" r="2" />
+                                <line x1="8" x2="8" y1="2" y2="4" />
+                                <line x1="16" x2="16" y1="2" y2="4" />
+                            </svg>
+                            Kontak kerabat member 1 </label>
+                    </div>
+                    @error('kerabatSatu')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <div class="floating-label">
+                        <input type="text" id="namaKedua" name="namaKedua" class="form-control @error('namaKedua') is-invalid @enderror" placeholder="" value="{{ old('namaKedua') }}" required>
+                        <label for="namaKedua" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round">
+                                <path d="M18 21a8 8 0 0 0-16 0" />
+                                <circle cx="10" cy="8" r="5" />
+                                <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
+                            </svg>
+                            Nama Member 2
+                        </label>
+                    </div>
+                    @error('namaKedua')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <div class="floating-label">
+                        <input type="text" id="kerabatDua" name="kerabatDua" class="form-control @error('kerabatDua') is-invalid @enderror" placeholder="" value="{{ old('kerabatDua') }}" required>
+                        <label for="kerabatDua" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
+                                <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
+                                <rect width="18" height="18" x="3" y="4" rx="2" />
+                                <circle cx="12" cy="10" r="2" />
+                                <line x1="8" x2="8" y1="2" y2="4" />
+                                <line x1="16" x2="16" y1="2" y2="4" />
+                            </svg>
+                            Kontak Kerabat Member 2
+                        </label>
+                    </div>
+                    @error('kerabatDua')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <div class="floating-label">
+                        <input type="text" id="namaKetiga" name="namaKetiga" class="form-control @error('namaKetiga') is-invalid @enderror" placeholder="" value="{{ old('namaKetiga') }}" required>
+                        <label for="namaKetiga" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round">
+                                <path d="M18 21a8 8 0 0 0-16 0" />
+                                <circle cx="10" cy="8" r="5" />
+                                <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
+                            </svg>
+                            Nama Member 3
+                        </label>
+                    </div>
+                    @error('namaKetiga')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <div class="floating-label">
+                        <input type="text" id="kerabatTiga" name="kerabatTiga" class="form-control @error('kerabatTiga') is-invalid @enderror" placeholder="" value="{{ old('kerabatTiga') }}" required>
+                        <label for="kerabatTiga" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
+                                <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
+                                <rect width="18" height="18" x="3" y="4" rx="2" />
+                                <circle cx="12" cy="10" r="2" />
+                                <line x1="8" x2="8" y1="2" y2="4" />
+                                <line x1="16" x2="16" y1="2" y2="4" />
+                            </svg>
+                            Kontak Kerabat Member 3
+                        </label>
+                    </div>
+                    @error('kerabatTiga')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="jenisKonsumsi" class="form-label label-konsumsi">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-utensils">
+                            <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+                            <path d="M7 2v20" />
+                            <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
+                        </svg>Jenis Konsumsi</label>
+                    <select class="form-select @error('jenisKonsumsi') is-invalid @enderror" id="jenisKonsumsi" name="jenisKonsumsi" aria-label="Default select example" required>
+                        <option selected>Pilih jenis konsumsi...</option>
+                        <option value="normal">Normal</option>
+                        <option value="vege">Vege</option>
+                        <option value="vegan">Vegan</option>
+                    </select>
+                    @error('jenisKonsumsi')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label for="alergi" class="form-label alergi-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase-medical">
+                            <path d="M12 11v4" />
+                            <path d="M14 13h-4" />
+                            <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                            <path d="M18 6v14" />
+                            <path d="M6 6v14" />
+                            <rect width="20" height="14" x="2" y="6" rx="2" />
+                        </svg>Alergi anggota
+                    </label>
+                    <input type="text" class="input-alergi form-control @error('alergi') is-invalid @enderror" id="alergi" name="alergi" placeholder="Jika tidak ada, isi dengan '-'" value="{{ old('alergi') }}" required style="color: white;">
+                    @error('alergi')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="buktiTransaksi" class="form-label bukti-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-dollar-sign">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+                            <path d="M12 18V6" />
+                        </svg>
+
+                        Bukti transaksi</label>
+                    <input class="form-control input-transaksi @error('buktiTransaksi') is-invalid @enderror" type="file" name="buktiTransaksi" required>
+                    @error('buktiTransaksi')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <button type="submit" id="btn-submit" class="submit-button btn btn-primary btn-lg mt-2">SUBMIT</button>
         </form>
     </div>
 </div>
