@@ -52,18 +52,10 @@
                     <tr>
                         <td>Set Jawaban</td>
                         <td>
-                            <form action="{{ route('admin.setReadyA') }}" method="post">
-                                @csrf
-                                <button type="submit" id="id-paketA" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Set paket A</button>
-                            </form>
-                            @if ($cekPaketA === 1)
-                            <script>
-                                $(document).ready(function() {
-                                    $('#id-paketA').prop('disabled', true);
-                                });
-                            </script>
-                            @endif
-
+                        <form action="{{ route('admin.setReadyA') }}" method="post">
+                            @csrf
+                            <button type="submit">Tekan</button>
+                        </form>
                         </td>
                         <td>B</td>
                         <td>C</td>
