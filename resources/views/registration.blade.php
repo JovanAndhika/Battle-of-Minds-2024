@@ -1,27 +1,27 @@
 @extends('layout.mainlayout')
 
 @section('head')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        * {
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 0.15rem;
-        }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    * {
+        font-family: 'Orbitron', sans-serif;
+        letter-spacing: 0.15rem;
+    }
 
-        /*
+    /*
                                     input {
                                         font-family: 'Geologica', sans-serif !important;
                                         letter-spacing: 0.09rem !important;
                                     } */
 
-        body {
-            color: white;
-            min-height: 100vh;
-            background: linear-gradient(180deg, rgb(26, 0, 36) 0%, rgb(63, 9, 121) 49%, rgb(96, 10, 255) 100%);
-            background-attachment: fixed;
-            background-position: center;
-            font-weight: 800;
-        }
+    body {
+        color: white;
+        min-height: 100vh;
+        background: linear-gradient(180deg, rgb(26, 0, 36) 0%, rgb(63, 9, 121) 49%, rgb(96, 10, 255) 100%);
+        background-attachment: fixed;
+        background-position: center;
+        font-weight: 800;
+    }
 
         .form-text {
             color: white;
@@ -46,12 +46,12 @@
             box-shadow: 2px 10px 10px 2px #ffffff;
         }
 
-        .form-label {
-            display: grid;
-            grid-template-columns: auto auto;
-            user-select: none;
-            margin: 0;
-        }
+    .form-label {
+        display: grid;
+        grid-template-columns: auto auto;
+        user-select: none;
+        margin: 0;
+    }
 
 
         .form-label svg {
@@ -161,24 +161,24 @@
             width: 100%;
         }
 
-        .floating-label label {
-            position: absolute;
-            outline: none;
-            left: 10px;
-            top: 0;
-            padding: 15px;
-            padding-left: 8px;
-            height: 37px;
-            transition: 0.3s ease;
-            transform-origin: left top;
-            cursor: text;
-            font-size: 1rem;
-            align-self: flex-end;
-        }
+    .floating-label label {
+        position: absolute;
+        outline: none;
+        left: 10px;
+        top: 0;
+        padding: 15px;
+        padding-left: 8px;
+        height: 37px;
+        transition: 0.3s ease;
+        transform-origin: left top;
+        cursor: text;
+        font-size: 1rem;
+        align-self: flex-end;
+    }
 
-        .form-select {
-            font-size: 1rem;
-        }
+    .form-select {
+        font-size: 1rem;
+    }
 
         .floating-label input:focus {
             transition: 0.4s ease;
@@ -196,154 +196,154 @@
             background: white;
         }
 
-        .bukti-label,
-        .alergi-label,
-        .label-konsumsi {
-            padding-bottom: 10px;
-            height: 31px;
+    .bukti-label,
+    .alergi-label,
+    .label-konsumsi {
+        padding-bottom: 10px;
+        height: 31px;
+    }
+
+    .lucide-briefcase-medical {
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    /* responsive */
+
+
+
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+        :root {
+            font-size: 14px;
         }
 
-        .lucide-briefcase-medical {
-            width: 24px !important;
-            height: 24px !important;
+        .floating-label label {
+            padding: 18px 8px;
+            font-size: 0.9rem;
         }
 
-        /* responsive */
-
-        
-
-        @media screen and (min-width: 768px) and (max-width: 992px) {
-            :root {
-                font-size: 14px;
-            }
-
-            .floating-label label {
-                padding: 18px 8px;
-                font-size: 0.9rem;
-            }
-
-            .floating-label input:focus,
-            .floating-label input:not(:placeholder-shown) {
-                padding: 18px 0 10px 14px;
-            }
-
-            .floating-label input:focus~label,
-            .floating-label input:not(:placeholder-shown)~label {
-                padding: 9px 8px;
-                transform: translateY(-50%) scale(0.9);
-            }
-
-            .form-label svg {
-                width: 24px;
-                height: 24px;
-                margin-top: -5px;
-            }
-
-            .form-select,
-            .input-alergi::placeholder {
-                font-size: 0.9rem !important;
-            }
-
-            .form-select {
-                height: 52.2px;
-            }
+        .floating-label input:focus,
+        .floating-label input:not(:placeholder-shown) {
+            padding: 18px 0 10px 14px;
         }
 
-        @media screen and (max-width: 768px) {
-
-            .title {
-                font-size: 2rem;
-                margin-top: 80px;
-            }
-
-            :root {
-                font-size: 14px;
-            }
-
-            .floating-label label {
-                padding: 18px 8px;
-                font-size: 0.9rem;
-            }
-
-            .floating-label input:focus,
-            .floating-label input:not(:placeholder-shown) {
-                padding: 18px 0 10px 14px;
-            }
-
-            .floating-label input:focus~label,
-            .floating-label input:not(:placeholder-shown)~label {
-                padding: 9px 8px;
-                transform: translateY(-50%) scale(0.9);
-            }
-
-            .form-label svg {
-                width: 24px;
-                height: 24px;
-                margin-top: -5px;
-            }
-
-            .form-select,
-            .input-alergi::placeholder {
-                font-size: 0.9rem !important;
-            }
-
-            .form-select {
-                height: 52.2px;
-            }
-
-
-
-
+        .floating-label input:focus~label,
+        .floating-label input:not(:placeholder-shown)~label {
+            padding: 9px 8px;
+            transform: translateY(-50%) scale(0.9);
         }
 
-        @media screen and (min-width: 320px) and (max-width: 462px) {
-            .floating-label label[for="kontakSekolah"] {
-                padding: 9px 8px;
-            }
-
-            .floating-label label[for="kontakSekolah"] svg {
-                margin-top: 0;
-            }
-
-            .floating-label input:focus~label[for="kontakSekolah"],
-            .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] {
-                padding: 1px 8px;
-                transform: translateY(-50%) scale(0.9);
-            }
+        .form-label svg {
+            width: 24px;
+            height: 24px;
+            margin-top: -5px;
         }
 
-        @media screen and (min-width: 320px) and (max-width: 393px) {
-            .floating-label label[for="jurusan"] {
-                padding: 9px 8px;
-            }
-
-            .floating-label label[for="jurusan"] svg {
-                margin-top: 0;
-            }
-
-            .floating-label input:focus~label[for="jurusan"],
-            .floating-label input:not(:placeholder-shown)~label[for="jurusan"] {
-                padding: 1px 8px;
-                transform: translateY(-50%) scale(0.9);
-            }
+        .form-select,
+        .input-alergi::placeholder {
+            font-size: 0.9rem !important;
         }
 
-        @media screen and (min-width: 320px) and (max-width: 408px) {
-            .floating-label label[for="jurusan"] {
-                padding: 9px 8px;
-            }
-
-            .floating-label label[for="jurusan"] svg {
-                margin-top: 0;
-            }
-
-            .floating-label input:focus~label[for="jurusan"],
-            .floating-label input:not(:placeholder-shown)~label[for="jurusan"] {
-                padding: 1px 8px;
-                transform: translateY(-50%) scale(0.9);
-            }
+        .form-select {
+            height: 52.2px;
         }
-    </style>
+    }
+
+    @media screen and (max-width: 768px) {
+
+        .title {
+            font-size: 2rem;
+            margin-top: 80px;
+        }
+
+        :root {
+            font-size: 14px;
+        }
+
+        .floating-label label {
+            padding: 18px 8px;
+            font-size: 0.9rem;
+        }
+
+        .floating-label input:focus,
+        .floating-label input:not(:placeholder-shown) {
+            padding: 18px 0 10px 14px;
+        }
+
+        .floating-label input:focus~label,
+        .floating-label input:not(:placeholder-shown)~label {
+            padding: 9px 8px;
+            transform: translateY(-50%) scale(0.9);
+        }
+
+        .form-label svg {
+            width: 24px;
+            height: 24px;
+            margin-top: -5px;
+        }
+
+        .form-select,
+        .input-alergi::placeholder {
+            font-size: 0.9rem !important;
+        }
+
+        .form-select {
+            height: 52.2px;
+        }
+
+
+
+
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 462px) {
+        .floating-label label[for="kontakSekolah"] {
+            padding: 9px 8px;
+        }
+
+        .floating-label label[for="kontakSekolah"] svg {
+            margin-top: 0;
+        }
+
+        .floating-label input:focus~label[for="kontakSekolah"],
+        .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] {
+            padding: 1px 8px;
+            transform: translateY(-50%) scale(0.9);
+        }
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 393px) {
+        .floating-label label[for="jurusan"] {
+            padding: 9px 8px;
+        }
+
+        .floating-label label[for="jurusan"] svg {
+            margin-top: 0;
+        }
+
+        .floating-label input:focus~label[for="jurusan"],
+        .floating-label input:not(:placeholder-shown)~label[for="jurusan"] {
+            padding: 1px 8px;
+            transform: translateY(-50%) scale(0.9);
+        }
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 408px) {
+        .floating-label label[for="jurusan"] {
+            padding: 9px 8px;
+        }
+
+        .floating-label label[for="jurusan"] svg {
+            margin-top: 0;
+        }
+
+        .floating-label input:focus~label[for="jurusan"],
+        .floating-label input:not(:placeholder-shown)~label[for="jurusan"] {
+            padding: 1px 8px;
+            transform: translateY(-50%) scale(0.9);
+        }
+    }
+</style>
 @endsection
 
 @include('partials.sidebar')
