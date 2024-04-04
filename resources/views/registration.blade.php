@@ -9,10 +9,10 @@
         }
 
         /*
-            input {
-                font-family: 'Geologica', sans-serif !important;
-                letter-spacing: 0.09rem !important;
-            } */
+                                    input {
+                                        font-family: 'Geologica', sans-serif !important;
+                                        letter-spacing: 0.09rem !important;
+                                    } */
 
         body {
             color: white;
@@ -47,7 +47,8 @@
         }
 
         .form-label {
-            display: flex;
+            display: grid;
+            grid-template-columns: auto auto;
             user-select: none;
             margin: 0;
         }
@@ -175,6 +176,10 @@
             align-self: flex-end;
         }
 
+        .form-select {
+            font-size: 1rem;
+        }
+
         .floating-label input:focus {
             transition: 0.4s ease;
             color: white;
@@ -205,6 +210,8 @@
 
         /* responsive */
 
+        
+
         @media screen and (min-width: 768px) and (max-width: 992px) {
             :root {
                 font-size: 14px;
@@ -227,131 +234,115 @@
             }
 
             .form-label svg {
-                width: 20px;
-                height: 20px;
+                width: 24px;
+                height: 24px;
+                margin-top: -5px;
             }
 
-            .form-control {}
+            .form-select,
+            .input-alergi::placeholder {
+                font-size: 0.9rem !important;
+            }
+
+            .form-select {
+                height: 52.2px;
+            }
         }
 
         @media screen and (max-width: 768px) {
 
-            .row,
-            #namaKetua,
-            #namaKetiga {
-                margin-bottom: 15px;
-            }
-
             .title {
-                font-size: 2.2rem;
+                font-size: 2rem;
                 margin-top: 80px;
             }
 
-            select#jenisKonsumsi,
-            #alergi::placeholder {
-                font-size: 0.75rem;
+            :root {
+                font-size: 14px;
             }
 
+            .floating-label label {
+                padding: 18px 8px;
+                font-size: 0.9rem;
+            }
+
+            .floating-label input:focus,
+            .floating-label input:not(:placeholder-shown) {
+                padding: 18px 0 10px 14px;
+            }
 
             .floating-label input:focus~label,
             .floating-label input:not(:placeholder-shown)~label {
-                left: 10px;
-                font-size: 0.75rem;
-                padding-top: 14px;
-                transition: 0.4s ease;
-            }
-
-            /* KONTAK SEKOLAH */
-            .floating-label input:focus~label[for="kontakSekolah"],
-            .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] {
-                padding-top: 15px;
-            }
-
-            /* SVG */
-            .floating-label input:focus~label[for="kontakSekolah"] svg,
-            .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] svg {
-                margin-top: -5px;
-            }
-
-            label.form-label {
-                left: 0px;
-                top: 5px;
-                height: 45px;
-                font-size: 0.75rem;
-            }
-
-            label.form-label[for="kontakSekolah"] {
-                top: -5px;
-                top: 5px;
-            }
-
-            svg.lucide.lucide-contact {
-                margin-top: -5px;
+                padding: 9px 8px;
+                transform: translateY(-50%) scale(0.9);
             }
 
             .form-label svg {
-                margin-right: 10px;
+                width: 24px;
+                height: 24px;
                 margin-top: -5px;
             }
 
-            #alergi.form-control {
-                position: relative;
-                top: -5px;
-                padding: 11px;
+            .form-select,
+            .input-alergi::placeholder {
+                font-size: 0.9rem !important;
             }
 
-            #jenisKonsumsi.form-select {
-                position: relative;
-                top: -15px;
+            .form-select {
+                height: 52.2px;
             }
 
-            .form-control.input-transaksi {
-                position: relative;
-                top: -20px;
-                padding: 12px;
+
+
+
+        }
+
+        @media screen and (min-width: 320px) and (max-width: 462px) {
+            .floating-label label[for="kontakSekolah"] {
+                padding: 9px 8px;
             }
 
-            #file-upload-button,
-            ::-webkit-file-upload-button {
-                height: 46px !important;
+            .floating-label label[for="kontakSekolah"] svg {
+                margin-top: 0;
             }
 
-            .input-transaksi {
-                font-size: 0.75rem;
-                height: 46px !important;
-            }
-
-            /* KONTAK SEKOLAH */
-            .floating-label input:focus~label[for="kontakSekolah"],
             .floating-label input:focus~label[for="kontakSekolah"],
             .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] {
-                padding-top: 15px;
+                padding: 1px 8px;
+                transform: translateY(-50%) scale(0.9);
             }
         }
 
-
-        @media screen and (min-width: 300px) and (max-width: 768px) {
-
-            /* FOCUS SVG */
-            .floating-label input:focus~label[for="kontakSekolah"] svg,
-            .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] svg {
-                margin-top: -5px !important;
+        @media screen and (min-width: 320px) and (max-width: 393px) {
+            .floating-label label[for="jurusan"] {
+                padding: 9px 8px;
             }
 
-            /* LABEL KONTAK SEKOLAH */
-            label.form-label[for="kontakSekolah"] {
-                top: -5px;
-                top: 5px !important;
+            .floating-label label[for="jurusan"] svg {
+                margin-top: 0;
             }
 
-            /* SVG LABEL KONTAK SEKOLAH */
-            label.form-label[for="kontakSekolah"] svg {
-                margin-top: 5px;
+            .floating-label input:focus~label[for="jurusan"],
+            .floating-label input:not(:placeholder-shown)~label[for="jurusan"] {
+                padding: 1px 8px;
+                transform: translateY(-50%) scale(0.9);
             }
         }
 
+        @media screen and (min-width: 320px) and (max-width: 408px) {
+            .floating-label label[for="jurusan"] {
+                padding: 9px 8px;
+            }
 
-        @media screen and (min-width: 768px) and (max-width: 1200px) {}
+            .floating-label label[for="jurusan"] svg {
+                margin-top: 0;
+            }
+
+            .floating-label input:focus~label[for="jurusan"],
+            .floating-label input:not(:placeholder-shown)~label[for="jurusan"] {
+                padding: 1px 8px;
+                transform: translateY(-50%) scale(0.9);
+            }
+        }
     </style>
 @endsection
 
@@ -791,9 +782,9 @@
                                 <rect width="20" height="14" x="2" y="6" rx="2" />
                             </svg>Alergi anggota
                         </label>
-                        <input type="text" class="form-control @error('alergi') is-invalid @enderror" id="alergi"
-                            name="alergi" placeholder="Jika tidak ada, isi dengan '-'" value="{{ old('alergi') }}"
-                            required style="color: white;">
+                        <input type="text" class="input-alergi form-control @error('alergi') is-invalid @enderror"
+                            id="alergi" name="alergi" placeholder="Jika tidak ada, isi dengan '-'"
+                            value="{{ old('alergi') }}" required style="color: white;">
                         @error('alergi')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
