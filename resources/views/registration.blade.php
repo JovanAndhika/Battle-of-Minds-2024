@@ -1,16 +1,27 @@
 @extends('layout.mainlayout')
 
 @section('head')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-    body {
-        color: white;
-        min-height: 100vh;
-        background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 49%, rgba(0, 212, 255, 1) 100%);
-        background-attachment: fixed;
-        background-position: center;
-        font-weight: 800;
-    }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 0.15rem;
+        }
+
+        /*
+                                    input {
+                                        font-family: 'Geologica', sans-serif !important;
+                                        letter-spacing: 0.09rem !important;
+                                    } */
+
+        body {
+            color: white;
+            min-height: 100vh;
+            background: linear-gradient(180deg, rgb(26, 0, 36) 0%, rgb(63, 9, 121) 49%, rgb(96, 10, 255) 100%);
+            background-attachment: fixed;
+            background-position: center;
+            font-weight: 800;
+        }
 
     .form-text {
         color: white
@@ -35,9 +46,13 @@
         box-shadow: 2px 10px 10px 2px #888888;
     }
 
-    .form-label {
-        display: flex;
-    }
+        .form-label {
+            display: grid;
+            grid-template-columns: auto auto;
+            user-select: none;
+            margin: 0;
+        }
+
 
     .form-label svg {
         margin-right: 10px;
@@ -140,16 +155,24 @@
         width: 100%;
     }
 
-    .floating-label label {
-        position: absolute;
-        outline: none;
-        left: 10px;
-        top: 0;
-        padding: 15px;
-        height: 37px;
-        z-index: 0;
-        transform-origin: left top;
-    }
+        .floating-label label {
+            position: absolute;
+            outline: none;
+            left: 10px;
+            top: 0;
+            padding: 15px;
+            padding-left: 8px;
+            height: 37px;
+            transition: 0.3s ease;
+            transform-origin: left top;
+            cursor: text;
+            font-size: 1rem;
+            align-self: flex-end;
+        }
+
+        .form-select {
+            font-size: 1rem;
+        }
 
     .floating-label input:focus {
         color: white;
@@ -167,58 +190,154 @@
         background: white;
     }
 
-    /* RESPONSIVE */
-    @media screen and (min-width: 300px) and (max-width: 768px) {
-        /* FOCUS: KONTAK SEKOLAH */
-        /* ????? */
-
-        /* LABEL KONTAK SEKOLAH */
-        label.form-label[for="kontakSekolah"] {
-            padding-top: 5px !important;
+        .bukti-label,
+        .alergi-label,
+        .label-konsumsi {
+            padding-bottom: 10px;
+            height: 31px;
         }
 
-        /* LABEL KONTAK JURUSAN */
-        label.form-label[for="jurusan"] {
-            padding-top: 5px !important;
+        .lucide-briefcase-medical {
+            width: 24px !important;
+            height: 24px !important;
         }
 
-        /* LABEL KONTAK PERWAKILAN */
-        label.form-label[for="kontakPerwakilan"] {
-            padding-top: 5px !important;
+        /* responsive */
+
+        
+
+        @media screen and (min-width: 768px) and (max-width: 992px) {
+            :root {
+                font-size: 14px;
+            }
+
+            .floating-label label {
+                padding: 18px 8px;
+                font-size: 0.9rem;
+            }
+
+            .floating-label input:focus,
+            .floating-label input:not(:placeholder-shown) {
+                padding: 18px 0 10px 14px;
+            }
+
+            .floating-label input:focus~label,
+            .floating-label input:not(:placeholder-shown)~label {
+                padding: 9px 8px;
+                transform: translateY(-50%) scale(0.9);
+            }
+
+            .form-label svg {
+                width: 24px;
+                height: 24px;
+                margin-top: -5px;
+            }
+
+            .form-select,
+            .input-alergi::placeholder {
+                font-size: 0.9rem !important;
+            }
+
+            .form-select {
+                height: 52.2px;
+            }
         }
 
-        /* LABEL KONTAK usernameKelompok */
-        label.form-label[for="usernameKelompok"] {
-            padding-top: 5px !important;
+        @media screen and (max-width: 768px) {
+
+            .title {
+                font-size: 2rem;
+                margin-top: 80px;
+            }
+
+            :root {
+                font-size: 14px;
+            }
+
+            .floating-label label {
+                padding: 18px 8px;
+                font-size: 0.9rem;
+            }
+
+            .floating-label input:focus,
+            .floating-label input:not(:placeholder-shown) {
+                padding: 18px 0 10px 14px;
+            }
+
+            .floating-label input:focus~label,
+            .floating-label input:not(:placeholder-shown)~label {
+                padding: 9px 8px;
+                transform: translateY(-50%) scale(0.9);
+            }
+
+            .form-label svg {
+                width: 24px;
+                height: 24px;
+                margin-top: -5px;
+            }
+
+            .form-select,
+            .input-alergi::placeholder {
+                font-size: 0.9rem !important;
+            }
+
+            .form-select {
+                height: 52.2px;
+            }
+
+
+
+
         }
 
-        /* LABEL KONTAK confirmPass */
-        label.form-label[for="confirmPass"] {
-            padding-top: 5px !important;
+        @media screen and (min-width: 320px) and (max-width: 462px) {
+            .floating-label label[for="kontakSekolah"] {
+                padding: 9px 8px;
+            }
+
+            .floating-label label[for="kontakSekolah"] svg {
+                margin-top: 0;
+            }
+
+            .floating-label input:focus~label[for="kontakSekolah"],
+            .floating-label input:not(:placeholder-shown)~label[for="kontakSekolah"] {
+                padding: 1px 8px;
+                transform: translateY(-50%) scale(0.9);
+            }
         }
 
-        /* LABEL KONTAK namaKetua */
-        label.form-label[for="namaKetua"] {
-            padding-top: 5px !important;
+        @media screen and (min-width: 320px) and (max-width: 393px) {
+            .floating-label label[for="jurusan"] {
+                padding: 9px 8px;
+            }
+
+            .floating-label label[for="jurusan"] svg {
+                margin-top: 0;
+            }
+
+            .floating-label input:focus~label[for="jurusan"],
+            .floating-label input:not(:placeholder-shown)~label[for="jurusan"] {
+                padding: 1px 8px;
+                transform: translateY(-50%) scale(0.9);
+            }
         }
 
-        /* LABEL KONTAK kerabatSatu*/
-        label.form-label[for="kerabatSatu"] {
-            padding-top: 5px !important;
-        }
+        @media screen and (min-width: 320px) and (max-width: 408px) {
+            .floating-label label[for="jurusan"] {
+                padding: 9px 8px;
+            }
 
-        /* LABEL KONTAK kerabatDua*/
-        label.form-label[for="kerabatDua"] {
-            padding-top: 5px !important;
-        }
+            .floating-label label[for="jurusan"] svg {
+                margin-top: 0;
+            }
 
-        /* LABEL KONTAK kerabatTiga*/
-        label.form-label[for="kerabatTiga"] {
-            padding-top: 5px !important;
+            .floating-label input:focus~label[for="jurusan"],
+            .floating-label input:not(:placeholder-shown)~label[for="jurusan"] {
+                padding: 1px 8px;
+                transform: translateY(-50%) scale(0.9);
+            }
         }
-
-    }
-</style>
+    </style>
 @endsection
 
 @include('partials.sidebar')
@@ -588,7 +707,9 @@
                                 <rect width="20" height="14" x="2" y="6" rx="2" />
                             </svg>Alergi anggota
                         </label>
-                        <input type="text" class="form-control @error('alergi') is-invalid @enderror" id="alergi" name="alergi" placeholder="Jika tidak ada, isi dengan '-'" value="{{ old('alergi') }}" required style="color: white;">
+                        <input type="text" class="input-alergi form-control @error('alergi') is-invalid @enderror"
+                            id="alergi" name="alergi" placeholder="Jika tidak ada, isi dengan '-'"
+                            value="{{ old('alergi') }}" required style="color: white;">
                         @error('alergi')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
