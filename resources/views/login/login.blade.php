@@ -28,18 +28,18 @@
 
 <body>
 @include('partials.sidebar')
-    <div class="box rounded-5 border border-blue center">
+    <div class="box rounded-5 border border-blue">
         <form action="{{ route('authenticate') }}" method="post">
             @csrf
 
             <div class="row center">
-                <div class=" col-lg-6 text-center help">
+                <div class=" col-lg-5 m-0 text-center">
                     <img src="{{ asset('asset/logo-main.png') }}" class="text-center" alt="">
                 </div>
 
-                <div class="col-lg-6 m-0 text-center">
+                <div class="col-lg-5 m-0 text-center">
 
-                    <div class=" pt-4">
+                    <div class=" pt-3">
                         <h2 class="text-white">LOGIN</h2>
                     </div>
 

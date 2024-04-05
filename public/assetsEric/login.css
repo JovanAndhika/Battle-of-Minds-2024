@@ -26,7 +26,8 @@ body {
 
 .box {
     justify-content: center;
-    margin: 1.2rem;
+    margin: 7rem;
+    margin-left: 12rem;
     text-align: center;
     background: rgba(164, 34, 218, 0.35);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -61,14 +62,15 @@ form {
 .input-box input::placeholder {
     color: azure;
     transition: 0.5s;
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.25rem;
 }
 
 .input-box {
     margin-bottom: 2rem;
     margin-top: 2rem;
-    /* margin-right: 2rem; */
+    margin-right: 2rem;
     transition: 0.5s;
+    
 }
 
 #usernameBox {
@@ -86,7 +88,7 @@ form {
 }
 
 button {
-    padding-left: 5px;
+    
     padding-top: 5%;
     padding-bottom: 5%;
     width: 100px;
@@ -127,9 +129,6 @@ img {
     border-top-left-radius: 40px;
     overflow: hidden;
     animation: fadeup 0.75s;
-}
-.help{
-    padding-left: 10%;
 }
 
 @keyframes fadeup {
@@ -193,4 +192,5 @@ img {
         font-size: 2rem;
         letter-spacing: 0.25rem;
     }
+    
 }
