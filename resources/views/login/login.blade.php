@@ -33,8 +33,8 @@
             @csrf
 
             <div class="row center">
-                <div class="d-flex col-lg-8">
-                    <img src="{{ asset('asset/logo-main.png') }}" class="img-fluid " alt="">
+                <div class=" col-lg-6 text-center">
+                    <img src="{{ asset('asset/logo-main.png') }}" class="text-center" alt="">
                 </div>
 
                 <div class="col-lg-4">
