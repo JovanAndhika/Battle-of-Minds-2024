@@ -9,10 +9,10 @@
         }
 
         /*
-                                    input {
-                                        font-family: 'Geologica', sans-serif !important;
-                                        letter-spacing: 0.09rem !important;
-                                    } */
+                                                            input {
+                                                                font-family: 'Geologica', sans-serif !important;
+                                                                letter-spacing: 0.09rem !important;
+                                                            } */
 
         body {
             color: white;
@@ -48,15 +48,11 @@
 
         .form-label {
             display: grid;
-            grid-template-columns: auto auto;
+            grid-template-columns: 40px auto;
             user-select: none;
             margin: 0;
         }
 
-
-        .form-label svg {
-            margin-right: 10px;
-        }
 
         .submit-button {
             background-color: #4606b5;
@@ -199,8 +195,7 @@
         .bukti-label,
         .alergi-label,
         .label-konsumsi {
-            padding-bottom: 10px;
-            height: 31px;
+            margin-bottom: 10px;
         }
 
         .lucide-briefcase-medical {
@@ -210,7 +205,7 @@
 
         /* responsive */
 
-        
+
 
         @media screen and (min-width: 768px) and (max-width: 992px) {
             :root {
@@ -252,7 +247,7 @@
         @media screen and (max-width: 768px) {
 
             .title {
-                font-size: 2rem;
+                font-size: 2.4rem;
                 margin-top: 80px;
             }
 
@@ -291,12 +286,19 @@
                 height: 52.2px;
             }
 
+            .bukti-label svg,
+            .alergi-label svg,
+            .label-konsumsi svg {
+                margin-top: -2.1px;
+            }
 
-
+            .nama-ketua-container, .nama3-container{
+                height: 72.2px;
+            }
 
         }
 
-        @media screen and (min-width: 320px) and (max-width: 462px) {
+        @media screen and (min-width: 320px) and (max-width: 468px) {
             .floating-label label[for="kontakSekolah"] {
                 padding: 9px 8px;
             }
@@ -312,7 +314,7 @@
             }
         }
 
-        @media screen and (min-width: 320px) and (max-width: 393px) {
+        @media screen and (min-width: 320px) and (max-width: 398px) {
             .floating-label label[for="jurusan"] {
                 padding: 9px 8px;
             }
@@ -328,22 +330,89 @@
             }
         }
 
-        @media screen and (min-width: 320px) and (max-width: 408px) {
-            .floating-label label[for="jurusan"] {
+
+        @media screen and (min-width: 320px) and (max-width: 413px) {
+            .floating-label label[for="kontakPerwakilan"] {
                 padding: 9px 8px;
             }
 
-            .floating-label label[for="jurusan"] svg {
+            .floating-label label[for="kontakPerwakilan"] svg {
                 margin-top: 0;
             }
 
-            .floating-label input:focus~label[for="jurusan"],
-            .floating-label input:not(:placeholder-shown)~label[for="jurusan"] {
+            .floating-label input:focus~label[for="kontakPerwakilan"],
+            .floating-label input:not(:placeholder-shown)~label[for="kontakPerwakilan"] {
+                padding: 1px 8px;
+                transform: translateY(-50%) scale(0.9);
+            }
+        }
+
+        @media screen and (min-width: 320px) and (max-width: 379px) {
+            .floating-label label[for="kerabatSatu"] {
+                padding: 9px 8px;
+            }
+
+            .floating-label label[for="kerabatSatu"] svg {
+                margin-top: 0;
+            }
+
+            .floating-label input:focus~label[for="kerabatSatu"],
+            .floating-label input:not(:placeholder-shown)~label[for="kerabatSatu"] {
+                padding: 1px 8px;
+                transform: translateY(-50%) scale(0.9);
+            }
+        }
+
+        @media screen and (min-width: 320px) and (max-width: 379px) {
+            .floating-label label[for="kerabatDua"] {
+                padding: 9px 8px;
+            }
+
+            .floating-label label[for="kerabatDua"] svg {
+                margin-top: 0;
+            }
+
+            .floating-label input:focus~label[for="kerabatDua"],
+            .floating-label input:not(:placeholder-shown)~label[for="kerabatDua"] {
+                padding: 1px 8px;
+                transform: translateY(-50%) scale(0.9);
+            }
+        }
+
+        @media screen and (min-width: 320px) and (max-width: 379px) {
+            .floating-label label[for="kerabatTiga"] {
+                padding: 9px 8px;
+            }
+
+            .floating-label label[for="kerabatTiga"] svg {
+                margin-top: 0;
+            }
+
+            .floating-label input:focus~label[for="kerabatTiga"],
+            .floating-label input:not(:placeholder-shown)~label[for="kerabatTiga"] {
+                padding: 1px 8px;
+                transform: translateY(-50%) scale(0.9);
+            }
+        }
+
+        @media screen and (min-width: 320px) and (max-width: 359px) {
+            .floating-label label[for="namaKetua"] {
+                padding: 9px 8px;
+            }
+
+            .floating-label label[for="namaKetua"] svg {
+                margin-top: 0;
+            }
+
+            .floating-label input:focus~label[for="namaKetua"],
+            .floating-label input:not(:placeholder-shown)~label[for="namaKetua"] {
                 padding: 1px 8px;
                 transform: translateY(-50%) scale(0.9);
             }
         }
     </style>
+    <link rel="stylesheet" href="css/sidebarRegister.css">
+
 @endsection
 
 @include('partials.sidebar')
@@ -359,7 +428,7 @@
                 @csrf
 
                 <div class="row">
-                    <div class="mb-3 col-xl-6">
+                    <div class="mb-3 col-xl-full">
                         <div class="floating-label">
                             <input type="text" class="form-control" id="asalSekolah" name="asalSekolah" placeholder=" "
                                 value="{{ old('asalSekolah') }}" required>
@@ -383,7 +452,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="mb-3 col-xl-6">
+                    <div class="mb-3 col-xl-full">
                         <div class="floating-label">
                             <input type="text" id="kontakSekolah" name="kontakSekolah"
                                 class="form-control @error('kontakSekolah') is-invalid @enderror" placeholder=""
@@ -409,14 +478,14 @@
                 </div>
 
                 <div class="row">
-                    <div class="mb-3 col-xl-6">
+                    <div class="mb-3 col-xl-full">
                         <div class="floating-label">
-                            <input type="text" class="form-control @error('kelas') is-invalid @enderror" id="kelas"
-                                name="kelas" placeholder="" value="{{ old('kelas') }}" required>
+                            <input type="text" class="form-control @error('kelas') is-invalid @enderror"
+                                id="kelas" name="kelas" placeholder="" value="{{ old('kelas') }}" required>
                             <label for="kelas" class="form-label">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-university">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-university">
                                     <circle cx="12" cy="10" r="1" />
                                     <path d="M22 20V8h-4l-6-4-6 4H2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2" />
                                     <path d="M6 17v.01" />
@@ -437,7 +506,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="mb-3 col-xl-6">
+                    <div class="mb-3 col-xl-full">
                         <div class="floating-label">
                             <input type="text" class="form-control @error('jurusan') is-invalid @enderror"
                                 id="jurusan" name="jurusan" placeholder="" value="{{ old('jurusan') }}" required>
@@ -459,7 +528,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="mb-3 col-xl-6">
+                    <div class="mb-3 col-xl-full">
                         <div class="floating-label">
                             <input type="text" class="form-control @error('usernameKelompok') is-invalid @enderror"
                                 id="usernameKelompok" name="usernameKelompok" placeholder=""
@@ -481,7 +550,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="mb-3 col-xl-6">
+                    <div class="mb-3 col-xl-full">
                         <div class="floating-label">
                             <input type="text" class="form-control @error('kontakPerwakilan') is-invalid @enderror"
                                 id="kontakPerwakilan" name="kontakPerwakilan" placeholder=""
@@ -507,7 +576,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="mb-3 col-xl-6">
+                    <div class="mb-3 col-xl-full">
                         <div class="floating-label">
                             <input type="password" id="inputPassword5"
                                 class="form-control @error('passPeserta') is-invalid @enderror" name="passPeserta"
@@ -534,7 +603,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="mb-3 col-xl-6">
+                    <div class="mb-3 col-xl-full">
                         <div class="floating-label">
                             <input type="password" id="confirmPass"
                                 class="form-control @error('confirmPass') is-invalid @enderror" name="confirmPass"
@@ -584,7 +653,7 @@
 
 
                 <div class="row">
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-6 nama-ketua-container">
                         <div class="floating-label">
                             <input type="text" class="form-control @error('namaKetua') is-invalid @enderror"
                                 id="namaKetua" name="namaKetua" placeholder="" value="{{ old('namaKetua') }}" required>
@@ -701,7 +770,7 @@
 
 
                 <div class="row">
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-6 nama3-container">
                         <div class="floating-label">
                             <input type="text" id="namaKetiga" name="namaKetiga"
                                 class="form-control @error('namaKetiga') is-invalid @enderror" placeholder=""
@@ -773,13 +842,11 @@
                         <label for="alergi" class="form-label alergi-label">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-briefcase-medical">
-                                <path d="M12 11v4" />
-                                <path d="M14 13h-4" />
-                                <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
-                                <path d="M18 6v14" />
-                                <path d="M6 6v14" />
-                                <rect width="20" height="14" x="2" y="6" rx="2" />
+                                stroke-linejoin="round" class="lucide lucide-shield-plus">
+                                <path
+                                    d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                                <path d="M9 12h6" />
+                                <path d="M12 9v6" />
                             </svg>Alergi anggota
                         </label>
                         <input type="text" class="input-alergi form-control @error('alergi') is-invalid @enderror"

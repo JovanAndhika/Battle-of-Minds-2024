@@ -23,6 +23,7 @@
             border-radius: 40px;
             width: 200px;
         }
+        
     </style>
 </head>
 
@@ -31,7 +32,6 @@
     <div class="box rounded-5 border border-blue center">
         <form action="{{ route('authenticate') }}" method="post">
             @csrf
-
             <div class="row center">
                 <div class="d-flex col-lg-8">
                     <img src="{{ asset('storage/assetsEric/spaceHerta1.png') }}" class="img-fluid " alt="">

@@ -22,7 +22,7 @@
             z-index: 110;
         }
 
-        .loader {   
+        .loader {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -134,6 +134,8 @@
             text-shadow: 0px 0px 5px white, 0px 0px 10px white;
         }
     </style>
+
+    <link rel="stylesheet" href="css/sidebar.css">
 @endsection
 
 @section('content')
