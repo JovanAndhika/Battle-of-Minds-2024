@@ -114,17 +114,22 @@ button:hover {
 }
 
 h2 {
-    font-size: 4rem;
+    font-size: 2rem;
     letter-spacing: 1rem;
+    padding-left: 1rem;
 }
 
 img {
     border-bottom-left-radius: 40px;
     width: 75%;
     height: auto;
+    /* padding-left: 6rem; */
     border-top-left-radius: 40px;
     overflow: hidden;
     animation: fadeup 0.75s;
+}
+.help{
+    padding-left: 10%;
 }
 
 @keyframes fadeup {
@@ -163,7 +168,7 @@ img {
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 991.33px) {
     .box {
         display: flex;
         flex-wrap: wrap;
@@ -178,8 +183,14 @@ img {
         overflow: hidden;
         animation: fadeup 0.25s;
     }
-
-    .login {
-        padding-left: 3%;
+    .help{
+        padding-left: 0rem;
+        padding-top: 1rem;
+        width: 55%;
+        height: auto;
+    }
+    h2{
+        font-size: 2rem;
+        letter-spacing: 0.25rem;
     }
 }
