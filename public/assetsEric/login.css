@@ -123,7 +123,7 @@ h2 {
 
 img {
     border-bottom-left-radius: 40px;
-    width: 75%;
+    width: 95%;
     height: auto;
     /* padding-left: 6rem; */
     border-top-left-radius: 40px;
@@ -173,6 +173,8 @@ img {
         flex-wrap: wrap;
         justify-content: center;
         text-align: center;
+        margin: 1rem;
+        margin-left: 1rem;
         background: rgba(164, 34, 218, 0.35);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         backdrop-filter: blur(12px);
@@ -184,7 +186,7 @@ img {
     }
     .help{
         padding-left: 0rem;
-        padding-top: 1rem;
+        padding-top: 0rem;
         width: 55%;
         height: auto;
     }
@@ -193,4 +195,13 @@ img {
         letter-spacing: 0.25rem;
     }
     
+    img{
+        width: 55%;
+        height: auto;
+        padding-top: 1rem;
+        padding-bottom: 0.25rem;
+    }
+   input{
+    margin-left: 0rem;
+   }
 }
