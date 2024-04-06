@@ -29,17 +29,17 @@
 
 <body>
 @include('partials.sidebar')
-    <div class="box rounded-5 border border-blue center">
+    <div class="box rounded-5 border border-blue">
         <form action="{{ route('authenticate') }}" method="post">
             @csrf
             <div class="row center">
-                <div class="d-flex col-lg-8">
-                    <img src="{{ asset('asset/logo-main.png') }}" class="img-fluid " alt="">
+                <div class=" col-lg-5 m-0 text-center">
+                    <img src="{{ asset('asset/logo-main.png') }}" class="text-center" alt="">
                 </div>
 
-                <div class="col-lg-4">
+                <div class="col-lg-5 m-0 text-center">
 
-                    <div class="center login">
+                    <div class=" pt-3">
                         <h2 class="text-white">LOGIN</h2>
                     </div>
 
@@ -56,12 +56,14 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     @endif
+                    <div>
 
-                    <div class="input-box text-center" id="usernameBox">
+                    </div>
+                    <div class="col-12 input-box text-center" id="usernameBox">
                         <input type="text" name="nrp" id="nrp" required placeholder="Username" autocomplete="off">
                     </div>
 
-                    <div class="input-box text-center" id="passwordBox">
+                    <div class="col-12 input-box text-center" id="passwordBox">
                         <input type="password" name="password" id="password" placeholder="Password" required>
                     </div>
                     <div class="col-12 text-center my-4 px-4 py-1">
