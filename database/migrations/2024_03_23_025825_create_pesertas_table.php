@@ -15,22 +15,28 @@ return new class extends Migration
         Schema::create('pesertas', function (Blueprint $table) {
             $table->id();
             $table->string('asalSekolah');
-            $table->string('kontakSekolah');
-            $table->string('usernameKelompok');
-            $table->string('kelas');
-            $table->string('jurusan');
-            $table->string('kontakPerwakilan');
+            $table->string('namaKelompok');
             $table->string('confirmPass');
-            $table->string('namaKetua');
-            $table->string('emailKetua');
-            $table->string('kerabatSatu');
-            $table->string('namaKedua');
-            $table->string('kerabatDua');
-            $table->string('namaKetiga');
-            $table->string('kerabatTiga');
-            $table->string('jenisKonsumsi');
-            $table->string('alergi');
             $table->string('buktiTransaksi');
+
+            $table->string('kontakPerwakilan');
+            $table->string('namaSatu');
+            $table->string('emailSatu');
+            $table->string('angkatanSatu');
+            $table->string('jenisKonsumsiSatu');
+            $table->string('alergiSatu');
+
+            $table->string('namaDua');
+            $table->string('angkatanDua');
+            $table->string('jenisKonsumsiDua');
+            $table->string('alergiDua');
+
+            $table->string('namaTiga');
+            $table->string('angkatanTiga');
+            $table->string('jenisKonsumsiTiga');
+            $table->string('alergiTiga');
+
+            $table->string('kartuPelajar');
             $table->boolean('is_validated')->default(0);
             $table->timestamps();
         });

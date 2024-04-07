@@ -31,24 +31,31 @@ class DatabaseSeeder extends Seeder
 
         Peserta::create([
             'asalSekolah' => 'SMAK ABCD',
-            'kontakSekolah' => 'abscd',
-            'usernameKelompok' => 'peserta',
-            'kelas' => 'abscs',
-            'jurusan' => 'IPS',
-            'kontakPerwakilan' => 'asssss',
+            'namaKelompok' => 'peserta',
             'confirmPass' => Hash::make('password'),
-            'namaKetua' => 'Hasan Surabaya ABCDEFGH',
-            'emailKetua' => 'abcsefg@gmail.com',
-            'kerabatSatu' => 'kepo',
-            'namaKedua' => 'Yasan',
-            'kerabatDua' => 'kepo',
-            'namaKetiga' => 'Susan',
-            'kerabatTiga' => 'kepo',
-            'jenisKonsumsi' => 'vegan',
-            'alergi' => 'debu',
             'buktiTransaksi' => 'bukti-transaksi//komal.jpg',
-            'created_at' => Carbon::now()->setTime(23,59,59)->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->setTime(23,59,59)->format('Y-m-d H:i:s')
+
+            'kontakPerwakilan' => 'asssss',
+            'namaSatu' => 'Hasan Surabaya ABCDEFGH',
+            'emailSatu' => 'abcsefg@gmail.com',
+            'angkatanSatu' => '2022',
+            'jenisKonsumsiSatu' => 'vegan',
+            'alergiSatu' => 'debu',
+
+            'namaDua' => 'Jevon',
+            'angkatanDua' => '2022',
+            'jenisKonsumsiDua' => 'normal',
+            'alergiDua' => 'angin',
+
+            'namaTiga' => 'Adi',
+            'angkatanTiga' => '2022',
+            'jenisKonsumsiTiga' => 'normal',
+            'alergiTiga' => '-',
+
+            'kartuPelajar' => 'bukti-transaksi//komal.jpg',
+
+            'created_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s')
         ]);
     }
 }
