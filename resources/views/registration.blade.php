@@ -78,7 +78,7 @@
     input[type="text"],
     input[type="email"],
     input[type="password"],
-    select#jenisKonsumsi,
+    select#jenisKonsumsiSatu, select#jenisKonsumsiDua, select#jenisKonsumsiTiga,
     select,
     textarea {
         background: transparent;
@@ -111,15 +111,15 @@
         font-weight: bold;
     }
 
-    select#jenisKonsumsi,
-    #alergi::placeholder {
+    select#jenisKonsumsiSatu, select#jenisKonsumsiDua, select#jenisKonsumsiTiga,
+    #alergiSatu::placeholder, #alergiDua::placeholder, #alergiTiga::placeholder {
         color: white;
         font-size: 1rem;
         font-weight: bold;
     }
 
     /* option konsumsi */
-    select#jenisKonsumsi option {
+    select#jenisKonsumsiSatu option, select#jenisKonsumsiDua option, select#jenisKonsumsiTiga option {
         color: black;
     }
 
@@ -300,22 +300,6 @@
 
     }
 
-   
-    @media screen and (min-width: 320px) and (max-width: 398px) {
-        .floating-label label[for="angkatanSatu"] {
-            padding: 9px 8px;
-        }
-
-        .floating-label label[for="angkatanSatu"] svg {
-            margin-top: 0;
-        }
-
-        .floating-label input:focus~label[for="angkatanSatu"],
-        .floating-label input:not(:placeholder-shown)~label[for="angkatanSatu"] {
-            padding: 1px 8px;
-            transform: translateY(-50%) scale(0.9);
-        }
-    }
 
 
     @media screen and (min-width: 320px) and (max-width: 413px) {
@@ -329,6 +313,23 @@
 
         .floating-label input:focus~label[for="kontakPerwakilan"],
         .floating-label input:not(:placeholder-shown)~label[for="kontakPerwakilan"] {
+            padding: 1px 8px;
+            transform: translateY(-50%) scale(0.9);
+        }
+    }
+
+
+    @media screen and (min-width: 320px) and (max-width: 413px) {
+        .floating-label label[for="angkatanSatu"], label[for="angkatanDua"], label[for="angkatanTiga"]{
+            padding: 9px 8px;
+        }
+
+        .floating-label label[for="angkatanSatu"] svg, label[for="angkatanDua"] svg, label[for="angkatanTiga"] svg {
+            margin-top: 0;
+        }
+
+        .floating-label input:focus~label[for="angkatanSatu"], input:focus~label[for="angkatanDua"], input:focus~label[for="angkatanTiga"],
+        .floating-label input:not(:placeholder-shown)~label[for="angkatanSatu"], input:not(:placeholder-shown)~label[for="angkatanDua"], input:not(:placeholder-shown)~label[for="angkatanTiga"] {
             padding: 1px 8px;
             transform: translateY(-50%) scale(0.9);
         }
@@ -351,6 +352,40 @@
             transform: translateY(-50%) scale(0.9);
         }
     }
+
+    @media screen and (min-width: 320px) and (max-width: 359px) {
+        .floating-label label[for="namaDua"] {
+            padding: 9px 8px;
+        }
+
+        .floating-label label[for="namaDua"] svg {
+            margin-top: 0;
+        }
+
+        .floating-label input:focus~label[for="namaDua"],
+        .floating-label input:not(:placeholder-shown)~label[for="namaDua"] {
+            padding: 1px 8px;
+            transform: translateY(-50%) scale(0.9);
+        }
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 359px) {
+        .floating-label label[for="namaTiga"] {
+            padding: 9px 8px;
+        }
+
+        .floating-label label[for="namaTiga"] svg {
+            margin-top: 0;
+        }
+
+        .floating-label input:focus~label[for="namaTiga"],
+        .floating-label input:not(:placeholder-shown)~label[for="namaTiga"] {
+            padding: 1px 8px;
+            transform: translateY(-50%) scale(0.9);
+        }
+    }
+
+
 </style>
 <link rel="stylesheet" href="css/sidebarRegister.css">
 @endsection
@@ -550,23 +585,6 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="mb-3 col-xl-full">
-                    <div class="floating-label">
-                        <input type="email" class="form-control @error('emailSatu') is-invalid @enderror" id="emailSatu" name="emailSatu" placeholder="" value="{{ old('emailSatu') }}" required>
-                        <label for="emailSatu" class="form-label">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-at-sign">
-                                <circle cx="12" cy="12" r="4" />
-                                <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8" />
-                            </svg>
-                            Email Ketua
-                        </label>
-                    </div>
-                    @error('emailSatu')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-            </div>
 
             <div class="row">
                 <div class="mb-3 col-md-6">
