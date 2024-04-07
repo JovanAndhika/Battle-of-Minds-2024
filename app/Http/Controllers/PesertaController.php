@@ -39,22 +39,28 @@ class PesertaController extends Controller
         // Validasi input
         $validatedData = $request->validate([
             'asalSekolah' => 'required|string|max:120',
-            'kontakSekolah' => 'required|string|max:60',
-            'usernameKelompok' => 'required|string|max:30',
-            'kelas' => 'required|string|max:20',
-            'jurusan' => 'required|string|max:20',
-            'kontakPerwakilan' => 'required|string|max:50',
+            'namaKelompok' => 'required|string|max:30',
             'confirmPass' => 'required|string|min:8|max:20',
-            'namaKetua' => 'required|string|max:100',
-            'emailKetua' => 'required|email:dns|max:100',
-            'kerabatSatu' => 'required|string|max:40',
-            'namaKedua' => 'required|string|max:100',
-            'kerabatDua' => 'required|string|max:40',
-            'namaKetiga' => 'required|string|max:100',
-            'kerabatTiga' => 'required|string|max:40',
-            'jenisKonsumsi' => 'required|string|in:normal,vege,vegan|max:100',
-            'alergi' => 'required|string|max:100',
-            'buktiTransaksi' => 'image|file|max:10000',
+            'buktiTransaksi' => 'image|mimes:jpg,png|max:10000',
+
+            'kontakPerwakilan' => 'required|string|max:50',
+            'namaSatu' => 'required|string|max:70',
+            'emailSatu' => 'required|email:dns|max:70',
+            'angkatanSatu' => 'required|string|max:15',
+            'jenisKonsumsiSatu' => 'required|string|in:normal,vege,vegan|max:15',
+            'alergiSatu' => 'required|string|max:100',
+
+            'namaDua' => 'required|string|max:70',
+            'angkatanDua' => 'required|string|max:15',
+            'jenisKonsumsiDua' => 'required|string|in:normal,vege,vegan|max:15',
+            'alergiDua' => 'required|string|max:100',
+
+            'namaTiga' => 'required|string|max:70',
+            'angkatanTiga' => 'required|string|max:15',
+            'jenisKonsumsiTiga' => 'required|string|in:normal,vege,vegan|max:15',
+            'alergiTiga' => 'required|string|max:100',
+
+            'kartuPelajar' => 'file|mimes:pdf|max:10000',
         ]);
 
 
@@ -63,21 +69,37 @@ class PesertaController extends Controller
 
         $booleanCheck = Hash::check($password, $validatedData['confirmPass']);
 
-        if(!$booleanCheck){
+        if (!$booleanCheck) {
             return back()->with('password_not_same', 'password is not the same');
         }
 
+        // Bukti Transaksi
         if ($request->file('buktiTransaksi')) {
-            $file = $request->file('buktiTransaksi');
+            $file_bukti_transaksi = $request->file('buktiTransaksi');
 
-            $nama_bukti_transaksi = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-            $extension = $file->getClientOriginalExtension();
-            $fileNameToStore = $nama_bukti_transaksi . '.' . $extension;
+            $nama_bukti_transaksi = pathinfo($file_bukti_transaksi->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file_bukti_transaksi->getClientOriginalExtension();
+            $fileNameToStoreTransaksi = $nama_bukti_transaksi . '.' . $extension;
 
 
-            $validatedData['buktiTransaksi'] = $file->storeAs('bukti-transaksi/', $fileNameToStore, 'public');
-            $file->move(public_path('bukti-transaksi'), $fileNameToStore);
+            $validatedData['buktiTransaksi'] = $file_bukti_transaksi->storeAs('bukti-transaksi/', $fileNameToStoreTransaksi, 'public');
+            $file_bukti_transaksi->move(public_path('bukti-transaksi'), $fileNameToStoreTransaksi);
         }
+
+
+        // Scan kartu pelajar
+        if ($request->file('kartuPelajar')) {
+            $file_kartu_pelajar = $request->file('kartuPelajar');
+
+            $nama_kartu_pelajar = pathinfo($file_kartu_pelajar->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file_kartu_pelajar->getClientOriginalExtension();
+            $fileNameToStoreKartu = $nama_kartu_pelajar . '.' . $extension;
+
+
+            $validatedData['kartuPelajar'] = $file_kartu_pelajar->storeAs('kartu-pelajar/', $fileNameToStoreKartu, 'public');
+            $file_kartu_pelajar->move(public_path('kartu-pelajar'), $fileNameToStoreKartu);
+        }
+
 
         Peserta::create($validatedData);
 
@@ -147,5 +169,4 @@ class PesertaController extends Controller
     {
         return view('user.view', ['title' => 'BOM 2024 | COMING SOON']);
     }
-
 }
