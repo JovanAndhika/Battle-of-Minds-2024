@@ -132,6 +132,11 @@ class PesertaController extends Controller
         }
     }
 
+    public function assessment()
+    {
+        return view('user.assessment', ['title' => 'BOM 2024 | ASSESSMENT']);
+    }
+
 
     public function logout(Request $request)
     {
