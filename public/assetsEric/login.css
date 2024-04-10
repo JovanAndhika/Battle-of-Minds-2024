@@ -123,7 +123,7 @@ h2 {
 
 img {
     border-bottom-left-radius: 40px;
-    width: 75%;
+    width: 95%;
     height: auto;
     /* padding-left: 6rem; */
     border-top-left-radius: 40px;
@@ -173,6 +173,8 @@ img {
         flex-wrap: wrap;
         justify-content: center;
         text-align: center;
+        margin: 3.5rem;
+        margin-left: 7rem;
         background: rgba(164, 34, 218, 0.35);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         backdrop-filter: blur(12px);
@@ -184,13 +186,70 @@ img {
     }
     .help{
         padding-left: 0rem;
-        padding-top: 1rem;
+        padding-top: 0rem;
         width: 55%;
         height: auto;
     }
     h2{
-        font-size: 2rem;
+        font-size: 3rem;
         letter-spacing: 0.25rem;
     }
     
+    img{
+        width: 55%;
+        height: auto;
+        padding-top: 1rem;
+        padding-bottom: 0.25rem;
+    }
+   input{
+    margin-left: 0rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 0.5rem;
+    text-align: center;
+   }
+   input::placeholder{
+    text-align: center;
+   }
+   button{
+    padding-left: 3rem;
+    padding-right: 3rem;
+   }
+}
+@media only screen and (max-width: 760px) {
+    input{
+        margin-left: 0rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+       }
+    h2{
+        font-size: 1.75rem;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .box {
+        margin: 4.5rem;
+        margin-left: 4.5rem;
+    }
+    
+}
+@media only screen and (max-width: 500px) {
+    .box {
+        margin: 1rem;
+        margin-left: 1rem;
+    }
+    input{
+        margin-left: 0rem;
+        padding-left: 0rem;
+        padding-right: 0rem;
+        padding-top: 0rem;
+        text-align: start;
+       }
+       
+       input::placeholder{
+        text-align:start;
+       }
+       h2{
+        font-size: 1.5rem;
+       }
 }
