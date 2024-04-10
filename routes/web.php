@@ -19,6 +19,9 @@ Route::post('/login/store', [PesertaController::class, 'authenticate'])->name('a
 // LOGOUT
 Route::post('/logout', [PesertaController::class, 'logout'])->name('logout');
 
+// Assessment
+Route::get('/assessment', [PesertaController::class, 'assessment'])->name('assessment');
+
 
 // ADMIN
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], function () {
