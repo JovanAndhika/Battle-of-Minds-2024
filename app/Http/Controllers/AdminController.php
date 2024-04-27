@@ -11,17 +11,7 @@ use App\Models\Set_jawaban_status;
 
 class AdminController extends Controller
 {
-    //INDEX
-    public function adminIndex()
-    {
-
-        return view('admin.homepage', [
-            'title' => 'BOM 2024 | PETRA CHRISTIAN UNIVERSITY',
-            'active' => 'home'
-        ]);
-    }
-
-
+    
     // Nanti admin bisa validasi peserta yang mendaftar
     public function peserta()
     {
