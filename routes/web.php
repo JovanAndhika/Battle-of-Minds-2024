@@ -19,9 +19,6 @@ Route::post('/login/store', [PesertaController::class, 'authenticate'])->name('a
 // LOGOUT
 Route::post('/logout', [PesertaController::class, 'logout'])->name('logout');
 
-// Assessment
-Route::get('/assessment', [PesertaController::class, 'assessment'])->name('assessment');
-
 
 // ADMIN
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], function () {
@@ -35,6 +32,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], fu
 
 
 //PESERTA
-//ELIMINASI 1
-Route::get('/{peserta}/view', [PesertaController::class, 'view'])->name('view');
-
+Route::group(['as' => 'user.'], function () {
+    Route::get('/{peserta}/view', [PesertaController::class, 'view'])->name('view');
+    // 300 soal
+    Route::get('/assessment', [PesertaController::class, 'assessment'])->name('assessment');
+});

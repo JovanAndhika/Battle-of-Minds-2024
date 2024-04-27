@@ -16,27 +16,22 @@ return new class extends Migration
             $table->id();
             $table->string('asalSekolah');
             $table->string('namaKelompok');
-            $table->string('confirmPass');
+            $table->string('passPeserta');
             $table->string('buktiTransaksi');
 
-            $table->string('kontakPerwakilan');
+            $table->string('emailPerwakilan');
             $table->string('namaSatu');
-            $table->string('emailSatu');
-            $table->string('angkatanSatu');
-            $table->string('jenisKonsumsiSatu');
-            $table->string('alergiSatu');
+            $table->string('kontakSatu');
+            $table->string('kartuPelajarSatu');
 
             $table->string('namaDua');
-            $table->string('angkatanDua');
-            $table->string('jenisKonsumsiDua');
-            $table->string('alergiDua');
+            $table->string('kontakDua');
+            $table->string('kartuPelajarDua');
 
             $table->string('namaTiga');
-            $table->string('angkatanTiga');
-            $table->string('jenisKonsumsiTiga');
-            $table->string('alergiTiga');
+            $table->string('kontakTiga');
+            $table->string('kartuPelajarTiga');
 
-            $table->string('kartuPelajar');
             $table->boolean('is_validated')->default(0);
             $table->timestamps();
         });

@@ -32,27 +32,21 @@ class DatabaseSeeder extends Seeder
         Peserta::create([
             'asalSekolah' => 'SMAK ABCD',
             'namaKelompok' => 'peserta',
-            'confirmPass' => Hash::make('password'),
+            'passPeserta' => Hash::make('password'),
             'buktiTransaksi' => 'bukti-transaksi//komal.jpg',
 
-            'kontakPerwakilan' => 'asssss',
+            'emailPerwakilan' => 'asssss',
             'namaSatu' => 'Hasan Surabaya ABCDEFGH',
-            'emailSatu' => 'abcsefg@gmail.com',
-            'angkatanSatu' => '2022',
-            'jenisKonsumsiSatu' => 'vegan',
-            'alergiSatu' => 'debu',
+            'kontakSatu' => 'abcsefg@gmail.com',
+            'kartuPelajarSatu' => 'debu',
 
             'namaDua' => 'Jevon',
-            'angkatanDua' => '2022',
-            'jenisKonsumsiDua' => 'normal',
-            'alergiDua' => 'angin',
+            'kontakDua' => '2022',
+            'kartuPelajarDua' => 'angin',
 
             'namaTiga' => 'Adi',
-            'angkatanTiga' => '2022',
-            'jenisKonsumsiTiga' => 'normal',
-            'alergiTiga' => '-',
-
-            'kartuPelajar' => 'bukti-transaksi//komal.jpg',
+            'kontakTiga' => 'normal',
+            'kartuPelajarTiga' => '-',
 
             'created_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s')
