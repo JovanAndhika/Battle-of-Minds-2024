@@ -30,7 +30,7 @@
 <body>
 @include('partials.sidebar')
     <div class="box rounded-5 border border-blue">
-        <form action="{{ route('authenticate') }}" method="post">
+        <form action="{{ route('session.login') }}" method="post">
             @csrf
             <div class="row center">
                 <div class=" col-lg-5 m-0 text-center">

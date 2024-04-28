@@ -59,6 +59,9 @@
             <div class="header">
                 <h1 class="text-center title mt-5">ASSESSMENT</h1>
             </div>
+            <div class="header">
+                <h1 class="title mt-5">Welcome</h1>
+            </div>
             <div class="mx-md-5 form-content mb-5">
                 <div id="question-container" class="ms-md-3 question">
                     <!-- Question Content -->

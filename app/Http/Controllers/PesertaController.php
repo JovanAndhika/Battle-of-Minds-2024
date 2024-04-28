@@ -19,7 +19,6 @@ class PesertaController extends Controller
         return view('homepage', ['title' => 'BOM 2024 | PETRA CHRISTIAN UNIVERSITY']);
     }
 
-    //INDEX
     public function buram()
     {
 
@@ -118,69 +117,17 @@ class PesertaController extends Controller
     }
 
 
-
-    //LOGIN HANDLER
-    public function login()
+    // TAMPILAN USER
+    public function view($id)
     {
-        return view('login.login', ['title' => 'BOM 2024 | LOGIN']);
-    }
-
-    public function authenticate(Request $request)
-    {
-        $nrpPanitia = User::Where('nrp', $request->nrp)->count();
-        $passPanitia = DB::table('users')->select('password')->where('nrp', $request->nrp)->value('password');
-        $inputPass = $request->password;
-
-
-        // LOGIN PANITIA
-        if ($nrpPanitia == 1 && Hash::check($inputPass, $passPanitia)) {
-            $credentials = $request->validate([
-                'nrp' => 'required',
-                'password' => 'required'
-            ]);
-
-            if (Auth::attempt($credentials)) {
-                $request->session()->regenerate();
-                return redirect()->intended('/admin');
-            }
-            return back()->with('loginError', 'Login credentials invalid!');
-
-
-            // LOGIN PESERTA
-        } else if ($nrpPanitia == 0) {
-            $cekUsernameKelompok = Peserta::Where('usernameKelompok', $request->nrp)
-                ->Where('is_validated', 1)
-                ->count();
-            $passPeserta = DB::table('pesertas')->select('passPeserta')->where('usernameKelompok', $request->nrp)->value('password');
-            $inputPass = $request->password;
-
-
-            if ($cekUsernameKelompok == 1 && Hash::check($inputPass, $passPeserta)) {
-                $usernameKelompok = DB::table('pesertas')->select('usernameKelompok')->where('usernameKelompok', $request->nrp)->value('usernameKelompok');
-                return redirect()->route('user.view')->with('usernameKelompok', $usernameKelompok);
-            }
-            return redirect()->route('login')->with('not_validated', "You aren't validated nor registered");
-        }
-    }
-
-    public function assessment()
-    {
-        return view('user.assessment', ['title' => 'BOM 2024 | ASSESSMENT']);
-    }
-
-
-    public function logout(Request $request)
-    {
-        Auth::logout();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect('/');
-    }
-
-
-    public function view()
-    {
+        echo 'hello world';
         return view('user.view', ['title' => 'BOM 2024 | COMING SOON']);
+    }
+
+
+
+    public function elim_satu($id)
+    {
+        return view('user.elim_satu', ['title' => 'BOM 2024 | ASSESSMENT']);
     }
 }
