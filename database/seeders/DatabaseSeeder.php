@@ -24,12 +24,6 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         User::create([
-            'nrp' => 'C14220001',
-            'username' => 'khususpanitiabom',
-            'password' => Hash::make('password'),
-        ]);
-
-        Peserta::create([
             'asalSekolah' => 'SMAK ABCD',
             'namaKelompok' => 'peserta',
             'passPeserta' => Hash::make('password'),
@@ -41,6 +35,30 @@ class DatabaseSeeder extends Seeder
             'kartuPelajarSatu' => 'debu',
 
             'namaDua' => 'Jevon',
+            'kontakDua' => '2022',
+            'kartuPelajarDua' => 'angin',
+
+            'namaTiga' => 'Adi',
+            'kontakTiga' => 'normal',
+            'kartuPelajarTiga' => '-',
+
+            'created_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s')
+        ]);
+
+
+        User::create([
+            'asalSekolah' => 'admin',
+            'namaKelompok' => 'C14220001',
+            'passPeserta' => Hash::make('password'),
+            'buktiTransaksi' => 'bukti-transaksi//komal.jpg',
+
+            'emailPerwakilan' => 'asssss',
+            'namaSatu' => 'Hasan Surabaya ABCDEFGH',
+            'kontakSatu' => 'abcsefg@gmail.com',
+            'kartuPelajarSatu' => 'debu',
+
+            'namaDua' => 'Ado',
             'kontakDua' => '2022',
             'kartuPelajarDua' => 'angin',
 

@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Peserta;
 use App\Models\Data_jawaban;
 use Illuminate\Http\Request;
+use App\Models\Set_jawaban_status;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\Set_jawaban_status;
 
 class AdminController extends Controller
 {
@@ -18,7 +19,7 @@ class AdminController extends Controller
         return view('admin.listPeserta', [
             'title' => 'BOM 2024 | List Peserta BOM',
             'active' => 'peserta',
-            'pesertas' => Peserta::all(),
+            'pesertas' => User::all(),
             'jumlah_peserta' => DB::table('pesertas')->count()
         ]);
     }
@@ -36,7 +37,7 @@ class AdminController extends Controller
     // MENU SET SOAL
     public function adminSelection()
     {
-        $pesertas = Peserta::all();
+        $pesertas = User::all();
         return view('admin.adminSelectionSelect', [
             'title' => 'Selection',
             'pesertas' => $pesertas,
@@ -48,7 +49,7 @@ class AdminController extends Controller
     // SET PAKET A
     public function setReadyA()
     {
-        $pesertas = Peserta::all();
+        $pesertas = User::all();
         foreach ($pesertas as $p) {
 
 

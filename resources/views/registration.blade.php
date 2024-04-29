@@ -449,7 +449,7 @@
                                 </label>
                             </div>
                             @error('passPeserta')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                            <label class="invalid-feedback">{{ $message }}</div>
                             @enderror
                             <div id="passwordHelpBlock" class="form-text">
                                 Your password must be 8-20 characters long, contain letters and numbers, and must not

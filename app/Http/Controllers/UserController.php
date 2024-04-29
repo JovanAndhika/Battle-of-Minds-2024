@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Peserta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class PesertaController extends Controller
+class UserController extends Controller
 {
     //INDEX
     public function index()
@@ -56,7 +55,6 @@ class PesertaController extends Controller
             'kartuPelajarTiga' => 'file|mimes:jpg,png|max:10240',
         ]);
 
-
         $validatedData['passPeserta'] = Hash::make($validatedData['passPeserta']);
         $password = $request->input('passPeserta');
         $booleanCheck = Hash::check($password, $validatedData['passPeserta']);
@@ -75,7 +73,7 @@ class PesertaController extends Controller
             $validatedData['buktiTransaksi'] = $file_bukti_transaksi->storeAs('bukti-transaksi/', $fileNameToStoreTransaksi, 'public');
             $file_bukti_transaksi->move(public_path('bukti-transaksi'), $fileNameToStoreTransaksi);
         }
-        
+
         // Scan kartu pelajar
         if ($request->file('kartuPelajarSatu')) {
             $file_kartu_pelajar = $request->file('kartuPelajarSatu');
@@ -110,8 +108,7 @@ class PesertaController extends Controller
             $validatedData['kartuPelajarTiga'] = $file_kartu_pelajar->storeAs('kartu-pelajar-3/', $fileNameToStoreKartu, 'public');
             $file_kartu_pelajar->move(public_path('kartu-pelajar-3'), $fileNameToStoreKartu);
         }
-        
-        Peserta::create($validatedData);
+        User::create($validatedData);
         // Kembalikan respons ke halaman yang sesuai
         return redirect("/")->with('registrationSuccess', 'Registration Berhasil!');
     }

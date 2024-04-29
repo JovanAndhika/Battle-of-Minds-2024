@@ -2,13 +2,13 @@
 
 use App\Models\Peserta;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PaketAController;
-use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\SessionController;
 
 //HOMEPAGE
-Route::get('/', [PesertaController::class, 'index'])->name('index');
+Route::get('/', [UserController::class, 'index'])->name('index');
 
 //SESSION
 Route::group(['as' => 'session.'], function () {
@@ -18,7 +18,7 @@ Route::group(['as' => 'session.'], function () {
 });
 
 // ADMIN
-Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], function () {
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isLogin'], function () {
     Route::get('/', [AdminController::class, 'peserta'])->name('index');
     Route::get('/selection', [AdminController::class, 'adminSelection'])->name('adminSelection');
 
@@ -29,11 +29,11 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], fu
 
 //PESERTA
 //REGISTRATION
-Route::get('/registration', [PesertaController::class, 'registration'])->name('registration');
-Route::post('/registration/store', [PesertaController::class, 'storeRegistration'])->name('storeRegistration');
+Route::get('/registration', [UserController::class, 'registration'])->name('registration');
+Route::post('/registration/store', [UserController::class, 'storeRegistration'])->name('storeRegistration');
 
-Route::group(['as' => 'user.', 'prefix' => '{id}'], function () {
-    Route::get('/view', [PesertaController::class, 'view'])->name('view');
+Route::group(['as' => 'user.', 'prefix' => '{id}', 'middleware' => 'isLogin'], function () {
+    Route::get('/view', [userController::class, 'view'])->name('view');
     // 300 soal
-    Route::get('/assestment', [PesertaController::class, 'elim_satu'])->name('elim_satu');
+    Route::get('/assestment', [UserController::class, 'elim_satu'])->name('elim_satu');
 });

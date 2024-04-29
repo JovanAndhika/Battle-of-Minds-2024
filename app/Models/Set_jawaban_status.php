@@ -23,6 +23,6 @@ class Set_jawaban_status extends Model
 
 
     public function peserta(): BelongsTo{
-        return $this->belongsTo(Peserta::class);
+        return $this->belongsTo(User::class);
     }
 }

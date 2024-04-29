@@ -3,9 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -17,9 +18,20 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'nrp',
-        'username',
-        'password'
+        'asalSekolah',
+        'namaKelompok',
+        'passPeserta',
+        'buktiTransaksi',
+        'emailPerwakilan',
+        'namaSatu',
+        'kontakSatu',
+        'kartuPelajarSatu',
+        'namaDua',
+        'kontakDua',
+        'kartuPelajarDua',
+        'namaTiga',
+        'kontakTiga',
+        'kartuPelajarTiga',
     ];
 
     /**
@@ -43,5 +55,15 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function data_jawaban(): HasMany
+    {
+        return $this->hasMany(Data_jawaban::class);
+    }
+
+    public function set_jawabans_status(): HasMany
+    {
+        return $this->hasMany(Set_jawaban_status::class);
     }
 }

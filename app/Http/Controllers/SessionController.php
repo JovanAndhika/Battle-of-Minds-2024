@@ -19,15 +19,17 @@ class SessionController extends Controller
 
     public function login(Request $request)
     {
-        $nrpPanitia = User::Where('nrp', $request->nrp)->count();
-        $passPanitia = DB::table('users')->select('password')->where('nrp', $request->nrp)->value('password');
-        $inputPass = $request->password;
+        $nrpPanitia = User::where('namaKelompok', $request->namaKelompok)
+        ->where('is_admin', 1)
+        ->count();
+        $passPanitia = DB::table('users')->select('passPeserta')->where('namaKelompok', $request->namaKelompok)->value('passPeserta');
+        $inputPass = $request->passPeserta;
 
         // LOGIN PANITIA
         if ($nrpPanitia == 1 && Hash::check($inputPass, $passPanitia)) {
             $credentials = $request->validate([
-                'nrp' => 'required',
-                'password' => 'required'
+                'namaKelompok' => 'required',
+                'passPeserta' => 'required'
             ]);
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
@@ -36,21 +38,21 @@ class SessionController extends Controller
             return back()->with('loginError', 'Login credentials invalid!');
         } else if ($nrpPanitia == 0) {
 
-            return redirect()->intended(route('user.view', ['id' => 1]));
+            
             //LOGIN PESERTA
-            $cekUsernameKelompok = Peserta::Where('namaKelompok', $request->nrp)
+            $cekUsernameKelompok = User::Where('namaKelompok', $request->namaKelompok)
                 ->Where('is_validated', 1)
                 ->count();
-            $passPeserta = DB::table('pesertas')->select('passPeserta')->where('namaKelompok', $request->nrp)->value('password');
-            $inputPass = $request->password;
+            $password = DB::table('users')->select('passPeserta')->where('namaKelompok', $request->namaKelompok)->value('passPeserta');
+            $inputPass = $request->passPeserta;
 
-            if ($cekUsernameKelompok == 1 && Hash::check($inputPass, $passPeserta)) {
-                $id = DB::table('pesertas')
+            if ($cekUsernameKelompok == 1 && Hash::check($inputPass, $password)) {
+                $id = DB::table('users')
                     ->select('id')
-                    ->where('namaKelompok', $request->nrp)
+                    ->where('namaKelompok', $request->namaKelompok)
                     ->value('id');
 
-                // return redirect()->intended(route('user.view', ['id' => $id]));
+                return redirect()->intended(route('user.view', ['id' => $id]));
             }
 
             return redirect()->route('session.index')->with('not_validated', "You aren't validated nor registered");

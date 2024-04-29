@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('set_jawabans_status', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('kelompok_id')->unique();
-            $table->foreign('kelompok_id')->references('id')->on('pesertas');
+            $table->foreign('kelompok_id')->references('id')->on('users');
             $table->boolean('status_paket_a')->nullable();
             $table->boolean('status_paket_b')->nullable();
             $table->boolean('status_paket_c')->nullable();
