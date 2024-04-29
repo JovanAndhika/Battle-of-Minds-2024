@@ -95,20 +95,7 @@
               questionHTML += '<h1 class="mt-5">Question ' + questionNumber + ':</h1>';
               questionHTML += '<div class="answer d-flex flex-column">';
               questionHTML += '<div class="mt-3">';
-              questionHTML += '<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault' + questionNumber + '">';
-              questionHTML += '<label class="form-check-label ms-3" for="flexRadioDefault' + questionNumber + '">A</label>';
-              questionHTML += '</div>';
-              questionHTML += '<div class="mt-3">';
-              questionHTML += '<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault' + questionNumber + '">';
-              questionHTML += '<label class="form-check-label ms-3" for="flexRadioDefault' + questionNumber + '">B</label>';
-              questionHTML += '</div>';
-              questionHTML += '<div class="mt-3">';
-              questionHTML += '<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault' + questionNumber + '">';
-              questionHTML += '<label class="form-check-label ms-3" for="flexRadioDefault' + questionNumber + '">C</label>';
-              questionHTML += '</div>';
-              questionHTML += '<div class="mt-3">';
-              questionHTML += '<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault' + questionNumber + '">';
-              questionHTML += '<label class="form-check-label ms-3" for="flexRadioDefault' + questionNumber + '">D</label>';
+              questionHTML += '<input class="form-control" type="text" id="answer' + questionNumber + '">';
               questionHTML += '</div>';
               questionHTML += '</div>';
             }
