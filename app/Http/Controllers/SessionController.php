@@ -36,7 +36,7 @@ class SessionController extends Controller
             return back()->with('loginError', 'Login credentials invalid!');
         } else if ($nrpPanitia == 0) {
 
-
+            return redirect()->intended(route('user.view', ['id' => 1]));
             //LOGIN PESERTA
             $cekUsernameKelompok = Peserta::Where('namaKelompok', $request->nrp)
                 ->Where('is_validated', 1)
@@ -46,10 +46,11 @@ class SessionController extends Controller
 
             if ($cekUsernameKelompok == 1 && Hash::check($inputPass, $passPeserta)) {
                 $id = DB::table('pesertas')
-                ->select('id')
-                ->where('namaKelompok', $request->nrp)
-                ->value('id');
-                return redirect()->route('user.view', ['id' => $id]);
+                    ->select('id')
+                    ->where('namaKelompok', $request->nrp)
+                    ->value('id');
+
+                // return redirect()->intended(route('user.view', ['id' => $id]));
             }
 
             return redirect()->route('session.index')->with('not_validated', "You aren't validated nor registered");
