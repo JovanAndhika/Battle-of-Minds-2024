@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Peserta;
 use App\Models\Data_jawaban;
 use Illuminate\Http\Request;
 use App\Models\Set_jawaban_status;
@@ -20,7 +19,8 @@ class AdminController extends Controller
             'title' => 'BOM 2024 | List Peserta BOM',
             'active' => 'peserta',
             'pesertas' => User::all(),
-            'jumlah_peserta' => DB::table('pesertas')->count()
+            'jumlah_peserta' => DB::table('users')
+            ->where('is_admin', '==', '0')->count()
         ]);
     }
 

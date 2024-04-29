@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'asalSekolah' => 'SMAK ABCD',
             'namaKelompok' => 'peserta',
-            'passPeserta' => Hash::make('password'),
+            'password' => Hash::make('password'),
             'buktiTransaksi' => 'bukti-transaksi//komal.jpg',
 
             'emailPerwakilan' => 'asssss',
@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'asalSekolah' => 'admin',
             'namaKelompok' => 'C14220001',
-            'passPeserta' => Hash::make('password'),
+            'password' => Hash::make('password'),
             'buktiTransaksi' => 'bukti-transaksi//komal.jpg',
 
             'emailPerwakilan' => 'asssss',

@@ -38,7 +38,7 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'asalSekolah' => 'required|string|max:120',
             'namaKelompok' => 'required|string|max:30',
-            'passPeserta' => 'required|string|min:8|max:20',
+            'password' => 'required|string|min:8|max:20',
             'buktiTransaksi' => 'image|mimes:jpg,png|max:10240',
 
             'emailPerwakilan' => 'required|email:dns|string|max:70',
@@ -55,9 +55,9 @@ class UserController extends Controller
             'kartuPelajarTiga' => 'file|mimes:jpg,png|max:10240',
         ]);
 
-        $validatedData['passPeserta'] = Hash::make($validatedData['passPeserta']);
-        $password = $request->input('passPeserta');
-        $booleanCheck = Hash::check($password, $validatedData['passPeserta']);
+        $validatedData['password'] = Hash::make($validatedData['password']);
+        $password = $request->input('password');
+        $booleanCheck = Hash::check($password, $validatedData['password']);
         if (!$booleanCheck) {
             return back()->with('password_not_same', '');
         }

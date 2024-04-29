@@ -439,8 +439,8 @@
                     <div class="row">
                         <div class="mb-3 col-xl-full">
                             <div class="floating-label">
-                                <input type="password" id="passPeserta" class="form-control @error('passPeserta') is-invalid @enderror" name="passPeserta" aria-describedby="passwordHelpBlock" placeholder="" value="{{ old('passPeserta') }}" required>
-                                <label for="passPeserta" class="form-label">
+                                <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password" aria-describedby="passwordHelpBlock" placeholder="" value="{{ old('password') }}" required>
+                                <label for="password" class="form-label">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock">
                                         <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
                                         <path d="M7 11V7a5 5 0 0 1 10 0v4" />
@@ -448,7 +448,7 @@
                                     Password
                                 </label>
                             </div>
-                            @error('passPeserta')
+                            @error('password')
                             <label class="invalid-feedback">{{ $message }}</div>
                             @enderror
                             <div id="passwordHelpBlock" class="form-text">
@@ -484,7 +484,7 @@
                     @endif
                     <script>
                         document.getElementById("confirmPass").addEventListener("keyup", function() {
-                            var password = document.getElementById("passPeserta").value;
+                            var password = document.getElementById("password").value;
                             var confirmPassword = document.getElementById("confirmPass").value;
                             var confirmPasswordError = document.getElementById("confirmPasswordError");
                             if (password === confirmPassword) {

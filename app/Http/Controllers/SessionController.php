@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Peserta;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -17,34 +17,40 @@ class SessionController extends Controller
         return view('sesi/index', ['title' => 'BOM 2024 | LOGIN']);
     }
 
-    public function login(Request $request)
+    public function authenticate(Request $request): RedirectResponse
     {
         $nrpPanitia = User::where('namaKelompok', $request->namaKelompok)
-        ->where('is_admin', 1)
-        ->count();
-        $passPanitia = DB::table('users')->select('passPeserta')->where('namaKelompok', $request->namaKelompok)->value('passPeserta');
-        $inputPass = $request->passPeserta;
+            ->where('is_admin', 1)
+            ->count();
+        $passPanitia = DB::table('users')->select('password')->where('namaKelompok', $request->namaKelompok)->value('password');
+        $inputPass = $request->password;
+
 
         // LOGIN PANITIA
         if ($nrpPanitia == 1 && Hash::check($inputPass, $passPanitia)) {
             $credentials = $request->validate([
-                'namaKelompok' => 'required',
-                'passPeserta' => 'required'
+                'namaKelompok' => ['required', 'max:70'],
+                'password' => ['required', 'max:30'],
             ]);
+
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
                 return redirect()->intended('/admin');
             }
-            return back()->with('loginError', 'Login credentials invalid!');
+            return back()->withErrors([
+                'loginError' => 'The provided credentials do not match our records.',
+            ])->onlyInput('namaKelompok');
         } else if ($nrpPanitia == 0) {
 
-            
+
+
+
             //LOGIN PESERTA
             $cekUsernameKelompok = User::Where('namaKelompok', $request->namaKelompok)
                 ->Where('is_validated', 1)
                 ->count();
-            $password = DB::table('users')->select('passPeserta')->where('namaKelompok', $request->namaKelompok)->value('passPeserta');
-            $inputPass = $request->passPeserta;
+            $password = DB::table('users')->select('password')->where('namaKelompok', $request->namaKelompok)->value('password');
+            $inputPass = $request->password;
 
             if ($cekUsernameKelompok == 1 && Hash::check($inputPass, $password)) {
                 $id = DB::table('users')
@@ -54,9 +60,8 @@ class SessionController extends Controller
 
                 return redirect()->intended(route('user.view', ['id' => $id]));
             }
-
-            return redirect()->route('session.index')->with('not_validated', "You aren't validated nor registered");
         }
+        return redirect()->route('session.index')->with('not_validated', "You aren't validated nor registered");
     }
 
 
