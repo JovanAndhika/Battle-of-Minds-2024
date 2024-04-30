@@ -20,7 +20,7 @@ class AdminController extends Controller
             'active' => 'peserta',
             'pesertas' => User::all(),
             'jumlah_peserta' => DB::table('users')
-            ->where('is_admin', '==', '0')->count()
+            ->where('is_admin', '==', '0')->count(),
         ]);
     }
 

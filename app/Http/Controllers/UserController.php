@@ -115,7 +115,7 @@ class UserController extends Controller
 
 
     // TAMPILAN USER
-    public function view($id)
+    public function view()
     {
         echo 'hello world';
         return view('user.view', ['title' => 'BOM 2024 | COMING SOON']);
@@ -123,7 +123,7 @@ class UserController extends Controller
 
 
 
-    public function elim_satu($id)
+    public function elim_satu()
     {
         return view('user.elim_satu', ['title' => 'BOM 2024 | ASSESSMENT']);
     }

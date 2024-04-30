@@ -32,7 +32,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], fu
 Route::get('/registration', [UserController::class, 'registration'])->name('registration');
 Route::post('/registration/store', [UserController::class, 'storeRegistration'])->name('storeRegistration');
 
-Route::group(['as' => 'user.', 'prefix' => '{id}'], function () {
+Route::group(['as' => 'user.'], function () {
     Route::get('/view', [userController::class, 'view'])->name('view');
     // 300 soal
     Route::get('/assestment', [UserController::class, 'elim_satu'])->name('elim_satu');

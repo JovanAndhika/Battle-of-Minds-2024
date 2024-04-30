@@ -36,7 +36,6 @@
         margin-bottom: 5px
     }
 </style>
-
 <section class="cards">
     <div class="flex lg:flex-row min-[320px]:flex-col justify-center">
         <div class="mx-2 flex items-center max-w-sm p-6 border border-gray-200 rounded-lg shadow bg-gray-800 border-gray-700 mt-5">

@@ -35,7 +35,7 @@ class SessionController extends Controller
 
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
-                return redirect()->intended('/admin');
+                return redirect()->intended(route('admin.index'));
             }
             return back()->withErrors([
                 'loginError' => 'The provided credentials do not match our records.',
@@ -57,8 +57,15 @@ class SessionController extends Controller
                     ->select('id')
                     ->where('namaKelompok', $request->namaKelompok)
                     ->value('id');
+                    $credentials = $request->validate([
+                        'namaKelompok' => ['required', 'max:70'],
+                        'password' => ['required', 'max:30'],
+                    ]);
 
-                return redirect()->intended(route('user.view', ['id' => $id]));
+                    if (Auth::attempt($credentials)) {
+                        $request->session()->regenerate();
+                        return redirect()->intended(route('user.view'));
+                    }
             }
         }
         return redirect()->route('session.index')->with('not_validated', "You aren't validated nor registered");
