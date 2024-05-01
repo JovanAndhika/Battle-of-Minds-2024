@@ -14,7 +14,8 @@ class Data_jawaban extends Model
     protected $table = 'data_jawabans';
     protected $fillable = [
         'kelompok_id',
-        'soal_no'
+        'soal_no',
+        'jawaban'
     ];
 
     public function user(): BelongsTo{

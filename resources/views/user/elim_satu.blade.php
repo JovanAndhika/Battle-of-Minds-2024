@@ -66,7 +66,7 @@
             <h1 class="text-center title mt-5">ASSESSMENT</h1>
         </div>
         <div class="header">
-            <h1 class="title mt-5">Welcome</h1>
+            <h1 class="title mt-5">Welcome {{auth()->user()->namaKelompok}}</h1>
         </div>
 
 
@@ -133,7 +133,7 @@
                 questionHTML += '<div class="answer d-flex flex-column">';
                 questionHTML += '<div class="mt-3">';
                 var oldValue = '{{ old("biggamesanswer' + questionNumber + '") }}';
-                questionHTML += '<input class="form-control" type="text" name="biggamesanswer' + questionNumber + '" id="biggamesanswer' + questionNumber + '" value="' + oldValue + '">';
+                questionHTML += '<input class="form-control" type="text" name="biggamesanswer' + questionNumber + '" id="biggamesanswer' + questionNumber + '" value="1">';
                 questionHTML += '</div>';
                 questionHTML += '</div>';
             }
