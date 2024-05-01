@@ -62,9 +62,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Data_jawaban::class);
     }
-
-    public function set_jawabans_status(): HasMany
-    {
-        return $this->hasMany(Set_jawaban_status::class);
-    }
 }

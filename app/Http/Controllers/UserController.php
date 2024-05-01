@@ -17,12 +17,16 @@ class UserController extends Controller
 
         return view('homepage', ['title' => 'BOM 2024 | PETRA CHRISTIAN UNIVERSITY']);
     }
-
     public function buram()
     {
 
         return view('buram', ['title' => 'BOM 2024 | PETRA CHRISTIAN UNIVERSITY']);
     }
+
+
+
+
+
 
     // REGISTRATION HANDLER
     public function registration()
@@ -30,7 +34,6 @@ class UserController extends Controller
 
         return view('registration', ['title' => 'BOM 2024 | REGISTRATION']);
     }
-
     public function storeRegistration(Request $request)
     {
 
@@ -120,11 +123,11 @@ class UserController extends Controller
         echo 'hello world';
         return view('user.view', ['title' => 'BOM 2024 | COMING SOON']);
     }
-
-
-
     public function elim_satu()
     {
         return view('user.elim_satu', ['title' => 'BOM 2024 | ASSESSMENT']);
+    }
+    public function simpan_jawaban(){
+        
     }
 }

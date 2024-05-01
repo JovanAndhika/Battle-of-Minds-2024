@@ -36,4 +36,5 @@ Route::group(['as' => 'user.'], function () {
     Route::get('/view', [userController::class, 'view'])->name('view');
     // 300 soal
     Route::get('/assestment', [UserController::class, 'elim_satu'])->name('elim_satu');
+    Route::post('/save-jawaban', [UserController::class, 'simpan_jawaban'])->name('simpan_jawaban');
 });

@@ -26,7 +26,7 @@ class AdminController extends Controller
 
     public function validasi(Request $request)
     {
-        DB::table('pesertas')->where('id', $request->id)
+        DB::table('users')->where('id', $request->id)
             ->update(['is_validated' => 1]);
 
 
@@ -38,10 +38,12 @@ class AdminController extends Controller
     public function adminSelection()
     {
         $pesertas = User::all();
+        $selectionStatus = Set_jawaban_status::all();
         return view('admin.adminSelectionSelect', [
             'title' => 'Selection',
             'pesertas' => $pesertas,
             'active' => 'peserta',
+            'selectionStatus' => $selectionStatus,
         ]);
     }
 
@@ -49,11 +51,12 @@ class AdminController extends Controller
     // SET PAKET A
     public function setReadyA()
     {
-        $pesertas = User::all();
+        $pesertas = DB::table('users')->where('is_validated', 1)
+        ->where('is_admin', 0)
+        ->get();
+
         foreach ($pesertas as $p) {
-
-
-            for ($j = 1; $j <= 50; $j++) {
+            for ($j = 1; $j <= 300; $j++) {
                 Data_jawaban::create([
                     'kelompok_id' => $p->id,
                     'soal_no' => $j,
@@ -62,7 +65,6 @@ class AdminController extends Controller
             }
 
             $affected = Set_jawaban_status::create([
-                'kelompok_id' => $p->id,
                 'status_paket_a' => true
             ]);
         }

@@ -17,12 +17,7 @@ class Data_jawaban extends Model
         'soal_no'
     ];
 
-    public function kunci_paket_a(): BelongsTo
-    {
-        return $this->belongsTo(Kunci_paket_a::class);
-    }
-
-    public function peserta(): BelongsTo{
+    public function user(): BelongsTo{
         return $this->belongsTo(User::class);
     }
 }

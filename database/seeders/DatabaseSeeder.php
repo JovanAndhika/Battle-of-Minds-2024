@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Kunci_paket_a;
 use Carbon\Carbon;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
@@ -46,6 +47,8 @@ class DatabaseSeeder extends Seeder
             'updated_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s')
         ]);
 
+        User::where('namaKelompok', 'peserta')->update(['is_validated' => 1]);
+
 
         User::create([
             'asalSekolah' => 'admin',
@@ -69,5 +72,14 @@ class DatabaseSeeder extends Seeder
             'created_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s')
         ]);
+
+        User::where('namaKelompok', 'C14220001')->update(['is_admin' => 1]);
+
+        for($i = 1; $i <= 50; $i++){
+            Kunci_paket_a::create([
+                'soal_no' => $i,
+                'jawaban' => 'z'
+            ]);
+        }
     }
 }

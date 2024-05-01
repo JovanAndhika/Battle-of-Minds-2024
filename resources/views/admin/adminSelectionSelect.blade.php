@@ -52,10 +52,10 @@
                     <tr>
                         <td>Set Jawaban</td>
                         <td>
-                        <form action="{{ route('admin.setReadyA') }}" method="post">
-                            @csrf
-                            <button type="submit">Tekan</button>
-                        </form>
+                            <form action="{{ route('admin.setReadyA') }}" method="post">
+                                @csrf
+                                <button type="submit" id="set-status-a">Tekan</button>
+                            </form>
                         </td>
                         <td>B</td>
                         <td>C</td>
@@ -64,6 +64,17 @@
                         <td>F</td>
                     </tr>
                 </tbody>
+                @foreach ($selectionStatus as $s)
+                @if ($s->status_paket_a == true)
+                <script>
+                    $(document).ready(function() {
+                        // Attach a click event handler to the button with id "myButton"
+                        $("#set-status-a").prop('disabled',true);
+                    });
+                </script>
+                @endif
+                @endforeach
+
             </table>
         </div>
     </div>

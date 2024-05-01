@@ -15,10 +15,4 @@ class Kunci_paket_a extends Model
         'soal_no',
         'jawaban'
     ];
-
-
-    public function data_jawaban(): HasMany
-    {
-        return $this->hasMany(Data_jawaban::class);
-    }
 }
