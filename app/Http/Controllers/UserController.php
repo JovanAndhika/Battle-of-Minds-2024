@@ -116,9 +116,10 @@ class UserController extends Controller
 
     // TAMPILAN USER
     public function view($id)
-    {
-        echo 'hello world';
-        return view('user.view', ['title' => 'BOM 2024 | COMING SOON']);
+    {   
+        $user_name = DB::select('select namaKelompok from users where id = ?', [$id]);
+            $results = $user_name[0]->namaKelompok;
+        return view('user.view', ['title' => 'BOM 2024 | COMING SOON', 'username' => $results, 'idUser' => $id]);
     }
 
 
