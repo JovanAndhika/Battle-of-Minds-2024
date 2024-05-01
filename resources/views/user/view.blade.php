@@ -75,7 +75,7 @@
                     <div class="card-img-overlay">
                         <h3 class="card-title">Elimination Two</h3>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <a class="btn" href="#" type="button">ELIMINATION TWO</a>
+                        <a class="btn" href="{{ route('user.comingSoon', ['id' => $idUser]) }}" type="button">ELIMINATION TWO</a>
                     </div>
                 </div>
             </div>

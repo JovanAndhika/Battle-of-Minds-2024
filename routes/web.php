@@ -36,4 +36,6 @@ Route::group(['as' => 'user.', 'prefix' => '{id}'], function () {
     Route::get('/view', [userController::class, 'view'])->name('view');
     // 300 soal
     Route::get('/assestment', [UserController::class, 'elim_satu'])->name('elim_satu');
+    // Coming Soon
+    Route::get('/coming-soon', [UserController::class, 'comingSoon']) -> name ('comingSoon');
 });

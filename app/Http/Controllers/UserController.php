@@ -128,4 +128,9 @@ class UserController extends Controller
     {
         return view('user.elim_satu', ['title' => 'BOM 2024 | ASSESSMENT']);
     }
+
+    public function comingSoon($id) //elim2
+    {
+        return view('user.coming-soon', ['title' => 'BOM 2024 | COMING SOON']);
+    }
 }
