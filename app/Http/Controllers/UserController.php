@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Data_jawaban;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -127,7 +128,13 @@ class UserController extends Controller
     {
         return view('user.elim_satu', ['title' => 'BOM 2024 | ASSESSMENT']);
     }
-    public function simpan_jawaban(){
+    public function simpan_jawaban(Request $request)
+    {
         
+
+        $simpan_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
+            ->update([
+                'soal_no' => $request->biggamesanswer1,
+            ]);
     }
 }

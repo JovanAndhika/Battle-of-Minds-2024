@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('kelompok_id');
             $table->foreign('kelompok_id')->references('id')->on('users');
             $table->string('soal_no');
+            $table->string('jawaban');
             $table->timestamps();
         });
     }

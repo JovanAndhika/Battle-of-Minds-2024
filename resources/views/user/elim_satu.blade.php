@@ -132,7 +132,8 @@
                 questionHTML += '<h1 class="mt-5">Question ' + questionNumber + ':</h1>';
                 questionHTML += '<div class="answer d-flex flex-column">';
                 questionHTML += '<div class="mt-3">';
-                questionHTML += '<input class="form-control" type="text" id="biggames-answer-' + questionNumber + '">';
+                var oldValue = '{{ old("biggamesanswer' + questionNumber + '") }}';
+                questionHTML += '<input class="form-control" type="text" name="biggamesanswer' + questionNumber + '" id="biggamesanswer' + questionNumber + '" value="' + oldValue + '">';
                 questionHTML += '</div>';
                 questionHTML += '</div>';
             }
