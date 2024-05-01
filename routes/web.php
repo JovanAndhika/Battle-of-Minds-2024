@@ -24,6 +24,11 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], fu
 
     Route::post('/validate', [AdminController::class, 'validasi'])->name('validate');
     Route::post('/setPaketA', [AdminController::class, 'setReadyA'])->name('setReadyA');
+    Route::post('/setPaketB', [AdminController::class, 'setReadyB'])->name('setReadyB');
+    Route::post('/setPaketC', [AdminController::class, 'setReadyC'])->name('setReadyC');
+    Route::post('/setPaketD', [AdminController::class, 'setReadyD'])->name('setReadyD');
+    Route::post('/setPaketE', [AdminController::class, 'setReadyE'])->name('setReadyE');
+    Route::post('/setPaketF', [AdminController::class, 'setReadyF'])->name('setReadyF');
 });
 
 
