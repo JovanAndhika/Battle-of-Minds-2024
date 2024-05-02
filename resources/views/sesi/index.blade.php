@@ -12,6 +12,9 @@
     <!-- Bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <!-- SweetAlerts2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <link rel="stylesheet" href="css/sidebar.css">
     <title>LOGIN BOM</title>
 
@@ -29,6 +32,16 @@
 
 <body>
 @include('partials.sidebar')
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil !',
+                text: '{{ session("success") }}'
+            });
+        </script>
+    @endif
+
     <div class="box rounded-5 border border-blue">
         <form action="{{ route('session.login') }}" method="post">
             @csrf
