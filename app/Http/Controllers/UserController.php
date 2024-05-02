@@ -126,9 +126,9 @@ class UserController extends Controller
     public function elim_satu()
     {
         $title = 'BOM 2024 | COMING SOON';
-        $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id);
-        dd($data_jawaban);
-        return view('user.elim_satu', 'title', 'data_jawaban');
+        $jawaban_peserta = Data_jawaban::where('kelompok_id', auth()->user()->id);
+
+        return view('user.elim_satu', ['title' => $title, 'jawaban_peserta' => $jawaban_peserta]);
     }
     public function simpan_jawaban(Request $request)
     {

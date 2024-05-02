@@ -66,7 +66,7 @@
             <h1 class="text-center title mt-5">ASSESSMENT</h1>
         </div>
         <div class="header">
-            <h1 class="title mt-5">Welcome {{auth()->user()->namaKelompok}} */ </h1>
+            <h1 class="title mt-5">Welcome {{auth()->user()->namaKelompok}}</h1>
         </div>
 
 
@@ -109,53 +109,9 @@
         </div>
     </div>
 </body>
-<script>
-    $(document).ready(function() {
-        var totalQuestions = 300;
-        var questionsPerPage = 50;
-        var totalPages = Math.ceil(totalQuestions / questionsPerPage);
 
-        displayQuestions(1);
 
-        $('#pagination').on('click', 'a.page-link', function(e) {
-            e.preventDefault();
-            var page = parseInt($(this).text());
-            displayQuestions(page);
-        });
 
-        function displayQuestions(page) {
-            var start = (page - 1) * questionsPerPage;
-            var end = start + questionsPerPage;
-            var questionHTML = '';
-            for (var i = start; i < end && i < totalQuestions; i++) {
-                var questionNumber = i + 1;
-                questionHTML += '<h1 class="mt-5">Question ' + questionNumber + ':</h1>';
-                questionHTML += '<div class="answer d-flex flex-column">';
-                questionHTML += '<div class="mt-3">';
-                var oldValue = '{{ old("biggamesanswer' + questionNumber + '") }}';
-                questionHTML += '<input class="form-control" type="text" name="biggamesanswer' + questionNumber + '" id="biggamesanswer' + questionNumber + '" value="
-                @foreach($jawaban_peserta as $data)
-                    @if($data->soal_no == questionNumber)
-                        $data->jawaban
-                    @endif
-                @endforeach">';
-                questionHTML += '</div>';
-                questionHTML += '</div>';
-            }
-            $('#question-container').html(questionHTML);
-
-            var paginationHTML = '';
-            for (var i = 1; i <= totalPages; i++) {
-                if (i === page) {
-                    paginationHTML += '<li class="page-item active" aria-current="page"><span class="page-link">' + i + '</span></li>';
-                } else {
-                    paginationHTML += '<li class="page-item"><a class="page-link" href="#">' + i + '</a></li>';
-                }
-            }
-            $('#pagination').html(paginationHTML);
-        }
-    });
-</script>
 
 
 
