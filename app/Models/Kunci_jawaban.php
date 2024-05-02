@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Kunci_paket_a extends Model
+class Kunci_jawaban extends Model
 {
     use HasFactory;
 
-    protected $table = 'kuncis_paket_a';
+    protected $table = 'kunci_jawabans';
     protected $fillable = [
         'id',
         'jawaban'
@@ -19,7 +19,10 @@ class Kunci_paket_a extends Model
     protected $primaryKey = 'id';
     public $incrementing = false;
 
-    // In Laravel 6.0+ make sure to also set $keyType
-    protected $keyType = 'string';
+
+    public function data_jawaban(): HasMany
+    {
+        return $this->hasMany(Data_jawaban::class);
+    }
     
 }
