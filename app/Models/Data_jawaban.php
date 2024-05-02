@@ -13,12 +13,14 @@ class Data_jawaban extends Model
     protected $table = 'data_jawabans';
     protected $fillable = [
         'kelompok_id',
-        'jawaban_kelompok'
+        'kunci_jawabans_id',
+        'jawaban_kelompok',
     ];
 
     protected $primaryKey = 'id';
 
-    public function user(): BelongsTo{
+    public function user(): BelongsTo
+    {
         return $this->belongsTo(User::class);
     }
 
