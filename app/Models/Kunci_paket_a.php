@@ -12,7 +12,10 @@ class Kunci_paket_a extends Model
 
     protected $table = 'kuncis_paket_a';
     protected $fillable = [
-        'soal_no',
+        'id',
         'jawaban'
     ];
+
+    protected $primaryKey = 'id';
+    
 }
