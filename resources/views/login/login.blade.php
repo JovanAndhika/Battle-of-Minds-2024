@@ -33,11 +33,11 @@
             @csrf
 
             <div class="row center">
-                <div class=" col-lg-5 m-0 text-center">
+                <div class=" col-lg-5 m-0 text-center p-0">
                     <img src="{{ asset('asset/logo-main.png') }}" class="text-center" alt="">
                 </div>
 
-                <div class="col-lg-5 m-0 text-center">
+                <div class="col-lg-5 m-0 text-center p-0">
 
                     <div class=" pt-3">
                         <h2 class="text-white">LOGIN</h2>

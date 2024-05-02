@@ -166,13 +166,20 @@ img {
         transform: translateX(0);
     }
 }
-
+@media only screen and (max-width: 2000px){
+    .box{
+        height:auto ;
+        width: 752px;
+    }
+}
 @media only screen and (max-width: 991.33px) {
     .box {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         text-align: center;
+        width: 460px;
+        height: auto;
         margin: 3.5rem;
         margin-left: 7rem;
         background: rgba(164, 34, 218, 0.35);
@@ -193,6 +200,7 @@ img {
     h2{
         font-size: 3rem;
         letter-spacing: 0.25rem;
+        font-weight: bolder;
     }
     
     img{
@@ -201,42 +209,41 @@ img {
         padding-top: 1rem;
         padding-bottom: 0.25rem;
     }
-   input{
-    margin-left: 0rem;
-    padding-left: 5rem;
-    padding-right: 5rem;
-    padding-top: 0.5rem;
-    text-align: center;
-   }
-   input::placeholder{
-    text-align: center;
-   }
+  
    button{
     padding-left: 3rem;
     padding-right: 3rem;
    }
 }
 @media only screen and (max-width: 760px) {
-    input{
-        margin-left: 0rem;
-        padding-left: 3rem;
-        padding-right: 3rem;
-       }
+    
     h2{
-        font-size: 1.75rem;
+        font-size: 2.5rem;
+        font-weight: bolder;
     }
 }
 @media only screen and (max-width: 768px) {
+    
     .box {
         margin: 4.5rem;
         margin-left: 4.5rem;
+        height: auto;
+        width: 383px;
+        
     }
+    img{
+        width: 55%;
+        height: auto;
+    }
+    
     
 }
 @media only screen and (max-width: 500px) {
     .box {
         margin: 1rem;
         margin-left: 1rem;
+        height: auto;
+        width: 321px;
     }
     input{
         margin-left: 0rem;
@@ -250,6 +257,23 @@ img {
         text-align:start;
        }
        h2{
-        font-size: 1.5rem;
+        font-size: 2rem;
+        font-weight: bolder;
        }
+       img{
+        width:50% ;
+        height: auto;
+       }
+}
+@media only screen and (max-width: 300px) {
+    .box {
+        margin: 1rem;
+        margin-left: 1rem;
+        height: auto;
+        width: 321px;
+    }
+    img{
+        width: 45%;
+        height: auto;
+    }
 }
