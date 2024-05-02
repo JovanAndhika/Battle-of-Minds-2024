@@ -121,16 +121,17 @@ class UserController extends Controller
     // TAMPILAN USER
     public function view()
     {
-        echo 'hello world';
         return view('user.view', ['title' => 'BOM 2024 | COMING SOON']);
     }
     public function elim_satu()
     {
-        return view('user.elim_satu', ['title' => 'BOM 2024 | ASSESSMENT']);
+        $title = 'BOM 2024 | COMING SOON';
+        $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id);
+        dd($data_jawaban);
+        return view('user.elim_satu', 'title', 'data_jawaban');
     }
     public function simpan_jawaban(Request $request)
     {
-
         $simpan_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
         ->where('soal_no', '1')
             ->update([
