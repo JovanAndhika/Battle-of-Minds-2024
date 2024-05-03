@@ -107,24 +107,16 @@ class UserController extends Controller
 
     public function simpan_jawaban(Request $request)
     {
+        $kelompokId = auth()->user()->id;
 
-        Data_jawaban::where('kelompok_id', auth()->user()->id)
-            ->where('kunci_jawabans_id', 1)
-            ->update([
-                'jawaban_kelompok' => $request->biggamesanswer1,
-            ]);
+        for ($i = 1; $i <= 50; $i++) {
+            Data_jawaban::where('kelompok_id', $kelompokId)
+                ->where('kunci_jawabans_id', $i)
+                ->update([
+                    'jawaban_kelompok' => $request->input('biggamesanswer' . $i),
+                ]);
+        }
 
-        Data_jawaban::where('kelompok_id', auth()->user()->id)
-            ->where('kunci_jawabans_id', 2)
-            ->update([
-                'jawaban_kelompok' => $request->biggamesanswer2,
-            ]);
-
-        Data_jawaban::where('kelompok_id', auth()->user()->id)
-            ->where('kunci_jawabans_id', 3)
-            ->update([
-                'jawaban_kelompok' => $request->biggamesanswer3,
-            ]);
         return back()->with('simpan_success', 'your answer has been saved');
     }
 }
