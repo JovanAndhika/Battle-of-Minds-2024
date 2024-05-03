@@ -13,12 +13,7 @@ return new class extends Migration
     {
         Schema::create('set_jawabans_status', function (Blueprint $table) {
             $table->id();
-            $table->boolean('status_paket_a')->nullable();
-            $table->boolean('status_paket_b')->nullable();
-            $table->boolean('status_paket_c')->nullable();
-            $table->boolean('status_paket_d')->nullable();
-            $table->boolean('status_paket_e')->nullable();
-            $table->boolean('status_paket_f')->nullable();
+            $table->boolean('status_set')->nullable();
             $table->timestamps();
         });
     }

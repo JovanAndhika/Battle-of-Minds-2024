@@ -40,57 +40,22 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Paket A</th>
-                        <th>Paket B</th>
-                        <th>Paket C</th>
-                        <th>Paket D</th>
-                        <th>Paket E</th>
-                        <th>Paket F</th>
+                        <th>Set Ready</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Set Jawaban</td>
                         <td>
-                            <form action="{{ route('admin.setReadyA') }}" method="post">
+                            <form action="{{ route('admin.setReady') }}" method="post">
                                 @csrf
                                 <button type="submit" id="set-status-a">Tekan</button>
-                            </form>
-                        </td>
-                        <td>
-                            <form action="{{ route('admin.setReadyB') }}" method="post">
-                                @csrf
-                                <button type="submit" id="set-status-b">Tekan</button>
-                            </form>
-                        </td>
-                        <td>
-                            <form action="{{ route('admin.setReadyC') }}" method="post">
-                                @csrf
-                                <button type="submit" id="set-status-c">Tekan</button>
-                            </form>
-                        </td>
-                        <td>
-                        <form action="{{ route('admin.setReadyD') }}" method="post">
-                                @csrf
-                                <button type="submit" id="set-status-d">Tekan</button>
-                            </form>
-                        </td>
-                        <td>
-                        <form action="{{ route('admin.setReadyE') }}" method="post">
-                                @csrf
-                                <button type="submit" id="set-status-e">Tekan</button>
-                            </form>
-                        </td>
-                        <td>
-                        <form action="{{ route('admin.setReadyF') }}" method="post">
-                                @csrf
-                                <button type="submit" id="set-status-f">Tekan</button>
                             </form>
                         </td>
                     </tr>
                 </tbody>
                 @foreach ($selectionStatus as $s)
-                @if ($s->status_paket_a == true)
+                @if ($s->status_set == true)
                 <script>
                     $(document).ready(function() {
                         // Attach a click event handler to the button with id "myButton"
@@ -98,53 +63,7 @@
                     });
                 </script>
                 @endif
-
-                @if ($s->status_paket_b == true)
-                <script>
-                    $(document).ready(function() {
-                        // Attach a click event handler to the button with id "myButton"
-                        $("#set-status-b").prop('disabled', true);
-                    });
-                </script>
-                @endif
-
-                @if ($s->status_paket_c == true)
-                <script>
-                    $(document).ready(function() {
-                        // Attach a click event handler to the button with id "myButton"
-                        $("#set-status-c").prop('disabled', true);
-                    });
-                </script>
-                @endif
-
-                @if ($s->status_paket_d == true)
-                <script>
-                    $(document).ready(function() {
-                        // Attach a click event handler to the button with id "myButton"
-                        $("#set-status-d").prop('disabled', true);
-                    });
-                </script>
-                @endif
-
-                @if ($s->status_paket_e == true)
-                <script>
-                    $(document).ready(function() {
-                        // Attach a click event handler to the button with id "myButton"
-                        $("#set-status-e").prop('disabled', true);
-                    });
-                </script>
-                @endif
-
-                @if ($s->status_paket_f == true)
-                <script>
-                    $(document).ready(function() {
-                        // Attach a click event handler to the button with id "myButton"
-                        $("#set-status-f").prop('disabled', true);
-                    });
-                </script>
-                @endif
                 @endforeach
-
             </table>
         </div>
     </div>
