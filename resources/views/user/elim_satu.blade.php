@@ -81,13 +81,17 @@
                     @endphp
                     @foreach ($data_jawaban as $data)
                     @if (($data->kunci_jawabans_id) >= 1 && ($data->kunci_jawabans_id) <= 50) <div id="page-{{ $page }}" class="page">
+
                         <h1 class="mt-5">Question {{ $questionNumber }}:</h1>
-                        @php
-                        $questionNumber++;
-                        @endphp
                         <div class="mt-3">
                             <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}' required>
                         </div>
+
+                        @php
+                        $questionNumber++;
+                        @endphp
+
+
                 </div>
                 @endif
                 @endforeach
@@ -99,12 +103,13 @@
                 @foreach ($data_jawaban as $data)
                 @if (($data->kunci_jawabans_id) >= 51 && ($data->kunci_jawabans_id) <= 100) <div id="page-{{ $page }}" class="page">
                     <h1 class="mt-5">Question {{ $questionNumber }}:</h1>
-                    @php
-                    $questionNumber++;
-                    @endphp
+
                     <div class="mt-3">
                         <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}' required>
                     </div>
+                    @php
+                    $questionNumber++;
+                    @endphp
         </div>
         @endif
         @endforeach
@@ -133,12 +138,14 @@
     @foreach ($data_jawaban as $data)
     @if (($data->kunci_jawabans_id) >= 151 && ($data->kunci_jawabans_id) <= 200) <div id="page-{{ $page }}" class="page">
         <h1 class="mt-5">Question {{ $questionNumber }}:</h1>
-        @php
-        $questionNumber++;
-        @endphp
+
         <div class="mt-3">
             <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}' required>
         </div>
+        @php
+        $questionNumber++;
+        @endphp
+
         </div>
         @endif
         @endforeach
@@ -150,12 +157,14 @@
         @foreach ($data_jawaban as $data)
         @if (($data->kunci_jawabans_id) >= 201 && ($data->kunci_jawabans_id) <= 250) <div id="page-{{ $page }}" class="page">
             <h1 class="mt-5">Question {{ $questionNumber }}:</h1>
-            @php
-            $questionNumber++;
-            @endphp
+
             <div class="mt-3">
                 <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}' required>
             </div>
+
+            @php
+            $questionNumber++;
+            @endphp
             </div>
             @endif
             @endforeach
@@ -167,12 +176,14 @@
             @foreach ($data_jawaban as $data)
             @if (($data->kunci_jawabans_id) >= 251 && ($data->kunci_jawabans_id) <= 300) <div id="page-{{ $page }}" class="page">
                 <h1 class="mt-5">Question {{ $questionNumber }}:</h1>
-                @php
-                $questionNumber++;
-                @endphp
+
                 <div class="mt-3">
                     <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}' required>
                 </div>
+
+                @php
+                $questionNumber++;
+                @endphp
                 </div>
                 @endif
                 @endforeach

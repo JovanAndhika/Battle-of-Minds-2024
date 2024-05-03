@@ -20,6 +20,7 @@ class SessionController extends Controller
     public function authenticate(Request $request): RedirectResponse
     {
         $nrpPanitia = User::where('namaKelompok', $request->namaKelompok)
+            ->where('is_validated', 0)
             ->where('is_admin', 1)
             ->count();
         $passPanitia = DB::table('users')->select('password')->where('namaKelompok', $request->namaKelompok)->value('password');
@@ -57,15 +58,15 @@ class SessionController extends Controller
                     ->select('id')
                     ->where('namaKelompok', $request->namaKelompok)
                     ->value('id');
-                    $credentials = $request->validate([
-                        'namaKelompok' => ['required', 'max:70'],
-                        'password' => ['required', 'max:30'],
-                    ]);
+                $credentials = $request->validate([
+                    'namaKelompok' => ['required', 'max:70'],
+                    'password' => ['required', 'max:30'],
+                ]);
 
-                    if (Auth::attempt($credentials)) {
-                        $request->session()->regenerate();
-                        return redirect()->intended(route('user.view'));
-                    }
+                if (Auth::attempt($credentials)) {
+                    $request->session()->regenerate();
+                    return redirect()->intended(route('user.view'));
+                }
             }
         }
         return redirect()->route('session.index')->with('not_validated', "You aren't validated nor registered");
