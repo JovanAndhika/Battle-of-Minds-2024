@@ -48,4 +48,6 @@ Route::group(['as' => 'user.'], function () {
     Route::post('/save-jawabanD', [UserController::class, 'simpan_jawabanD'])->name('simpan_jawabanD');
     Route::post('/save-jawabanE', [UserController::class, 'simpan_jawabanE'])->name('simpan_jawabanE');
     Route::post('/save-jawabanF', [UserController::class, 'simpan_jawabanF'])->name('simpan_jawabanF');
+    // Coming Soon
+    Route::get('/coming-soon', [UserController::class, 'comingSoon']) -> name ('comingSoon');
 });
