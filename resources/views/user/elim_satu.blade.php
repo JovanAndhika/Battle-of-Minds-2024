@@ -235,63 +235,8 @@
         </div>
     </div>
 </body>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var paginationLinks = document.querySelectorAll('.page-link');
 
-        paginationLinks.forEach(function(link) {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                
-                var pageClicked = parseInt(this.textContent);
 
-                @php
-                    $page = '';
-                @endphp
-
-                switch (pageClicked) {
-                    case 1:
-                        @php
-                            $page = 1;
-                        @endphp
-                        break;
-                    case 2:
-                        @php
-                            $page = 2;
-                        @endphp
-                        break;
-                    case 3:
-                        @php
-                            $page = 3;
-                        @endphp
-                        break;
-                    case 4:
-                        @php
-                            $page = 4;
-                        @endphp
-                        break;
-                    case 5:
-                        @php
-                            $page = 5;
-                        @endphp
-                        break;
-                    case 6:
-                        @php
-                            $page = 6;
-                        @endphp
-                        break;
-                    default:
-                        @php
-                            $page = 1; // Nilai default jika halaman tidak ditemukan
-                        @endphp
-                }
-
-                // Submit form dengan nilai $page yang baru
-                document.getElementById('simpan-jawaban').submit();
-            });
-        });
-    });
-</script>
 
 
 

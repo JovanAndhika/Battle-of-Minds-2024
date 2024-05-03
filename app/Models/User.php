@@ -35,6 +35,8 @@ class User extends Authenticatable
         'kartuPelajarTiga',
     ];
 
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that should be hidden for serialization.
      *
