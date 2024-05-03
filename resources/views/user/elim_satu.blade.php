@@ -59,14 +59,13 @@
 @endsection
 
 @section('content')
-
 <body>
     <div class="container">
         <div class="header">
             <h1 class="text-center title mt-5">ASSESSMENT</h1>
         </div>
         <div class="header">
-            <h1 class="title mt-5">Welcome {{auth()->user()->namaKelompok}} */ </h1>
+            <h1 class="title mt-5">Welcome {{auth()->user()->namaKelompok}}</h1>
         </div>
 
 
@@ -74,7 +73,117 @@
             <form method="POST" action="{{ route('user.simpan_jawaban') }}" id="simpan-jawaban" class="form-simpan-jawaban">
                 @csrf
                 <div id="question-container" class="ms-md-3 question">
-                    <!-- Question Content -->
+                    @php 
+                        $page = 1;
+                    @endphp
+                    @if ($page == 1) 
+                        @php
+                            $questionNumber = 1;
+                        @endphp
+                        @foreach ($data_jawaban as $data)
+                            @if (($data->soal_no) >= 1 && ($data->soal_no) <= 50)
+                                <div id="page-{{ $page }}" class="page">
+                                    <h1 class="mt-5">Question {{ $questionNumber }}:</h1>
+                                    @php
+                                        $questionNumber++;
+                                    @endphp
+                                    <div class="mt-3">
+                                        <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban }}'>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endif
+                    @if ($page == 2)  
+                        @php
+                            $questionNumber = 51;
+                        @endphp  
+                        @foreach ($data_jawaban as $data)
+                            @if (($data->soal_no) >= 51 && ($data->soal_no) <= 100)
+                                <div id="page-{{ $page }}" class="page">
+                                    <h1 class="mt-5">Question {{ $questionNumber }}:</h1>
+                                    @php
+                                        $questionNumber++;
+                                    @endphp
+                                    <div class="mt-3">
+                                        <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban }}'>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endif
+                    @if ($page == 3)  
+                        @php
+                            $questionNumber = 101;
+                        @endphp  
+                        @foreach ($data_jawaban as $data)
+                            @if (($data->soal_no) >= 101 && ($data->soal_no) <= 150)
+                                <div id="page-{{ $page }}" class="page">
+                                    <h1 class="mt-5">Question {{ $questionNumber }}:</h1>
+                                    @php
+                                        $questionNumber++;
+                                    @endphp
+                                    <div class="mt-3">
+                                        <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban }}'>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endif
+                    @if ($page == 4)  
+                        @php
+                            $questionNumber = 151;
+                        @endphp  
+                        @foreach ($data_jawaban as $data)
+                            @if (($data->soal_no) >= 151 && ($data->soal_no) <= 200)
+                                <div id="page-{{ $page }}" class="page">
+                                    <h1 class="mt-5">Question {{ $questionNumber }}:</h1>
+                                    @php
+                                        $questionNumber++;
+                                    @endphp
+                                    <div class="mt-3">
+                                        <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban }}'>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endif
+                    @if ($page == 5)  
+                        @php
+                            $questionNumber = 201;
+                        @endphp  
+                        @foreach ($data_jawaban as $data)
+                            @if (($data->soal_no) >= 201 && ($data->soal_no) <= 250)
+                                <div id="page-{{ $page }}" class="page">
+                                    <h1 class="mt-5">Question {{ $questionNumber }}:</h1>
+                                    @php
+                                        $questionNumber++;
+                                    @endphp
+                                    <div class="mt-3">
+                                        <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban }}'>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endif
+                    @if ($page == 6)  
+                        @php
+                            $questionNumber = 251;
+                        @endphp  
+                        @foreach ($data_jawaban as $data)
+                            @if (($data->soal_no) >= 251 && ($data->soal_no) <= 300)
+                                <div id="page-{{ $page }}" class="page">
+                                    <h1 class="mt-5">Question {{ $questionNumber }}:</h1>
+                                    @php
+                                        $questionNumber++;
+                                    @endphp
+                                    <div class="mt-3">
+                                        <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban }}'>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endif
                 </div>
                 <div class="d-flex justify-content-center mt-3">
                     <button type="submit" id="btn-save-jawaban" class="btn btn-primary">SAVE</button>
@@ -103,59 +212,87 @@
             <div class="page mt-5 d-flex justify-content-center flex-column">
                 <div id="timer" class="mb-3 fs-3 d-flex justify-content-center"></div>
                 <ul id="pagination" class="pagination d-flex justify-content-center">
-                    <!-- Pagination content -->
+                    <li class="page-item">
+                        <a class="page-link" id="pagination1">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" id="pagination2">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" id="pagination3">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" id="pagination4">4</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" id="pagination5">5</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" id="pagination6">6</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </body>
 <script>
-    $(document).ready(function() {
-        var totalQuestions = 300;
-        var questionsPerPage = 50;
-        var totalPages = Math.ceil(totalQuestions / questionsPerPage);
+    document.addEventListener("DOMContentLoaded", function() {
+        var paginationLinks = document.querySelectorAll('.page-link');
 
-        displayQuestions(1);
+        paginationLinks.forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                
+                var pageClicked = parseInt(this.textContent);
 
-        $('#pagination').on('click', 'a.page-link', function(e) {
-            e.preventDefault();
-            var page = parseInt($(this).text());
-            displayQuestions(page);
-        });
+                @php
+                    $page = '';
+                @endphp
 
-        function displayQuestions(page) {
-            var start = (page - 1) * questionsPerPage;
-            var end = start + questionsPerPage;
-            var questionHTML = '';
-            for (var i = start; i < end && i < totalQuestions; i++) {
-                var questionNumber = i + 1;
-                questionHTML += '<h1 class="mt-5">Question ' + questionNumber + ':</h1>';
-                questionHTML += '<div class="answer d-flex flex-column">';
-                questionHTML += '<div class="mt-3">';
-                var oldValue = '{{ old("biggamesanswer' + questionNumber + '") }}';
-                questionHTML += '<input class="form-control" type="text" name="biggamesanswer' + questionNumber + '" id="biggamesanswer' + questionNumber + '" value="
-                @foreach($jawaban_peserta as $data)
-                    @if($data->soal_no == questionNumber)
-                        $data->jawaban
-                    @endif
-                @endforeach">';
-                questionHTML += '</div>';
-                questionHTML += '</div>';
-            }
-            $('#question-container').html(questionHTML);
-
-            var paginationHTML = '';
-            for (var i = 1; i <= totalPages; i++) {
-                if (i === page) {
-                    paginationHTML += '<li class="page-item active" aria-current="page"><span class="page-link">' + i + '</span></li>';
-                } else {
-                    paginationHTML += '<li class="page-item"><a class="page-link" href="#">' + i + '</a></li>';
+                switch (pageClicked) {
+                    case 1:
+                        @php
+                            $page = 1;
+                        @endphp
+                        break;
+                    case 2:
+                        @php
+                            $page = 2;
+                        @endphp
+                        break;
+                    case 3:
+                        @php
+                            $page = 3;
+                        @endphp
+                        break;
+                    case 4:
+                        @php
+                            $page = 4;
+                        @endphp
+                        break;
+                    case 5:
+                        @php
+                            $page = 5;
+                        @endphp
+                        break;
+                    case 6:
+                        @php
+                            $page = 6;
+                        @endphp
+                        break;
+                    default:
+                        @php
+                            $page = 1; // Nilai default jika halaman tidak ditemukan
+                        @endphp
                 }
-            }
-            $('#pagination').html(paginationHTML);
-        }
+
+                // Submit form dengan nilai $page yang baru
+                document.getElementById('simpan-jawaban').submit();
+            });
+        });
     });
 </script>
+
 
 
 
