@@ -105,11 +105,143 @@ class UserController extends Controller
         return view('user.elim_satu', ['title' => $title, 'data_jawaban' => $data_jawaban]);
     }
 
-    public function simpan_jawaban(Request $request)
+
+    public function elim_satuB()
+    {
+        $title = 'BOM 2024 | COMING SOON';
+
+        $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
+            ->orderBy('kunci_jawabans_id')
+            ->get();
+
+        return view('user.elim_satuB', ['title' => $title, 'data_jawaban' => $data_jawaban]);
+    }
+
+
+    public function elim_satuC()
+    {
+        $title = 'BOM 2024 | COMING SOON';
+
+        $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
+            ->orderBy('kunci_jawabans_id')
+            ->get();
+
+        return view('user.elim_satuC', ['title' => $title, 'data_jawaban' => $data_jawaban]);
+    }
+
+    public function elim_satuD()
+    {
+        $title = 'BOM 2024 | COMING SOON';
+
+        $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
+            ->orderBy('kunci_jawabans_id')
+            ->get();
+
+        return view('user.elim_satuD', ['title' => $title, 'data_jawaban' => $data_jawaban]);
+    }
+
+    public function elim_satuE()
+    {
+        $title = 'BOM 2024 | COMING SOON';
+
+        $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
+            ->orderBy('kunci_jawabans_id')
+            ->get();
+
+        return view('user.elim_satuE', ['title' => $title, 'data_jawaban' => $data_jawaban]);
+    }
+
+    public function elim_satuF()
+    {
+        $title = 'BOM 2024 | COMING SOON';
+
+        $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
+            ->orderBy('kunci_jawabans_id')
+            ->get();
+
+        return view('user.elim_satuF', ['title' => $title, 'data_jawaban' => $data_jawaban]);
+    }
+
+    public function simpan_jawabanA(Request $request)
     {
         $kelompokId = auth()->user()->id;
 
         for ($i = 1; $i <= 50; $i++) {
+            Data_jawaban::where('kelompok_id', $kelompokId)
+                ->where('kunci_jawabans_id', $i)
+                ->update([
+                    'jawaban_kelompok' => $request->input('biggamesanswer' . $i),
+                ]);
+        }
+
+        return back()->with('simpan_success', 'your answer has been saved');
+    }
+
+    public function simpan_jawabanB(Request $request)
+    {
+        $kelompokId = auth()->user()->id;
+
+        for ($i = 51; $i <= 100; $i++) {
+            Data_jawaban::where('kelompok_id', $kelompokId)
+                ->where('kunci_jawabans_id', $i)
+                ->update([
+                    'jawaban_kelompok' => $request->input('biggamesanswer' . $i),
+                ]);
+        }
+
+        return back()->with('simpan_success', 'your answer has been saved');
+    }
+
+    public function simpan_jawabanC(Request $request)
+    {
+        $kelompokId = auth()->user()->id;
+
+        for ($i = 101; $i <= 150; $i++) {
+            Data_jawaban::where('kelompok_id', $kelompokId)
+                ->where('kunci_jawabans_id', $i)
+                ->update([
+                    'jawaban_kelompok' => $request->input('biggamesanswer' . $i),
+                ]);
+        }
+
+        return back()->with('simpan_success', 'your answer has been saved');
+    }
+
+    public function simpan_jawabanD(Request $request)
+    {
+        $kelompokId = auth()->user()->id;
+
+        for ($i = 151; $i <= 200; $i++) {
+            Data_jawaban::where('kelompok_id', $kelompokId)
+                ->where('kunci_jawabans_id', $i)
+                ->update([
+                    'jawaban_kelompok' => $request->input('biggamesanswer' . $i),
+                ]);
+        }
+
+        return back()->with('simpan_success', 'your answer has been saved');
+    }
+
+    public function simpan_jawabanE(Request $request)
+    {
+        $kelompokId = auth()->user()->id;
+
+        for ($i = 201; $i <= 250; $i++) {
+            Data_jawaban::where('kelompok_id', $kelompokId)
+                ->where('kunci_jawabans_id', $i)
+                ->update([
+                    'jawaban_kelompok' => $request->input('biggamesanswer' . $i),
+                ]);
+        }
+
+        return back()->with('simpan_success', 'your answer has been saved');
+    }
+
+    public function simpan_jawabanF(Request $request)
+    {
+        $kelompokId = auth()->user()->id;
+
+        for ($i = 251; $i <= 300; $i++) {
             Data_jawaban::where('kelompok_id', $kelompokId)
                 ->where('kunci_jawabans_id', $i)
                 ->update([
