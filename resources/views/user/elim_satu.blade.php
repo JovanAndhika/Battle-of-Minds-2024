@@ -86,7 +86,7 @@
                         $questionNumber++;
                         @endphp
                         <div class="mt-3">
-                            <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban }}'>
+                            <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}' required>
                         </div>
                 </div>
                 @endif
@@ -103,7 +103,7 @@
                     $questionNumber++;
                     @endphp
                     <div class="mt-3">
-                        <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban }}'>
+                        <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}' required>
                     </div>
         </div>
         @endif
@@ -120,7 +120,7 @@
             $questionNumber++;
             @endphp
             <div class="mt-3">
-                <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban }}'>
+                <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}' required>
             </div>
     </div>
     @endif
@@ -137,7 +137,7 @@
         $questionNumber++;
         @endphp
         <div class="mt-3">
-            <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban }}'>
+            <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}' required>
         </div>
         </div>
         @endif
@@ -154,7 +154,7 @@
             $questionNumber++;
             @endphp
             <div class="mt-3">
-                <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban }}'>
+                <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}' required>
             </div>
             </div>
             @endif
@@ -171,7 +171,7 @@
                 $questionNumber++;
                 @endphp
                 <div class="mt-3">
-                    <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban }}'>
+                    <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}' required>
                 </div>
                 </div>
                 @endif
