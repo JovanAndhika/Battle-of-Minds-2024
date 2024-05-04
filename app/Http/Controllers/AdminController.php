@@ -53,6 +53,18 @@ class AdminController extends Controller
         return redirect()->route('admin.poin')->with('success', 'Berhasil melakukan update poin !');
     }
 
+    // Lihat jawaban peserta
+    public function jawaban(User $user) {
+        $jawabans = Data_jawaban::where('kelompok_id', $user->id)
+                                ->join('kunci_jawabans', 'data_jawabans.kunci_jawabans_id', 'kunci_jawabans.id')
+                                ->get();        
+
+        return view('admin.jawaban', [
+            'title' => 'BOM 2024 | Data Jawaban Peserta',
+            'jawabans' => $jawabans
+        ]);
+    }
+
 
     // MENU SET SOAL
     public function adminSelection()

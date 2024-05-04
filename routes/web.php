@@ -31,6 +31,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'admin'], f
     Route::get('/poin', [AdminController::class, 'poin'])->name('poin');
     Route::post('/poin', [AdminController::class, 'poin_update'])->name('poin.update');
 
+    Route::get('/jawaban/{user:namaKelompok}', [AdminController::class, 'jawaban'])->name('jawaban');
+
     Route::get('/selection', [AdminController::class, 'adminSelection'])->name('adminSelection');
 
     Route::post('/validate', [AdminController::class, 'validasi'])->name('validate');
