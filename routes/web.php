@@ -24,9 +24,13 @@ Route::group(['as' => 'session.'], function () {
 
 
 // ADMIN
-Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], function () {
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/', [AdminController::class, 'peserta'])->name('index');
+
+    // Poin
     Route::get('/poin', [AdminController::class, 'poin'])->name('poin');
+    Route::post('/poin', [AdminController::class, 'poin_update'])->name('poin.update');
+
     Route::get('/selection', [AdminController::class, 'adminSelection'])->name('adminSelection');
 
     Route::post('/validate', [AdminController::class, 'validasi'])->name('validate');

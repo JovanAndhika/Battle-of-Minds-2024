@@ -39,8 +39,10 @@ class SessionController extends Controller
             ]);
 
             if (Auth::attempt($credentials)) {
-                $request->session()->regenerate();
-                return redirect()->intended(route('admin.index'));
+                if (auth()->user()->is_admin == 1) {
+                    $request->session()->regenerate();
+                    return redirect()->intended(route('admin.index'));
+                }
             }
             return back()->withErrors([
                 'loginError' => 'The provided credentials do not match our records.',
