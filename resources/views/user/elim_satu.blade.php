@@ -61,14 +61,15 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1 class="text-center title mt-5">ASSESSMENT</h1>
-        </div>
-        <div class="header">
-            <h1 class="title mt-5">Welcome {{auth()->user()->namaKelompok}}</h1>
+            <h1 class="text-center title mt-5 mb-5">ASSESSMENT</h1>
         </div>
 
 
         <div class="mx-md-5 form-content mb-5">
+            <div class="header">
+                <h1 class="title mt-1">Welcome {{auth()->user()->namaKelompok}}</h1>
+            </div>
+
             <div id="question-container" class="ms-md-3 question">
                 <form method="POST" action="{{ route('user.simpan_jawabanA') }}" id="simpan-jawaban" class="form-simpan-jawaban">
                     @csrf
