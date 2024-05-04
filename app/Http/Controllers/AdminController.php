@@ -34,14 +34,16 @@ class AdminController extends Controller
     }
 
     // Poins
-    public function poin(Request $request) {
+    public function poin(Request $request)
+    {
         return view('admin.poin', [
-            'title' => 'BOM 2024 | Poin kelompok', 
+            'title' => 'BOM 2024 | Poin kelompok',
             'pesertas' => User::all(),
         ]);
     }
 
-    public function poin_update(Request $request) {
+    public function poin_update(Request $request)
+    {
         $validated = $request->validate([
             'namaKelompok' => 'string|exists:users|required',
             'poin' => 'numeric|required|min:0'
@@ -54,10 +56,10 @@ class AdminController extends Controller
     }
 
     // Lihat jawaban peserta
-    public function jawaban(User $user) {
+    public function jawaban(User $user)
+    {
         $jawabans = Data_jawaban::where('kelompok_id', $user->id)
-                                ->join('kunci_jawabans', 'data_jawabans.kunci_jawabans_id', 'kunci_jawabans.id')
-                                ->get();        
+            ->get();
 
         return view('admin.jawaban', [
             'title' => 'BOM 2024 | Data Jawaban Peserta',

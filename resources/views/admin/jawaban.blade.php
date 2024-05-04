@@ -24,7 +24,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $jawaban->jawaban_kelompok }}</td>
-                                <td>{{ $jawaban->jawaban }}</td>
+                                <td>{{ $jawaban->kunci_jawaban->jawaban }}</td>
                             </tr>
                         @endforeach
                     </tbody>
