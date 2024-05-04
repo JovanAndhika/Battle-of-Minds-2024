@@ -34,12 +34,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'admin'], f
     Route::get('/selection', [AdminController::class, 'adminSelection'])->name('adminSelection');
 
     Route::post('/validate', [AdminController::class, 'validasi'])->name('validate');
-    Route::post('/setPaketA', [AdminController::class, 'setReadyA'])->name('setReadyA');
-    Route::post('/setPaketB', [AdminController::class, 'setReadyB'])->name('setReadyB');
-    Route::post('/setPaketC', [AdminController::class, 'setReadyC'])->name('setReadyC');
-    Route::post('/setPaketD', [AdminController::class, 'setReadyD'])->name('setReadyD');
-    Route::post('/setPaketE', [AdminController::class, 'setReadyE'])->name('setReadyE');
-    Route::post('/setPaketF', [AdminController::class, 'setReadyF'])->name('setReadyF');
+    Route::post('/setJawaban', [AdminController::class, 'setReady'])->name('setReady');
 });
 
 
@@ -52,5 +47,18 @@ Route::group(['as' => 'user.'], function () {
     Route::get('/view', [userController::class, 'view'])->name('view');
     // 300 soal
     Route::get('/assestment', [UserController::class, 'elim_satu'])->name('elim_satu');
-    Route::post('/save-jawaban', [UserController::class, 'simpan_jawaban'])->name('simpan_jawaban');
+    Route::get('/assestmentB', [UserController::class, 'elim_satuB'])->name('elim_satuB');
+    Route::get('/assestmentC', [UserController::class, 'elim_satuC'])->name('elim_satuC');
+    Route::get('/assestmentD', [UserController::class, 'elim_satuD'])->name('elim_satuD');
+    Route::get('/assestmentE', [UserController::class, 'elim_satuE'])->name('elim_satuE');
+    Route::get('/assestmentF', [UserController::class, 'elim_satuF'])->name('elim_satuF');
+
+    Route::post('/save-jawabanA', [UserController::class, 'simpan_jawabanA'])->name('simpan_jawabanA');
+    Route::post('/save-jawabanB', [UserController::class, 'simpan_jawabanB'])->name('simpan_jawabanB');
+    Route::post('/save-jawabanC', [UserController::class, 'simpan_jawabanC'])->name('simpan_jawabanC');
+    Route::post('/save-jawabanD', [UserController::class, 'simpan_jawabanD'])->name('simpan_jawabanD');
+    Route::post('/save-jawabanE', [UserController::class, 'simpan_jawabanE'])->name('simpan_jawabanE');
+    Route::post('/save-jawabanF', [UserController::class, 'simpan_jawabanF'])->name('simpan_jawabanF');
+    // Coming Soon
+    Route::get('/coming-soon', [UserController::class, 'comingSoon']) -> name ('comingSoon');
 });

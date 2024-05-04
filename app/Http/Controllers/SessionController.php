@@ -25,6 +25,7 @@ class SessionController extends Controller
     public function authenticate(Request $request): RedirectResponse
     {
         $nrpPanitia = User::where('namaKelompok', $request->namaKelompok)
+            ->where('is_validated', 0)
             ->where('is_admin', 1)
             ->count();
         $passPanitia = DB::table('users')->select('password')->where('namaKelompok', $request->namaKelompok)->value('password');

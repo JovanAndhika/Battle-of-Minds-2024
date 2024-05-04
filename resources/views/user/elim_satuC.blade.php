@@ -70,15 +70,15 @@
 
         <div class="mx-md-5 form-content mb-5">
             <div id="question-container" class="ms-md-3 question">
-                <form method="POST" action="{{ route('user.simpan_jawabanA') }}" id="simpan-jawaban" class="form-simpan-jawaban">
+                <form method="POST" action="{{ route('user.simpan_jawabanC') }}" id="simpan-jawaban" class="form-simpan-jawaban">
                     @csrf
 
 
                     @php
-                    $questionNumber = 1;
+                    $questionNumber = 101;
                     @endphp
                     @foreach ($data_jawaban as $data)
-                    @if (($data->kunci_jawabans_id) >= 1 && ($data->kunci_jawabans_id) <= 50) <div id="page-1" class="page">
+                    @if (($data->kunci_jawabans_id) >= 101 && ($data->kunci_jawabans_id) <= 150) <div id="page-3" class="page">
                         <h1 class="mt-5">Question {{ $questionNumber }}:</h1>
                         <div class="mt-3">
                             <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}' required>

@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
-    
+
     // Nanti admin bisa validasi peserta yang mendaftar
     public function peserta()
     {
@@ -20,7 +20,7 @@ class AdminController extends Controller
             'active' => 'peserta',
             'pesertas' => User::all(),
             'jumlah_peserta' => DB::table('users')
-            ->where('is_admin', '==', '0')->count(),
+                ->where('is_admin', '==', '0')->count(),
         ]);
     }
 
@@ -68,146 +68,27 @@ class AdminController extends Controller
     }
 
 
-    // SET PAKET A
-    public function setReadyA()
+    // SET PAKET
+    public function setReady()
     {
         $pesertas = DB::table('users')->where('is_validated', 1)
-        ->where('is_admin', 0)
-        ->get();
+            ->where('is_admin', 0)
+            ->get();
 
         foreach ($pesertas as $p) {
-            for ($j = 1; $j <= 50; $j++) {
+            for ($j = 1; $j <= 300; $j++) {
                 Data_jawaban::create([
                     'kelompok_id' => $p->id,
-                    'soal_no' => $j,
-                    'jawaban' => 'z'
+                    'kunci_jawabans_id' => intval($j), // Mengonversi $j menjadi integer
+                    'jawaban_kelompok' => 'z'
                 ]);
             }
 
             $affected = Set_jawaban_status::create([
-                'status_paket_a' => true
+                'status_set' => true
             ]);
         }
-        
-        return redirect()->route('admin.adminSelection')->with('set_success', 'set is succes');
-    }
 
-    public function setReadyB()
-    {
-        $pesertas = DB::table('users')->where('is_validated', 1)
-        ->where('is_admin', 0)
-        ->get();
-
-        foreach ($pesertas as $p) {
-            for ($j = 51; $j <= 100; $j++) {
-                Data_jawaban::create([
-                    'kelompok_id' => $p->id,
-                    'soal_no' => $j,
-                    'jawaban' => 'z'
-                ]);
-            }
-
-            $affected = Set_jawaban_status::where('status_paket_a',1)
-            ->update([
-                'status_paket_b' => true
-            ]);
-        }
-        
-        return redirect()->route('admin.adminSelection')->with('set_success', 'set is succes');
-    }
-
-    public function setReadyC()
-    {
-        $pesertas = DB::table('users')->where('is_validated', 1)
-        ->where('is_admin', 0)
-        ->get();
-
-        foreach ($pesertas as $p) {
-            for ($j = 101; $j <= 150; $j++) {
-                Data_jawaban::create([
-                    'kelompok_id' => $p->id,
-                    'soal_no' => $j,
-                    'jawaban' => 'z'
-                ]);
-            }
-
-            $affected = Set_jawaban_status::where('status_paket_a',1)
-            ->update([
-                'status_paket_c' => true
-            ]);
-        }
-        
-        return redirect()->route('admin.adminSelection')->with('set_success', 'set is succes');
-    }
-    public function setReadyD()
-    {
-        $pesertas = DB::table('users')->where('is_validated', 1)
-        ->where('is_admin', 0)
-        ->get();
-
-        foreach ($pesertas as $p) {
-            for ($j = 151; $j <= 200; $j++) {
-                Data_jawaban::create([
-                    'kelompok_id' => $p->id,
-                    'soal_no' => $j,
-                    'jawaban' => 'z'
-                ]);
-            }
-
-            $affected = Set_jawaban_status::where('status_paket_a',1)
-            ->update([
-                'status_paket_d' => true
-            ]);
-        }
-        
-        return redirect()->route('admin.adminSelection')->with('set_success', 'set is succes');
-    }
-
-    public function setReadyE()
-    {
-        $pesertas = DB::table('users')->where('is_validated', 1)
-        ->where('is_admin', 0)
-        ->get();
-
-        foreach ($pesertas as $p) {
-            for ($j = 201; $j <= 250; $j++) {
-                Data_jawaban::create([
-                    'kelompok_id' => $p->id,
-                    'soal_no' => $j,
-                    'jawaban' => 'z'
-                ]);
-            }
-
-            $affected = Set_jawaban_status::where('status_paket_a',1)
-            ->update([
-                'status_paket_e' => true
-            ]);
-        }
-        
-        return redirect()->route('admin.adminSelection')->with('set_success', 'set is succes');
-    }
-
-    public function setReadyF()
-    {
-        $pesertas = DB::table('users')->where('is_validated', 1)
-        ->where('is_admin', 0)
-        ->get();
-
-        foreach ($pesertas as $p) {
-            for ($j = 251; $j <= 300; $j++) {
-                Data_jawaban::create([
-                    'kelompok_id' => $p->id,
-                    'soal_no' => $j,
-                    'jawaban' => 'z'
-                ]);
-            }
-
-            $affected = Set_jawaban_status::where('status_paket_a',1)
-            ->update([
-                'status_paket_f' => true
-            ]);
-        }
-        
         return redirect()->route('admin.adminSelection')->with('set_success', 'set is succes');
     }
 }
