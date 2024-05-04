@@ -33,6 +33,26 @@ class AdminController extends Controller
         return redirect()->route('admin.index')->with('success', 'Berhasil melakukan validasi !');
     }
 
+    // Poins
+    public function poin(Request $request) {
+        return view('admin.poin', [
+            'title' => 'BOM 2024 | Poin kelompok', 
+            'pesertas' => User::all(),
+        ]);
+    }
+
+    public function poin_update(Request $request) {
+        $validated = $request->validate([
+            'namaKelompok' => 'string|exists:users|required',
+            'poin' => 'numeric|required|min:0'
+        ]);
+
+        User::where('namaKelompok', $request->namaKelompok)
+            ->update(['poin' => $request->poin]);
+
+        return redirect()->route('admin.poin')->with('success', 'Berhasil melakukan update poin !');
+    }
+
 
     // MENU SET SOAL
     public function adminSelection()
