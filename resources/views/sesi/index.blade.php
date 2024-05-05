@@ -42,6 +42,16 @@
         </script>
     @endif
 
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                icon: 'warning',
+                title: 'Warning !',
+                text: '{{ session("error") }}'
+            });
+        </script>
+    @endif
+
     <div class="box rounded-5 border border-blue">
         <form action="{{ route('session.login') }}" method="post">
             @csrf
