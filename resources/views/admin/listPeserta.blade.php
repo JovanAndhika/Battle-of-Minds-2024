@@ -10,9 +10,7 @@
             max-height: 600px;
             width: auto;
         }
-        div.dt-container div.dt-layout-cell.dt-full {
-            text-align: start !important;
-        }
+
     </style>
     <section class="cards">
         <div class="flex lg:flex-row min-[320px]:flex-col justify-center">
@@ -217,7 +215,7 @@
             'bInfo': false,
             'bLengthChange': false,
             'language': {
-                searchPlaceholder: 'Search for Peserta'
+                searchPlaceholder: 'Search Peserta'
             },
             columnDefs: [{
                 targets: '_all',
@@ -243,7 +241,8 @@
             layout: {
                 top: {
                     buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
-                }
+                },
+                topEnd: 'search'
             },
         });
     </script>

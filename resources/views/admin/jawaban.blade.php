@@ -1,13 +1,6 @@
 @extends('admin.layout.main')
 
 @section('content')
-
-    <style>
-        .dt-search {
-            display: block !important;
-        }
-    </style>
-
     <div class="flex justify-center">
         <div class="mt-10 p-5 bg-white w-11/12 rounded-lg">
             <div class="relative">
@@ -47,6 +40,9 @@
                 },
                 topStart: 'pageLength',
                 topEnd: 'search',
+            },
+            'language': {
+                searchPlaceholder: 'Search...'
             },
         });
     </script>
