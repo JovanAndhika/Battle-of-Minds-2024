@@ -12,15 +12,20 @@ use App\Http\Controllers\Controller;
 class AdminController extends Controller
 {
 
+    private $welcome = ['Bonjour', 'Hola', 'Привет', 'Shalom', 'Guten tag', '你好', 'Hello', '안녕하세요', 'Aloha', 'Halo'];
+
     // Nanti admin bisa validasi peserta yang mendaftar
     public function peserta()
     {
+
+        $index = array_rand($this->welcome);
         return view('admin.listPeserta', [
             'title' => 'BOM 2024 | List Peserta BOM',
             'active' => 'peserta',
-            'pesertas' => User::all(),
+            'pesertas' => User::where('is_admin', '0')->get(),
             'jumlah_peserta' => DB::table('users')
                 ->where('is_admin', '==', '0')->count(),
+            'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok
         ]);
     }
 
@@ -36,9 +41,12 @@ class AdminController extends Controller
     // Poins
     public function poin(Request $request)
     {
+
+        $index = array_rand($this->welcome);
         return view('admin.poin', [
             'title' => 'BOM 2024 | Poin kelompok',
-            'pesertas' => User::all(),
+            'pesertas' => User::where('is_admin', '0')->get(),
+            'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok
         ]);
     }
 
@@ -63,7 +71,8 @@ class AdminController extends Controller
 
         return view('admin.jawaban', [
             'title' => 'BOM 2024 | Data Jawaban Peserta',
-            'jawabans' => $jawabans
+            'jawabans' => $jawabans,
+            'information' => 'Data Jawaban ' . $user->namaKelompok
         ]);
     }
 
@@ -78,6 +87,7 @@ class AdminController extends Controller
             'pesertas' => $pesertas,
             'active' => 'peserta',
             'selectionStatus' => $selectionStatus,
+            'information' => 'Welcome ' . auth()->user()->namaKelompok
         ]);
     }
 
