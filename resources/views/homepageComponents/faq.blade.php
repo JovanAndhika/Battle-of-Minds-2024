@@ -211,6 +211,16 @@
         font-family: 'Geologica', sans-serif;
         letter-spacing: 0;
     }
+
+    .chat-header,
+    .chat-footer {
+        background-color: rgb(117, 52, 147);
+    }
+
+    .user-chat {
+        background-color: rgba(155, 64, 173, 0.7);
+    }
+
 </style>
 
 <section class="faq-section w-screen flex justify-center items-center flex-col sticky top-16 z-[-1] h-fit" id="faq">
@@ -219,18 +229,18 @@
             data-text="Frequently Asked Questions">Frequently Asked Questions</h1>
     </div>
 
-    <div class="chats grid w-[380px] h-[550px] bg-gray-200 my-10 rounded-3xl overflow-hidden">
-        <div class="w-full h-[70px] rounded-t-2xl bg-purple-700 flex justify-start items-center">
+    <div class="chats grid sm:w-[380px] max-sm:w-[310px] h-[550px] bg-gray-200 my-10 rounded-3xl overflow-hidden">
+        <div class="chat-header w-full h-[70px] rounded-t-2xl flex justify-start items-center">
             <img src="{{ asset('asset/bomby_profile.png') }}" alt="faq-maskot"
                 class="rounded-full h-11 bg-yellow-400 mx-4">
             <p class="text-lg font-bold">Bomby</p>
         </div>
         <div class="chat-section overflow-y-scroll overflow-x-hidden">
-            <div class="bombyAnswer pt-4 flex">
+            <div class="bombyAnswer flex">
                 <img src="{{ asset('asset/bomby_profile.png') }}" alt="faq-maskot"
                     class="rounded-full h-8 bg-yellow-400 ml-4 mr-3">
                 <p
-                    class="chat overflow-visible text-black text-base w-[250px] px-3 py-2
+                    class="chat overflow-visible text-black sm:text-base max-sm:text-sm sm:w-[250px] max-sm:w-[200px] px-3 py-2
                 bg-white rounded-tr-2xl rounded-br-2xl rounded-bl-2xl my-5">
                     Halooo 😁, perkenalkan namaku Bomby. Aku akan menjawab pertanyaan kalian seputar acara Battle of
                     Minds.
@@ -238,8 +248,8 @@
             </div>
         </div>
 
-        <div class="w-full h-[58px] rounded-b-2xl bg-purple-700 flex justify-between place-self-end items-center">
-            <p class="ml-5 font-bold">Choose your question here</p>
+        <div class="chat-footer w-full h-[58px] rounded-b-2xl flex justify-between place-self-end items-center">
+            <p class="ml-5 font-bold max-sm:text-xs">Choose your question here</p>
             <div class="flex items-center h-full" data-twe-dropdown-position="dropup">
                 <i class="fa-regular fa-comment-dots mx-5 text-2xl hover:cursor-pointer" type="button"
                     id="dropdownMenuButton1" data-twe-dropdown-toggle-ref aria-expanded="false" data-twe-ripple-init
@@ -248,52 +258,54 @@
                 <ul class="absolute z-[1000] float-left m-0 hidden min-w-max h-[180px] overflow-y-scroll list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-base shadow-lg data-[twe-dropdown-show]:block"
                     aria-labelledby="dropdownMenuButton1" data-twe-dropdown-menu-ref>
                     <li>
-                        <p class="question block border-b-2 border-purple-500 w-full whitespace-nowrap bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="0">Apa itu Battle of Minds (BoM)?
                         </p>
                     </li>
                     <li>
-                        <p class="question block border-b-2 border-purple-500 w-full whitespace-nowrap bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="1">Ada berapa babak dalam acara
                             BoM?</p>
                     </li>
                     <li>
-                        <p class="question block border-b-2 border-purple-500 w-full whitespace-nowrap bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="2">BoM diadakan secara
                             onsite/online?</p>
                     </li>
                     <li>
-                        <p class="question block border-b-2 border-purple-500 w-full whitespace-nowrap bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="3">Siapa saja yang boleh mendaftar
                             BoM?</p>
                     </li>
                     <li>
-                        <p class="question block border-b-2 border-purple-500 w-full whitespace-nowrap bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="4">Apakah satu orang bisa mendaftar
                             lebih dari satu tim?</p>
                     </li>
                     <li>
-                        <p class="question block border-b-2 border-purple-500 w-full whitespace-nowrap bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="5">Berapa biaya pendaftaran BoM?
                         </p>
                     </li>
                     <li>
-                        <p class="question block border-b-2 border-purple-500 w-full whitespace-nowrap bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="6">Bagaimana proses validasi
                             pembayaran?</p>
                     </li>
                     <li>
-                        <p class="question block border-b-2 border-purple-500 w-full whitespace-nowrap bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="7">Apabila tim tidak dapat hadir
                             pada hari - h acara apa konsekuensinya?</p>
                     </li>
                     <li>
-                        <p class="question block border-b-2 border-purple-500 w-full whitespace-nowrap bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
-                            href="#" data-twe-dropdown-item-ref question-code="8">Apakah peserta akan mendapatkan konsumsi?</p>
+                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                            href="#" data-twe-dropdown-item-ref question-code="8">Apakah peserta akan mendapatkan
+                            konsumsi?</p>
                     </li>
                     <li>
-                        <p class="question block border-b-2 border-purple-500 w-full whitespace-nowrap bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
-                            href="#" data-twe-dropdown-item-ref question-code="9">Apakah acara ini menyediakan transportasi untuk peserta?</p>
+                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                            href="#" data-twe-dropdown-item-ref question-code="9">Apakah acara ini menyediakan
+                            transportasi untuk peserta?</p>
                     </li>
                 </ul>
             </div>
@@ -329,7 +341,7 @@
         bombyProfile.classList.add('rounded-full', 'h-8', 'bg-yellow-400', 'ml-4', 'mr-3');
 
         const replyText = document.createElement('p');
-        replyText.classList.add('chat', 'overflow-visible', 'text-black', 'text-base', 'w-[250px]', 'px-3', 'py-2',
+        replyText.classList.add('chat', 'overflow-visible', 'text-black', 'sm:text-base', 'max-sm:text-sm', 'sm:w-[250px]', 'max-sm:w-[200px]', 'px-3', 'py-2',
             'bg-white', 'rounded-tr-2xl', 'rounded-br-2xl', 'rounded-bl-2xl', 'my-5');
         replyText.textContent = answer;
 
@@ -346,8 +358,8 @@
         const userChat = document.createElement('div');
         userChat.classList.add('userAnswer', 'pt-5', 'flex', 'justify-end');
         const textChat = document.createElement('p');
-        textChat.classList.add('chat', 'overflow-visible', 'text-white', 'text-base', 'px-3', 'py-2', 'bg-purple-500',
-            'backdrop-opacity-80', 'rounded-tr-2xl', 'rounded-bl-2xl', 'rounded-tl-2xl', 'mr-4', 'md:w-[250px]');
+        textChat.classList.add('chat', 'user-chat', 'overflow-visible', 'text-white', 'sm:text-base','max-sm:text-sm', 'px-3', 'py-2',
+            'backdrop-opacity-80', 'rounded-tr-2xl', 'rounded-bl-2xl', 'rounded-tl-2xl', 'mr-4', 'sm:w-[250px]','max-sm:w-[200px]');
         textChat.textContent = questionText;
 
         userChat.appendChild(textChat);

@@ -10,7 +10,6 @@
 
     .rank {
         background: linear-gradient(125deg, rgba(61, 37, 84, 1) 0%, rgba(123, 48, 176, 1) 51%, rgba(120, 27, 55, 1) 100%);
-        animation: moveGradient 30s linear infinite;
         box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1);
         -webkit-box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1);
         -moz-box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1);

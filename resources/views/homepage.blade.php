@@ -2,17 +2,24 @@
 
 @section('head')
     <style>
-        html{
+        html {
             scroll-behavior: smooth;
         }
+
         body {
             /* background: linear-gradient(180deg, rgb(26, 0, 36) 0%, rgb(63, 9, 121) 49%, rgb(96, 10, 255) 100%); */
-            background: url(asset/bg-bom-main.png);
+            background-image: url('asset/bg-bom-main.png');
             background-size: cover;
             background-position: center;
             color: white;
             overflow-x: hidden;
             position: relative;
+        }
+
+        .body2 {
+            backdrop-filter: brightness(80%);
+            -webkit-backdrop-filter: brightness(80%);
+            -moz-backdrop-filter: brightness(80%);
         }
 
         .loading-screen {
@@ -145,15 +152,16 @@
 @endsection
 
 @section('content')
+    <div class="body2">
     {{-- <div class="content"> --}}
-        @include('homepageComponents.about')
-        @include('homepageComponents.prizepool')
-        {{-- @include('homepageComponents.timeline') --}}
-        @include('homepageComponents.guide')
-        @include('homepageComponents.faq')
-        @include('homepageComponents.footer')
+    @include('homepageComponents.about')
+    {{-- @include('homepageComponents.prizepool') --}}
+    {{-- @include('homepageComponents.timeline') --}}
+    @include('homepageComponents.guide')
+    @include('homepageComponents.faq')
+    @include('homepageComponents.footer')
     {{-- </div> --}}
-{{-- 
+    {{-- 
     <div class="loading-screen">
         <div class="textlayer layer1">
             <h1 class="loading-text">WELCOME</h1>
@@ -186,6 +194,7 @@
             <div class="loader-1 bar"></div>
         </div>
     </div> --}}
+</div>
     @if (session('registrationSuccess'))
         <script>
             Swal.fire({
