@@ -2,8 +2,14 @@
 
 @section('head')
     <style>
+        html{
+            scroll-behavior: smooth;
+        }
         body {
-            background: linear-gradient(180deg, rgb(26, 0, 36) 0%, rgb(63, 9, 121) 49%, rgb(96, 10, 255) 100%);
+            /* background: linear-gradient(180deg, rgb(26, 0, 36) 0%, rgb(63, 9, 121) 49%, rgb(96, 10, 255) 100%); */
+            background: url(asset/bg-bom-main.png);
+            background-size: cover;
+            background-position: center;
             color: white;
             overflow-x: hidden;
             position: relative;

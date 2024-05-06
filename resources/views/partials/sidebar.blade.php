@@ -131,7 +131,7 @@
                         <path d="M18.4 2.6a2.17 2.17 0 0 1 3 3L16 11l-4 1 1-4Z" />
                     </svg>
                 </i>
-                <span class="link-name" style="--i:7">Quiz</span>
+                <span class="link-name" style="--i:7">Assessment</span>
             </a>
         </li>
 

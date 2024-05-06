@@ -72,6 +72,12 @@
             grid-row: 4;
         }
     }
+
+    #reglCanvas{
+        /* background: linear-gradient(125deg, rgb(44, 18, 67) 0%, rgb(44, 7, 70) 51%, rgb(46, 11, 92) 100%); */
+        background: darkslateblue;
+
+    }
 </style>
 <section class="footer-section z-10">
     <canvas class="h-[730px] w-screen z-10 absolute" id="reglCanvas"></canvas>

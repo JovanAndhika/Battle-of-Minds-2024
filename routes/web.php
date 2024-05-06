@@ -33,7 +33,7 @@ Route::get('/registration', [UserController::class, 'registration'])->name('regi
 Route::post('/registration/store', [UserController::class, 'storeRegistration'])->name('storeRegistration');
 
 Route::group(['as' => 'user.'], function () {
-    Route::get('/view', [userController::class, 'view'])->name('view');
+    Route::get('/view', [UserController::class, 'view'])->name('view');
     // 300 soal
     Route::get('/assestment', [UserController::class, 'elim_satu'])->name('elim_satu');
     Route::get('/assestmentB', [UserController::class, 'elim_satuB'])->name('elim_satuB');
