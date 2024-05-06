@@ -8,18 +8,31 @@ use App\Http\Controllers\SessionController;
 
 //HOMEPAGE
 Route::get('/', [UserController::class, 'index'])->name('index');
+Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
 
 //SESSION
-Route::group(['as' => 'session.'], function () {
+Route::group(['as' => 'session.', 'middleware' => 'guest'], function () {
     Route::get('/login', [SessionController::class, 'index'])->name('index');
     Route::post('/login/authenticate', [SessionController::class, 'authenticate'])->name('login');
-    Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
+
+    // Forget Password
+    Route::get('/forget', [SessionController::class, 'forget'])->name('forget');
+    Route::post('/forget', [SessionController::class, 'forget_act'])->name('forget.act');
+    Route::get('/forget/{token}', [SessionController::class, 'forget_content'])->name('forget.form');
+    Route::post('/forget-form', [SessionController::class, 'forget_form'])->name('forget.form.act');
 });
 
 
 // ADMIN
-Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], function () {
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/', [AdminController::class, 'peserta'])->name('index');
+
+    // Poin
+    Route::get('/poin', [AdminController::class, 'poin'])->name('poin');
+    Route::post('/poin', [AdminController::class, 'poin_update'])->name('poin.update');
+
+    Route::get('/jawaban/{user:namaKelompok}', [AdminController::class, 'jawaban'])->name('jawaban');
+
     Route::get('/selection', [AdminController::class, 'adminSelection'])->name('adminSelection');
 
     Route::post('/validate', [AdminController::class, 'validasi'])->name('validate');
@@ -32,7 +45,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], fu
 Route::get('/registration', [UserController::class, 'registration'])->name('registration');
 Route::post('/registration/store', [UserController::class, 'storeRegistration'])->name('storeRegistration');
 
-Route::group(['as' => 'user.'], function () {
+Route::group(['as' => 'user.', 'middleware' => 'auth'], function () {
     Route::get('/view', [UserController::class, 'view'])->name('view');
     // 300 soal
     Route::get('/assestment', [UserController::class, 'elim_satu'])->name('elim_satu');
