@@ -8,12 +8,12 @@ use App\Http\Controllers\SessionController;
 
 //HOMEPAGE
 Route::get('/', [UserController::class, 'index'])->name('index');
+Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
 
 //SESSION
-Route::group(['as' => 'session.'], function () {
+Route::group(['as' => 'session.', 'middleware' => 'guest'], function () {
     Route::get('/login', [SessionController::class, 'index'])->name('index');
     Route::post('/login/authenticate', [SessionController::class, 'authenticate'])->name('login');
-    Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
 
     // Forget Password
     Route::get('/forget', [SessionController::class, 'forget'])->name('forget');
@@ -31,6 +31,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'],
     Route::get('/poin', [AdminController::class, 'poin'])->name('poin');
     Route::post('/poin', [AdminController::class, 'poin_update'])->name('poin.update');
 
+    Route::get('/jawaban/{user:namaKelompok}', [AdminController::class, 'jawaban'])->name('jawaban');
+
     Route::get('/selection', [AdminController::class, 'adminSelection'])->name('adminSelection');
 
     Route::post('/validate', [AdminController::class, 'validasi'])->name('validate');
@@ -44,7 +46,7 @@ Route::get('/registration', [UserController::class, 'registration'])->name('regi
 Route::post('/registration/store', [UserController::class, 'storeRegistration'])->name('storeRegistration');
 
 Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
-    Route::get('/view', [userController::class, 'view'])->name('view');
+    Route::get('/view', [UserController::class, 'view'])->name('view');
     // 300 soal
     Route::get('/assestment', [UserController::class, 'elim_satu'])->name('elim_satu');
     Route::get('/assestmentB', [UserController::class, 'elim_satuB'])->name('elim_satuB');
