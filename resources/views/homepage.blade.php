@@ -6,6 +6,19 @@
             scroll-behavior: smooth;
         }
 
+        ::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgb(107, 21, 125);
+            border-radius: 25px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: linear-gradient(125deg, rgba(120, 27, 55, 0.75), rgba(123, 48, 176, 0.75) 51%, rgba(61, 37, 84, 0.75) 100%);
+        }
+
         body {
             /* background: linear-gradient(180deg, rgb(26, 0, 36) 0%, rgb(63, 9, 121) 49%, rgb(96, 10, 255) 100%); */
             background-image: url('asset/bg-bom-main.png');
@@ -153,16 +166,16 @@
 
 @section('content')
     <div class="body2">
-    {{-- <div class="content"> --}}
-    @include('homepageComponents.about')
-    {{-- @include('homepageComponents.prizepool') --}}
-    {{-- @include('homepageComponents.timeline') --}}
-    @include('homepageComponents.guide')
-    @include('homepageComponents.faq')
-    @include('homepageComponents.footer')
-    {{-- </div> --}}
-    {{-- 
-    <div class="loading-screen">
+        {{-- <div class="content"> --}}
+        @include('homepageComponents.about')
+        @include('homepageComponents.prizepool')
+        {{-- @include('homepageComponents.timeline') --}}
+        @include('homepageComponents.guide')
+        @include('homepageComponents.faq')
+        @include('homepageComponents.footer')
+        {{-- </div> --}}
+
+        {{-- <div class="loading-screen">
         <div class="textlayer layer1">
             <h1 class="loading-text">WELCOME</h1>
         </div>
@@ -194,7 +207,7 @@
             <div class="loader-1 bar"></div>
         </div>
     </div> --}}
-</div>
+    </div>
     @if (session('registrationSuccess'))
         <script>
             Swal.fire({
@@ -205,5 +218,5 @@
         </script>
     @endif
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    {{-- <script src="js/loader.js" defer></script> --}}
+    <script src="js/loader.js" defer></script>
 @endsection

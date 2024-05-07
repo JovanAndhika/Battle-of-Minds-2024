@@ -214,13 +214,26 @@
 
     .chat-header,
     .chat-footer {
-        background-color: rgb(117, 52, 147);
+        background-color: rgba(34, 61, 197, 0.7);
+
     }
 
     .user-chat {
-        background-color: rgba(155, 64, 173, 0.7);
+        background-color: rgb(95, 115, 184);
     }
 
+    .chat-area::-webkit-scrollbar {
+        width: 13.5px;
+    }
+
+    .chat-area::-webkit-scrollbar-thumb {
+        border-radius: 25px;
+        background-color: rgb(41, 70, 215, 0.6) !important;
+    }
+
+    .chat-area::-webkit-scrollbar-track {
+        background-color: rgb(85, 104, 180, 0.75) !important;
+    }
 </style>
 
 <section class="faq-section w-screen flex justify-center items-center flex-col sticky top-16 z-[-1] h-fit" id="faq">
@@ -233,9 +246,9 @@
         <div class="chat-header w-full h-[70px] rounded-t-2xl flex justify-start items-center">
             <img src="{{ asset('asset/bomby_profile.png') }}" alt="faq-maskot"
                 class="rounded-full h-11 bg-yellow-400 mx-4">
-            <p class="text-lg font-bold">Bomby</p>
+            <p class="text-lg font-bold max-sm:text-base">Bomby</p>
         </div>
-        <div class="chat-section overflow-y-scroll overflow-x-hidden">
+        <div class="chat-area pt-4 chat-section overflow-y-scroll overflow-x-hidden">
             <div class="bombyAnswer flex">
                 <img src="{{ asset('asset/bomby_profile.png') }}" alt="faq-maskot"
                     class="rounded-full h-8 bg-yellow-400 ml-4 mr-3">
@@ -341,7 +354,8 @@
         bombyProfile.classList.add('rounded-full', 'h-8', 'bg-yellow-400', 'ml-4', 'mr-3');
 
         const replyText = document.createElement('p');
-        replyText.classList.add('chat', 'overflow-visible', 'text-black', 'sm:text-base', 'max-sm:text-sm', 'sm:w-[250px]', 'max-sm:w-[200px]', 'px-3', 'py-2',
+        replyText.classList.add('chat', 'overflow-visible', 'text-black', 'sm:text-base', 'max-sm:text-sm',
+            'sm:w-[250px]', 'max-sm:w-[200px]', 'px-3', 'py-2',
             'bg-white', 'rounded-tr-2xl', 'rounded-br-2xl', 'rounded-bl-2xl', 'my-5');
         replyText.textContent = answer;
 
@@ -358,8 +372,10 @@
         const userChat = document.createElement('div');
         userChat.classList.add('userAnswer', 'pt-5', 'flex', 'justify-end');
         const textChat = document.createElement('p');
-        textChat.classList.add('chat', 'user-chat', 'overflow-visible', 'text-white', 'sm:text-base','max-sm:text-sm', 'px-3', 'py-2',
-            'backdrop-opacity-80', 'rounded-tr-2xl', 'rounded-bl-2xl', 'rounded-tl-2xl', 'mr-4', 'sm:w-[250px]','max-sm:w-[200px]');
+        textChat.classList.add('chat', 'user-chat', 'overflow-visible', 'text-white', 'sm:text-base', 'max-sm:text-sm',
+            'px-3', 'py-2',
+            'backdrop-opacity-80', 'rounded-tr-2xl', 'rounded-bl-2xl', 'rounded-tl-2xl', 'mr-4', 'sm:w-[250px]',
+            'max-sm:w-[200px]');
         textChat.textContent = questionText;
 
         userChat.appendChild(textChat);

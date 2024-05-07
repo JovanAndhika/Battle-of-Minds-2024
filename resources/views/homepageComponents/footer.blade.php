@@ -86,9 +86,9 @@
             max-md:px-0 max-md:py-10 absolute z-20"
         id="footer">
         <h1
-            class="footer-title font-bold text-5xl w-[450px] max-lg:text-4xl max-lg:w-96 max-lg:col-span-2 max-md:col-span-1
+            class="footer-title font-bold text-5xl w-[480px] max-lg:text-4xl max-lg:w-96 max-lg:col-span-2 max-md:col-span-1
                 max-md:text-3xl max-md:w-[300px] max-md:justify-self-center sm:leading-normal max-sm:leading-normal max-md:text-center">
-            Are you ready to be the part of Battle of Minds?</h1>
+            Are you ready to compete in the Battle of Minds?</h1>
         <div class="justify-self-end self-center max-lg:col-span-2 max-lg:justify-self-start max-md:col-span-1 max-md:justify-self-center">
             {{-- Container Logo Sponsor --}}
         </div>

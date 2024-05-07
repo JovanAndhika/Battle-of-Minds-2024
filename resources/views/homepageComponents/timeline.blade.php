@@ -1,139 +1,90 @@
-<div class="container MainTimeline">
-
-    <h3>Timeline</h3>
-
-    <div class="vl">
-
-        <div class="box left">
-            <div class="content">
-                <h2>18 dec 2023</h2>
-                <div class="kerstbal-container d-flex justify-content-center">
-                    <div class="image-container">
-                        <img class="image" src="{{asset('storage/gambar_asset/Pendaftaran.jpg')}}">
-                    </div>
-                    <span style="padding: 0 0 0 5%;">Pendaftaran peserta dimulai pada babak ini</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="box right">
-            <div class="content">
-                <h2>18 dec 2023</h2>
-                <div class="kerstbal-container d-flex justify-content-center">
-                    <div class="image-container">
-                        <img class="image image-inherit" src="{{asset('storage/gambar_asset/Pendaftaran.jpg')}}">
-                    </div>
-                    <span style="padding: 0 0 0 5%;">Babak eliminasi pertama</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="box left">
-            <div class="content">
-                <h2>18 dec 2023</h2>
-                <div class="kerstbal-container d-flex justify-content-center">
-                    <div class="image-container">
-                        <img class="image image-inherit" src="{{asset('storage/gambar_asset/Pendaftaran.jpg')}}">
-                    </div>
-                    <span style="padding: 0 0 0 5%;">Babak eliminasi pertama</span>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<style>
-    @media screen and (max-width: 1600px) {
-        .MainTimeline{
-            overflow-x: hidden;
-        }
-
-        .vl {
-            position: relative;
-            border-left: 6px solid green;
-            height: 600px;
-            left: 50%;
-        }
-
-        .image{
-            height: 100px;
-            width: 100px;
-        }
-
-        .box {
-            margin: 0;
-            width: 300px;
-            height: 180px;
-            background-color: burlywood;
-            border-radius: 10px;
-        }
-
-        .left{
-            position: relative;
-            left: -30%;
-        }
-
-        .right{
-            position: relative;
-            left: 8%;
-        }
-
-    }
-
-
-    /* ukuran smartphone */
-    @media screen and (max-width: 600px) {
-        .vl {
-            position: static;
-            left: 0%;
-            border-left: 6px solid green;
-            height: 680px;
-        }
-
-        .box {
-            margin: 5% 0 16% 5%;
-            max-width: 240px;
-            max-height: 500px;
-            background-color: burlywood;
-            border-radius: 10px;
-        }
-
-        .left{
-            position: static;
-        }
-
-        .right{
-            position: static;
-        }
-
-        .image {
-            max-width: 100px;
-            max-height: 100px;
-        }
-
-        .image-inherit {
-            margin: 0;
-        }
-    }
-</style>
-
-<script>
-    // Initialize ScrollReveal
-    ScrollReveal().reveal(".box", {
-        delay: 500
-    });
-    // Initialize ScrollReveal for left element
-    ScrollReveal().reveal(".left", {
-        distance: "250px",
-        origin: "left",
-        delay: 500
-    });
-
-    // Initialize ScrollReveal for right element
-    ScrollReveal().reveal(".right", {
-        distance: "250px",
-        origin: "right",
-        delay: 500
-    });
-</script>
+<ol class="border-s-2 border-primary dark:border-primary-500">
+    <li>
+      <div class="flex-start flex items-center">
+        <div
+          class="-ms-[9px] -mt-2 me-3 flex h-4 w-4 items-center justify-center rounded-full bg-primary dark:bg-primary-500"></div>
+        <h4 class="-mt-2 text-xl font-semibold">Title of section 1</h4>
+      </div>
+      <div class="mb-6 ms-6 pb-6">
+        <a
+          href="#!"
+          class="text-sm text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
+          >4 February, 2022</a
+        >
+        <p class="mb-4 mt-2 text-neutral-600 dark:text-neutral-300">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+          enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <button
+          type="button"
+          class="inline-block rounded bg-primary px-4 pb-[5px] pt-[6px] text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+          data-twe-ripple-init
+          data-twe-ripple-color="light">
+          Read more
+        </button>
+      </div>
+    </li>
+  
+    <li>
+      <div class="flex-start flex items-center">
+        <div
+          class="-ms-[9px] -mt-2 me-3 flex h-4 w-4 items-center justify-center rounded-full bg-primary dark:bg-primary-500"></div>
+        <h4 class="-mt-2 text-xl font-semibold">Title of section 2</h4>
+      </div>
+      <div class="mb-6 ms-6 pb-6">
+        <a
+          href="#!"
+          class="text-sm text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
+          >12 January, 2022</a
+        >
+        <p class="mb-4 mt-2 text-neutral-600 dark:text-neutral-200">
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+          quae ab illo inventore veritatis et quasi architecto beatae vitae
+          dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+          eos qui ratione voluptatem sequi nesciunt.
+        </p>
+        <button
+          type="button"
+          class="inline-block rounded bg-primary px-4 pb-[5px] pt-[6px] text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+          data-twe-ripple-init
+          data-twe-ripple-color="light">
+          Read more
+        </button>
+      </div>
+    </li>
+  
+    <!--Third item-->
+    <li>
+      <div class="flex-start flex items-center">
+        <div
+          class="-ms-[9px] -mt-2 me-3 flex h-4 w-4 items-center justify-center rounded-full bg-primary dark:bg-primary-500"></div>
+        <h4 class="-mt-2 text-xl font-semibold">Title of section 3</h4>
+      </div>
+      <div class="mb-6 ms-6 pb-6">
+        <a
+          href="#!"
+          class="text-sm text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
+          >27 December, 2021</a
+        >
+        <p class="mb-4 mt-2 text-neutral-600 dark:text-neutral-200">
+          At vero eos et accusamus et iusto odio dignissimos ducimus qui
+          blanditiis praesentium voluptatum deleniti atque corrupti quos
+          dolores et quas molestias excepturi sint occaecati cupiditate non
+          provident, similique sunt in culpa qui officia deserunt mollitia
+          animi, id est laborum et dolorum fuga. Et harum quidem rerum
+          facilis est et expedita distinctio.
+        </p>
+        <button
+          type="button"
+          class="inline-block rounded bg-primary px-4 pb-[5px] pt-[6px] text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+          data-twe-ripple-init
+          data-twe-ripple-color="light">
+          Read more
+        </button>
+      </div>
+    </li>
+  </ol>
