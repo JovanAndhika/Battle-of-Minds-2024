@@ -7,11 +7,13 @@
             color: white;
             overflow-x: hidden;
             position: relative;
+            min-width: 100vw;
+            min-height: 100vh;
         }
 
         .card {
-            width: 100%;
-            height: 500px;
+            width: 400px;
+            height: 400px;
             background: linear-gradient(125deg, rgba(61, 37, 84, 1) 0%, rgba(123, 48, 176, 1) 51%, rgba(120, 27, 55, 1) 100%);
             animation: moveGradient 30s linear infinite;
             /* Adjust animation duration as needed */
@@ -53,6 +55,15 @@
             font-weight: bold;
             border: none;
         }
+        @media (max-width: 768px) {
+            .col2 {
+               margin-top: 10vh;
+            }
+            .card {
+                width: 300px;
+                height: 300px;
+            }
+        }
     </style>
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     </style>
@@ -73,25 +84,23 @@
     <div class="container mt-4">
         <h1 style="text-align: center" id='title'>Welcome, {{ $username }}</h1><br />
 
-        <div class="row mb-3 me-2 ms-2 mb-5" style="justify-content:center">
+        <div class="row mb-3 me-2 ms-2 mb-5" style="display: flex; align-items: center; justify-content: center;">
             <div class="col">
-                <div class="card bg-dark text-white ms-3 me-3">
+                <div class="card bg-dark text-white mx-auto">
                     <!-- <img src="..." class="card-img" alt="..."> -->
-                    <div class="card-img-overlay">
-                        <h3 class="card-title">Elimination One</h3>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                    <div class="card-img-overlay"  style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                        <h3 class="card-title text-center">Elimination One</h3>
+                        <p class="card-text text-center">This is a wider card with supporting text below as a natural lead-in to
                             additional content. This content is a little bit longer.</p>
                         <a class="btn" href="{{ route('user.elim_satu', ['id' => $idUser]) }}" type="button">ELIMINATION
                             ONE</a>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row mb-3 me-2 ms-2 mb-5">
-            <div class="col">
-                <div class="card bg-dark text-white ms-3 me-3">
+            <div class="col col2">
+                <div class="card bg-dark text-white">
                     <!-- <img src="..." class="card-img" alt="..."> -->
-                    <div class="card-img-overlay">
+                    <div class="card-img-overlay"  style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
                         <h3 class="card-title">Elimination Two</h3>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
                             additional content. This content is a little bit longer.</p>

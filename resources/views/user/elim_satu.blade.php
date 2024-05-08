@@ -61,14 +61,15 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1 class="text-center title mt-5">ASSESSMENT</h1>
-        </div>
-        <div class="header">
-            <h1 class="title mt-5">Welcome {{auth()->user()->namaKelompok}}</h1>
+            <h1 class="text-center title mt-5 mb-5">ASSESSMENT</h1>
         </div>
 
 
         <div class="mx-md-5 form-content mb-5">
+            <div class="header">
+                <h1 class="title mt-1">Welcome {{auth()->user()->namaKelompok}}</h1>
+            </div>
+
             <div id="question-container" class="ms-md-3 question">
                 <form method="POST" action="{{ route('user.simpan_jawabanA') }}" id="simpan-jawaban" class="form-simpan-jawaban">
                     @csrf
@@ -153,22 +154,21 @@
 
 
 
-<!-- Countdown -->
 <script>
-    // Menentukan waktu akhir countdown (dalam detik)
+    var now = new Date().getTime();
+    var timer = new Date("May 06, 2024 18:30:00").getTime();
 
-    var countdownTime = 3600; // misalnya, 60 detik
-    // Memulai countdown timer saat halaman dimuat
+    var countdownTime = timer - now;; // misalnya, 60 detik
+
     window.onload = function() {
         startCountdown();
     };
 
     function startCountdown() {
-        // Set interval untuk mengupdate countdown setiap satu detik
         var countdownInterval = setInterval(function() {
             countdownTime--;
             if (countdownTime <= 0) {
-                clearInterval(countdownInterval); // Menghentikan countdown saat mencapai 0
+                clearInterval(countdownInterval);
                 alert("Countdown selesai!");
             }
             displayTime();
@@ -176,10 +176,13 @@
     }
 
     function displayTime() {
-        // Mengonversi waktu countdown ke format yang sesuai dan menampilkannya
-        var hours = Math.floor(countdownTime / 3600);
-        var minutes = Math.floor((countdownTime % 3600) / 60);
-        var seconds = countdownTime % 60;
+        var hours = Math.floor(countdownTime / (1000 * 60 * 60));
+        var minutes = Math.floor((countdownTime % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((countdownTime % (1000 * 60)) / 1000);
+        
+        // Perbarui countdownTime setelah menghitung kembali jam, menit, dan detik
+        countdownTime = hours * (1000 * 60 * 60) + minutes * (1000 * 60) + seconds * 1000;
+        
         var timerDisplay = document.getElementById("timer");
         timerDisplay.innerHTML = (hours < 10 ? "0" : "") + hours + ":" +
             (minutes < 10 ? "0" : "") + minutes + ":" +

@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class Admin
+class isAdmin
 {
     /**
      * Handle an incoming request.
@@ -15,13 +15,10 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Pengecekan apakah sudah login
-        if (auth()->user()) {
-            // Pengecekan admin
-            if (auth()->user()->is_admin == 1)
-                return $next($request);
-            return redirect('/view')->with('error', 'You are restricted to enter this page');
+        if(session()->has('isAdmin')){
+            return $next($request);
         }
-        return redirect('/login')->with('error', 'Anda belum login !');
+        return redirect()->intended(route('session.index'));
+        
     }
 }
