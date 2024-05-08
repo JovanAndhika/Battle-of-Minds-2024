@@ -16,7 +16,7 @@ class Authenticate extends Middleware
         if ($request->expectsJson())
             return $request->expectsJson();
         
-            $request->session()->flash('error', 'Anda belum login !');
+        $request->session()->flash('error', 'Anda belum login !');
         return route('session.index');
     }
 }

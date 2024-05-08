@@ -20,8 +20,8 @@ class Admin
             // Pengecekan admin
             if (auth()->user()->is_admin == 1)
                 return $next($request);
+            return redirect('/view')->with('error', 'You are restricted to enter this page');
         }
-
-        return redirect('/login')->with('error', 'You are restricted to enter this page');
+        return redirect('/login')->with('error', 'Anda belum login !');
     }
 }
