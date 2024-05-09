@@ -19,7 +19,7 @@
     z-index: 50;
     padding: 6px 14px;
     transition: .5s cubic-bezier(.02, .89, .52, 1.01);
-    box-shadow: 5px 0 200px 5px rgb(100, 0, 255);
+    /* box-shadow: 5px 0 200px 5px rgb(135, 67, 135); */
     float: left;
 }
 

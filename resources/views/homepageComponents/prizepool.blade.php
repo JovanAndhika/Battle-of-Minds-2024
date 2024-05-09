@@ -24,22 +24,24 @@
         -moz-box-shadow: 0px 0px 2px 2px rgba(255, 255, 255, 1);
     }
 
-    @media screen and (max-width:640px){
-        .rank{
+    @media screen and (max-width:640px) {
+        .rank {
             grid-template-columns: 80px auto;
         }
 
         .prize-line {
-        box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 1);
-        -webkit-box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 1);
-        -moz-box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 1);
-    }
+            box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 1);
+            -webkit-box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 1);
+            -moz-box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 1);
+        }
     }
 </style>
 
 <section class="prize-section h-[550px] w-screen">
-    <div class="flex justify-center items-center py-10">
-        <h1 class="font-bold md:text-6xl sm:text-5xl max-sm:text-4xl">PRIZEPOOL</h1>
+    <div class="flex justify-center items-center box">
+        <h1 class="faq-title mb-6 text lg:text-5xl md:text-4xl font-bold text-center leading-normal w-4/5 sm:text-4xl max-sm:text-3xl"
+            data-text="PRIZEPOOL">
+            PRIZEPOOL</h1>
     </div>
     <div class="flex justify-center items-center">
         <div class="grid grid-rows-3">

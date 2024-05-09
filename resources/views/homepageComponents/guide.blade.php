@@ -4,9 +4,6 @@
             Guide</h1>
     </div>
     <div class="flex justify-center items-center md:h-[580px] max-md:h-[450px]">
-        <div class="md:w-[760px] md:h-[580px] sm:w-[480px] sm:h-[400px] max-sm:w-[300px] max-sm:h-[400px]">
-            <iframe src="https://drive.google.com/file/d/1EBHf4VHFxGYfmNGSnvUd75ouNZtZ2WCy/preview" frameborder="0"
-                class="h-full w-full" allow="autoplay"></iframe>
         </div>
     </div>
 </section>

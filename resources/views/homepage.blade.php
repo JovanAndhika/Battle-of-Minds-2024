@@ -169,7 +169,7 @@
         {{-- <div class="content"> --}}
         @include('homepageComponents.about')
         @include('homepageComponents.prizepool')
-        {{-- @include('homepageComponents.timeline') --}}
+        @include('homepageComponents.timeline')
         @include('homepageComponents.guide')
         @include('homepageComponents.faq')
         @include('homepageComponents.footer')

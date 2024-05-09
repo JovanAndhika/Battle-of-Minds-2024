@@ -238,7 +238,7 @@
 
 <section class="faq-section w-screen flex justify-center items-center flex-col sticky top-16 z-[-1] h-fit" id="faq">
     <div class="flex justify-center items-center h-24 text-3xl font-bold">
-        <h1 class="faq-title text text-5xl text-center leading-normal w-4/5 max-md:text-3xl"
+        <h1 class="faq-title text lg:text-5xl md:text-4xl text-center leading-normal w-4/5 max-md:text-3xl"
             data-text="Frequently Asked Questions">Frequently Asked Questions</h1>
     </div>
 

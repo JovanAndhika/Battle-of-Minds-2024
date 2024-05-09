@@ -1,90 +1,126 @@
-<ol class="border-s-2 border-primary dark:border-primary-500">
-    <li>
-      <div class="flex-start flex items-center">
-        <div
-          class="-ms-[9px] -mt-2 me-3 flex h-4 w-4 items-center justify-center rounded-full bg-primary dark:bg-primary-500"></div>
-        <h4 class="-mt-2 text-xl font-semibold">Title of section 1</h4>
-      </div>
-      <div class="mb-6 ms-6 pb-6">
-        <a
-          href="#!"
-          class="text-sm text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
-          >4 February, 2022</a
-        >
-        <p class="mb-4 mt-2 text-neutral-600 dark:text-neutral-300">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-          enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat.
-        </p>
-        <button
-          type="button"
-          class="inline-block rounded bg-primary px-4 pb-[5px] pt-[6px] text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-          data-twe-ripple-init
-          data-twe-ripple-color="light">
-          Read more
-        </button>
-      </div>
-    </li>
-  
-    <li>
-      <div class="flex-start flex items-center">
-        <div
-          class="-ms-[9px] -mt-2 me-3 flex h-4 w-4 items-center justify-center rounded-full bg-primary dark:bg-primary-500"></div>
-        <h4 class="-mt-2 text-xl font-semibold">Title of section 2</h4>
-      </div>
-      <div class="mb-6 ms-6 pb-6">
-        <a
-          href="#!"
-          class="text-sm text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
-          >12 January, 2022</a
-        >
-        <p class="mb-4 mt-2 text-neutral-600 dark:text-neutral-200">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-          quae ab illo inventore veritatis et quasi architecto beatae vitae
-          dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-          eos qui ratione voluptatem sequi nesciunt.
-        </p>
-        <button
-          type="button"
-          class="inline-block rounded bg-primary px-4 pb-[5px] pt-[6px] text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-          data-twe-ripple-init
-          data-twe-ripple-color="light">
-          Read more
-        </button>
-      </div>
-    </li>
-  
-    <!--Third item-->
-    <li>
-      <div class="flex-start flex items-center">
-        <div
-          class="-ms-[9px] -mt-2 me-3 flex h-4 w-4 items-center justify-center rounded-full bg-primary dark:bg-primary-500"></div>
-        <h4 class="-mt-2 text-xl font-semibold">Title of section 3</h4>
-      </div>
-      <div class="mb-6 ms-6 pb-6">
-        <a
-          href="#!"
-          class="text-sm text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
-          >27 December, 2021</a
-        >
-        <p class="mb-4 mt-2 text-neutral-600 dark:text-neutral-200">
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui
-          blanditiis praesentium voluptatum deleniti atque corrupti quos
-          dolores et quas molestias excepturi sint occaecati cupiditate non
-          provident, similique sunt in culpa qui officia deserunt mollitia
-          animi, id est laborum et dolorum fuga. Et harum quidem rerum
-          facilis est et expedita distinctio.
-        </p>
-        <button
-          type="button"
-          class="inline-block rounded bg-primary px-4 pb-[5px] pt-[6px] text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-          data-twe-ripple-init
-          data-twe-ripple-color="light">
-          Read more
-        </button>
-      </div>
-    </li>
-  </ol>
+<style>
+    .timeline {
+        grid-template-columns: 340px auto;
+        background: linear-gradient(125deg, rgba(61, 37, 84, 0.75) 0%, rgba(123, 48, 176, 0.75) 51%, rgba(120, 27, 55, 0.75) 100%);
+        box-shadow: 0px 0px 10px 4px rgba(255, 255, 255, 0.75);
+        -webkit-box-shadow: 0px 0px 10px 4px rgba(255, 255, 255, 0.75);
+        -moz-box-shadow: 0px 0px 10px 4px rgba(255, 255, 255, 0.75);
+    }
+    
+    .timeline-point {
+        box-shadow: 0px 0px 5px 0px white;
+        background-color: white;
+    }
+
+    .timeline-line {
+        border-color: white;
+    }
+
+    @media screen and (max-width: 1024px) {
+        .timeline {
+            grid-template-columns: 250px auto;
+        }
+    }
+
+    @media screen and (max-width:640px) {
+        .timeline {
+            grid-template-rows: 50px auto;
+            grid-template-columns: none;
+
+        }
+    }
+</style>
+<div class="w-screen flex flex-col justify-center items-center">
+    <div class="flex justify-center items-center w-screen">
+        <h1 class="faq-title mb-6 text text-5xl font-bold text-center leading-normal w-4/5 max-md:text-3xl"
+            data-text="TIMELINE">TIMELINE</h1>
+    </div>
+    <ol class="timeline-line relative border-s-2 lg:w-[900px] md:w-[600px] sm:w-[600px] max-sm:w-[300px]">
+        <li class="mb-10 ms-6">
+            <span class="timeline-point absolute flex items-center justify-center w-6 h-6 rounded-full -start-3">
+            </span>
+            <div class="timeline grid rounded-xl shadow-xl p-4 max-sm:h-fit">
+                <div class="datetime flex flex-col justify-center max-sm:h-[50px] max-sm:pb-2">
+                    <h1 class="lg:text-2xl md:text-lg text-white font-bold">Technical Meeting 1</h1>
+                    <h2 class="lg:text-lg md:text-sm text-white font-bold">19<sup>th</sup> July 2024</h2>
+                </div>
+                <div class="location row-span-2 flex items-center sm:border-l-2 max-sm:border-t-2 sm:pl-5 max-sm:pt-2">
+                    <i class="fa-solid fa-location-dot pr-3 lg:text-2xl md:text-lg max-sm:hidden"></i>
+                    <a class="text-white font-bold lg:text-lg flex md:text-sm"
+                        href="https://maps.app.goo.gl/4WiVAX6eAcaynNKz7">
+                        Online via Google Meet
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li class="mb-10 ms-6">
+            <span class="timeline-point absolute flex items-center justify-center w-6 h-6 rounded-full -start-3">
+            </span>
+            <div class="timeline grid rounded-xl shadow-xl p-4 max-sm:h-fit">
+                <div class="datetime flex flex-col justify-center max-sm:h-[50px] max-sm:pb-2">
+                    <h1 class="lg:text-2xl md:text-lg text-white font-bold">Elimination 1</h1>
+                    <h2 class="lg:text-lg md:text-sm text-white font-bold">23<sup>rd</sup> July 2024</h2>
+                </div>
+                <div class="location row-span-2 flex items-center sm:border-l-2 max-sm:border-t-2 sm:pl-5 max-sm:pt-2">
+                    <i class="fa-solid fa-location-dot pr-3 lg:text-2xl md:text-lg max-sm:hidden"></i>
+                    <a class="text-white font-bold lg:text-lg flex md:text-sm"
+                        href="https://maps.app.goo.gl/4WiVAX6eAcaynNKz7">
+                        Petra Christian University, T Building
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li class="mb-10 ms-6">
+            <span class="timeline-point absolute flex items-center justify-center w-6 h-6 rounded-full -start-3">
+            </span>
+            <div class="timeline grid rounded-xl shadow-xl p-4 max-sm:h-fit">
+                <div class="datetime flex flex-col justify-center max-sm:h-[50px] max-sm:pb-2">
+                    <h1 class="lg:text-2xl md:text-lg text-white font-bold">Technical Meeting 2</h1>
+                    <h2 class="lg:text-lg md:text-sm text-white font-bold">25<sup>th</sup> July 2024</h2>
+                </div>
+                <div class="location row-span-2 flex items-center sm:border-l-2 max-sm:border-t-2 sm:pl-5 max-sm:pt-2">
+                    <i class="fa-solid fa-location-dot pr-3 lg:text-2xl md:text-lg max-sm:hidden"></i>
+                    <p class="text-white font-bold lg:text-lg flex md:text-sm">
+                        Online via Google Meet
+                    </p>
+                </div>
+            </div>
+        </li>
+        </li>
+        <li class="mb-10 ms-6">
+            <span class="timeline-point absolute flex items-center justify-center w-6 h-6 rounded-full -start-3">
+            </span>
+            <div class="timeline grid rounded-xl shadow-xl p-4 max-sm:h-fit">
+                <div class="datetime flex flex-col justify-center max-sm:h-[50px] max-sm:pb-2">
+                    <h1 class="lg:text-2xl md:text-lg text-white font-bold">Elimination 2</h1>
+                    <h2 class="lg:text-lg md:text-sm text-white font-bold">27<sup>th</sup> July 2024</h2>
+                </div>
+                <div class="location row-span-2 flex items-center sm:border-l-2 max-sm:border-t-2 sm:pl-5 max-sm:pt-2">
+                    <i class="fa-solid fa-location-dot pr-3 lg:text-2xl md:text-lg max-sm:hidden"></i>
+                    <a class="text-white font-bold lg:text-lg flex md:text-sm"
+                        href="https://maps.app.goo.gl/4WiVAX6eAcaynNKz7">
+                        Fairway Nine Mall Surabaya
+                    </a>
+                </div>
+            </div>
+        </li>
+        </li>
+        <li class="mb-10 ms-6">
+            <span class="timeline-point absolute flex items-center justify-center w-6 h-6 rounded-full -start-3">
+            </span>
+            <div class="timeline grid rounded-xl shadow-xl p-4 max-sm:h-fit">
+                <div class="datetime flex flex-col justify-center max-sm:h-[50px] max-sm:pb-2">
+                    <h1 class="lg:text-2xl md:text-lg text-white font-bold">Grand Final</h1>
+                    <h2 class="lg:text-lg md:text-sm text-white font-bold">28<sup>th</sup> July 2024</h2>
+                </div>
+                <div class="location row-span-2 flex items-center sm:border-l-2 max-sm:border-t-2 sm:pl-5 max-sm:pt-2">
+                    <i class="fa-solid fa-location-dot pr-3 lg:text-2xl md:text-lg max-sm:hidden"></i>
+                    <a class="text-white font-bold lg:text-lg flex md:text-sm"
+                        href="https://maps.app.goo.gl/4WiVAX6eAcaynNKz7">
+                        Fairway Nine Mall Surabaya
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ol>
+</div>

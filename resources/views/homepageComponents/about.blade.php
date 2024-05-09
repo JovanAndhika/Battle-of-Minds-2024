@@ -83,7 +83,7 @@
 <section class="about-section">
     <div class="hero-container min-h-screen flex justify-center items-center flex-col">
         <img src="{{ asset('asset/logo-main.png') }}" alt="logo" class="animate__animated animate__bounce logo lg:w-[630px] sm:w-[500px] max-sm:w-[320px] ">
-        <p class="description lg:w-[760px] lg:text-lg xl:w-[900px] text-center mt-7 sm:w-[550px] sm:text-md max-sm:w-[300px] max-sm:text-sm max-sm:leading-7">
+        <p class="description lg:w-[760px] lg:text-lg xl:w-[900px] text-center mt-7 sm:w-[550px] sm:text-md max-sm:w-[300px] max-sm:text-sm max-sm:leading-6">
             Battle Of Minds adalah acara lomba matematika dasar dan logika. Acara ini mengangkat tema futuristic dalam
             kompetisi olimpiade matematika tingkat SMA yang akan diselenggarakan oleh Fakultas Teknik Sipil dan
             Perencanaan dan Fakultas Teknologi Industri Universitas Kristen Petra
