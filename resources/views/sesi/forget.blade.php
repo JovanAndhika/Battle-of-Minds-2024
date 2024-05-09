@@ -6,33 +6,36 @@
         justify-content: center;
         align-items: center;
         background: linear-gradient(180deg, rgb(26, 0, 36) 0%, rgb(63, 9, 121) 49%, rgb(96, 10, 255) 100%) !important;
+    }    
+    .alert {        
+        width: 400px;
     }
 </style>
 
 @section('content')
     <section class="main-content d-flex justify-content-center align-items-center bg-light rounded rounded-3 p-5">
         <div class="">
-            @if (session()->has('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-
-                @php
-                    session()->forget('success');
-                @endphp
-            @endif
-
-            @if (session('error'))
-                <script>
-                    Swal.fire({
-                        title: "Invalid Data",
-                        text: "{{ session('error') }}",
-                        icon: "error"
-                    });
-                </script>
-            @endif
             <form action="{{ route('session.forget.act') }}" method="post">
-                @csrf
+                @csrf                
+                @if (session()->has('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+
+                    @php
+                        session()->forget('success');
+                    @endphp
+                @endif
+
+                @if (session('error'))
+                    <script>
+                        Swal.fire({
+                            title: "Invalid Data",
+                            text: "{{ session('error') }}",
+                            icon: "error"
+                        });
+                    </script>
+                @endif
                 <h1 class="text-center">Forget Password</h1>
 
                 <div class="kelompok mt-3">
@@ -63,7 +66,7 @@
                     <button class="btn btn-info" type="submit">Submit</button>
                 </div>
             </form>
-        </div>
+        </div>  
     </section>
 @endsection
 

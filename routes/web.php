@@ -11,7 +11,7 @@ Route::get('/', [UserController::class, 'index'])->name('index');
 Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
 
 //SESSION
-Route::group(['as' => 'session.', 'middleware' => 'guest'], function () {
+Route::group(['as' => 'session.'], function () {
     Route::get('/login', [SessionController::class, 'index'])->name('index');
     Route::post('/login/authenticate', [SessionController::class, 'authenticate'])->name('login');
 
@@ -24,7 +24,7 @@ Route::group(['as' => 'session.', 'middleware' => 'guest'], function () {
 
 
 // ADMIN
-Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'admin'], function () {
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
     Route::get('/', [AdminController::class, 'peserta'])->name('index');
 
     // Poin
@@ -44,8 +44,10 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'admin'], f
 //REGISTRATION
 Route::get('/registration', [UserController::class, 'registration'])->name('registration');
 Route::post('/registration/store', [UserController::class, 'storeRegistration'])->name('storeRegistration');
+//grup WA
+Route::get('/grupwa', [UserController::class, 'grupwa'])->name('grupwa');
 
-Route::group(['as' => 'user.', 'middleware' => 'auth'], function () {
+Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
     Route::get('/view', [UserController::class, 'view'])->name('view');
     // 300 soal
     Route::get('/assestment', [UserController::class, 'elim_satu'])->name('elim_satu');
