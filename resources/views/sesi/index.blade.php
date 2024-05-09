@@ -86,9 +86,10 @@
                         <input type="text" name="namaKelompok" id="nrp" required placeholder="Username" value="{{ Session::get('namaKelompok') }}" autocomplete="off">
                     </div>
 
-                    <div class="col-12 input-box text-center" id="passwordBox">
+                    <div class="col-12 input-box text-center mb-4" id="passwordBox">
                         <input type="password" name="password" id="password" placeholder="Password" required>
                     </div>
+                    <a href="{{ route('session.forget') }}" class="link-forgot">Forgot Password?</a>
                     <div class="col-12 text-center my-4 px-4 py-1">
                         <button type="submit" class="button border login-button" style="color: white;">Login</button>
                     </div>
