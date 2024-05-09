@@ -37,15 +37,6 @@
     color: white;
 }
 
-.sidebar .logo-menu .logo {
-    font-size: 25px;
-    pointer-events: none;
-    opacity: 0;
-    transition: .3s;
-    margin: 0;
-    padding-left: 18px;
-}
-
 .sidebar.active .logo-menu .logo {
     opacity: 1;
     transition-delay: .2s;

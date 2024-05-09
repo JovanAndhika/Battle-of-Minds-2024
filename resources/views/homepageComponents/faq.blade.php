@@ -234,6 +234,19 @@
     .chat-area::-webkit-scrollbar-track {
         background-color: rgb(85, 104, 180, 0.75) !important;
     }
+
+    .question{
+        background-color: rgb(95, 115, 184);
+        border-color: rgba(34, 61, 197, 0.7);
+    }
+
+    .question:hover{
+        background-color: rgb(95, 115, 254);
+    }
+
+    .question:active{
+        background-color: rgb(95, 115, 254,0.8);
+    }
 </style>
 
 <section class="faq-section w-screen flex justify-center items-center flex-col sticky top-16 z-[-1] h-fit" id="faq">
@@ -271,52 +284,52 @@
                 <ul class="absolute z-[1000] float-left m-0 hidden min-w-max h-[180px] overflow-y-scroll list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-base shadow-lg data-[twe-dropdown-show]:block"
                     aria-labelledby="dropdownMenuButton1" data-twe-dropdown-menu-ref>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="0">Apa itu Battle of Minds (BoM)?
                         </p>
                     </li>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="1">Ada berapa babak dalam acara
                             BoM?</p>
                     </li>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="2">BoM diadakan secara
                             onsite/online?</p>
                     </li>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="3">Siapa saja yang boleh mendaftar
                             BoM?</p>
                     </li>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="4">Apakah satu orang bisa mendaftar
                             lebih dari satu tim?</p>
                     </li>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="5">Berapa biaya pendaftaran BoM?
                         </p>
                     </li>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="6">Bagaimana proses validasi
                             pembayaran?</p>
                     </li>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="7">Apabila tim tidak dapat hadir
                             pada hari - h acara apa konsekuensinya?</p>
                     </li>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="8">Apakah peserta akan mendapatkan
                             konsumsi?</p>
                     </li>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="9">Apakah acara ini menyediakan
                             transportasi untuk peserta?</p>
                     </li>
