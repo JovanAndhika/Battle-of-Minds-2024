@@ -30,7 +30,7 @@
         }
     }
 </style>
-<div class="w-screen flex flex-col justify-center items-center">
+<div class="w-screen flex flex-col justify-center items-center" id="timeline">
     <div class="flex justify-center items-center w-screen">
         <h1 class="faq-title mb-6 text text-5xl font-bold text-center leading-normal w-4/5 max-md:text-3xl"
             data-text="TIMELINE">TIMELINE</h1>

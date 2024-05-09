@@ -24,6 +24,9 @@
             -webkit-backdrop-filter: brightness(80%);
             -moz-backdrop-filter: brightness(80%);
         }
+        .container-registration{
+            margin: 4rem 0;
+        }
 
         .form-text {
             color: white;
@@ -45,7 +48,7 @@
             background: rgb(255, 255, 255, 0.2);
             border: 4px solid white;
             padding: 30px;
-            box-shadow: 2px 10px 10px 2px #ffffff;
+            box-shadow: 0px 0px 10px 2px #ffffff;
         }
 
         .form-label {
