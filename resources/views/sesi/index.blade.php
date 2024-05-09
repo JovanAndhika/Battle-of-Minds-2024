@@ -26,6 +26,115 @@
             border-radius: 40px;
             width: 200px;
         }
+        .maskot {
+            position: absolute;
+            width: 500px;
+            height: auto;
+            /* padding-left: 6rem; */
+            border-top-left-radius: 40px;
+            animation: fadeUpDown 1.75s forwards;
+        }
+
+
+        @keyframes fadeUpDown {
+            0% {
+                opacity: 0;
+                transform: translateY(20px); 
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(0); 
+            }
+            70% {
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+            100% {
+                opacity: 0; 
+                transform: translateY(-20px); 
+            }
+        }
+
+        @keyframes fadeLeftDown {
+            0% {
+                opacity: 0; /* Awal dengan keadaan tidak terlihat */
+                transform: translateY(20px); /* Mulai dari posisi 20px di bawah */
+            }
+            10% {
+                opacity: 0; 
+                transform: translateX(-20px); 
+            }
+            50% {
+                opacity: 1; 
+                transform: translateX(0); 
+            }
+            70% {
+                opacity: 1; 
+                transform: translateX(0); 
+            }
+            100% {
+                opacity: 0; /* Akhir dengan keadaan tidak terlihat */
+                transform: translateY(-20px); /* Berakhir 20px di atas */
+            }
+        }
+                
+        p{
+            margin:0;
+            padding: 12px
+        }
+
+        .speech-bubble {
+            width: 200px; 
+            height: auto;
+            margin: 0 0 250px 450px;
+            position: absolute;
+            -moz-border-radius: 10px; 
+            -webkit-border-radius: 10px; 
+            border-radius: 10px;
+            background-color: white;
+            animation: fadeLeftDown 1.75s forwards;
+
+        }
+        .speech-bubble:after {
+            content:"";
+            position: absolute;
+            left: 5px;
+            top: 50px;
+            border-top: 30px solid transparent;
+            border-right: 21px solid white;
+            border-bottom: 0px solid transparent;
+            margin: -25px;
+        }
+
+        @media (max-width: 768px) {
+            .maskot {
+                width: 300px;
+            }
+            .speech-bubble {
+                width: 200px; 
+                height: auto;
+                margin: 0 0 400px 0;
+                position: absolute;
+                -moz-border-radius: 10px; 
+                -webkit-border-radius: 10px; 
+                border-radius: 10px;
+                background-color: white;
+                animation: fadeLeftDown 1.75s forwards;
+
+            }
+            .speech-bubble:after {
+                content:"";
+                position: absolute;
+                left: 35px;
+                z-index: -1;
+                top: 60px;
+                border-top: 30px solid transparent;
+                border-right: 21px solid white;
+                border-right: 21px solid white;
+                border-bottom: 30px solid transparent;
+                margin: -25px;
+            }
+        }
         
     </style>
 </head>
@@ -52,19 +161,21 @@
         </script>
     @endif
 
-    <div class="box rounded-5 border border-blue">
+    <img src="{{ asset('asset/waving.png') }}" alt="faq-maskot"
+                class="maskot">
+    <div class='speech-bubble'>
+        <p>Silahkan login terlebih dahulu</p>
+    </div>
+
+    <div class="box  border border-blue">
         <form action="{{ route('session.login') }}" method="post">
             @csrf
             <div class="row center">
                 <div class=" col-lg-5 m-0 text-center">
-                    <img src="{{ asset('asset/logo-main.png') }}" class="text-center" alt="">
+                    <img src="{{ asset('asset/logo-main.png') }}" class="text-center logo-bom" alt="">
                 </div>
 
                 <div class="col-lg-5 m-0 text-center">
-
-                    <div class=" pt-3">
-                        <h2 class="text-white">LOGIN</h2>
-                    </div>
 
                     @if(session()->has('loginError'))
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -89,7 +200,7 @@
                     <div class="col-12 input-box text-center mb-4" id="passwordBox">
                         <input type="password" name="password" id="password" placeholder="Password" required>
                     </div>
-                    <a href="{{ route('session.forget') }}" class="link-forgot">Forgot Password?</a>
+                    <a href="{{ route('session.forget') }}" class="link-forgot">Forgot Password? Click Here</a>
                     <div class="col-12 text-center my-4 px-4 py-1">
                         <button type="submit" class="button border login-button" style="color: white;">Login</button>
                     </div>
