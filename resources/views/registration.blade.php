@@ -449,273 +449,288 @@
                                 </label>
                             </div>
                             @error('password')
-                            <label class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                            <div id="passwordHelpBlock" class="form-text">
-                                Your password must be 8-20 characters long, contain letters and numbers, and must not
-                                contain spaces, special characters, or emoji.
-                            </div>
+                            <label class="invalid-feedback">{{ $message }}
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-xl-full">
-                            <div class="floating-label">
-                                <input type="password" id="confirmPass" class="form-control @error('confirmPass') is-invalid @enderror" name="confirmPass" aria-describedby="passwordHelpBlock" placeholder="" value="{{ old('confirmPass') }}" required>
-                                <label for="confirmPass" class="form-label">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-keyhole">
-                                        <circle cx="12" cy="16" r="1" />
-                                        <rect x="3" y="10" width="18" height="12" rx="2" />
-                                        <path d="M7 10V7a5 5 0 0 1 10 0v3" />
-                                    </svg>
-                                    Confirm Password
-                                </label>
-                            </div>
+                        @enderror
+                        <div id="password-length" class="invalid-feedback mb-1" style="display: none; margin-top: 1em;">Password
+                            length doesn't match</div>
+                        <div id="passwordHelpBlock" class="form-text">
+                            Your password must be 8-20 characters long, contain letters and numbers, and must not
+                            contain spaces, special characters, or emoji.
                         </div>
+                        <script>
+                            document.getElementById("password").addEventListener("keyup", function() {
+                                let passLength = document.getElementById("password").value.length;
+                                let passwordError = document.getElementById("password-length");
+                                if (passLength >= 8 && passLength <= 20) {
+                                    passwordError.style.display = "none";
+                                } else {
+                                    passwordError.style.display = "block";
+                                }
+                            });
+                        </script>
+
                     </div>
+                </div>
 
-                    <div id="confirmPasswordError" class="invalid-feedback mb-3" style="display: none; margin-top: -1em;">Password
-                        confirmation doesn't match</div>
-                    @error('confirmPass')
-                    <div class="" style="margin-top: -1%;">{{ $message }}</div>
-                    @enderror
-                    @if (session()->has('password_not_same'))
-                    <div class="" style="margin-top: -1%;">Password confirmation doesn't match</div>
-                    @endif
-                    <script>
-                        document.getElementById("confirmPass").addEventListener("keyup", function() {
-                            var password = document.getElementById("password").value;
-                            var confirmPassword = document.getElementById("confirmPass").value;
-                            var confirmPasswordError = document.getElementById("confirmPasswordError");
-                            if (password === confirmPassword) {
-                                $(document).ready(function() {
-                                    $('#btn-submit').prop('disabled', false);
-                                });
-                                confirmPasswordError.style.display = "none";
-                            } else {
-                                $(document).ready(function() {
-                                    $('#btn-submit').prop('disabled', true);
-                                });
-                                confirmPasswordError.style.display = "block";
-                            }
-                        });
-                    </script>
-
-
-                    <div class="row">
-                        <div class="mb-3 col-xl-full">
-                            <label class="form-label bukti-label">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-dollar-sign">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
-                                    <path d="M12 18V6" />
+                <div class="row">
+                    <div class="col-xl-full">
+                        <div class="floating-label">
+                            <input type="password" id="confirmPass" class="form-control @error('confirmPass') is-invalid @enderror" name="confirmPass" aria-describedby="passwordHelpBlock" placeholder="" value="{{ old('confirmPass') }}" required>
+                            <label for="confirmPass" class="form-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-keyhole">
+                                    <circle cx="12" cy="16" r="1" />
+                                    <rect x="3" y="10" width="18" height="12" rx="2" />
+                                    <path d="M7 10V7a5 5 0 0 1 10 0v3" />
                                 </svg>
-
-                                Bukti transaksi (rekening BCA 2981104724) a.n. Marcelinus Anthony Teguh format .jpg / .png </label>
-                            <input class="form-control input-transaksi @error('buktiTransaksi') is-invalid @enderror" type="file" name="buktiTransaksi" required>
-                            @error('buktiTransaksi')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                                Confirm Password
+                            </label>
                         </div>
                     </div>
                 </div>
 
-
-                <!-- ---------------------------------------------------------------------- -->
-
-                <div class="form-section">
-                    <div class="row">
-                        <div class="mb-3 col-xl-full">
-                            <div class="floating-label">
-                                <input type="email" class="form-control @error('emailPerwakilan') is-invalid @enderror" id="emailPerwakilan" name="emailPerwakilan" placeholder="" value="{{ old('emailPerwakilan') }}" required>
-                                <label for="emailPerwakilan" class="form-label">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
-                                        <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
-                                        <rect width="18" height="18" x="3" y="4" rx="2" />
-                                        <circle cx="12" cy="10" r="2" />
-                                        <line x1="8" x2="8" y1="2" y2="4" />
-                                        <line x1="16" x2="16" y1="2" y2="4" />
-                                    </svg>
-                                    Email Perwakilan Kelompok
-                                </label>
-                            </div>
-                            @error('emailPerwakilan')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 nama-ketua-container">
-                            <div class="floating-label">
-                                <input type="text" class="form-control @error('namaSatu') is-invalid @enderror" id="namaSatu" name="namaSatu" placeholder="" value="{{ old('namaSatu') }}" required>
-                                <label for="namaSatu" class="form-label">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round">
-                                        <path d="M18 21a8 8 0 0 0-16 0" />
-                                        <circle cx="10" cy="8" r="5" />
-                                        <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
-                                    </svg>
-                                    Nama Member 1 (Ketua)
-                                </label>
-                            </div>
-                            @error('namaSatu')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="col-md-6">
-                            <div class="floating-label">
-                                <input type="text" class="form-control @error('kontakSatu') is-invalid @enderror" id="kontakSatu" name="kontakSatu" placeholder="" value="{{ old('kontakSatu') }}" required>
-                                <label for="kontakSatu" class="form-label">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
-                                        <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
-                                        <rect width="18" height="18" x="3" y="4" rx="2" />
-                                        <circle cx="12" cy="10" r="2" />
-                                        <line x1="8" x2="8" y1="2" y2="4" />
-                                        <line x1="16" x2="16" y1="2" y2="4" />
-                                    </svg>
-                                    Kontak member 1 (WA & id Line)
-                                </label>
-                            </div>
-                            @error('kontakSatu')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="mb-3 col-xl-full">
-                            <label class="form-label bukti-label" for="kartuPelajarSatu">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-dollar-sign">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
-                                    <path d="M12 18V6" />
-                                </svg>
-
-                                Foto kartu pelajar member 1 (format .jpg/.png maks 10mb)</label>
-                            <input class="form-control input-transaksi @error('kartuPelajarSatu') is-invalid @enderror" type="file" id="kartuPelajarSatu" name="kartuPelajarSatu" required>
-                            @error('kartuPelajarSatu')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
+                <div id="confirmPasswordError" class="invalid-feedback mb-3" style="display: none; margin-top: -1em;">Password
+                    confirmation doesn't match</div>
+                @error('confirmPass')
+                <div class="" style="margin-top: -1%;">{{ $message }}</div>
+                @enderror
+                @if (session()->has('password_not_same'))
+                <div class="" style="margin-top: -1%;">Password confirmation doesn't match</div>
+                @endif
+                <script>
+                    document.getElementById("confirmPass").addEventListener("keyup", function() {
+                        var password = document.getElementById("password").value;
+                        var confirmPassword = document.getElementById("confirmPass").value;
+                        var confirmPasswordError = document.getElementById("confirmPasswordError");
+                        if (password === confirmPassword) {
+                            $(document).ready(function() {
+                                $('#btn-submit').prop('disabled', false);
+                            });
+                            confirmPasswordError.style.display = "none";
+                        } else {
+                            $(document).ready(function() {
+                                $('#btn-submit').prop('disabled', true);
+                            });
+                            confirmPasswordError.style.display = "block";
+                        }
+                    });
+                </script>
 
 
-                    <div class="row">
-                        <div class="col-md-6 nama2-container">
-                            <div class="floating-label">
-                                <input type="text" id="namaDua" name="namaDua" class="form-control @error('namaDua') is-invalid @enderror" placeholder="" value="{{ old('namaDua') }}" required>
-                                <label for="namaDua" class="form-label">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round">
-                                        <path d="M18 21a8 8 0 0 0-16 0" />
-                                        <circle cx="10" cy="8" r="5" />
-                                        <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
-                                    </svg>
-                                    Nama Member 2
-                                </label>
-                            </div>
-                            @error('namaDua')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="col-md-6">
-                            <div class="floating-label">
-                                <input type="text" class="form-control @error('kontakDua') is-invalid @enderror" id="kontakDua" name="kontakDua" placeholder="" value="{{ old('kontakDua') }}" required>
-                                <label for="kontakDua" class="form-label">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
-                                        <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
-                                        <rect width="18" height="18" x="3" y="4" rx="2" />
-                                        <circle cx="12" cy="10" r="2" />
-                                        <line x1="8" x2="8" y1="2" y2="4" />
-                                        <line x1="16" x2="16" y1="2" y2="4" />
-                                    </svg>
-                                    Kontak member 2 (WA & id Line)
-                                </label>
-                            </div>
-                            @error('kontakDua')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
+                <div class="row">
+                    <div class="mb-3 col-xl-full">
+                        <label class="form-label bukti-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-dollar-sign">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+                                <path d="M12 18V6" />
+                            </svg>
 
-                    <div class="row">
-                        <div class="mb-3 col-xl-full">
-                            <label class="form-label bukti-label" for="kartuPelajarDua">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-dollar-sign">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
-                                    <path d="M12 18V6" />
-                                </svg>
-
-                                Foto kartu pelajar member 2 (format .jpg/.png maks 10mb)</label>
-                            <input class="form-control input-transaksi @error('kartuPelajarDua') is-invalid @enderror" type="file" id="kartuPelajarDua" name="kartuPelajarDua" required>
-                            @error('kartuPelajarDua')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 nama3-container">
-                            <div class="floating-label">
-                                <input type="text" id="namaTiga" name="namaTiga" class="form-control @error('namaTiga') is-invalid @enderror" placeholder="" value="{{ old('namaTiga') }}" required>
-                                <label for="namaTiga" class="form-label">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round">
-                                        <path d="M18 21a8 8 0 0 0-16 0" />
-                                        <circle cx="10" cy="8" r="5" />
-                                        <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
-                                    </svg>
-                                    Nama Member 3
-                                </label>
-                            </div>
-                            @error('namaTiga')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="col-md-6">
-                            <div class="floating-label">
-                                <input type="text" class="form-control @error('kontakTiga') is-invalid @enderror" id="kontakTiga" name="kontakTiga" placeholder="" value="{{ old('kontakTiga') }}" required>
-                                <label for="kontakTiga" class="form-label">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
-                                        <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
-                                        <rect width="18" height="18" x="3" y="4" rx="2" />
-                                        <circle cx="12" cy="10" r="2" />
-                                        <line x1="8" x2="8" y1="2" y2="4" />
-                                        <line x1="16" x2="16" y1="2" y2="4" />
-                                    </svg>
-                                    Kontak member 3 (WA & id Line)
-                                </label>
-                            </div>
-                            @error('kontakTiga')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="mb-3 col-xl-full">
-                            <label class="form-label bukti-label" for="kartuPelajarTiga">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-dollar-sign">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
-                                    <path d="M12 18V6" />
-                                </svg>
-
-                                Foto kartu pelajar member 3 (format .jpg/.png maks 10mb)</label>
-                            <input class="form-control input-transaksi @error('kartuPelajarTiga') is-invalid @enderror" type="file" name="kartuPelajarTiga" id="kartuPelajarTiga" required>
-                            @error('kartuPelajarTiga')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
+                            Bukti transaksi (rekening BCA 2981104724) a.n. Marcelinus Anthony Teguh format .jpg / .png </label>
+                        <input class="form-control input-transaksi @error('buktiTransaksi') is-invalid @enderror" type="file" name="buktiTransaksi" required>
+                        @error('buktiTransaksi')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
-
-                <div class="form-navigation">
-                    <button type="button" class="previous btn btn-info mb-3 float-left">Prev</button>
-                    <button type="button" class="next btn btn-info mb-3 float-right" style="float: right;">Next</button>
-                    <button type="submit" id="btn-submit" class="btn btn-primary float-right submit-button">SUBMIT</button>
-                </div>
-            </form>
         </div>
+
+
+        <!-- ---------------------------------------------------------------------- -->
+
+        <div class="form-section">
+            <div class="row">
+                <div class="mb-3 col-xl-full">
+                    <div class="floating-label">
+                        <input type="email" class="form-control @error('emailPerwakilan') is-invalid @enderror" id="emailPerwakilan" name="emailPerwakilan" placeholder="" value="{{ old('emailPerwakilan') }}" required>
+                        <label for="emailPerwakilan" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
+                                <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
+                                <rect width="18" height="18" x="3" y="4" rx="2" />
+                                <circle cx="12" cy="10" r="2" />
+                                <line x1="8" x2="8" y1="2" y2="4" />
+                                <line x1="16" x2="16" y1="2" y2="4" />
+                            </svg>
+                            Email Perwakilan Kelompok
+                        </label>
+                    </div>
+                    @error('emailPerwakilan')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 nama-ketua-container">
+                    <div class="floating-label">
+                        <input type="text" class="form-control @error('namaSatu') is-invalid @enderror" id="namaSatu" name="namaSatu" placeholder="" value="{{ old('namaSatu') }}" required>
+                        <label for="namaSatu" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round">
+                                <path d="M18 21a8 8 0 0 0-16 0" />
+                                <circle cx="10" cy="8" r="5" />
+                                <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
+                            </svg>
+                            Nama Member 1 (Ketua)
+                        </label>
+                    </div>
+                    @error('namaSatu')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="col-md-6">
+                    <div class="floating-label">
+                        <input type="text" class="form-control @error('kontakSatu') is-invalid @enderror" id="kontakSatu" name="kontakSatu" placeholder="" value="{{ old('kontakSatu') }}" required>
+                        <label for="kontakSatu" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
+                                <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
+                                <rect width="18" height="18" x="3" y="4" rx="2" />
+                                <circle cx="12" cy="10" r="2" />
+                                <line x1="8" x2="8" y1="2" y2="4" />
+                                <line x1="16" x2="16" y1="2" y2="4" />
+                            </svg>
+                            Kontak member 1 (WA & id Line)
+                        </label>
+                    </div>
+                    @error('kontakSatu')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-xl-full">
+                    <label class="form-label bukti-label" for="kartuPelajarSatu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-dollar-sign">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+                            <path d="M12 18V6" />
+                        </svg>
+
+                        Foto kartu pelajar member 1 (format .jpg/.png maks 10mb)</label>
+                    <input class="form-control input-transaksi @error('kartuPelajarSatu') is-invalid @enderror" type="file" id="kartuPelajarSatu" name="kartuPelajarSatu" required>
+                    @error('kartuPelajarSatu')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6 nama2-container">
+                    <div class="floating-label">
+                        <input type="text" id="namaDua" name="namaDua" class="form-control @error('namaDua') is-invalid @enderror" placeholder="" value="{{ old('namaDua') }}" required>
+                        <label for="namaDua" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round">
+                                <path d="M18 21a8 8 0 0 0-16 0" />
+                                <circle cx="10" cy="8" r="5" />
+                                <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
+                            </svg>
+                            Nama Member 2
+                        </label>
+                    </div>
+                    @error('namaDua')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="col-md-6">
+                    <div class="floating-label">
+                        <input type="text" class="form-control @error('kontakDua') is-invalid @enderror" id="kontakDua" name="kontakDua" placeholder="" value="{{ old('kontakDua') }}" required>
+                        <label for="kontakDua" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
+                                <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
+                                <rect width="18" height="18" x="3" y="4" rx="2" />
+                                <circle cx="12" cy="10" r="2" />
+                                <line x1="8" x2="8" y1="2" y2="4" />
+                                <line x1="16" x2="16" y1="2" y2="4" />
+                            </svg>
+                            Kontak member 2 (WA & id Line)
+                        </label>
+                    </div>
+                    @error('kontakDua')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-xl-full">
+                    <label class="form-label bukti-label" for="kartuPelajarDua">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-dollar-sign">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+                            <path d="M12 18V6" />
+                        </svg>
+
+                        Foto kartu pelajar member 2 (format .jpg/.png maks 10mb)</label>
+                    <input class="form-control input-transaksi @error('kartuPelajarDua') is-invalid @enderror" type="file" id="kartuPelajarDua" name="kartuPelajarDua" required>
+                    @error('kartuPelajarDua')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 nama3-container">
+                    <div class="floating-label">
+                        <input type="text" id="namaTiga" name="namaTiga" class="form-control @error('namaTiga') is-invalid @enderror" placeholder="" value="{{ old('namaTiga') }}" required>
+                        <label for="namaTiga" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round">
+                                <path d="M18 21a8 8 0 0 0-16 0" />
+                                <circle cx="10" cy="8" r="5" />
+                                <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
+                            </svg>
+                            Nama Member 3
+                        </label>
+                    </div>
+                    @error('namaTiga')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="col-md-6">
+                    <div class="floating-label">
+                        <input type="text" class="form-control @error('kontakTiga') is-invalid @enderror" id="kontakTiga" name="kontakTiga" placeholder="" value="{{ old('kontakTiga') }}" required>
+                        <label for="kontakTiga" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">
+                                <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
+                                <rect width="18" height="18" x="3" y="4" rx="2" />
+                                <circle cx="12" cy="10" r="2" />
+                                <line x1="8" x2="8" y1="2" y2="4" />
+                                <line x1="16" x2="16" y1="2" y2="4" />
+                            </svg>
+                            Kontak member 3 (WA & id Line)
+                        </label>
+                    </div>
+                    @error('kontakTiga')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-xl-full">
+                    <label class="form-label bukti-label" for="kartuPelajarTiga">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-dollar-sign">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+                            <path d="M12 18V6" />
+                        </svg>
+
+                        Foto kartu pelajar member 3 (format .jpg/.png maks 10mb)</label>
+                    <input class="form-control input-transaksi @error('kartuPelajarTiga') is-invalid @enderror" type="file" name="kartuPelajarTiga" id="kartuPelajarTiga" required>
+                    @error('kartuPelajarTiga')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+        </div>
+
+        <div class="form-navigation">
+            <button type="button" class="previous btn btn-info mb-3 float-left">Prev</button>
+            <button type="button" class="next btn btn-info mb-3 float-right" style="float: right;">Next</button>
+            <button type="submit" id="btn-submit" class="btn btn-primary float-right submit-button">SUBMIT</button>
+        </div>
+        </form>
+    </div>
     </div>
 </section>
 

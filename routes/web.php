@@ -44,6 +44,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'],
 //REGISTRATION
 Route::get('/registration', [UserController::class, 'registration'])->name('registration');
 Route::post('/registration/store', [UserController::class, 'storeRegistration'])->name('storeRegistration');
+//grup WA
+Route::get('/grupwa', [UserController::class, 'grupwa'])->name('grupwa');
 
 Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
     Route::get('/view', [UserController::class, 'view'])->name('view');
