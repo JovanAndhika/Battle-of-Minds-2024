@@ -31,12 +31,71 @@
         @import url('https://fonts.googleapis.com/css2?family=Geologica&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
-    </style>
+        .loader-container {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100% !important;
+            height: 100% !important;
+            background-color: rgba(0, 0, 0, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            }
 
+            .loader {
+            height: 150px;
+            width: 50%;
+            text-align: center;
+            padding: 1em;
+            display: inline-block;
+            vertical-align: top;
+            }
+
+            #loading_svg path,
+            #loading_svg rect {
+            fill: #726691;
+            }
+
+    </style>
+    <script>
+        $("body").css({
+            "overflow-y": "hidden",
+            });
+            setTimeout(function () {
+            $(".loader-container").fadeOut("slow", function () {
+                $("body").css({
+                "overflow-y": "auto",
+                });
+            });
+            }, 1000);
+    </script>
     @yield('head')
 </head>
 
 <body>
+    <div class="loader-container">
+        <div class="loader">
+            <svg version="1.1" id="loading_svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="72px" height="90px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                <rect x="0" y="10" width="4" height="10" fill="#333" opacity="0.2">
+                    <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0s" dur="0.6s" repeatCount="indefinite" />
+                    <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0s" dur="0.6s" repeatCount="indefinite" />
+                    <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0s" dur="0.6s" repeatCount="indefinite" />
+                </rect>
+                <rect x="8" y="10" width="4" height="10" fill="#333" opacity="0.2">
+                    <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+                    <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+                    <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+                </rect>
+                <rect x="16" y="10" width="4" height="10" fill="#333" opacity="0.2">
+                    <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+                    <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+                    <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+                </rect>
+            </svg>
+        </div>
+    </div>
 
     @yield('content')
 
