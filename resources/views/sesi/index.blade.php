@@ -32,7 +32,7 @@
             height: auto;
             /* padding-left: 6rem; */
             border-top-left-radius: 40px;
-            animation: fadeUpDown 1.75s forwards;
+            animation: fadeUpDown 2.5s forwards;
         }
 
 
@@ -92,7 +92,7 @@
             -webkit-border-radius: 10px; 
             border-radius: 10px;
             background-color: white;
-            animation: fadeLeftDown 1.75s forwards;
+            animation: fadeLeftDown 2.5s forwards;
 
         }
         .speech-bubble:after {
@@ -119,7 +119,7 @@
                 -webkit-border-radius: 10px; 
                 border-radius: 10px;
                 background-color: white;
-                animation: fadeLeftDown 1.75s forwards;
+                animation: fadeLeftDown 2.5s forwards;
 
             }
             .speech-bubble:after {
@@ -160,9 +160,9 @@
             });
         </script>
     @endif
-
-    <img src="{{ asset('asset/waving.png') }}" alt="faq-maskot"
-                class="maskot">
+    <video src="{{ asset('asset/waving.webm') }}" autoplay muted class="maskot"></video>
+    {{-- <img src="{{ asset('asset/waving.png') }}" alt="faq-maskot"
+                class="maskot"> --}}
     <div class='speech-bubble'>
         <p>Silahkan login terlebih dahulu</p>
     </div>

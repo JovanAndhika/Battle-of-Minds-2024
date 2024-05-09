@@ -37,7 +37,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.18);
     overflow: hidden;
     opacity: 0;
-    animation: fadeup 0.75s 1.2s forwards;
+    animation: fadeup 0.75s 2s forwards;
 }
 
 .center {
