@@ -258,7 +258,7 @@ class UserController extends Controller
         return back()->with('simpan_success', 'your answer has been saved');
     }
 
-    public function comingSoon($id) //elim2
+    public function comingSoon() //elim2
     {
         return view('user.coming-soon', ['title' => 'BOM 2024 | COMING SOON']);
     }
