@@ -35,7 +35,7 @@
         <h1 class="faq-title mb-6 text text-5xl font-bold text-center leading-normal w-4/5 max-md:text-3xl"
             data-text="TIMELINE">TIMELINE</h1>
     </div>
-    <ol class="timeline-line relative border-s-2 lg:w-[900px] md:w-[600px] sm:w-[600px] max-sm:w-[300px]">
+<ol class="timeline-line relative border-s-2 lg:w-[900px] md:w-[600px] sm:w-[600px] max-sm:w-[300px]">
         <li class="mb-10 ms-6">
             <span class="timeline-point absolute flex items-center justify-center w-6 h-6 rounded-full -start-3">
             </span>
