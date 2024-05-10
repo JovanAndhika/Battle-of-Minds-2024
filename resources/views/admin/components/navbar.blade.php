@@ -1,5 +1,5 @@
 <nav class="bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-600">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
         <a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
         </a>
         <div class="flex lg:order-2 space-x-3 lg:space-x-0 rtl:space-x-reverse">
@@ -16,10 +16,10 @@
         </div>
         <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="navbar-sticky">
             <ul
-                class="flex flex-col p-4 lg:p-0 mt-4 font-medium border rounded-lg lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 bg-gray-800 lg:bg-gray-900 border-gray-700">
-                <li>
+                class="flex flex-col font-medium border rounded-lg lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 bg-gray-950 lg:bg-gray-900 border-gray-700">
+                <li class="hover:bg-[#9290C3] py-2 my-2 rounded-lg hover:ease-in-out hover:transition-all {{ 'admin' == request()->path() ? 'bg-[#9290C3]' : '' }}">
                     <a href="{{ route('admin.index') }}"
-                        class="flex py-2 px-3 text-gray-100 rounded text-md font-bold tracking-wider"
+                        class="flex py-2 px-3 text-gray-100 rounded text-md font-bold tracking-wider hover:text-gray-800 {{ 'admin' == request()->path() ? 'text-gray-800' : '' }}"
                         aria-current="page">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round"
@@ -28,9 +28,9 @@
                             <polyline points="9 22 9 12 15 12 15 22" />
                         </svg>Home</a>
                 </li>
-                <li>
+                <li class="hover:bg-[#9290C3] py-2 my-2 rounded-lg hover:ease-in-out hover:transition-all {{ 'admin/poin' == request()->path() ? 'bg-[#9290C3]' : '' }}">
                     <a href="{{ route('admin.poin') }}"
-                        class="flex py-2 px-3 text-gray-100 rounded text-md font-bold tracking-wider">
+                        class="flex py-2 px-3 text-gray-100 rounded text-md font-bold tracking-wider hover:text-gray-800 {{ 'admin/poin' == request()->path() ? 'text-gray-800' : '' }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" class="lucide lucide-tally-5 me-2">
@@ -41,9 +41,9 @@
                             <path d="M22 6 2 18" />
                         </svg> Poin</a>
                 </li>
-                <li>
+                <li class="hover:bg-[#9290C3] py-2 my-2 rounded-lg hover:ease-in-out hover:transition-all {{ 'admin/selection' == request()->path() ? 'bg-[#9290C3]' : '' }}">
                     <a href="{{ route('admin.adminSelection') }}"
-                        class="flex py-2 px-3 text-gray-100 rounded text-md font-bold tracking-wider">
+                        class="flex py-2 px-3 text-gray-100 rounded text-md font-bold tracking-wider hover:text-gray-800 {{ 'admin/selection' == request()->path() ? 'text-gray-800' : '' }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round"
                             stroke-linejoin="round" class="lucide lucide-notepad-text mr-2">
@@ -56,11 +56,11 @@
                             <path d="M8 18h5" />
                         </svg>Set Jawaban</a>
                 </li>
-                <li>
+                <li class="hover:bg-[#9290C3] py-2 my-2 rounded-lg hover:ease-in-out hover:transition-all">
                     <form action="/logout" method="post">
                         @csrf
                         <button type="submit"
-                            class="py-2 px-3 text-gray-100 rounded text-md font-bold tracking-wider flex">
+                            class="py-2 px-3 text-gray-100 rounded text-md font-bold tracking-wider hover:text-gray-800 flex">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-log-out mr-2">
