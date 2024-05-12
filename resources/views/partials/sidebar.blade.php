@@ -137,7 +137,7 @@
                 <span class="link-name" style="--i:6">FAQ</span>
             </a>
         </li>
-        <li class="list-item">
+        <!-- <li class="list-item">
             <a href="/view">
                 <i>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

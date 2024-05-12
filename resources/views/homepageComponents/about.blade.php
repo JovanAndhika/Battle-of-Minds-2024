@@ -84,10 +84,10 @@
     <div class="hero-container min-h-screen flex justify-center items-center flex-col">
         <img src="{{ asset('asset/logo-main.png') }}" alt="logo" class="animate__animated animate__bounce logo lg:w-[630px] sm:w-[500px] max-sm:w-[320px] ">
         <p class="description lg:w-[760px] lg:text-lg xl:w-[900px] text-center mt-7 sm:w-[550px] sm:text-md max-sm:w-[300px] max-sm:text-sm max-sm:leading-6">
-            Battle of Minds 2024 merupakan sebuah lomba dengan bentuk kegiatan Numerical Logical Competition yang memadukan
-            konsep logika matematika dengan permainan yang seru dan menantang untuk mengasah pola pikir siswa siswi SMA/SMK.
-            Tahun ini, Battle Of Minds 2024 mengangkat tema “Exploring the Depths of Minds” yang memiliki arti seorang penjelajah
-            yang sedang mendalami pemahaman akan sesuatu.
+        Battle of Minds 2024 merupakan sebuah lomba dengan bentuk kegiatan Numerical Logical Competition yang memadukan 
+        konsep logika matematika dengan permainan yang seru dan menantang untuk mengasah pola pikir siswa siswi SMA/SMK. 
+        Tahun ini, Battle Of Minds 2024 mengangkat tema “Exploring the Depths of Minds” yang memiliki arti seorang 
+        penjelajah yang sedang mendalami pemahaman akan sesuatu. 
         </p>
     </div>
 </section>
