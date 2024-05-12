@@ -77,7 +77,7 @@
     }
 
     .description {
-        opacity: 0;
+        opacity: 1;
     }
 </style>
 <section class="about-section">

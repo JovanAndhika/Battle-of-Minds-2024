@@ -25,8 +25,10 @@
             data-text="GUIDEBOOK">
             GUIDEBOOK</h1>
     </div>
-    <div class="flex justify-center items-center">
-        <img src="asset/maskot-guidebook.png" alt="Guidebook Mascot" class="maskot-guide h-[500px] max-sm:h-[300px]"
-            onclick="window.href.location=""">
+    <div class="flex flex-col justify-center items-center">
+        <h1 class="bg-white rounded-xl text-black text-xl py-3 px-5">Click Bomby to see the guidebook!</h1>
+        <a href='https://bom.petra.ac.id/pdf/Guidebook%20BOM.pdf' target="_blank" class="inline-block">
+            <img src="asset/maskot-guidebook.png" alt="Guidebook Mascot" class="maskot-guide h-[500px] max-sm:h-[300px]">
+        </a>
     </div>
 </section>

@@ -18,9 +18,9 @@
         }
 
         .body2 {
-            backdrop-filter: brightness(80%);
+            /* backdrop-filter: brightness(80%);
             -webkit-backdrop-filter: brightness(80%);
-            -moz-backdrop-filter: brightness(80%);
+            -moz-backdrop-filter: brightness(80%); */
         }
 
         .container-registration {
@@ -54,7 +54,8 @@
         }
 
         .form-content {
-            background: rgb(255, 255, 255, 0.2);
+            background: rgb(150, 150, 150, 0.2);
+            backdrop-filter: blur(20px) !important;
             border: 4px solid white;
             padding: 30px;
             box-shadow: 0px 0px 10px 2px #ffffff;
@@ -401,7 +402,6 @@
                     REGISTRATION
                 </div>
                 <div class="form-content">
-
                     <form method="POST" action="{{ route('storeRegistration') }}" enctype="multipart/form-data"
                         id="registration-form" class="registration-form">
                         @csrf
