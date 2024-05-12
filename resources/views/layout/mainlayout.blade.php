@@ -36,8 +36,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
 
-        ::selection{
-            background-color: black;
+        ::selection {
+            background-color: rgb(62, 26, 189);
             color: white;
         }
 
@@ -62,9 +62,9 @@
             position: fixed;
             left: 0px;
             top: 0px;
-            width: 100% !important;
-            height: 100% !important;
-            background-color: rgba(0, 0, 0, 1);
+            width: 100vw !important;
+            height: 100vh !important;
+            background: linear-gradient(125deg, rgba(120, 27, 55, 1), rgba(123, 48, 176, 1) 51%, rgba(61, 37, 84, 1) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -72,17 +72,18 @@
         }
 
         .loader {
-            height: 150px;
-            width: 50%;
+            width: 100vw !important;
+            height: 100vh !important;
             text-align: center;
             padding: 1em;
-            display: inline-block;
-            vertical-align: top;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         #loading_svg path,
         #loading_svg rect {
-            fill: #726691;
+            fill: white;
         }
     </style>
     <script>
@@ -101,37 +102,28 @@
 </head>
 
 <body>
-@include('partials.sidebar')
-    
+    @include('partials.sidebar')
+
     <div class="loader-container">
         <div class="loader">
-            <svg version="1.1" id="loading_svg" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="72px" height="90px"
-                viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
-                <rect x="0" y="10" width="4" height="10" fill="#333" opacity="0.2">
-                    <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0s"
-                        dur="0.6s" repeatCount="indefinite" />
-                    <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0s"
-                        dur="0.6s" repeatCount="indefinite" />
-                    <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0s" dur="0.6s"
-                        repeatCount="indefinite" />
-                </rect>
-                <rect x="8" y="10" width="4" height="10" fill="#333" opacity="0.2">
-                    <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.15s"
-                        dur="0.6s" repeatCount="indefinite" />
-                    <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.15s"
-                        dur="0.6s" repeatCount="indefinite" />
-                    <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.15s" dur="0.6s"
-                        repeatCount="indefinite" />
-                </rect>
-                <rect x="16" y="10" width="4" height="10" fill="#333" opacity="0.2">
-                    <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.3s"
-                        dur="0.6s" repeatCount="indefinite" />
-                    <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.3s"
-                        dur="0.6s" repeatCount="indefinite" />
-                    <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.3s" dur="0.6s"
-                        repeatCount="indefinite" />
-                </rect>
+            <svg version="1.1" id="#loading_svg" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+                enable-background="new 0 0 100 100" xml:space="preserve" width="130px" height="130px">
+                <path fill="#fff" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+  c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+                    <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="2s"
+                        from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                </path>
+                <path fill="#fff" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+  c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+                    <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s"
+                        from="0 50 50" to="-360 50 50" repeatCount="indefinite" />
+                </path>
+                <path fill="#fff" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+  L82,35.7z">
+                    <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="2s"
+                        from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                </path>
             </svg>
         </div>
     </div>

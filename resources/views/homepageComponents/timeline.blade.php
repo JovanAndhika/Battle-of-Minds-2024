@@ -75,7 +75,7 @@
             <div class="timeline grid rounded-xl shadow-xl p-4 max-sm:h-fit">
                 <div class="datetime flex flex-col justify-center max-sm:h-[50px] max-sm:pb-2">
                     <h1 class="lg:text-2xl md:text-lg text-white font-bold">Technical Meeting 2</h1>
-                    <h2 class="lg:text-lg md:text-sm text-white font-bold max-md:text-sm">25<sup>th</sup> July 2024</h2>
+                    <h2 class="lg:text-lg md:text-sm text-white font-bold max-md:text-sm">24<sup>th</sup> July 2024</h2>
                 </div>
                 <div class="location row-span-2 flex items-center sm:border-l-2 max-sm:border-t-2 sm:pl-5 max-sm:pt-2">
                     <i class="fa-solid fa-location-dot pr-3 lg:text-2xl md:text-lg max-sm:hidden"></i>
@@ -92,7 +92,7 @@
             <div class="timeline grid rounded-xl shadow-xl p-4 max-sm:h-fit">
                 <div class="datetime flex flex-col justify-center max-sm:h-[50px] max-sm:pb-2">
                     <h1 class="lg:text-2xl md:text-lg text-white font-bold">Elimination 2</h1>
-                    <h2 class="lg:text-lg md:text-sm text-white font-bold max-md:text-sm">27<sup>th</sup> July 2024</h2>
+                    <h2 class="lg:text-lg md:text-sm text-white font-bold max-md:text-sm">26<sup>th</sup> July 2024</h2>
                 </div>
                 <div class="location row-span-2 flex items-center sm:border-l-2 max-sm:border-t-2 sm:pl-5 max-sm:pt-2">
                     <i class="fa-solid fa-location-dot pr-3 lg:text-2xl md:text-lg max-sm:hidden"></i>
@@ -110,7 +110,7 @@
             <div class="timeline grid rounded-xl shadow-xl p-4 max-sm:h-fit">
                 <div class="datetime flex flex-col justify-center max-sm:h-[50px] max-sm:pb-2">
                     <h1 class="lg:text-2xl md:text-lg text-white font-bold">Grand Final</h1>
-                    <h2 class="lg:text-lg md:text-sm text-white font-bold max-md:text-sm">28<sup>th</sup> July 2024</h2>
+                    <h2 class="lg:text-lg md:text-sm text-white font-bold max-md:text-sm">27<sup>th</sup> July 2024</h2>
                 </div>
                 <div class="location row-span-2 flex items-center sm:border-l-2 max-sm:border-t-2 sm:pl-5 max-sm:pt-2">
                     <i class="fa-solid fa-location-dot pr-3 lg:text-2xl md:text-lg max-sm:hidden"></i>
