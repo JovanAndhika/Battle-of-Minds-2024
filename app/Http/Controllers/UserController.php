@@ -87,14 +87,18 @@ class UserController extends Controller
         }
         User::create($validatedData);
         // Kembalikan respons ke halaman yang sesuai
-        return redirect("/")->with('registrationSuccess', 'Registration Berhasil!');
+        return redirect()->route('grupwa')->with('registrationSuccess', 'Registration Berhasil!');
     }
     // TAMPILAN USER
     public function view()
-    {   
+    {
         $user_name = DB::select('select namaKelompok from users where id = ?', [auth()->user()->id]);
-            $results = $user_name[0]->namaKelompok;
+        $results = $user_name[0]->namaKelompok;
         return view('user.view', ['title' => 'BOM 2024 | COMING SOON', 'username' => $results, 'idUser' => auth()->user()->id]);
+    }
+    public function grupwa()
+    {
+        return view('user.grupwa', ['title' => 'BOM 2024 | GRUP WA']);
     }
     public function elim_satu()
     {
@@ -254,7 +258,7 @@ class UserController extends Controller
         return back()->with('simpan_success', 'your answer has been saved');
     }
 
-    public function comingSoon($id) //elim2
+    public function comingSoon() //elim2
     {
         return view('user.coming-soon', ['title' => 'BOM 2024 | COMING SOON']);
     }

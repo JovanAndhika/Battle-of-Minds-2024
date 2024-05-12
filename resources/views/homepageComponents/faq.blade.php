@@ -234,6 +234,19 @@
     .chat-area::-webkit-scrollbar-track {
         background-color: rgb(85, 104, 180, 0.75) !important;
     }
+
+    .question {
+        background-color: rgb(95, 115, 184);
+        border-color: rgba(34, 61, 197, 0.7);
+    }
+
+    .question:hover {
+        background-color: rgb(95, 115, 254);
+    }
+
+    .question:active {
+        background-color: rgb(95, 115, 254, 0.8);
+    }
 </style>
 
 <section class="faq-section w-screen flex justify-center items-center flex-col sticky top-16 z-[-1] h-fit" id="faq">
@@ -271,53 +284,59 @@
                 <ul class="absolute z-[1000] float-left m-0 hidden min-w-max h-[180px] overflow-y-scroll list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-base shadow-lg data-[twe-dropdown-show]:block"
                     aria-labelledby="dropdownMenuButton1" data-twe-dropdown-menu-ref>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="0">Apa itu Battle of Minds (BoM)?
                         </p>
                     </li>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="1">Ada berapa babak dalam acara
                             BoM?</p>
                     </li>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="2">BoM diadakan secara
                             onsite/online?</p>
                     </li>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="3">Siapa saja yang boleh mendaftar
                             BoM?</p>
                     </li>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="4">Apakah satu orang bisa mendaftar
                             lebih dari satu tim?</p>
                     </li>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                             href="#" data-twe-dropdown-item-ref question-code="5">Berapa biaya pendaftaran BoM?
                         </p>
                     </li>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
-                            href="#" data-twe-dropdown-item-ref question-code="6">Bagaimana proses validasi
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                            href="#" data-twe-dropdown-item-ref question-code="6">Apakah uang deposit akan
+                            dikembalikan setelah acara berakhir?
+                        </p>
+                    </li>
+                    <li>
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                            href="#" data-twe-dropdown-item-ref question-code="7">Bagaimana proses validasi
                             pembayaran?</p>
                     </li>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
-                            href="#" data-twe-dropdown-item-ref question-code="7">Apabila tim tidak dapat hadir
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                            href="#" data-twe-dropdown-item-ref question-code="8">Apabila tim tidak dapat hadir
                             pada hari - h acara apa konsekuensinya?</p>
                     </li>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
-                            href="#" data-twe-dropdown-item-ref question-code="8">Apakah peserta akan mendapatkan
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                            href="#" data-twe-dropdown-item-ref question-code="9">Apakah peserta akan mendapatkan
                             konsumsi?</p>
                     </li>
                     <li>
-                        <p class="question w-[400px] block border-b-2 border-purple-500 bg-white px-4 py-2 text-sm text-purple-800 font-bold hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline hover:cursor-pointer"
-                            href="#" data-twe-dropdown-item-ref question-code="9">Apakah acara ini menyediakan
+                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                            href="#" data-twe-dropdown-item-ref question-code="10">Apakah acara ini menyediakan
                             transportasi untuk peserta?</p>
                     </li>
                 </ul>
@@ -331,14 +350,15 @@
     const chatSection = document.querySelector('.chat-section');
 
     const answerArray = [
-        'Battle of Minds adalah lomba yang memadukan konsep logika matematika dengan permainan yang seru dan menantang di bidang Science, Technology, Engineering, and Math.',
+        'Battle of Minds adalah lomba yang memadukan konsep logika matematika dengan permainan yang seru dan menantang di bidang Science🧪, Technology💻, Engineering⚙️, and Math✖️. ',
         'Lomba ini terdiri dari tiga babak, yakni dua babak eliminasi dan satu babak final. Untuk mendapatkan informasi lebih rinci, akan diadakan TM 1 untuk babak pertama dan TM 2 untuk babak kedua.',
-        'Setiap peserta yang mengikuti kompetisi Battle of Minds diwajibkan hadir secara ONSITE, di Petra Christian University untuk babak 1. Lalu, untuk babak 2 dan babak final akan dilakukan ONSITE di Fairway Nine Mall Surabaya',
-        'Pendaftar yang boleh mengikuti lomba Battle Of Minds 2024 adalah siswa/i SMA/SMK di Indonesia',
-        'Tidak, setiap peserta tidak boleh mewakili lebih dari 1 tim.',
-        'FREE!! Namun peserta diwajibkan deposit sebesar Rp200.000 yang dibayarkan melalui Rekening BCA 2981104724 A.n/ MARCELINUS ANTHONY TEGUH, dan memberikan kode 1 pada akhir nominal seperti: 200.001 dan memberikan keterangan berita acara: BOM24-(namatim) contoh: BOM24-timhore',
+        'Setiap peserta yang mengikuti kompetisi Battle of Minds diwajibkan hadir secara ONSITE, di Petra Christian University untuk babak 1. Lalu, untuk babak 2 dan babak final akan dilakukan ONSITE di Fairway Nine Mall Surabaya 🔥🔥',
+        'Kamu dapat mengikuti kompetisi Battle Of Minds 2024 jika kamu adalah siswa/i SMA/SMK di Indonesia yaaa 😙🏫',
+        'Tidak, setiap peserta tidak boleh mewakili lebih dari 1 tim 😑😑',
+        'Pendaftaran BoM free 🤩🤩!! Eitssss tapi peserta diwajibkan melakukan deposit sebesar Rp200.000 yang dibayarkan melalui Rekening BCA 2981104724 A.n/ MARCELINUS ANTHONY TEGUH, dan memberikan kode 1 pada akhir nominal seperti: 200.001 dan memberikan keterangan berita acara: BOM24-(namatim) contoh: BOM24-timhore',
+        'Iyaaa tenang aja uang deposit pasti dikembalikan, selama kalian mengikuti acara dengan baik, mematuhi peraturan, dan tidak terdiskualifikasi 😙😙',
         'Setelah pendaftaran melalui website telah berhasil, panitia akan memberikan email konfirmasi dalam waktu 1 x 24 jam bahwa pendaftaran kalian tervalidasi.',
-        'Sayang sekali jika ada tim yang tidak hadir pada hari-h acara, maka tim tersebut akan didiskualifikasi dan uang tidak akan dikembalikan 🥲🥲',
+        'Sayang sekali jika ada tim yang tidak hadir pada hari-h acara, maka tim tersebut akan didiskualifikasi dan uang deposit tidak akan dikembalikan 🥲🥲',
         'Tenang aja, setiap peserta akan mendapatkan konsumsi kok 🥰🍴',
         'Sayang sekali, tetapi pihak Battle of Minds tidak menyediakan fasilitas transportasi untuk peserta 😔😔'
 

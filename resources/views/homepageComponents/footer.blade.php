@@ -39,6 +39,12 @@
         margin-left: 5px;
     }
 
+    #whatsapp-logo {
+        color: rgba(7, 94, 84);
+        margin-left: 5px;
+        /* font-weight: bold; */
+    }
+
     @keyframes digital {
         from {
             background-position: bottom;
@@ -73,7 +79,7 @@
         }
     }
 
-    #reglCanvas{
+    #reglCanvas {
         /* background: linear-gradient(125deg, rgb(44, 18, 67) 0%, rgb(44, 7, 70) 51%, rgb(46, 11, 92) 100%); */
         background: darkslateblue;
 
@@ -81,7 +87,6 @@
 </style>
 <section class="footer-section z-10">
     <canvas class="h-[730px] w-screen z-10 absolute" id="reglCanvas"></canvas>
-    {{-- <div class="footer-container h-[730px] bg-slate-500 z-10"> --}}
     <div class="footer-grid-layout py-10 lg:px-32 lg:pr-16 md:pr-10 md:px-24 h-[730px] w-screen grid grid-cols-2 grid-rows-2 max-lg:grid-rows-3 max-md:grid-rows-4 max-md:grid-cols-1
             max-md:px-0 max-md:py-10 absolute z-20"
         id="footer">
@@ -89,28 +94,33 @@
             class="footer-title font-bold text-5xl w-[480px] max-lg:text-4xl max-lg:w-96 max-lg:col-span-2 max-md:col-span-1
                 max-md:text-3xl max-md:w-[300px] max-md:justify-self-center sm:leading-normal max-sm:leading-normal max-md:text-center">
             Are you ready to compete in the Battle of Minds?</h1>
-        <div class="justify-self-end self-center max-lg:col-span-2 max-lg:justify-self-start max-md:col-span-1 max-md:justify-self-center">
-            {{-- Container Logo Sponsor --}}
+        <div
+            class="justify-self-end self-center max-lg:col-span-2 max-lg:justify-self-start max-md:col-span-1 max-md:justify-self-center">
         </div>
-        <ul class="container-sosmed list-none flex flex-col justify-center items-center justify-self-start self-end pb-0 max-lg:col-span-1
+        <ul
+            class="container-sosmed list-none flex flex-col justify-center items-center justify-self-start self-end pb-0 max-lg:col-span-1
                 max-md:justify-self-center max-md:pb-0">
             <li class="font-bold text-3xl text-center w-60 py-1 max-md:text-2xl">Contact Us</li>
-            <div class="grid grid-cols-3">
+            <div class="grid grid-cols-4">
                 <li class="py-3 flex w-20 justify-center items-center">
                     <a data-tooltip-target="line" data-tooltip-placement="bottom"
                         href="https://line.me/R/ti/p/@639vlaiy?oat_content=url"
                         class="contacts rounded-xl w-14 h-16 text-[#4cc764] text-4xl p-5 text-center flex justify-center items-center">
                         <i class="fa-brands fa-line" id="line-logo"></i>
                     </a>
-                    <div id="line" role="tooltip" class="contact-text absolute z-101 invisible font-bold inline-block px-3 py-2 text-sm bg-white text-blue-800 rounded-lg shadow-sm opacity-0 tooltip">
+                    <div id="line" role="tooltip"
+                        class="contact-text absolute z-101 invisible font-bold inline-block px-3 py-2 text-sm bg-white text-blue-800 rounded-lg shadow-sm opacity-0 tooltip">
                         @612dapw
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
                 </li>
                 <li class="py-3 flex w-20 justify-center items-center">
-                    <a data-tooltip-target="instagram" data-tooltip-placement="bottom" href="https://www.instagram.com/battleofminds.pcu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="contacts rounded-xl w-14 h-16 text-4xl p-5 text-center flex justify-center items-center">
+                    <a data-tooltip-target="instagram" data-tooltip-placement="bottom"
+                        href="https://www.instagram.com/battleofminds.pcu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                        class="contacts rounded-xl w-14 h-16 text-4xl p-5 text-center flex justify-center items-center">
                         <i class="fa-brands fa-instagram" id="ig-logo"></i></a>
-                    <div id="instagram" role="tooltip" class="contact-text absolute z-10 invisible font-bold inline-block px-3 py-2 text-sm bg-white text-blue-800 rounded-lg shadow-sm opacity-0 tooltip">
+                    <div id="instagram" role="tooltip"
+                        class="contact-text absolute z-10 invisible font-bold inline-block px-3 py-2 text-sm bg-white text-blue-800 rounded-lg shadow-sm opacity-0 tooltip">
                         @BOMPetra
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
@@ -119,16 +129,28 @@
                     <a data-tooltip-target="tiktok" data-tooltip-placement="bottom" href=""
                         class="contacts rounded-xl w-14 h-16 text-black text-4xl p-5 text-center flex justify-center items-center">
                         <i class="fa-brands fa-tiktok" id="tiktok-logo"></i></a>
-                    <div id="tiktok" role="tooltip" class="contact-text absolute z-10 invisible font-bold inline-block px-3 py-2 text-sm bg-white text-blue-800 rounded-lg shadow-sm opacity-0 tooltip">
+                    <div id="tiktok" role="tooltip"
+                        class="contact-text absolute z-10 invisible font-bold inline-block px-3 py-2 text-sm bg-white text-blue-800 rounded-lg shadow-sm opacity-0 tooltip">
                         @BoMPetra
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                </li>
+                <li class="py-3 flex w-20 justify-center items-center">
+                    <a data-tooltip-target="whatsapp" data-tooltip-placement="bottom" href="https://wa.me/628991706114"
+                        class="contacts rounded-xl w-14 h-16 text-black text-4xl p-5 text-center flex justify-center items-center">
+                        <i class="fa-brands fa-whatsapp" id="whatsapp-logo"></i></a>
+                    <div id="whatsapp" role="tooltip"
+                        class="contact-text absolute z-10 invisible font-bold inline-block px-3 py-2 text-sm bg-white text-blue-800 rounded-lg shadow-sm opacity-0 tooltip">
+                        08991706114 (Michelle)
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
                 </li>
             </div>
         </ul>
-        <div class="logo-univ justify-self-end self-end pb-1 xl:w-[600px] md:w-[400px] max-md:w-[280px] max-md:justify-self-center">
-            <img class="xl:w-[600px] md:w-[400px] max-sm:w-[280px]" src="{{ asset('asset/sc-bom-white.png') }}" alt="LogoSC">
+        <div
+            class="logo-univ justify-self-end self-end pb-1 xl:w-[600px] md:w-[400px] max-md:w-[280px] max-md:justify-self-center">
+            <img class="xl:w-[600px] md:w-[400px] max-sm:w-[280px]" src="{{ asset('asset/sc-bom-white.png') }}"
+                alt="LogoSC">
         </div>
     </div>
-    {{-- </div> --}}
 </section>

@@ -37,7 +37,7 @@
     }
 </style>
 
-<section class="prize-section h-[550px] w-screen">
+<section class="prize-section h-[550px] w-screen" id="prizepool">
     <div class="flex justify-center items-center box">
         <h1 class="faq-title mb-6 text lg:text-5xl md:text-4xl font-bold text-center leading-normal w-4/5 sm:text-4xl max-sm:text-3xl"
             data-text="PRIZEPOOL">

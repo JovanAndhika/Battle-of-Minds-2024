@@ -104,7 +104,7 @@ class AdminController extends Controller
                 Data_jawaban::create([
                     'kelompok_id' => $p->id,
                     'kunci_jawabans_id' => intval($j), // Mengonversi $j menjadi integer
-                    'jawaban_kelompok' => 'z'
+                    'jawaban_kelompok' => null
                 ]);
             }
 

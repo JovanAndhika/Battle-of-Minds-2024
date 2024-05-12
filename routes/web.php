@@ -8,7 +8,7 @@ use App\Http\Controllers\SessionController;
 
 //HOMEPAGE
 Route::get('/', [UserController::class, 'index'])->name('index');
-Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
+Route::post('/logout', [SessionController::class, 'logout'])->name('logoutss');
 
 //SESSION
 Route::group(['as' => 'session.', 'middleware' => 'guest'], function () {
@@ -24,7 +24,7 @@ Route::group(['as' => 'session.', 'middleware' => 'guest'], function () {
 
 
 // ADMIN
-Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'admin'], function () {
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
     Route::get('/', [AdminController::class, 'peserta'])->name('index');
 
     // Poin
@@ -44,16 +44,18 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'admin'], f
 //REGISTRATION
 Route::get('/registration', [UserController::class, 'registration'])->name('registration');
 Route::post('/registration/store', [UserController::class, 'storeRegistration'])->name('storeRegistration');
+//grup WA
+Route::get('/grupwa', [UserController::class, 'grupwa'])->name('grupwa');
 
-Route::group(['as' => 'user.', 'middleware' => 'auth'], function () {
+Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
     Route::get('/view', [UserController::class, 'view'])->name('view');
     // 300 soal
-    Route::get('/assestment', [UserController::class, 'elim_satu'])->name('elim_satu');
-    Route::get('/assestmentB', [UserController::class, 'elim_satuB'])->name('elim_satuB');
-    Route::get('/assestmentC', [UserController::class, 'elim_satuC'])->name('elim_satuC');
-    Route::get('/assestmentD', [UserController::class, 'elim_satuD'])->name('elim_satuD');
-    Route::get('/assestmentE', [UserController::class, 'elim_satuE'])->name('elim_satuE');
-    Route::get('/assestmentF', [UserController::class, 'elim_satuF'])->name('elim_satuF');
+    Route::get('/assessment', [UserController::class, 'elim_satu'])->name('elim_satu');
+    Route::get('/assessmentB', [UserController::class, 'elim_satuB'])->name('elim_satuB');
+    Route::get('/assessmentC', [UserController::class, 'elim_satuC'])->name('elim_satuC');
+    Route::get('/assessmentD', [UserController::class, 'elim_satuD'])->name('elim_satuD');
+    Route::get('/assessmentE', [UserController::class, 'elim_satuE'])->name('elim_satuE');
+    Route::get('/assessmentF', [UserController::class, 'elim_satuF'])->name('elim_satuF');
 
     Route::post('/save-jawabanA', [UserController::class, 'simpan_jawabanA'])->name('simpan_jawabanA');
     Route::post('/save-jawabanB', [UserController::class, 'simpan_jawabanB'])->name('simpan_jawabanB');

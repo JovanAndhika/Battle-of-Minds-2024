@@ -6,7 +6,7 @@
         -webkit-box-shadow: 0px 0px 10px 4px rgba(255, 255, 255, 0.75);
         -moz-box-shadow: 0px 0px 10px 4px rgba(255, 255, 255, 0.75);
     }
-    
+
     .timeline-point {
         box-shadow: 0px 0px 5px 0px white;
         background-color: white;
@@ -30,7 +30,7 @@
         }
     }
 </style>
-<div class="w-screen flex flex-col justify-center items-center">
+<div class="w-screen flex flex-col justify-center items-center" id="timeline">
     <div class="flex justify-center items-center w-screen">
         <h1 class="faq-title mb-6 text text-5xl font-bold text-center leading-normal w-4/5 max-md:text-3xl"
             data-text="TIMELINE">TIMELINE</h1>
@@ -42,14 +42,13 @@
             <div class="timeline grid rounded-xl shadow-xl p-4 max-sm:h-fit">
                 <div class="datetime flex flex-col justify-center max-sm:h-[50px] max-sm:pb-2">
                     <h1 class="lg:text-2xl md:text-lg text-white font-bold">Technical Meeting 1</h1>
-                    <h2 class="lg:text-lg md:text-sm text-white font-bold">19<sup>th</sup> July 2024</h2>
+                    <h2 class="lg:text-lg md:text-sm text-white font-bold max-md:text-sm">19<sup>th</sup> July 2024</h2>
                 </div>
                 <div class="location row-span-2 flex items-center sm:border-l-2 max-sm:border-t-2 sm:pl-5 max-sm:pt-2">
                     <i class="fa-solid fa-location-dot pr-3 lg:text-2xl md:text-lg max-sm:hidden"></i>
-                    <a class="text-white font-bold lg:text-lg flex md:text-sm"
-                        href="https://maps.app.goo.gl/4WiVAX6eAcaynNKz7">
+                    <p class="text-white font-bold lg:text-lg flex md:text-sm">
                         Online via Google Meet
-                    </a>
+                    </p>
                 </div>
             </div>
         </li>
@@ -59,7 +58,7 @@
             <div class="timeline grid rounded-xl shadow-xl p-4 max-sm:h-fit">
                 <div class="datetime flex flex-col justify-center max-sm:h-[50px] max-sm:pb-2">
                     <h1 class="lg:text-2xl md:text-lg text-white font-bold">Elimination 1</h1>
-                    <h2 class="lg:text-lg md:text-sm text-white font-bold">23<sup>rd</sup> July 2024</h2>
+                    <h2 class="lg:text-lg md:text-sm text-white font-bold max-md:text-sm">23<sup>rd</sup> July 2024</h2>
                 </div>
                 <div class="location row-span-2 flex items-center sm:border-l-2 max-sm:border-t-2 sm:pl-5 max-sm:pt-2">
                     <i class="fa-solid fa-location-dot pr-3 lg:text-2xl md:text-lg max-sm:hidden"></i>
@@ -76,7 +75,7 @@
             <div class="timeline grid rounded-xl shadow-xl p-4 max-sm:h-fit">
                 <div class="datetime flex flex-col justify-center max-sm:h-[50px] max-sm:pb-2">
                     <h1 class="lg:text-2xl md:text-lg text-white font-bold">Technical Meeting 2</h1>
-                    <h2 class="lg:text-lg md:text-sm text-white font-bold">25<sup>th</sup> July 2024</h2>
+                    <h2 class="lg:text-lg md:text-sm text-white font-bold max-md:text-sm">25<sup>th</sup> July 2024</h2>
                 </div>
                 <div class="location row-span-2 flex items-center sm:border-l-2 max-sm:border-t-2 sm:pl-5 max-sm:pt-2">
                     <i class="fa-solid fa-location-dot pr-3 lg:text-2xl md:text-lg max-sm:hidden"></i>
@@ -93,7 +92,7 @@
             <div class="timeline grid rounded-xl shadow-xl p-4 max-sm:h-fit">
                 <div class="datetime flex flex-col justify-center max-sm:h-[50px] max-sm:pb-2">
                     <h1 class="lg:text-2xl md:text-lg text-white font-bold">Elimination 2</h1>
-                    <h2 class="lg:text-lg md:text-sm text-white font-bold">27<sup>th</sup> July 2024</h2>
+                    <h2 class="lg:text-lg md:text-sm text-white font-bold max-md:text-sm">27<sup>th</sup> July 2024</h2>
                 </div>
                 <div class="location row-span-2 flex items-center sm:border-l-2 max-sm:border-t-2 sm:pl-5 max-sm:pt-2">
                     <i class="fa-solid fa-location-dot pr-3 lg:text-2xl md:text-lg max-sm:hidden"></i>
@@ -111,7 +110,7 @@
             <div class="timeline grid rounded-xl shadow-xl p-4 max-sm:h-fit">
                 <div class="datetime flex flex-col justify-center max-sm:h-[50px] max-sm:pb-2">
                     <h1 class="lg:text-2xl md:text-lg text-white font-bold">Grand Final</h1>
-                    <h2 class="lg:text-lg md:text-sm text-white font-bold">28<sup>th</sup> July 2024</h2>
+                    <h2 class="lg:text-lg md:text-sm text-white font-bold max-md:text-sm">28<sup>th</sup> July 2024</h2>
                 </div>
                 <div class="location row-span-2 flex items-center sm:border-l-2 max-sm:border-t-2 sm:pl-5 max-sm:pt-2">
                     <i class="fa-solid fa-location-dot pr-3 lg:text-2xl md:text-lg max-sm:hidden"></i>

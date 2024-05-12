@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\PasswordReset;
-use Str;
 use App\Models\User;
-use App\Models\PasswordResetToken;
-use Illuminate\Auth\Notifications\ResetPassword;
-use Illuminate\Http\RedirectResponse;
+use App\Mail\PasswordReset;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\PasswordResetToken;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Auth\Notifications\ResetPassword;
 
 class SessionController extends Controller
 {
@@ -42,6 +42,7 @@ class SessionController extends Controller
             if (Auth::attempt($credentials)) {
                 if (auth()->user()->is_admin == 1) {
                     $request->session()->regenerate();
+                    session(['isAdmin' => true]);
                     return redirect()->intended(route('admin.index'));
                 }
             }
@@ -72,11 +73,12 @@ class SessionController extends Controller
 
                 if (Auth::attempt($credentials)) {
                     $request->session()->regenerate();
+                    session(['isGuest' => true]);
                     return redirect()->intended(route('user.view'));
                 }
             }
         }
-        return redirect()->route('session.index')->with('not_validated', "You aren't validated nor registered");
+        return redirect()->route('session.index')->with('not_validated', 'Please check your username and password');
     }
 
     public function forget()
