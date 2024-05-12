@@ -1,13 +1,16 @@
-@extends('layout.mainlayout')
+@extends('layout.twlayout')
 
 @section('head')
     <style>
         body {
-            background: linear-gradient(180deg, rgb(26, 0, 36) 0%, rgb(63, 9, 121) 49%, rgb(96, 10, 255) 100%);
+            background: linear-gradient(125deg, rgba(61, 37, 84, 1) 0%, rgba(123, 48, 176, 1) 51%, rgba(120, 27, 55, 1) 100%);
+            animation: moveGradient 10s linear infinite;
             color: white;
             overflow-x: hidden;
             position: relative;
+            background-size: 200%;
         }
+
         .title {
             font-weight: bold;
             font-size: 3rem;
@@ -17,21 +20,29 @@
                 0 0 38px #8048e0,
                 0 0 73px #5f48e0;
         }
+
+        @keyframes moveGradient {
+            0% {
+                background-position: 0% 100%;
+            }
+
+            50% {
+                background-position: 100% 100%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
     </style>
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
-@endsection 
+@endsection
 
-<body>
-    @include('partials.sidebar')
-    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
-        <div class="row g-0">
-            <div class="col text-center text-lg-end d-none d-lg-block">
-                <img src="{{ asset('asset/icon-logo-bom.png') }}" class="text-end" style="width: 60%" alt="">
-            </div>
-            <div class="col d-flex flex-column justify-content-center align-items-center">
-                <h1 class="title d-none d-lg-block">COMING SOON</h1> <!-- Visible on large screens -->
-                <h1 class="title d-lg-none text-center">COMING SOON</h1> <!-- Visible on small screens -->
-            </div>
+@section('content')
+    <div class="w-screen h-screen flex justify-center items-center">
+        <div class="flex">
+            <img src="{{ asset('asset/icon-logo-bom.png') }}" class="w-[200px] max-md:hidden">
+            <h1 class="title flex justify-center items-center ml-4 text-center">COMING SOON</h1>
         </div>
     </div>
-</body>
+@endsection
