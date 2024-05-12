@@ -72,6 +72,11 @@
                 font-size: 2rem;
             }
         }
+                
+        .checked {
+            background-color: green !important; /* Atur gaya CSS yang sesuai */
+            color: white;
+        }
     </style>
 @endsection
 

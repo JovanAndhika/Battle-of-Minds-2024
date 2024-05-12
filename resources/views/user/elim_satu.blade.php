@@ -1,6 +1,25 @@
 @extends('layout.elim_satu_layout')
 
 @section('form_soal')
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        for (var angka = 1; angka <= 50; angka++) {
+            cekNilai(angka);
+        }
+    });
+
+    function cekNilai(questionNumber) {
+        var inputName = 'biggamesanswer' + questionNumber;
+        var nilai = document.getElementById(inputName).value;
+        var inputElement = document.getElementById(inputName);
+
+        if (nilai === null || nilai === '') {
+            inputElement.classList.remove('checked');
+        } else {
+            inputElement.classList.add('checked');
+        }
+    }
+</script>
     <form method="POST" action="{{ route('user.simpan_jawabanA') }}" id="simpan-jawaban" class="form-simpan-jawaban">
         @csrf
         <div id="question-container">
