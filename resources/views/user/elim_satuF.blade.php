@@ -1,25 +1,25 @@
 @extends('layout.elim_satu_layout')
 
 @section('form_soal')
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        for (var angka = 251; angka <= 300; angka++) {
-            cekNilai(angka);
-        }
-    });
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            for (var angka = 251; angka <= 300; angka++) {
+                cekNilai(angka);
+            }
+        });
 
-    function cekNilai(questionNumber) {
-        var inputName = 'biggamesanswer' + questionNumber;
-        var nilai = document.getElementById(inputName).value;
-        var inputElement = document.getElementById(inputName);
+        function cekNilai(questionNumber) {
+            var inputName = 'biggamesanswer' + questionNumber;
+            var nilai = document.getElementById(inputName).value;
+            var inputElement = document.getElementById(inputName);
 
-        if (nilai === null || nilai === '') {
-            inputElement.classList.remove('checked');
-        } else {
-            inputElement.classList.add('checked');
+            if (nilai === null || nilai === '') {
+                inputElement.classList.remove('checked');
+            } else {
+                inputElement.classList.add('checked');
+            }
         }
-    }
-</script>
+    </script>
     <form method="POST" action="{{ route('user.simpan_jawabanF') }}" id="simpan-jawaban" class="form-simpan-jawaban">
         @csrf
         <div id="question-container">
@@ -32,7 +32,7 @@
                         <h1 class="mt-5 fs-3">Question {{ $questionNumber }}:</h1>
                         <div class="mt-3">
                             <input class="answer-input" type="text" name="biggamesanswer{{ $questionNumber }}"
-                                id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}' required
+                                id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}'
                                 placeholder="Answer here">
                         </div>
                         @php

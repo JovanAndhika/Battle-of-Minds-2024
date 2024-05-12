@@ -78,7 +78,7 @@ class DatabaseSeeder extends Seeder
         for ($i = 1; $i <= 300; $i++) {
             Kunci_jawaban::create([
                 'id' => $i,
-                'jawaban' => 'z'
+                'jawaban' => 'kunci' . $i
             ]);
         }
     }
