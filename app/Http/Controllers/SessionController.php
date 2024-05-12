@@ -92,7 +92,7 @@ class SessionController extends Controller
     {
         $custom_messages = [
             'email' => 'Email tidak valid.',
-            'exists' => 'Data tidak tidak terdaftar.'
+            'exists' => 'Data tidak terdaftar.'
         ];
 
         $validate = $request->validate([

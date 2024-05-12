@@ -1,4 +1,4 @@
-@extends('layout.mainLayout')
+@extends('layout.mainlayout')
 
 <style>
     body {
