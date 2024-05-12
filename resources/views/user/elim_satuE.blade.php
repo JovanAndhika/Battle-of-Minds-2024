@@ -53,12 +53,35 @@
             font-size: 2rem;
         }
     }
+    .checked {
+        background-color: green !important; /* Atur gaya CSS yang sesuai */
+        color: white;
+    }
 </style>
 @endsection
 
 @section('content')
 
 <body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            for (var angka = 201; angka <= 250; angka++) {
+                cekNilai(angka);
+            }
+        });
+    
+        function cekNilai(questionNumber) {
+            var inputName = 'biggamesanswer' + questionNumber;
+            var nilai = document.getElementById(inputName).value;
+            var inputElement = document.getElementById(inputName);
+    
+            if (nilai === null || nilai === '') {
+                inputElement.classList.remove('checked');
+            } else {
+                inputElement.classList.add('checked');
+            }
+        }
+    </script>
     <div class="container">
         <div class="header">
             <h1 class="text-center title mt-5">ASSESSMENT</h1>
@@ -81,7 +104,7 @@
                     @if (($data->kunci_jawabans_id) >= 201 && ($data->kunci_jawabans_id) <= 250) <div id="page-5" class="page">
                         <h1 class="mt-5">Question {{ $questionNumber }}:</h1>
                         <div class="mt-3">
-                            <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}' required>
+                            <input class="form-control" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}'>
                         </div>
                         @php
                         $questionNumber++;
@@ -156,7 +179,7 @@
 <!-- Countdown -->
 <script>
     var now = new Date().getTime();
-    var timer = new Date("May 06, 2024 18:30:00").getTime();
+    var timer = new Date("May 12, 2024 18:30:00").getTime();
 
     var countdownTime = timer - now;; // misalnya, 60 detik
 
