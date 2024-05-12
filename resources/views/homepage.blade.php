@@ -167,47 +167,47 @@
 @section('content')
     <div class="body2">
         {{-- <div class="content"> --}}
-        @include('homepageComponents.about')
-        @include('homepageComponents.prizepool')
-        @include('homepageComponents.timeline')
-        @include('homepageComponents.guide')
-        @include('homepageComponents.faq')
-        @include('homepageComponents.footer')
+            @include('homepageComponents.about')
+            @include('homepageComponents.prizepool')
+            @include('homepageComponents.timeline')
+            @include('homepageComponents.guide')
+            @include('homepageComponents.faq')
+            @include('homepageComponents.footer')
         {{-- </div> --}}
 
         {{-- <div class="loading-screen">
-        <div class="textlayer layer1">
-            <h1 class="loading-text">WELCOME</h1>
-        </div>
-        <div class="textlayer layer2">
-            <h1 class="loading-text">TO</h1>
-        </div>
-        <div class="textlayer layer3">
-            <h1 class="loading-text">THE BIGGEST</h1>
-        </div>
-        <div class="textlayer layer4">
-            <h1 class="loading-text">MATHEMATICS</h1>
-        </div>
-        <div class="textlayer layer5">
-            <h1 class="loading-text">COMPETITION</h1>
-        </div>
-        <div class="textlayer layer6">
-            <h1 class="loading-text">OF</h1>
-        </div>
-        <div class="textlayer layer7">
-            <h1 class="loading-text">PETRA</h1>
-        </div>
-        <div class="textlayer layer8">
-            <h1 class="loading-text">CHRISTIAN</h1>
-        </div>
-        <div class="textlayer layer9">
-            <h1 class="loading-text">UNIVERSITY</h1>
-        </div>
-        <div class="loader">
-            <div class="loader-1 bar"></div>
+            <div class="textlayer layer1">
+                <h1 class="loading-text">WELCOME</h1>
+            </div>
+            <div class="textlayer layer2">
+                <h1 class="loading-text">TO</h1>
+            </div>
+            <div class="textlayer layer3">
+                <h1 class="loading-text">A CHALLENGING</h1>
+            </div>
+            <div class="textlayer layer4">
+                <h1 class="loading-text">MATHEMATICS</h1>
+            </div>
+            <div class="textlayer layer5">
+                <h1 class="loading-text">COMPETITION</h1>
+            </div>
+            <div class="textlayer layer6">
+                <h1 class="loading-text">IN</h1>
+            </div>
+            <div class="textlayer layer7">
+                <h1 class="loading-text">PETRA</h1>
+            </div>
+            <div class="textlayer layer8">
+                <h1 class="loading-text">CHRISTIAN</h1>
+            </div>
+            <div class="textlayer layer9">
+                <h1 class="loading-text">UNIVERSITY</h1>
+            </div>
+            <div class="loader">
+                <div class="loader-1 bar"></div>
+            </div>
         </div>
     </div> --}}
-    </div>
     @if (session('registrationSuccess'))
         <script>
             Swal.fire({
@@ -218,6 +218,6 @@
         </script>
     @endif
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="js/loader.js" defer></script>
+    {{-- <script src="js/loader.js" defer></script> --}}
     <script src="js/footer.js" defer></script>
 @endsection
