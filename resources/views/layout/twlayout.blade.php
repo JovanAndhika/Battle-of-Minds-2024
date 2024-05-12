@@ -19,6 +19,11 @@
         @import url('https://fonts.googleapis.com/css2?family=Geologica&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
+
+        ::selection{
+            background-color: rgb(62, 26, 189);
+            color: white;
+        }
     </style>
 
     @yield('head')
@@ -37,7 +42,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/regl/2.0.0/regl.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="js/footer.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/js/tw-elements.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>

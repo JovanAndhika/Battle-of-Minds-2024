@@ -78,7 +78,7 @@ class SessionController extends Controller
                 }
             }
         }
-        return redirect()->route('session.index')->with('not_validated', "You aren't validated nor registered");
+        return redirect()->route('session.index')->with('not_validated', 'Please check your username and password');
     }
 
     public function forget()

@@ -8,7 +8,6 @@
             letter-spacing: 0.15rem;
         }
 
-
         body {
             color: white;
             min-height: 100vh;
@@ -16,7 +15,6 @@
             background: url(asset/bg-bom-main.png);
             background-attachment: fixed;
             background-position: center 93%;
-            font-weight: 800;
         }
 
         .body2 {
@@ -24,7 +22,8 @@
             -webkit-backdrop-filter: brightness(80%);
             -moz-backdrop-filter: brightness(80%);
         }
-        .container-registration{
+
+        .container-registration {
             margin: 4rem 0;
         }
 
@@ -42,6 +41,16 @@
                 0 0 10px #fff,
                 0 0 38px #8048e0,
                 0 0 73px #5f48e0;
+            -webkit-text-shadow:
+                0 0 4px #fff,
+                0 0 10px #fff,
+                0 0 38px #8048e0,
+                0 0 73px #5f48e0;
+            -moz-text-shadow:
+                0 0 4px #fff,
+                0 0 10px #fff,
+                0 0 38px #8048e0,
+                0 0 73px #5f48e0;
         }
 
         .form-content {
@@ -49,6 +58,9 @@
             border: 4px solid white;
             padding: 30px;
             box-shadow: 0px 0px 10px 2px #ffffff;
+            -webkit-box-shadow: 0px 0px 10px 2px #ffffff;
+            -moz-box-shadow: 0px 0px 10px 2px #ffffff;
+
         }
 
         .form-label {
@@ -308,24 +320,24 @@
         }
 
 
-        @media screen and (min-width: 320px) and (max-width: 413px) {
+        @media screen and (min-width: 320px) and (max-width: 381px) {
 
-            .floating-label label[for="angkatanSatu"],
+            .floating-label label[for="emailPerwakilan"],
             label[for="angkatanDua"],
             label[for="angkatanTiga"] {
                 padding: 9px 8px;
             }
 
-            .floating-label label[for="angkatanSatu"] svg,
+            .floating-label label[for="emailPerwakilan"] svg,
             label[for="angkatanDua"] svg,
             label[for="angkatanTiga"] svg {
                 margin-top: 0;
             }
 
-            .floating-label input:focus~label[for="angkatanSatu"],
+            .floating-label input:focus~label[for="emailPerwakilan"],
             input:focus~label[for="angkatanDua"],
             input:focus~label[for="angkatanTiga"],
-            .floating-label input:not(:placeholder-shown)~label[for="angkatanSatu"],
+            .floating-label input:not(:placeholder-shown)~label[for="emailPerwakilan"],
             input:not(:placeholder-shown)~label[for="angkatanDua"],
             input:not(:placeholder-shown)~label[for="angkatanTiga"] {
                 padding: 1px 8px;
@@ -333,65 +345,57 @@
             }
         }
 
+        @media screen and (min-width: 320px) and (max-width: 419px) {
 
-
-        @media screen and (min-width: 320px) and (max-width: 359px) {
-            .floating-label label[for="namaSatu"] {
+            label[for="kontakDua"],
+            label[for="kontakTiga"] {
                 padding: 9px 8px;
             }
 
-            .floating-label label[for="namaSatu"] svg {
+            label[for="kontakDua"] svg,
+            label[for="kontakTiga"] svg {
                 margin-top: 0;
             }
 
-            .floating-label input:focus~label[for="namaSatu"],
-            .floating-label input:not(:placeholder-shown)~label[for="namaSatu"] {
+            input:focus~label[for="kontakDua"],
+            input:focus~label[for="kontakTiga"],
+            input:not(:placeholder-shown)~label[for="kontakDua"],
+            input:not(:placeholder-shown)~label[for="kontakTiga"] {
                 padding: 1px 8px;
                 transform: translateY(-50%) scale(0.9);
             }
         }
 
-        @media screen and (min-width: 320px) and (max-width: 359px) {
-            .floating-label label[for="namaDua"] {
+        @media screen and (min-width: 320px) and (max-width: 413px) {
+
+            label[for="kontakSatu"] {
                 padding: 9px 8px;
             }
 
-            .floating-label label[for="namaDua"] svg {
+            label[for="kontakSatu"] svg {
                 margin-top: 0;
             }
 
-            .floating-label input:focus~label[for="namaDua"],
-            .floating-label input:not(:placeholder-shown)~label[for="namaDua"] {
+            input:focus~label[for="kontakSatu"],
+            input:not(:placeholder-shown)~label[for="kontakSatu"] {
                 padding: 1px 8px;
                 transform: translateY(-50%) scale(0.9);
             }
         }
 
-        @media screen and (min-width: 320px) and (max-width: 359px) {
-            .floating-label label[for="namaTiga"] {
-                padding: 9px 8px;
-            }
+        .regist-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-            .floating-label label[for="namaTiga"] svg {
-                margin-top: 0;
-            }
-
-            .floating-label input:focus~label[for="namaTiga"],
-            .floating-label input:not(:placeholder-shown)~label[for="namaTiga"] {
-                padding: 1px 8px;
-                transform: translateY(-50%) scale(0.9);
-            }
         }
     </style>
     <link rel="stylesheet" href="css/sidebarRegister.css">
 @endsection
 
-@include('partials.sidebar')
-
-
 @section('content')
     <div class="body2">
-        <section>
+        <section class="regist-section">
             <div class="container container-registration">
                 <div class="title d-flex justify-content-center">
                     REGISTRATION
@@ -558,9 +562,12 @@
                                         <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
                                         <path d="M12 18V6" />
                                     </svg>
+                                    Bukti transfer commitment fee Rp200.000 (rekening BCA 2981104724) a.n. Marcelinus
+                                    Anthony Teguh format .jpg/.png
+                                    <br><br>
+                                    *Commitment Fee akan dikembalikan maksimal H+3 final day (apabila peserta mengikuti
+                                    serangkaian acara serta peraturan panitia)
 
-                                    Bukti transaksi (rekening BCA 2981104724) a.n. Marcelinus Anthony Teguh format .jpg /
-                                    .png
                                 </label>
                                 <input class="form-control input-transaksi @error('buktiTransaksi') is-invalid @enderror"
                                     type="file" name="buktiTransaksi" required>
@@ -570,10 +577,6 @@
                             </div>
                         </div>
                 </div>
-
-
-                <!-- ---------------------------------------------------------------------- -->
-
                 <div class="form-section">
                     <div class="row">
                         <div class="mb-3 col-xl-full">
@@ -581,7 +584,7 @@
                                 <input type="email" class="form-control @error('emailPerwakilan') is-invalid @enderror"
                                     id="emailPerwakilan" name="emailPerwakilan" placeholder=""
                                     value="{{ old('emailPerwakilan') }}" required>
-                                <label for="emailPerwakilan" class="form-label">
+                                <label for="emailPerwakilan" class="form-label" id="label-email">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact">

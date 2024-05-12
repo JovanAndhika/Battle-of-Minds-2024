@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('kelompok_id')->references('id')->on('users');
             $table->unsignedBigInteger('kunci_jawabans_id')->nullable(true);
             $table->foreign('kunci_jawabans_id')->references('id')->on('kunci_jawabans');
-            $table->string('jawaban_kelompok');
+            $table->string('jawaban_kelompok')->nullable();
             $table->timestamps();
         });
     }
