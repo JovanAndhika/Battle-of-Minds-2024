@@ -653,7 +653,7 @@
                                     <rect width="20" height="14" x="2" y="5" rx="2" />
                                     <line x1="2" x2="22" y1="10" y2="10" />
                                 </svg>
-                                Foto kartu pelajar member 1 (format .jpg/.png maks 10mb)</label>
+                                Scan kartu pelajar member 1 (format .jpg/.png maks 1mb)</label>
                             <input class="form-control input-transaksi @error('kartuPelajarSatu') is-invalid @enderror"
                                 type="file" id="kartuPelajarSatu" name="kartuPelajarSatu" required>
                             @error('kartuPelajarSatu')
@@ -717,7 +717,7 @@
                                     <rect width="20" height="14" x="2" y="5" rx="2" />
                                     <line x1="2" x2="22" y1="10" y2="10" />
                                 </svg>
-                                Foto kartu pelajar member 2 (format .jpg/.png maks 10mb)</label>
+                                Scan kartu pelajar member 2 (format .jpg/.png maks 1mb)</label>
                             <input class="form-control input-transaksi @error('kartuPelajarDua') is-invalid @enderror"
                                 type="file" id="kartuPelajarDua" name="kartuPelajarDua" required>
                             @error('kartuPelajarDua')
@@ -780,7 +780,7 @@
                                     <rect width="20" height="14" x="2" y="5" rx="2" />
                                     <line x1="2" x2="22" y1="10" y2="10" />
                                 </svg>
-                                Foto kartu pelajar member 3 (format .jpg/.png maks 10mb)</label>
+                                Scan kartu pelajar member 3 (format .jpg/.png maks 1mb)</label>
                             <input class="form-control input-transaksi @error('kartuPelajarTiga') is-invalid @enderror"
                                 type="file" name="kartuPelajarTiga" id="kartuPelajarTiga" required>
                             @error('kartuPelajarTiga')
