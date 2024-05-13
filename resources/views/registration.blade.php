@@ -563,7 +563,7 @@
                                         <path d="M12 18V6" />
                                     </svg>
                                     Bukti transfer commitment fee Rp200.001 (wajib menambahkan kode angka 1 pada akhir
-                                    nominal pembayaran). Rekening BCA 2981104724 a.n. Marcelinus Anthony Teguh format .jpg/.png
+                                    nominal pembayaran). Rekening BCA 2981104724 a.n. Marcelinus Anthony Teguh format .jpg/.png maks 1 mb
                                 </label>
                                 <input class="form-control input-transaksi @error('buktiTransaksi') is-invalid @enderror"
                                     type="file" name="buktiTransaksi" required>
