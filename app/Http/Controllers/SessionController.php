@@ -61,17 +61,14 @@ class SessionController extends Controller
             $password = DB::table('users')->select('password')->where('namaKelompok', $request->namaKelompok)->value('password');
             $inputPass = $request->password;
 
+
             if ($cekUsernameKelompok == 1 && Hash::check($inputPass, $password)) {
-                $id = DB::table('users')
-                    ->select('id')
-                    ->where('namaKelompok', $request->namaKelompok)
-                    ->value('id');
                 $credentials = $request->validate([
                     'namaKelompok' => ['required', 'max:70'],
                     'password' => ['required', 'max:30'],
                 ]);
 
-                if (Auth::attempt($credentials)) {
+                if (Auth::attempt($credentials) && auth()->user()->is_validated == 1) {
                     $request->session()->regenerate();
                     session(['isGuest' => true]);
                     return redirect()->intended(route('index')) - with('login_success', 'Welcome, ' . $request->namaKelompok);
@@ -92,7 +89,7 @@ class SessionController extends Controller
     {
         $custom_messages = [
             'email' => 'Email tidak valid.',
-            'exists' => 'Data tidak tidak terdaftar.'
+            'exists' => 'Data tidak terdaftar.'
         ];
 
         $validate = $request->validate([
