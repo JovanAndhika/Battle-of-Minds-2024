@@ -113,6 +113,6 @@ class AdminController extends Controller
             ]);
         }
 
-        return redirect()->route('admin.adminSelection')->with('set_success', 'set is succes');
+        return redirect()->route('admin.index')->with('success', 'Berhasil melakukan set jawaban peserta !');
     }
 }

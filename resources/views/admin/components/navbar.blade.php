@@ -41,21 +41,6 @@
                             <path d="M22 6 2 18" />
                         </svg> Poin</a>
                 </li>
-                <li class="hover:bg-[#9290C3] py-2 my-2 rounded-lg hover:ease-in-out hover:transition-all {{ 'admin/selection' == request()->path() ? 'bg-[#9290C3]' : '' }}">
-                    <a href="{{ route('admin.adminSelection') }}"
-                        class="flex py-2 px-3 text-gray-100 rounded text-md font-bold tracking-wider hover:text-gray-800 {{ 'admin/selection' == request()->path() ? 'text-gray-800' : '' }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round"
-                            stroke-linejoin="round" class="lucide lucide-notepad-text mr-2">
-                            <path d="M8 2v4" />
-                            <path d="M12 2v4" />
-                            <path d="M16 2v4" />
-                            <rect width="16" height="18" x="4" y="4" rx="2" />
-                            <path d="M8 10h6" />
-                            <path d="M8 14h8" />
-                            <path d="M8 18h5" />
-                        </svg>Set Jawaban</a>
-                </li>
                 <li class="hover:bg-[#9290C3] py-2 my-2 rounded-lg hover:ease-in-out hover:transition-all">
                     <form action="/logout" method="post">
                         @csrf

@@ -4,14 +4,24 @@
         div.dt-container {
             width: 100vw;
             margin: 0 3%;
-        }        
+        }
+
         .gambar-pembayaran {
             margin: auto;
             max-height: 600px;
             width: auto;
         }
-
     </style>
+
+    @if (session()->has('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil !',
+                text: '{{ session("success") }}'
+            });
+        </script>
+    @endif
     <section class="cards">
         <div class="flex lg:flex-row min-[320px]:flex-col justify-center">
             <div
@@ -26,6 +36,29 @@
                     <h5 class="my-2 text-2xl font-semibold tracking-tight text-gray-400">Jumlah Peserta
                     </h5>
                     <p class="mb-3 font-normal text-white">{{ $jumlah_peserta }}</p>
+                </div>
+            </div>
+            <div
+                class="mx-2 flex items-center max-w-sm p-6 border border-gray-200 rounded-lg shadow bg-gray-900 border-gray-700 mt-5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-notepad-text">
+                    <path d="M8 2v4" />
+                    <path d="M12 2v4" />
+                    <path d="M16 2v4" />
+                    <rect width="16" height="18" x="4" y="4" rx="2" />
+                    <path d="M8 10h6" />
+                    <path d="M8 14h8" />
+                    <path d="M8 18h5" />
+                </svg>
+                <div class="ms-5">
+                    <h5 class="my-2 text-2xl font-semibold tracking-tight text-gray-400">Set Jawaban
+                    </h5>
+                    <form action="{{ route('admin.setReady') }}" method="post">
+                        @csrf
+                        <button type="submit"
+                            class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Click</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -163,7 +196,8 @@
                                 </div>
                                 {{-- ======================================= END MODAL ========================================= --}}
 
-                                <td><button type="button" onclick="window.location = '/admin/jawaban/{{ $peserta->namaKelompok }}'"
+                                <td><button type="button"
+                                        onclick="window.location = '/admin/jawaban/{{ $peserta->namaKelompok }}'"
                                         class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">Jawaban</button>
                                 </td>
                                 <td>
@@ -230,10 +264,10 @@
                 },
                 {
                     width: '10%'
-                }, 
+                },
                 {
                     width: '10%'
-                }, 
+                },
                 {
                     width: '10%'
                 }

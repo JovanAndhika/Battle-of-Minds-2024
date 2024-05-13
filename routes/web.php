@@ -33,8 +33,6 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'],
 
     Route::get('/jawaban/{user:namaKelompok}', [AdminController::class, 'jawaban'])->name('jawaban');
 
-    Route::get('/selection', [AdminController::class, 'adminSelection'])->name('adminSelection');
-
     Route::post('/validate', [AdminController::class, 'validasi'])->name('validate');
     Route::post('/setJawaban', [AdminController::class, 'setReady'])->name('setReady');
 });
