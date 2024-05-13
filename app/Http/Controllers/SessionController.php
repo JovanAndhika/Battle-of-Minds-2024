@@ -71,7 +71,7 @@ class SessionController extends Controller
                 if (Auth::attempt($credentials) && auth()->user()->is_validated == 1) {
                     $request->session()->regenerate();
                     session(['isGuest' => true]);
-                    return redirect()->intended(route('index')) - with('login_success', 'Welcome, ' . $request->namaKelompok);
+                    return redirect()->intended(route('index'))->with('login_success', 'Welcome, ' . $request->namaKelompok);
                 }
             }
         }
