@@ -167,12 +167,12 @@
 @section('content')
     <div class="body2">
         {{-- <div class="content"> --}}
-            @include('homepageComponents.about')
-            @include('homepageComponents.prizepool')
-            @include('homepageComponents.timeline')
-            @include('homepageComponents.guide')
-            @include('homepageComponents.faq')
-            @include('homepageComponents.footer')
+        @include('homepageComponents.about')
+        @include('homepageComponents.prizepool')
+        @include('homepageComponents.timeline')
+        @include('homepageComponents.guide')
+        @include('homepageComponents.faq')
+        @include('homepageComponents.footer')
         {{-- </div> --}}
 
         {{-- <div class="loading-screen">
@@ -208,16 +208,25 @@
             </div>
         </div>
     </div> --}}
-    @if (session('registrationSuccess'))
-        <script>
-            Swal.fire({
-                title: "Registration Success",
-                text: "Anda baru bisa login setelah tervalidasi Admin",
-                icon: "success"
-            });
-        </script>
-    @endif
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    {{-- <script src="js/loader.js" defer></script> --}}
-    <script src="js/footer.js" defer></script>
-@endsection
+        @if (session('registrationSuccess'))
+            <script>
+                Swal.fire({
+                    title: "Registration Success",
+                    text: "Anda baru bisa login setelah tervalidasi Admin",
+                    icon: "success"
+                });
+            </script>
+        @endif
+        @if (session('login_success'))
+            <script>
+                Swal.fire({
+                    title: "Login Success",
+                    text: "{{ session('login_success') }}",
+                    icon: "success"
+                });
+            </script>
+        @endif
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        {{-- <script src="js/loader.js" defer></script> --}}
+        <script src="js/footer.js" defer></script>
+    @endsection

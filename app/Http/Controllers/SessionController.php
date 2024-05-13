@@ -74,11 +74,11 @@ class SessionController extends Controller
                 if (Auth::attempt($credentials)) {
                     $request->session()->regenerate();
                     session(['isGuest' => true]);
-                    return redirect()->intended(route('user.view'));
+                    return redirect()->intended(route('index')) - with('login_success', 'Welcome, ' . $request->namaKelompok);
                 }
             }
         }
-        return redirect()->route('session.index')->with('not_validated', 'Please check your username and password');
+        return redirect()->route('session.index')->with('not_validated', 'Invalid login credentials or maybe you haven\'t validated yet');
     }
 
     public function forget()
