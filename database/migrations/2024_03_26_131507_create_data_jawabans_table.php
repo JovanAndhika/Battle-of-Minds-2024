@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('data_jawabans', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('kelompok_id');
-            $table->foreign('kelompok_id')->references('id')->on('pesertas');
-            $table->string('soal_no');
-            $table->foreign('soal_no')->references('soal_no')->on('kuncis_paket_a');
-            $table->string('jawaban')->default('z');
+            $table->foreign('kelompok_id')->references('id')->on('users');
+            $table->unsignedBigInteger('kunci_jawabans_id')->nullable(true);
+            $table->foreign('kunci_jawabans_id')->references('id')->on('kunci_jawabans');
+            $table->string('jawaban_kelompok');
             $table->timestamps();
         });
     }

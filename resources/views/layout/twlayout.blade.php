@@ -28,7 +28,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css" /> --}}
-    <link rel="stylesheet" href="css/sidebar.css">
+    {{-- <link rel="stylesheet" href="css/sidebar.css"> --}}
 
     <style> 
         @import url('https://fonts.googleapis.com/css2?family=Geologica&display=swap');

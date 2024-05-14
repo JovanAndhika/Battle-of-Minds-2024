@@ -18,7 +18,7 @@
                     <a href="{{ route('admin.adminSelection') }}" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent">Set Jawaban</a>
                 </li>
                 <li>
-                    <form action="{{ route('logout') }}" method="post">
+                    <form action="{{ route('session.logout') }}" method="post">
                         @csrf
                         <button class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 hover:text-white md:dark:hover:bg-transparent" type="submit">Logout</button>
                     </form>

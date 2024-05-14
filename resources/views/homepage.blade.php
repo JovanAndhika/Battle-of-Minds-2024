@@ -22,7 +22,7 @@
             z-index: 110;
         }
 
-        .loader {   
+        .loader {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -134,18 +134,20 @@
             text-shadow: 0px 0px 5px white, 0px 0px 10px white;
         }
     </style>
+
+    <link rel="stylesheet" href="css/sidebar.css">
 @endsection
 
 @section('content')
-    <div class="content">
+    {{-- <div class="content"> --}}
         @include('homepageComponents.about')
         @include('homepageComponents.prizepool')
         {{-- @include('homepageComponents.timeline') --}}
         @include('homepageComponents.guide')
         @include('homepageComponents.faq')
         @include('homepageComponents.footer')
-    </div>
-
+    {{-- </div> --}}
+{{-- 
     <div class="loading-screen">
         <div class="textlayer layer1">
             <h1 class="loading-text">WELCOME</h1>
@@ -177,7 +179,7 @@
         <div class="loader">
             <div class="loader-1 bar"></div>
         </div>
-    </div>
+    </div> --}}
     @if (session('registrationSuccess'))
         <script>
             Swal.fire({
@@ -188,5 +190,5 @@
         </script>
     @endif
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="js/loader.js" defer></script>
+    {{-- <script src="js/loader.js" defer></script> --}}
 @endsection

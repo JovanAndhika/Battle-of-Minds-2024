@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Data_jawaban extends Model
 {
@@ -14,15 +13,19 @@ class Data_jawaban extends Model
     protected $table = 'data_jawabans';
     protected $fillable = [
         'kelompok_id',
-        'soal_no'
+        'kunci_jawabans_id',
+        'jawaban_kelompok',
     ];
 
-    public function kunci_paket_a(): BelongsTo
+    protected $primaryKey = 'id';
+
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(Kunci_paket_a::class);
+        return $this->belongsTo(User::class);
     }
 
-    public function peserta(): BelongsTo{
-        return $this->belongsTo(Peserta::class);
+    public function kunci_jawaban(): BelongsTo
+    {
+        return $this->belongsTo(Kunci_jawaban::class);
     }
 }
