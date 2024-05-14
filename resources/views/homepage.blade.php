@@ -2,11 +2,37 @@
 
 @section('head')
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgb(107, 21, 125);
+            border-radius: 25px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: linear-gradient(125deg, rgba(120, 27, 55, 0.75), rgba(123, 48, 176, 0.75) 51%, rgba(61, 37, 84, 0.75) 100%);
+        }
+
         body {
-            background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 49%, rgba(0, 212, 255, 1) 100%);
+            /* background: linear-gradient(180deg, rgb(26, 0, 36) 0%, rgb(63, 9, 121) 49%, rgb(96, 10, 255) 100%); */
+            background-image: url('asset/bg-bom-main.png');
+            background-size: cover;
+            background-position: center;
             color: white;
             overflow-x: hidden;
             position: relative;
+        }
+
+        .body2 {
+            backdrop-filter: brightness(80%);
+            -webkit-backdrop-filter: brightness(80%);
+            -moz-backdrop-filter: brightness(80%);
         }
 
         .loading-screen {
@@ -134,47 +160,52 @@
             text-shadow: 0px 0px 5px white, 0px 0px 10px white;
         }
     </style>
+
+    <link rel="stylesheet" href="css/sidebar.css">
 @endsection
 
 @section('content')
-    {{-- <div class="content"> --}}
-        @include('homepageComponents.about')
-        {{-- @include('homepageComponents.timeline') --}}
-        @include('homepageComponents.guide')
-        @include('homepageComponents.faq')
-        @include('homepageComponents.footer')
-    {{-- </div> --}}
+    <div class="body2">
+        {{-- <div class="content"> --}}
+            @include('homepageComponents.about')
+            @include('homepageComponents.prizepool')
+            @include('homepageComponents.timeline')
+            @include('homepageComponents.guide')
+            @include('homepageComponents.faq')
+            @include('homepageComponents.footer')
+        {{-- </div> --}}
 
-    {{-- <div class="loading-screen">
-        <div class="textlayer layer1">
-            <h1 class="loading-text">WELCOME</h1>
-        </div>
-        <div class="textlayer layer2">
-            <h1 class="loading-text">TO</h1>
-        </div>
-        <div class="textlayer layer3">
-            <h1 class="loading-text">THE BIGGEST</h1>
-        </div>
-        <div class="textlayer layer4">
-            <h1 class="loading-text">MATHEMATICS</h1>
-        </div>
-        <div class="textlayer layer5">
-            <h1 class="loading-text">COMPETITION</h1>
-        </div>
-        <div class="textlayer layer6">
-            <h1 class="loading-text">OF</h1>
-        </div>
-        <div class="textlayer layer7">
-            <h1 class="loading-text">PETRA</h1>
-        </div>
-        <div class="textlayer layer8">
-            <h1 class="loading-text">CHRISTIAN</h1>
-        </div>
-        <div class="textlayer layer9">
-            <h1 class="loading-text">UNIVERSITY</h1>
-        </div>
-        <div class="loader">
-            <div class="loader-1 bar"></div>
+        {{-- <div class="loading-screen">
+            <div class="textlayer layer1">
+                <h1 class="loading-text">WELCOME</h1>
+            </div>
+            <div class="textlayer layer2">
+                <h1 class="loading-text">TO</h1>
+            </div>
+            <div class="textlayer layer3">
+                <h1 class="loading-text">A CHALLENGING</h1>
+            </div>
+            <div class="textlayer layer4">
+                <h1 class="loading-text">MATHEMATICS</h1>
+            </div>
+            <div class="textlayer layer5">
+                <h1 class="loading-text">COMPETITION</h1>
+            </div>
+            <div class="textlayer layer6">
+                <h1 class="loading-text">IN</h1>
+            </div>
+            <div class="textlayer layer7">
+                <h1 class="loading-text">PETRA</h1>
+            </div>
+            <div class="textlayer layer8">
+                <h1 class="loading-text">CHRISTIAN</h1>
+            </div>
+            <div class="textlayer layer9">
+                <h1 class="loading-text">UNIVERSITY</h1>
+            </div>
+            <div class="loader">
+                <div class="loader-1 bar"></div>
+            </div>
         </div>
     </div> --}}
     @if (session('registrationSuccess'))
@@ -188,4 +219,5 @@
     @endif
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     {{-- <script src="js/loader.js" defer></script> --}}
+    <script src="js/footer.js" defer></script>
 @endsection

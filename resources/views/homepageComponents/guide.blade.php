@@ -1,12 +1,34 @@
+<style>
+    .maskot-guide {
+        /* filter: drop-shadow(0px 0px 10px white); */
+        animation: glow 4s infinite;
+    }
+
+    @keyframes glow {
+        from {
+            filter: drop-shadow(0px 0px 1px rgb(120, 142, 255));
+        }
+
+        50% {
+            filter: drop-shadow(0px 0px 20px rgb(120, 142, 255));
+        }
+
+        to {
+            filter: drop-shadow(0px 0px 1px rgb(120, 142, 255));
+        }
+
+    }
+</style>
 <section class="guide-section my-24" id="guide">
     <div class="flex justify-center items-center box">
-        <h1 class="faq-title mb-6 text text-4xl font-bold text-center leading-normal w-4/5 max-md:text-3xl" data-text="Guide">
-            Guide</h1>
+        <h1 class="faq-title mb-6 text text-5xl font-bold text-center leading-normal w-4/5 max-md:text-3xl"
+            data-text="GUIDEBOOK">
+            GUIDEBOOK</h1>
     </div>
-    <div class="flex justify-center items-center md:h-[580px] max-md:h-[450px]">
-        <div class="md:w-[760px] md:h-[580px] sm:w-[480px] sm:h-[400px] max-sm:w-[300px] max-sm:h-[400px]">
-            <iframe src="https://drive.google.com/file/d/1EBHf4VHFxGYfmNGSnvUd75ouNZtZ2WCy/preview" frameborder="0"
-                class="h-full w-full" allow="autoplay"></iframe>
-        </div>
+    <div class="flex flex-col justify-center items-center">
+        <h1 class="bg-white rounded-xl text-black text-xl py-3 px-5">Click Bomby to see the guidebook!</h1>
+        <a href='https://bom.petra.ac.id/pdf/Guidebook%20BOM.pdf' target="_blank" class="inline-block">
+            <img src="asset/maskot-guidebook.png" alt="Guidebook Mascot" class="maskot-guide h-[500px] max-sm:h-[300px]">
+        </a>
     </div>
 </section>

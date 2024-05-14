@@ -11,20 +11,40 @@
     </div>
     <ul class="list">
 
-        <li class="list-item">
-            <a href="{{ route('login') }}">
-                <i>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="lucide lucide-log-in">
-                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-                        <polyline points="10 17 15 12 10 7" />
-                        <line x1="15" x2="3" y1="12" y2="12" />
-                    </svg>
-                </i>
-                <span class="link-name" style="--i:1">Login</span>
-            </a>
-        </li>
+        @if (!session('isGuest') && !session('isAdmin'))
+            <li class="list-item">
+                <a href="{{ route('session.index') }}">
+                    <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-log-in">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                            <polyline points="10 17 15 12 10 7" />
+                            <line x1="15" x2="3" y1="12" y2="12" />
+                        </svg>
+                    </i>
+                    <span class="link-name" style="--i:1">Login</span>
+                </a>
+            </li>
+        @else
+            <form action="logout" method="POST" id="logoutform">
+                @csrf
+                <li class="list-item">
+                        <a href="#" onclick="document.getElementById('logoutform').submit(); return false;">
+                            <i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                                    <polyline points="16 17 21 12 16 7" />
+                                    <line x1="21" x2="9" y1="12" y2="12" />
+                                </svg>
+                            </i>
+                            <span class="link-name" style="--i:1">Logout</span>
+                        </a>
+                </li>
+            </form>
+        @endif
         <li class="list-item" id="register-item">
             <a href="{{ route('registration') }}">
                 <i>
@@ -41,7 +61,7 @@
             </a>
         </li>
         <li class="list-item">
-            <a href="#">
+            <a href="/#">
                 <i>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -55,7 +75,24 @@
             </a>
         </li>
         <li class="list-item">
-            <a href="#">
+            <a href="/#prizepool">
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-trophy">
+                        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                        <path d="M4 22h16" />
+                        <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                        <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                        <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+                    </svg></i>
+                <span class="link-name" style="--i:3">Prizepool</span>
+            </a>
+
+        </li>
+        <li class="list-item">
+            <a href="/#timeline">
                 <i>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -68,27 +105,11 @@
                         <circle cx="16" cy="16" r="6" />
                     </svg>
                 </i>
-                <span class="link-name" style="--i:3">Timeline</span>
+                <span class="link-name" style="--i:4">Timeline</span>
             </a>
         </li>
         <li class="list-item">
-            <a href="#">
-                <i>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="lucide lucide-trophy">
-                        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
-                        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
-                        <path d="M4 22h16" />
-                        <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
-                        <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
-                        <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
-                    </svg></i>
-                <span class="link-name" style="--i:4">Prizepool</span>
-            </a>
-        </li>
-        <li class="list-item">
-            <a href="#guide">
+            <a href="/#guide">
                 <i>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -104,7 +125,7 @@
             </a>
         </li>
         <li class="list-item">
-            <a href="#faq">
+            <a href="/#faq">
                 <i><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" class="lucide lucide-message-circle-question">
@@ -116,8 +137,8 @@
                 <span class="link-name" style="--i:6">FAQ</span>
             </a>
         </li>
-        <li class="list-item">
-            <a href="#">
+        <!-- <li class="list-item">
+            <a href="/view">
                 <i>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -130,12 +151,12 @@
                         <path d="M18.4 2.6a2.17 2.17 0 0 1 3 3L16 11l-4 1 1-4Z" />
                     </svg>
                 </i>
-                <span class="link-name" style="--i:7">Quiz</span>
+                <span class="link-name" style="--i:7">Assessment</span>
             </a>
-        </li>
+        </li> -->
 
         <li class="list-item">
-            <a href="#footer">
+            <a href="/#footer">
                 <i>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -158,5 +179,5 @@
 
     toggleBtn.addEventListener('click', () => {
         sidebar.classList.toggle('active');
-    })
+    });
 </script>
