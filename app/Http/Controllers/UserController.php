@@ -262,4 +262,15 @@ class UserController extends Controller
     {
         return view('user.coming-soon', ['title' => 'BOM 2024 | COMING SOON']);
     }
+
+    public function game_elim1()
+    {
+        return view('user.mini games elim1.game_elim1', ['title' => 'BOM 2024 | Game Elimination 1']);
+    }
+
+    public function soal_elim1()
+    {
+        return view('user.mini games elim1.soal_elim1', ['title' => 'BOM 2024 | Soal Elimination 1']);
+    }
+
 }
