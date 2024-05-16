@@ -30,19 +30,19 @@ class UserController extends Controller
     {
         // Validasi input
         $validatedData = $request->validate([
-            'asalSekolah' => 'required|string|max:120',
-            'namaKelompok' => 'required|string|max:30',
-            'password' => 'required|string|min:8|max:20',
+            'asalSekolah' => 'required|string|max:200',
+            'namaKelompok' => 'required|string|max:200',
+            'password' => 'required|string|min:8|max:100',
             'buktiTransaksi' => 'image|file|mimes:jpg,png|max:10240',
-            'emailPerwakilan' => 'required|email:dns|string|max:70',
-            'namaSatu' => 'required|string|max:70',
-            'kontakSatu' => 'required|max:30',
+            'emailPerwakilan' => 'required|email:dns|string|max:200',
+            'namaSatu' => 'required|string|max:200',
+            'kontakSatu' => 'required|max:200',
             'kartuPelajarSatu' => 'image|file|mimes:jpg,png|max:10240',
-            'namaDua' => 'required|string|max:70',
-            'kontakDua' => 'required|max:30',
+            'namaDua' => 'required|string|max:200',
+            'kontakDua' => 'required|max:200',
             'kartuPelajarDua' => 'image|file|mimes:jpg,png|max:10240',
-            'namaTiga' => 'required|string|max:70',
-            'kontakTiga' => 'required|max:30',
+            'namaTiga' => 'required|string|max:200',
+            'kontakTiga' => 'required|max:200',
             'kartuPelajarTiga' => 'image|file|mimes:jpg,png|max:10240',
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
