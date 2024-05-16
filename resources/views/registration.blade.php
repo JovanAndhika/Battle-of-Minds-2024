@@ -426,7 +426,7 @@
                                             Asal Sekolah</label>
                                     </div>
                                     @error('asalSekolah')
-                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        <div style="color: red;">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -448,7 +448,7 @@
                                             Nama Kelompok
                                         </label>
                                         @error('namaKelompok')
-                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            <div style="color: red;">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
@@ -475,7 +475,7 @@
                                         </label>
                                     </div>
                                     @error('password')
-                                        <label class="invalid-feedback">{{ $message }}
+                                        <div style="color: red;">{{ $message }}</div>
                                     </div>
                                 @enderror
                                 <div id="password-length" class="invalid-feedback mb-1"
@@ -526,7 +526,7 @@
                             style="display: none; margin-top: -1em;">Password
                             confirmation doesn't match</div>
                         @error('confirmPass')
-                            <div class="" style="margin-top: -1%;">{{ $message }}</div>
+                            <div style="margin-top: -1%; color:red;">{{ $message }}</div>
                         @enderror
                         @if (session()->has('password_not_same'))
                             <div class="" style="margin-top: -1%;">Password confirmation doesn't match</div>
@@ -563,12 +563,12 @@
                                         <path d="M12 18V6" />
                                     </svg>
                                     Bukti transfer commitment fee Rp200.001 (wajib menambahkan kode angka 1 pada akhir
-                                    nominal pembayaran). Rekening BCA 2981104724 a.n. Marcelinus Anthony Teguh format .jpg/.png maks 1 mb
+                                    nominal pembayaran). Rekening BCA 2981104724 a.n. Marcelinus Anthony Teguh format .jpg/.png maks 10 mb
                                 </label>
                                 <input class="form-control input-transaksi @error('buktiTransaksi') is-invalid @enderror"
                                     type="file" name="buktiTransaksi" required>
                                 @error('buktiTransaksi')
-                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    <div style="color: red;">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
@@ -594,7 +594,7 @@
                                 </label>
                             </div>
                             @error('emailPerwakilan')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                                <div style="color: red;">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
@@ -617,7 +617,7 @@
                                 </label>
                             </div>
                             @error('namaSatu')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                               <div style="color: red;">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="col-md-6">
@@ -639,7 +639,7 @@
                                 </label>
                             </div>
                             @error('kontakSatu')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                               <div style="color: red;">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
@@ -653,11 +653,11 @@
                                     <rect width="20" height="14" x="2" y="5" rx="2" />
                                     <line x1="2" x2="22" y1="10" y2="10" />
                                 </svg>
-                                Scan kartu pelajar member 1 (format .jpg/.png maks 1mb)</label>
+                                Scan kartu pelajar member 1 (format .jpg/.png maks 10mb)</label>
                             <input class="form-control input-transaksi @error('kartuPelajarSatu') is-invalid @enderror"
                                 type="file" id="kartuPelajarSatu" name="kartuPelajarSatu" required>
                             @error('kartuPelajarSatu')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                                <div style="color: red;">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
@@ -681,7 +681,7 @@
                                 </label>
                             </div>
                             @error('namaDua')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                                <div style="color: red;">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="col-md-6">
@@ -703,7 +703,7 @@
                                 </label>
                             </div>
                             @error('kontakDua')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                                <div style="color: red;">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
@@ -717,11 +717,11 @@
                                     <rect width="20" height="14" x="2" y="5" rx="2" />
                                     <line x1="2" x2="22" y1="10" y2="10" />
                                 </svg>
-                                Scan kartu pelajar member 2 (format .jpg/.png maks 1mb)</label>
+                                Scan kartu pelajar member 2 (format .jpg/.png maks 10mb)</label>
                             <input class="form-control input-transaksi @error('kartuPelajarDua') is-invalid @enderror"
                                 type="file" id="kartuPelajarDua" name="kartuPelajarDua" required>
                             @error('kartuPelajarDua')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                                <div style="color: red;">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
@@ -744,7 +744,7 @@
                                 </label>
                             </div>
                             @error('namaTiga')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                                <div style="color: red;">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="col-md-6">
@@ -766,7 +766,7 @@
                                 </label>
                             </div>
                             @error('kontakTiga')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                               <div style="color: red;">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
@@ -780,11 +780,11 @@
                                     <rect width="20" height="14" x="2" y="5" rx="2" />
                                     <line x1="2" x2="22" y1="10" y2="10" />
                                 </svg>
-                                Scan kartu pelajar member 3 (format .jpg/.png maks 1mb)</label>
+                                Scan kartu pelajar member 3 (format .jpg/.png maks 10mb)</label>
                             <input class="form-control input-transaksi @error('kartuPelajarTiga') is-invalid @enderror"
                                 type="file" name="kartuPelajarTiga" id="kartuPelajarTiga" required>
                             @error('kartuPelajarTiga')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                                <div style="color: red;">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>

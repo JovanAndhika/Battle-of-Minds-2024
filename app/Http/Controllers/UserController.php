@@ -33,17 +33,17 @@ class UserController extends Controller
             'asalSekolah' => 'required|string|max:120',
             'namaKelompok' => 'required|string|max:30',
             'password' => 'required|string|min:8|max:20',
-            'buktiTransaksi' => 'image|file|mimes:jpg,png|max:1024',
+            'buktiTransaksi' => 'image|file|mimes:jpg,png|max:10240',
             'emailPerwakilan' => 'required|email:dns|string|max:70',
             'namaSatu' => 'required|string|max:70',
             'kontakSatu' => 'required|max:30',
-            'kartuPelajarSatu' => 'image|file|mimes:jpg,png|max:1024',
+            'kartuPelajarSatu' => 'image|file|mimes:jpg,png|max:10240',
             'namaDua' => 'required|string|max:70',
             'kontakDua' => 'required|max:30',
-            'kartuPelajarDua' => 'image|file|mimes:jpg,png|max:1024',
+            'kartuPelajarDua' => 'image|file|mimes:jpg,png|max:10240',
             'namaTiga' => 'required|string|max:70',
             'kontakTiga' => 'required|max:30',
-            'kartuPelajarTiga' => 'image|file|mimes:jpg,png|max:1024',
+            'kartuPelajarTiga' => 'image|file|mimes:jpg,png|max:10240',
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
         $password = $request->input('password');
