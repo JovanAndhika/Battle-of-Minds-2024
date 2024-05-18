@@ -508,7 +508,7 @@
                         <div class="" style="margin-top: -1%; color:red;">{{ $message }}</div>
                         @enderror
                         @if (session()->has('password_not_same'))
-                        <div class="" style="margin-top: -1%;">Password confirmation doesn't match</div>
+                        <div class="mb-3" style="margin-top: -1%; color:red;">Password confirmation doesn't match</div>
                         @endif
                         <script>
                             document.getElementById("confirmPass").addEventListener("keyup", function() {

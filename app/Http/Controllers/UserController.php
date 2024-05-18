@@ -46,7 +46,7 @@ class UserController extends Controller
             'kartuPelajarTiga' => 'image|file|mimes:jpg,png|max:10240',
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
-        $password = $request->input('password');
+        $password = $request->input('confirmPass');
         $booleanCheck = Hash::check($password, $validatedData['password']);
         if (!$booleanCheck) {
             return back()->with('password_not_same', '');
