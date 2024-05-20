@@ -180,7 +180,7 @@ class UserController extends Controller
                 ]);
         }
 
-        return back()->with('simpan_success', 'your answer has been saved');
+        return back()->with('success', 'Jawaban anda telah berhasil tersimpan !');
     }
 
     public function simpan_jawabanB(Request $request)
@@ -195,7 +195,7 @@ class UserController extends Controller
                 ]);
         }
 
-        return back()->with('simpan_success', 'your answer has been saved');
+        return back()->with('success', 'Jawaban anda telah berhasil tersimpan !');
     }
 
     public function simpan_jawabanC(Request $request)
@@ -210,7 +210,7 @@ class UserController extends Controller
                 ]);
         }
 
-        return back()->with('simpan_success', 'your answer has been saved');
+        return back()->with('success', 'Jawaban anda telah berhasil tersimpan !');
     }
 
     public function simpan_jawabanD(Request $request)
@@ -225,7 +225,7 @@ class UserController extends Controller
                 ]);
         }
 
-        return back()->with('simpan_success', 'your answer has been saved');
+        return back()->with('success', 'Jawaban anda telah berhasil tersimpan !');
     }
 
     public function simpan_jawabanE(Request $request)
@@ -240,7 +240,7 @@ class UserController extends Controller
                 ]);
         }
 
-        return back()->with('simpan_success', 'your answer has been saved');
+        return back()->with('success', 'Jawaban anda telah berhasil tersimpan !');
     }
 
     public function simpan_jawabanF(Request $request)
@@ -255,7 +255,7 @@ class UserController extends Controller
                 ]);
         }
 
-        return back()->with('simpan_success', 'your answer has been saved');
+        return back()->with('success', 'Jawaban anda telah berhasil tersimpan !');
     }
 
     public function comingSoon() //elim2

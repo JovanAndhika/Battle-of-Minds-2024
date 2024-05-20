@@ -83,6 +83,17 @@
 @section('content')
 
     <body>
+
+        @if (session()->has('success'))
+            <script>
+                Swal.fire({
+                    icon: 'success', 
+                    title: 'Berhasil !',
+                    text: "{{ session('success') }}"
+                });
+            </script>
+        @endif
+
         <div class="container">
             <div class="header">
                 <h1 class="text-center title my-4">ASSESSMENT</h1>
@@ -93,6 +104,7 @@
 
             </div>
         </div>
+        <button type="button" onclick="submit_jawaban()" id="btn-save-jawaban" class="btn btn-primary">SAVE</button>
 
         <style>
             #btn-save-jawaban {
@@ -138,7 +150,7 @@
 
     <script>
         var now = new Date().getTime();
-        var timer = new Date("May 12, 2024 23:30:00").getTime();
+        var timer = new Date("May 13, 2024 23:30:00").getTime();
 
         var countdownTime = timer - now;; // misalnya, 60 detik
 
@@ -169,6 +181,10 @@
             timerDisplay.innerHTML = (hours < 10 ? "0" : "") + hours + ":" +
                 (minutes < 10 ? "0" : "") + minutes + ":" +
                 (seconds < 10 ? "0" : "") + seconds;
+        }
+
+        function submit_jawaban() {
+            document.getElementById('simpan-jawaban').submit();
         }
     </script>
 @endsection

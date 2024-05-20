@@ -40,10 +40,7 @@
                         @endphp
                     </div>
                 @endif
-            @endforeach
-            <div class="d-flex justify-content-center mt-3">
-                <button type="submit" id="btn-save-jawaban" class="btn btn-primary">SAVE</button>
-            </div>
+            @endforeach            
         </div>
     </form>
 @endsection
