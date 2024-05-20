@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Data_jawaban;
+use App\Models\Kunci_jawaban;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -180,7 +181,23 @@ class UserController extends Controller
                 ]);
         }
 
-        return back()->with('success', 'Jawaban anda telah berhasil tersimpan !');
+        $kuncis = Kunci_jawaban::orderBy('id')->get();
+        $count = 0;
+        $iterasi = 1;
+        
+
+        foreach ($kuncis as $kunci) {
+            $jawaban = Data_jawaban::where('kunci_jawabans_id', $iterasi++)
+                                    ->where('jawaban_kelompok', $kunci->jawaban)->first();
+            if (!$jawaban) {
+                $count++;
+            }
+        }        
+
+        return back()->with([
+            'success' => 'Jawaban anda telah berhasil tersimpan !',
+            'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+        ]);
     }
 
     public function simpan_jawabanB(Request $request)

@@ -88,8 +88,8 @@
             <script>
                 Swal.fire({
                     icon: 'success', 
-                    title: 'Berhasil !',
-                    text: "{{ session('success') }}"
+                    title: "{{ session('success') }}",
+                    text: "{{ session('count') }}"
                 });
             </script>
         @endif
