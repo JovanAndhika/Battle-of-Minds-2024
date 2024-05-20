@@ -19,6 +19,17 @@
                 inputElement.classList.add('checked');
             }
         }
+
+        function submit_pagination() {
+            var input = document.createElement('Input');
+            var simpan_jawaban_form = document.getElementById('simpan-jawaban');
+            input.setAttribute('type', 'hidden');
+            input.setAttribute('name', 'page');
+            input.setAttribute('value', '3');
+
+            simpan_jawaban_form.appendChild(input);
+            simpan_jawaban_form.submit();
+        }
     </script>
     <form method="POST" action="{{ route('user.simpan_jawabanC') }}" id="simpan-jawaban" class="form-simpan-jawaban">
         @csrf
