@@ -12,17 +12,6 @@ class Set_jawaban_status extends Model
 
     protected $table = 'set_jawabans_status';
     protected $fillable = [
-        'kelompok_id',
-        'status_paket_a',
-        'status_paket_b',
-        'status_paket_c',
-        'status_paket_d',
-        'status_paket_e',
-        'status_paket_f',
+        'status_set',
     ];
-
-
-    public function peserta(): BelongsTo{
-        return $this->belongsTo(Peserta::class);
-    }
 }

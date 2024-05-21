@@ -2,25 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Peserta;
+use App\Models\User;
 use App\Models\Data_jawaban;
 use Illuminate\Http\Request;
+use App\Models\Set_jawaban_status;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\Set_jawaban_status;
 
 class AdminController extends Controller
 {
-    //INDEX
-    public function adminIndex()
-    {
-
-        return view('admin.homepage', [
-            'title' => 'BOM 2024 | PETRA CHRISTIAN UNIVERSITY',
-            'active' => 'home'
-        ]);
-    }
-
 
     // Nanti admin bisa validasi peserta yang mendaftar
     public function peserta()
@@ -28,14 +18,15 @@ class AdminController extends Controller
         return view('admin.listPeserta', [
             'title' => 'BOM 2024 | List Peserta BOM',
             'active' => 'peserta',
-            'pesertas' => Peserta::all(),
-            'jumlah_peserta' => DB::table('pesertas')->count()
+            'pesertas' => User::all(),
+            'jumlah_peserta' => DB::table('users')
+                ->where('is_admin', '==', '0')->count(),
         ]);
     }
 
     public function validasi(Request $request)
     {
-        DB::table('pesertas')->where('id', $request->id)
+        DB::table('users')->where('id', $request->id)
             ->update(['is_validated' => 1]);
 
 
@@ -46,36 +37,38 @@ class AdminController extends Controller
     // MENU SET SOAL
     public function adminSelection()
     {
-        $pesertas = Peserta::all();
+        $pesertas = User::all();
+        $selectionStatus = Set_jawaban_status::all();
         return view('admin.adminSelectionSelect', [
             'title' => 'Selection',
             'pesertas' => $pesertas,
             'active' => 'peserta',
+            'selectionStatus' => $selectionStatus,
         ]);
     }
 
 
-    // SET PAKET A
-    public function setReadyA()
+    // SET PAKET
+    public function setReady()
     {
-        $pesertas = Peserta::all();
+        $pesertas = DB::table('users')->where('is_validated', 1)
+            ->where('is_admin', 0)
+            ->get();
+
         foreach ($pesertas as $p) {
-
-
-            for ($j = 1; $j <= 50; $j++) {
+            for ($j = 1; $j <= 300; $j++) {
                 Data_jawaban::create([
                     'kelompok_id' => $p->id,
-                    'soal_no' => $j,
-                    'jawaban' => 'z'
+                    'kunci_jawabans_id' => intval($j), // Mengonversi $j menjadi integer
+                    'jawaban_kelompok' => 'z'
                 ]);
             }
 
             $affected = Set_jawaban_status::create([
-                'kelompok_id' => $p->id,
-                'status_paket_a' => true
+                'status_set' => true
             ]);
         }
-        
+
         return redirect()->route('admin.adminSelection')->with('set_success', 'set is succes');
     }
 }

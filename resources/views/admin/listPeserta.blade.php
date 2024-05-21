@@ -36,7 +36,6 @@
         margin-bottom: 5px
     }
 </style>
-
 <section class="cards">
     <div class="flex lg:flex-row min-[320px]:flex-col justify-center">
         <div class="mx-2 flex items-center max-w-sm p-6 border border-gray-200 rounded-lg shadow bg-gray-800 border-gray-700 mt-5">
@@ -59,29 +58,20 @@
                 <thead class="bg-gray-900 text-gray-50">
                     <tr>
                         <th>No</th>
-                        <th>Username</th>
-                        <th>Sekolah</th>
-                        <th>Kontak</th>
-                        <th>Kelas</th>
-                        <th>Jurusan</th>
-                        <th>Bukti Pembayaran</th>
+                        <th>Asal sekolah</th>
+                        <th>Nama kelompok</th>
+                        <th>Bukti transaksi</th>
+                        <th>Email perwakilan</th>
                         <th>Data Anggota</th>
                         <th>Validasi</th>
-                        <th>Anggota 1</th>
-                        <th>Anggota 2</th>
-                        <th>Anggota 3</th>
-                        <th>Kontak Sekolah</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($pesertas as $peserta)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $peserta->usernameKelompok }}</td>
                         <td>{{ $peserta->asalSekolah }}</td>
-                        <td>{{ $peserta->kontakPerwakilan }}</td>
-                        <td>{{ $peserta->kelas }}</td>
-                        <td>{{ $peserta->jurusan }}</td>
+                        <td>{{ $peserta->namaKelompok }}</td>
                         <td>
                             <button type="button" data-modal-target='modal-pembayaran{{ $loop->iteration }}' data-modal-toggle='modal-pembayaran{{ $loop->iteration }}' class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">View
                                 Bukti</button>
@@ -111,6 +101,10 @@
                             </div>
                         </div>
                         {{-- ======================================= END MODAL ========================================= --}}
+
+                        <td>{{ $peserta->emailPerwakilan }}</td>
+
+
                         <td><button data-modal-target='modal-peserta{{ $loop->iteration }}' data-modal-toggle='modal-peserta{{ $loop->iteration }}' type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">View
                                 Data</button></td>
                         {{-- ================================== MODAL DATA PESERTA ====================================== --}}
@@ -133,21 +127,25 @@
                                     <!-- Modal body -->
                                     <div class="p-4 md:p-5 space-y-4">
                                         <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                            Nama member 1 : {{$peserta->namaKetua }}<br>
-                                            Kontak kerabat member 1 : {{ $peserta->kerabatSatu }}
+                                            Nama member 1 : {{$peserta->namaSatu }}<br>
+                                            Kontak member 1 : {{ $peserta->kontakSatu }}
+                                            <br>
+                                            Foto kartu pelajar member 1:
+                                            <img class="gambar-pembayaran" src="{{ $peserta->kartuPelajarSatu }}" alt="">
                                         </p>
                                         <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                            Nama member 2 : {{ $peserta->namaKedua }}<br>
-                                            Kontak kerabat member 2 : {{ $peserta->kerabatDua }}
+                                            Nama member 2 : {{ $peserta->namaDua }}<br>
+                                            Kontak kerabat member 2 : {{ $peserta->kontakDua }}
+                                            <br>
+                                            Foto kartu pelajar member 2:
+                                            <img class="gambar-pembayaran" src="{{ $peserta->kartuPelajarDua }}" alt="">
                                         </p>
                                         <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                            Nama member 3 : {{ $peserta->namaKetiga }}<br>
-                                            Kontak kerabat member 3 : {{ $peserta->kerabatKetiga }}
-                                        </p>
-                                        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                            Kontak Sekolah : {{ $peserta->kontakSekolah }}<br>
-                                            Jenis konsumsi kelompok : {{ $peserta->jenisKonsumsi }}<br>
-                                            Alergi kelompok: {{$peserta->alergi}}<br>
+                                            Nama member 3 : {{ $peserta->namaTiga }}<br>
+                                            Kontak kerabat member 3 : {{ $peserta->kontakTiga }}
+                                            <br>
+                                            Foto kartu pelajar member 3:
+                                            <img class="gambar-pembayaran" src="{{ $peserta->kartuPelajarTiga }}" alt="">
                                         </p>
                                     </div>
                                     <!-- Modal footer -->
@@ -189,10 +187,6 @@
                             Already Validated
                             @endif
                         </td>
-                        <td>{{ $peserta->namaKetua }}</td>
-                        <td>{{ $peserta->namaKedua }}</td>
-                        <td>{{ $peserta->namaKetiga }}</td>
-                        <td>{{ $peserta->kontakSekolah }}</td>
                     </tr>
                     @endforeach
                 </tbody>

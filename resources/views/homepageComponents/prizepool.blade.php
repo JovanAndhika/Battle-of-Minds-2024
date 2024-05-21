@@ -21,7 +21,7 @@
         <h1 class="text-6xl font-bold">PRIZEPOOL</h1>
     </div>
     <div class="flex justify-center items-center">
-        <h1 class="prizepool text-8xl text-center font-bold relative font-[Rowdies]" prizepool-title="Rp100.000.000++">
+        <h1 class="prizepool text-center font-bold relative font-[Rowdies] 2xl:text-8xl56 xl:text-7xl" prizepool-title="Rp100.000.000++">
             Rp100.000.000++</h1>
     </div>
 

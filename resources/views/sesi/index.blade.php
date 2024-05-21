@@ -23,15 +23,15 @@
             border-radius: 40px;
             width: 200px;
         }
+        
     </style>
 </head>
 
 <body>
 @include('partials.sidebar')
     <div class="box rounded-5 border border-blue">
-        <form action="{{ route('authenticate') }}" method="post">
+        <form action="{{ route('session.login') }}" method="post">
             @csrf
-
             <div class="row center">
                 <div class=" col-lg-5 m-0 text-center p-0">
                     <img src="{{ asset('asset/logo-main.png') }}" class="text-center" alt="">
@@ -60,7 +60,7 @@
 
                     </div>
                     <div class="col-12 input-box text-center" id="usernameBox">
-                        <input type="text" name="nrp" id="nrp" required placeholder="Username" autocomplete="off">
+                        <input type="text" name="namaKelompok" id="nrp" required placeholder="Username" value="{{ Session::get('namaKelompok') }}" autocomplete="off">
                     </div>
 
                     <div class="col-12 input-box text-center" id="passwordBox">
