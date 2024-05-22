@@ -1,18 +1,9 @@
 @extends('admin.layout.main')
 @section('content')
 <style>
-    body {
-        background-color: #d4d4d4
-    }
-
     div.dt-container {
         width: 100vw;
         margin: 0 3%;
-    }
-
-    select.dt-input {
-        width: 65px !important;
-        margin-right: 5px !important;
     }
 
     .gambar-pembayaran {
@@ -20,25 +11,10 @@
         max-height: 600px;
         width: auto;
     }
-
-    .dt-search {
-        display: flex !important;
-        justify-content: start !important;
-    }
-
-    .dt-search label {
-        display: none
-    }
-
-    .dt-input {
-        border-radius: 10px !important;
-        width: 300px !important;
-        margin-bottom: 5px
-    }
 </style>
 <section class="cards">
     <div class="flex lg:flex-row min-[320px]:flex-col justify-center">
-        <div class="mx-2 flex items-center max-w-sm p-6 border border-gray-200 rounded-lg shadow bg-gray-800 border-gray-700 mt-5">
+        <div class="mx-2 flex items-center max-w-sm p-6 border border-gray-200 rounded-lg shadow bg-gray-900 border-gray-700 mt-5">
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user">
                 <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
                 <circle cx="12" cy="7" r="4" />
@@ -52,8 +28,8 @@
     </div>
 </section>
 <div class="flex justify-center">
-    <div class="flex justify-center mt-10 p-5 bg-white w-11/12 rounded-lg">
-        <div class="relative overflow-x-auto w-11/12">
+    <div class="mt-10 p-5 bg-white w-11/12 rounded-lg">
+        <div class="flex justify-start relative overflow-x-auto">
             <table id="myTable" class="display stripe" style="width: 100%">
                 <thead class="bg-gray-900 text-gray-50">
                     <tr>
@@ -61,8 +37,8 @@
                         <th>Asal sekolah</th>
                         <th>Nama kelompok</th>
                         <th>Bukti transaksi</th>
-                        <th>Email perwakilan</th>
                         <th>Data Anggota</th>
+                        <th>Jawaban</th>
                         <th>Validasi</th>
                     </tr>
                 </thead>
@@ -102,9 +78,6 @@
                         </div>
                         {{-- ======================================= END MODAL ========================================= --}}
 
-                        <td>{{ $peserta->emailPerwakilan }}</td>
-
-
                         <td><button data-modal-target='modal-peserta{{ $loop->iteration }}' data-modal-toggle='modal-peserta{{ $loop->iteration }}' type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">View
                                 Data</button></td>
                         {{-- ================================== MODAL DATA PESERTA ====================================== --}}
@@ -127,7 +100,8 @@
                                     <!-- Modal body -->
                                     <div class="p-4 md:p-5 space-y-4">
                                         <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                            Nama member 1 : {{$peserta->namaSatu }}<br>
+                                            Kontak Perwakilan : {{ $peserta->emailPerwakilan }}<br>
+                                            Nama member 1 : {{ $peserta->namaSatu }}<br>
                                             Kontak member 1 : {{ $peserta->kontakSatu }}
                                             <br>
                                             Foto kartu pelajar member 1:
@@ -156,6 +130,9 @@
                             </div>
                         </div>
                         {{-- ======================================= END MODAL ========================================= --}}
+
+                        <td><button type="button" onclick="window.location = '/admin/jawaban/{{ $peserta->namaKelompok }}'" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">Jawaban</button>
+                        </td>
                         <td>
                             @if ($peserta->is_validated == 0)
                             <form action="{{ route('admin.validate') }}" method="post" id="form{{ $loop->iteration }}">
@@ -199,31 +176,38 @@
 @section('script')
 <script>
     new DataTable('#myTable', {
-        scrollX: true,
+        // scrollX: true,
         'bInfo': false,
         'bLengthChange': false,
         'language': {
-            searchPlaceholder: 'Search for Peserta'
+            searchPlaceholder: 'Search Peserta'
         },
         columnDefs: [{
             targets: '_all',
-            className: 'dt-body-left'
+            className: 'dt-head-left dt-body-left'
         }],
-        // columns: [
-        // null, null, null, {
-        //     width: '15%'
-        // },
-        // null, {
-        //     width: '1%'
-        // }, {
-        //     width: '15%'
-        // },
-        // null, null
-        // ],
-        layout: {
-            topStart: {
-                buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+        columns: [{
+                width: '5%'
+            },
+            null, null,
+            {
+                width: '10%'
+            },
+            {
+                width: '10%'
+            },
+            {
+                width: '10%'
+            },
+            {
+                width: '10%'
             }
+        ],
+        layout: {
+            top: {
+                buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+            },
+            topEnd: 'search'
         },
     });
 </script>

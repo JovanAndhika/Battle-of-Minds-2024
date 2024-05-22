@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Data_jawaban extends Model
 {
@@ -24,8 +25,8 @@ class Data_jawaban extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function kunci_jawaban(): BelongsTo
+    public function kunci_jawaban(): HasOne
     {
-        return $this->belongsTo(Kunci_jawaban::class);
+        return $this->hasOne(Kunci_jawaban::class, 'id', 'kunci_jawabans_id');
     }
 }

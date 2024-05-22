@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Kunci_jawaban;
+use App\Models\Data_jawaban;
 use Carbon\Carbon;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
@@ -74,10 +75,10 @@ class DatabaseSeeder extends Seeder
 
         User::where('namaKelompok', 'C14220001')->update(['is_admin' => 1]);
 
-        for($i = 1; $i <= 300; $i++){
+        for ($i = 1; $i <= 300; $i++) {
             Kunci_jawaban::create([
                 'id' => $i,
-                'jawaban' => 'z'
+                'jawaban' => 'kunci' . $i
             ]);
         }
     }
