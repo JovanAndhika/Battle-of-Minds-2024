@@ -196,14 +196,7 @@ form button:hover {
         flex-wrap: wrap;
         justify-content: center;
         text-align: center;
-<<<<<<< HEAD
-        width: 460px;
-        height: auto;
-        margin: 3.5rem;
-        margin-left: 7rem;
-=======
         margin: 1.5rem;
->>>>>>> main
         background: rgba(164, 34, 218, 0.35);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         backdrop-filter: blur(12px);
@@ -231,10 +224,6 @@ form button:hover {
         padding-top: 1rem;
         padding-bottom: 0.25rem;
     }
-<<<<<<< HEAD
-  
-   button{
-=======
    input{
     margin-left: 0rem;
     padding-left: 5rem;
@@ -246,7 +235,6 @@ form button:hover {
     text-align: center;
    }
    .box button{
->>>>>>> main
     padding-left: 3rem;
     padding-right: 3rem;
    }
@@ -258,33 +246,7 @@ form button:hover {
         font-weight: bolder;
     }
 }
-<<<<<<< HEAD
-@media only screen and (max-width: 768px) {
-    
-    .box {
-        margin: 4.5rem;
-        margin-left: 4.5rem;
-        height: auto;
-        width: 383px;
-        
-    }
-    img{
-        width: 55%;
-        height: auto;
-    }
-    
-    
-}
 @media only screen and (max-width: 500px) {
-    .box {
-        margin: 1rem;
-        margin-left: 1rem;
-        height: auto;
-        width: 321px;
-    }
-=======
-@media only screen and (max-width: 500px) {
->>>>>>> main
     input{
         margin-left: 0rem;
         padding-left: 0rem;
