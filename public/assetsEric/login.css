@@ -33,11 +33,10 @@ body {
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-radius: 20px;
+    border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     overflow: hidden;
-    opacity: 0;
-    animation: fadeup 0.75s 2s forwards;
+    animation: fadeup 0.25s;
 }
 
 .center {
@@ -88,10 +87,10 @@ form {
     animation: fadeleft 0.75s;
 }
 
-form button {
+button {
     
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5%;
+    padding-bottom: 5%;
     width: 100px;
     height: 20%;
     border: none;
@@ -103,8 +102,8 @@ form button {
     animation: faderight 0.75s;
 }
 
-form button:hover {
-    background-color: rgb(163, 34, 218);
+button:hover {
+    background-color: aqua;
     color: #00008b;
 }
 
@@ -116,18 +115,13 @@ form button:hover {
     color: #00ced1;
 }
 
-.box h2 {
+h2 {
     font-size: 2rem;
     letter-spacing: 1rem;
     padding-left: 1rem;
 }
 
-.link-forgot {
-    color: white;
-    font-size: 10px;
-}
-
-.logo-bom {
+img {
     border-bottom-left-radius: 40px;
     width: 95%;
     height: auto;
@@ -135,18 +129,6 @@ form button:hover {
     border-top-left-radius: 40px;
     overflow: hidden;
     animation: fadeup 0.75s;
-}
-
-@keyframes fadeup {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 @keyframes fadeup {
@@ -196,15 +178,18 @@ form button:hover {
         flex-wrap: wrap;
         justify-content: center;
         text-align: center;
-        margin: 1.5rem;
+        width: 460px;
+        height: auto;
+        margin: 3.5rem;
+        margin-left: 7rem;
         background: rgba(164, 34, 218, 0.35);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border-radius: 10px;
         border: 1px solid rgba(255, 255, 255, 0.18);
-        padding: 30px 0;
         overflow: hidden;
+        animation: fadeup 0.25s;
     }
     .help{
         padding-left: 0rem;
@@ -218,23 +203,14 @@ form button:hover {
         font-weight: bolder;
     }
     
-    .logo-bom{
-        width: 55% !important;
+    img{
+        width: 55%;
         height: auto;
         padding-top: 1rem;
         padding-bottom: 0.25rem;
     }
-   input{
-    margin-left: 0rem;
-    padding-left: 5rem;
-    padding-right: 5rem;
-    padding-top: 0.5rem;
-    text-align: center;
-   }
-   input::placeholder{
-    text-align: center;
-   }
-   .box button{
+  
+   button{
     padding-left: 3rem;
     padding-right: 3rem;
    }
@@ -246,7 +222,29 @@ form button:hover {
         font-weight: bolder;
     }
 }
+@media only screen and (max-width: 768px) {
+    
+    .box {
+        margin: 4.5rem;
+        margin-left: 4.5rem;
+        height: auto;
+        width: 383px;
+        
+    }
+    img{
+        width: 55%;
+        height: auto;
+    }
+    
+    
+}
 @media only screen and (max-width: 500px) {
+    .box {
+        margin: 1rem;
+        margin-left: 1rem;
+        height: auto;
+        width: 321px;
+    }
     input{
         margin-left: 0rem;
         padding-left: 0rem;

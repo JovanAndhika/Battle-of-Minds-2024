@@ -2,9 +2,33 @@
 
 @section('content')
 <style>
+    body {
+        background-color: #d4d4d4
+    }
+
     div.dt-container {
         width: 100vw;
         margin: 0 3%;
+    }
+
+    select.dt-input {
+        width: 65px !important;
+        margin-right: 5px !important;
+    }
+
+    .dt-search {
+        display: flex !important;
+        justify-content: start !important;
+    }
+
+    .dt-search label {
+        display: none
+    }
+
+    .dt-input {
+        border-radius: 10px !important;
+        width: 300px !important;
+        margin-bottom: 5px
     }
 </style>
 
@@ -16,30 +40,30 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Set Ready</th>
+                        <th>Paket A</th>
+                        <th>Paket B</th>
+                        <th>Paket C</th>
+                        <th>Paket D</th>
+                        <th>Paket E</th>
+                        <th>Paket F</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Set Jawaban</td>
                         <td>
-                            <form action="{{ route('admin.setReady') }}" method="post">
-                                @csrf
-                                <button type="submit" id="set-status-a">Tekan</button>
-                            </form>
+                        <form action="{{ route('admin.setReadyA') }}" method="post">
+                            @csrf
+                            <button type="submit">Tekan</button>
+                        </form>
                         </td>
+                        <td>B</td>
+                        <td>C</td>
+                        <td>D</td>
+                        <td>E</td>
+                        <td>F</td>
                     </tr>
                 </tbody>
-                @foreach ($selectionStatus as $s)
-                @if ($s->status_set == true)
-                <script>
-                    $(document).ready(function() {
-                        // Attach a click event handler to the button with id "myButton"
-                        $("#set-status-a").prop('disabled', true);
-                    });
-                </script>
-                @endif
-                @endforeach
             </table>
         </div>
     </div>

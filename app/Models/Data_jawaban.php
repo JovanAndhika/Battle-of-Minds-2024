@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Data_jawaban extends Model
 {
@@ -14,19 +14,15 @@ class Data_jawaban extends Model
     protected $table = 'data_jawabans';
     protected $fillable = [
         'kelompok_id',
-        'kunci_jawabans_id',
-        'jawaban_kelompok',
+        'soal_no'
     ];
 
-    protected $primaryKey = 'id';
-
-    public function user(): BelongsTo
+    public function kunci_paket_a(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Kunci_paket_a::class);
     }
 
-    public function kunci_jawaban(): HasOne
-    {
-        return $this->hasOne(Kunci_jawaban::class, 'id', 'kunci_jawabans_id');
+    public function peserta(): BelongsTo{
+        return $this->belongsTo(Peserta::class);
     }
 }

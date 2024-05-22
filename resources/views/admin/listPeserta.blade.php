@@ -1,9 +1,18 @@
 @extends('admin.layout.main')
 @section('content')
 <style>
+    body {
+        background-color: #d4d4d4
+    }
+
     div.dt-container {
         width: 100vw;
         margin: 0 3%;
+    }
+
+    select.dt-input {
+        width: 65px !important;
+        margin-right: 5px !important;
     }
 
     .gambar-pembayaran {
@@ -11,10 +20,26 @@
         max-height: 600px;
         width: auto;
     }
+
+    .dt-search {
+        display: flex !important;
+        justify-content: start !important;
+    }
+
+    .dt-search label {
+        display: none
+    }
+
+    .dt-input {
+        border-radius: 10px !important;
+        width: 300px !important;
+        margin-bottom: 5px
+    }
 </style>
+
 <section class="cards">
     <div class="flex lg:flex-row min-[320px]:flex-col justify-center">
-        <div class="mx-2 flex items-center max-w-sm p-6 border border-gray-200 rounded-lg shadow bg-gray-900 border-gray-700 mt-5">
+        <div class="mx-2 flex items-center max-w-sm p-6 border border-gray-200 rounded-lg shadow bg-gray-800 border-gray-700 mt-5">
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user">
                 <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
                 <circle cx="12" cy="7" r="4" />
@@ -28,26 +53,35 @@
     </div>
 </section>
 <div class="flex justify-center">
-    <div class="mt-10 p-5 bg-white w-11/12 rounded-lg">
-        <div class="flex justify-start relative overflow-x-auto">
+    <div class="flex justify-center mt-10 p-5 bg-white w-11/12 rounded-lg">
+        <div class="relative overflow-x-auto w-11/12">
             <table id="myTable" class="display stripe" style="width: 100%">
                 <thead class="bg-gray-900 text-gray-50">
                     <tr>
                         <th>No</th>
-                        <th>Asal sekolah</th>
-                        <th>Nama kelompok</th>
-                        <th>Bukti transaksi</th>
+                        <th>Username</th>
+                        <th>Sekolah</th>
+                        <th>Kontak</th>
+                        <th>Kelas</th>
+                        <th>Jurusan</th>
+                        <th>Bukti Pembayaran</th>
                         <th>Data Anggota</th>
-                        <th>Jawaban</th>
                         <th>Validasi</th>
+                        <th>Anggota 1</th>
+                        <th>Anggota 2</th>
+                        <th>Anggota 3</th>
+                        <th>Kontak Sekolah</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($pesertas as $peserta)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
+                        <td>{{ $peserta->usernameKelompok }}</td>
                         <td>{{ $peserta->asalSekolah }}</td>
-                        <td>{{ $peserta->namaKelompok }}</td>
+                        <td>{{ $peserta->kontakPerwakilan }}</td>
+                        <td>{{ $peserta->kelas }}</td>
+                        <td>{{ $peserta->jurusan }}</td>
                         <td>
                             <button type="button" data-modal-target='modal-pembayaran{{ $loop->iteration }}' data-modal-toggle='modal-pembayaran{{ $loop->iteration }}' class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">View
                                 Bukti</button>
@@ -77,7 +111,6 @@
                             </div>
                         </div>
                         {{-- ======================================= END MODAL ========================================= --}}
-
                         <td><button data-modal-target='modal-peserta{{ $loop->iteration }}' data-modal-toggle='modal-peserta{{ $loop->iteration }}' type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">View
                                 Data</button></td>
                         {{-- ================================== MODAL DATA PESERTA ====================================== --}}
@@ -100,26 +133,21 @@
                                     <!-- Modal body -->
                                     <div class="p-4 md:p-5 space-y-4">
                                         <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                            Kontak Perwakilan : {{ $peserta->emailPerwakilan }}<br>
-                                            Nama member 1 : {{ $peserta->namaSatu }}<br>
-                                            Kontak member 1 : {{ $peserta->kontakSatu }}
-                                            <br>
-                                            Foto kartu pelajar member 1:
-                                            <img class="gambar-pembayaran" src="{{ $peserta->kartuPelajarSatu }}" alt="">
+                                            Nama member 1 : {{$peserta->namaKetua }}<br>
+                                            Kontak kerabat member 1 : {{ $peserta->kerabatSatu }}
                                         </p>
                                         <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                            Nama member 2 : {{ $peserta->namaDua }}<br>
-                                            Kontak kerabat member 2 : {{ $peserta->kontakDua }}
-                                            <br>
-                                            Foto kartu pelajar member 2:
-                                            <img class="gambar-pembayaran" src="{{ $peserta->kartuPelajarDua }}" alt="">
+                                            Nama member 2 : {{ $peserta->namaKedua }}<br>
+                                            Kontak kerabat member 2 : {{ $peserta->kerabatDua }}
                                         </p>
                                         <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                            Nama member 3 : {{ $peserta->namaTiga }}<br>
-                                            Kontak kerabat member 3 : {{ $peserta->kontakTiga }}
-                                            <br>
-                                            Foto kartu pelajar member 3:
-                                            <img class="gambar-pembayaran" src="{{ $peserta->kartuPelajarTiga }}" alt="">
+                                            Nama member 3 : {{ $peserta->namaKetiga }}<br>
+                                            Kontak kerabat member 3 : {{ $peserta->kerabatKetiga }}
+                                        </p>
+                                        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                                            Kontak Sekolah : {{ $peserta->kontakSekolah }}<br>
+                                            Jenis konsumsi kelompok : {{ $peserta->jenisKonsumsi }}<br>
+                                            Alergi kelompok: {{$peserta->alergi}}<br>
                                         </p>
                                     </div>
                                     <!-- Modal footer -->
@@ -130,9 +158,6 @@
                             </div>
                         </div>
                         {{-- ======================================= END MODAL ========================================= --}}
-
-                        <td><button type="button" onclick="window.location = '/admin/jawaban/{{ $peserta->namaKelompok }}'" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">Jawaban</button>
-                        </td>
                         <td>
                             @if ($peserta->is_validated == 0)
                             <form action="{{ route('admin.validate') }}" method="post" id="form{{ $loop->iteration }}">
@@ -164,6 +189,10 @@
                             Already Validated
                             @endif
                         </td>
+                        <td>{{ $peserta->namaKetua }}</td>
+                        <td>{{ $peserta->namaKedua }}</td>
+                        <td>{{ $peserta->namaKetiga }}</td>
+                        <td>{{ $peserta->kontakSekolah }}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -176,38 +205,31 @@
 @section('script')
 <script>
     new DataTable('#myTable', {
-        // scrollX: true,
+        scrollX: true,
         'bInfo': false,
         'bLengthChange': false,
         'language': {
-            searchPlaceholder: 'Search Peserta'
+            searchPlaceholder: 'Search for Peserta'
         },
         columnDefs: [{
             targets: '_all',
-            className: 'dt-head-left dt-body-left'
+            className: 'dt-body-left'
         }],
-        columns: [{
-                width: '5%'
-            },
-            null, null,
-            {
-                width: '10%'
-            },
-            {
-                width: '10%'
-            },
-            {
-                width: '10%'
-            },
-            {
-                width: '10%'
-            }
-        ],
+        // columns: [
+        // null, null, null, {
+        //     width: '15%'
+        // },
+        // null, {
+        //     width: '1%'
+        // }, {
+        //     width: '15%'
+        // },
+        // null, null
+        // ],
         layout: {
-            top: {
+            topStart: {
                 buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
-            },
-            topEnd: 'search'
+            }
         },
     });
 </script>

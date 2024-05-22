@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Kunci_jawaban;
-use App\Models\Data_jawaban;
 use Carbon\Carbon;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
+use App\Models\Peserta;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -25,61 +24,31 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         User::create([
+            'nrp' => 'C14220001',
+            'username' => 'khususpanitiabom',
+            'password' => Hash::make('password'),
+        ]);
+
+        Peserta::create([
             'asalSekolah' => 'SMAK ABCD',
-            'namaKelompok' => 'peserta',
-            'password' => Hash::make('password'),
+            'kontakSekolah' => 'abscd',
+            'usernameKelompok' => 'peserta',
+            'kelas' => 'abscs',
+            'jurusan' => 'IPS',
+            'kontakPerwakilan' => 'asssss',
+            'confirmPass' => Hash::make('password'),
+            'namaKetua' => 'Hasan Surabaya ABCDEFGH',
+            'emailKetua' => 'abcsefg@gmail.com',
+            'kerabatSatu' => 'kepo',
+            'namaKedua' => 'Yasan',
+            'kerabatDua' => 'kepo',
+            'namaKetiga' => 'Susan',
+            'kerabatTiga' => 'kepo',
+            'jenisKonsumsi' => 'vegan',
+            'alergi' => 'debu',
             'buktiTransaksi' => 'bukti-transaksi//komal.jpg',
-
-            'emailPerwakilan' => 'asssss',
-            'namaSatu' => 'Hasan Surabaya ABCDEFGH',
-            'kontakSatu' => 'abcsefg@gmail.com',
-            'kartuPelajarSatu' => 'debu',
-
-            'namaDua' => 'Jevon',
-            'kontakDua' => '2022',
-            'kartuPelajarDua' => 'angin',
-
-            'namaTiga' => 'Adi',
-            'kontakTiga' => 'normal',
-            'kartuPelajarTiga' => '-',
-
-            'created_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->setTime(23,59,59)->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->setTime(23,59,59)->format('Y-m-d H:i:s')
         ]);
-
-        User::where('namaKelompok', 'peserta')->update(['is_validated' => 1]);
-
-
-        User::create([
-            'asalSekolah' => 'admin',
-            'namaKelompok' => 'C14220001',
-            'password' => Hash::make('password'),
-            'buktiTransaksi' => 'bukti-transaksi//komal.jpg',
-
-            'emailPerwakilan' => 'asssss',
-            'namaSatu' => 'Hasan Surabaya ABCDEFGH',
-            'kontakSatu' => 'abcsefg@gmail.com',
-            'kartuPelajarSatu' => 'debu',
-
-            'namaDua' => 'Ado',
-            'kontakDua' => '2022',
-            'kartuPelajarDua' => 'angin',
-
-            'namaTiga' => 'Adi',
-            'kontakTiga' => 'normal',
-            'kartuPelajarTiga' => '-',
-
-            'created_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s')
-        ]);
-
-        User::where('namaKelompok', 'C14220001')->update(['is_admin' => 1]);
-
-        for ($i = 1; $i <= 300; $i++) {
-            Kunci_jawaban::create([
-                'id' => $i,
-                'jawaban' => 'kunci' . $i
-            ]);
-        }
     }
 }

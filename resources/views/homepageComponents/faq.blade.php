@@ -1,4 +1,57 @@
 <style>
+    .accordion {
+        max-width: 1000px;
+        margin: 2rem auto;
+    }
+
+    .accordion-item {
+        margin: 1rem 0;
+        border-radius: 0.5rem;
+        box-shadow: 0px 0px 50px 10px rgba(255, 255, 255, 1);
+    }
+
+    .accordion-item-header {
+        padding: 0.5rem 3rem 0.5rem 1rem;
+        min-height: 3.5rem;
+        line-height: 1.25rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        color: white;
+    }
+
+    .accordion-item-header::after {
+        content: "\25BE";
+        font-size: 2rem;
+        position: absolute;
+        right: 1rem;
+        transition: ease .38s;
+    }
+
+    .accordion-item-header.active::after {
+        rotate: 180deg;
+    }
+
+    .accordion-item-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+
+    }
+
+    .accordion-item-body-content {
+        padding: 1rem;
+        line-height: 1.5rem;
+        border-top: 3px solid;
+        letter-spacing: 0;
+        /* background-color: !important; */
+        font-family: 'Geologica', sans-serif;
+        /* border-image: linear-gradient(to right, rgba(255, 255, 255, 1), white, transparent, white, rgba(255, 255, 255, 1)) 1; */
+        border-image:white;
+    }
+
     .text {
         position: relative;
         color: #fff;
@@ -202,213 +255,101 @@
             clip: rect(83px, auto, 40px, 30px);
         }
     }
-
-    .chats {
-        grid-template-rows: auto 422px auto;
-    }
-
-    .chat {
-        font-family: 'Geologica', sans-serif;
-        letter-spacing: 0;
-    }
-
-    .chat-header,
-    .chat-footer {
-        background-color: rgba(34, 61, 197, 0.7);
-
-    }
-
-    .user-chat {
-        background-color: rgb(95, 115, 184);
-    }
-
-    .chat-area::-webkit-scrollbar {
-        width: 13.5px;
-    }
-
-    .chat-area::-webkit-scrollbar-thumb {
-        border-radius: 25px;
-        background-color: rgb(41, 70, 215, 0.6) !important;
-    }
-
-    .chat-area::-webkit-scrollbar-track {
-        background-color: rgb(85, 104, 180, 0.75) !important;
-    }
-
-    .question {
-        background-color: rgb(95, 115, 184);
-        border-color: rgba(34, 61, 197, 0.7);
-    }
-
-    .question:hover {
-        background-color: rgb(95, 115, 254);
-    }
-
-    .question:active {
-        background-color: rgb(95, 115, 254, 0.8);
-    }
 </style>
 
 <section class="faq-section w-screen flex justify-center items-center flex-col sticky top-16 z-[-1] h-fit" id="faq">
     <div class="flex justify-center items-center h-24 text-3xl font-bold">
-        <h1 class="faq-title text lg:text-5xl md:text-4xl text-center leading-normal w-4/5 max-md:text-3xl"
+        <h1 class="faq-title text text-5xl text-center leading-normal w-4/5 max-md:text-3xl"
             data-text="Frequently Asked Questions">Frequently Asked Questions</h1>
     </div>
-
-    <div class="chats grid sm:w-[380px] max-sm:w-[310px] h-[550px] bg-gray-200 my-10 rounded-3xl overflow-hidden">
-        <div class="chat-header w-full h-[70px] rounded-t-2xl flex justify-start items-center">
-            <img src="{{ asset('asset/bomby_profile.png') }}" alt="faq-maskot"
-                class="rounded-full h-11 bg-yellow-400 mx-4">
-            <p class="text-lg font-bold max-sm:text-base">Bomby</p>
-        </div>
-        <div class="chat-area pt-4 chat-section overflow-y-scroll overflow-x-hidden">
-            <div class="bombyAnswer flex">
-                <img src="{{ asset('asset/bomby_profile.png') }}" alt="faq-maskot"
-                    class="rounded-full h-8 bg-yellow-400 ml-4 mr-3">
-                <p
-                    class="chat overflow-visible text-black sm:text-base max-sm:text-sm sm:w-[250px] max-sm:w-[200px] px-3 py-2
-                bg-white rounded-tr-2xl rounded-br-2xl rounded-bl-2xl my-5">
-                    Halooo 😁, perkenalkan namaku Bomby. Aku akan menjawab pertanyaan kalian seputar acara Battle of
-                    Minds.
-                </p>
+    <div class="accordion w-screen lg:w-4/5 md:w-3/4 sm:w-3/5 max-sm:w-4/5">
+        <div class="accordion-item !my-8">
+            <div class="accordion-item-header sm:text-lg max-sm:text-base">
+                Apa itu BoM?
+            </div>
+            <div class="accordion-item-body">
+                <div class="accordion-item-body-content sm:text-lg max-sm:text-base">
+                    Web Development broadly refers to the tasks associated with developing functional websites and
+                    applications for the Internet. The web development process includes web design, web content
+                    development, client-side/server-side scripting and network security configuration, among other
+                    tasks.
+                </div>
             </div>
         </div>
 
-        <div class="chat-footer w-full h-[58px] rounded-b-2xl flex justify-between place-self-end items-center">
-            <p class="ml-5 font-bold max-sm:text-xs">Choose your question here</p>
-            <div class="flex items-center h-full" data-twe-dropdown-position="dropup">
-                <i class="fa-regular fa-comment-dots mx-5 text-2xl hover:cursor-pointer" type="button"
-                    id="dropdownMenuButton1" data-twe-dropdown-toggle-ref aria-expanded="false" data-twe-ripple-init
-                    data-twe-ripple-color="light">
-                </i>
-                <ul class="absolute z-[1000] float-left m-0 hidden min-w-max h-[180px] overflow-y-scroll list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-base shadow-lg data-[twe-dropdown-show]:block"
-                    aria-labelledby="dropdownMenuButton1" data-twe-dropdown-menu-ref>
-                    <li>
-                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                            href="#" data-twe-dropdown-item-ref question-code="0">Apa itu Battle of Minds (BoM)?
-                        </p>
-                    </li>
-                    <li>
-                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                            href="#" data-twe-dropdown-item-ref question-code="1">Ada berapa babak dalam acara
-                            BoM?</p>
-                    </li>
-                    <li>
-                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                            href="#" data-twe-dropdown-item-ref question-code="2">BoM diadakan secara
-                            onsite/online?</p>
-                    </li>
-                    <li>
-                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                            href="#" data-twe-dropdown-item-ref question-code="3">Siapa saja yang boleh mendaftar
-                            BoM?</p>
-                    </li>
-                    <li>
-                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                            href="#" data-twe-dropdown-item-ref question-code="4">Apakah satu orang bisa mendaftar
-                            lebih dari satu tim?</p>
-                    </li>
-                    <li>
-                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                            href="#" data-twe-dropdown-item-ref question-code="5">Berapa biaya pendaftaran BoM?
-                        </p>
-                    </li>
-                    <li>
-                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                            href="#" data-twe-dropdown-item-ref question-code="6">Apakah uang deposit akan
-                            dikembalikan setelah acara berakhir?
-                        </p>
-                    </li>
-                    <li>
-                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                            href="#" data-twe-dropdown-item-ref question-code="7">Bagaimana proses validasi
-                            pembayaran?</p>
-                    </li>
-                    <li>
-                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                            href="#" data-twe-dropdown-item-ref question-code="8">Apabila tim tidak dapat hadir
-                            pada hari - h acara apa konsekuensinya?</p>
-                    </li>
-                    <li>
-                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                            href="#" data-twe-dropdown-item-ref question-code="9">Apakah peserta akan mendapatkan
-                            konsumsi?</p>
-                    </li>
-                    <li>
-                        <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                            href="#" data-twe-dropdown-item-ref question-code="10">Apakah acara ini menyediakan
-                            transportasi untuk peserta?</p>
-                    </li>
-                </ul>
+        <div class="accordion-item !my-8">
+            <div class="accordion-item-header sm:text-lg max-sm:text-base">
+                Siapa saja yang bisa mengikuti kegiatan BoM?
+            </div>
+            <div class="accordion-item-body">
+                <div class="accordion-item-body-content sm:text-lg max-sm:text-base">
+                    HTML, aka HyperText Markup Language, is the dominant markup language for creating websites and
+                    anything that can be viewed in a web browser.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item !my-8">
+            <div class="accordion-item-header sm:text-lg max-sm:text-base">
+                Question 3
+            </div>
+            <div class="accordion-item-body">
+                <div class="accordion-item-body-content sm:text-lg max-sm:text-base">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quam, nesciunt rem culpa quos
+                    tempora illum distinctio quas sed cumque nulla porro voluptate? Iste consequuntur id, iusto sequi
+                    adipisci hic.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item !my-8">
+            <div class="accordion-item-header sm:text-lg max-sm:text-base">
+                Question 4
+            </div>
+            <div class="accordion-item-body">
+                <div class="accordion-item-body-content sm:text-lg max-sm:text-base">
+                    HTTP, aka HyperText Transfer Protocol, is the underlying protocol used by the World Wide Web and
+                    this protocol defines how messages are formatted and transmitted, and what actions Web servers and
+                    browsers should take in response to various commands.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item !my-8">
+            <div class="accordion-item-header sm:text-lg max-sm:text-base">
+                Question 5
+  
+            </div>
+            <div class="accordion-item-body">
+                <div class="accordion-item-body-content sm:text-lg max-sm:text-base">
+                    CORS, aka Cross-Origin Resource Sharing, is a mechanism that enables many resources (e.g. images,
+                    stylesheets, scripts, fonts) on a web page to be requested from another domain outside the domain
+                    from which the resource originated.
+                </div>
             </div>
         </div>
     </div>
-
 </section>
 
 <script>
-    const chatSection = document.querySelector('.chat-section');
+    const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+    accordionItemHeaders.forEach(accordionItemHeader => {
+        accordionItemHeader.addEventListener("click", event => {
 
-    const answerArray = [
-        'Battle of Minds adalah lomba yang memadukan konsep logika matematika dengan permainan yang seru dan menantang di bidang Science🧪, Technology💻, Engineering⚙️, and Math✖️. ',
-        'Lomba ini terdiri dari tiga babak, yakni dua babak eliminasi dan satu babak final. Untuk mendapatkan informasi lebih rinci, akan diadakan TM 1 untuk babak pertama dan TM 2 untuk babak kedua.',
-        'Setiap peserta yang mengikuti kompetisi Battle of Minds diwajibkan hadir secara ONSITE, di Petra Christian University untuk babak 1. Lalu, untuk babak 2 dan babak final akan dilakukan ONSITE di Fairway Nine Mall Surabaya 🔥🔥',
-        'Kamu dapat mengikuti kompetisi Battle Of Minds 2024 jika kamu adalah siswa/i SMA/SMK di Indonesia yaaa 😙🏫',
-        'Tidak, setiap peserta tidak boleh mewakili lebih dari 1 tim 😑😑',
-        'Pendaftaran BoM free 🤩🤩!! Eitssss tapi peserta diwajibkan melakukan deposit sebesar Rp200.000 yang dibayarkan melalui Rekening BCA 2981104724 A.n/ MARCELINUS ANTHONY TEGUH, dan memberikan kode 1 pada akhir nominal seperti: 200.001 dan memberikan keterangan berita acara: BOM24-(namatim) contoh: BOM24-timhore',
-        'Iyaaa tenang aja uang deposit pasti dikembalikan, selama kalian mengikuti acara dengan baik, mematuhi peraturan, dan tidak terdiskualifikasi 😙😙',
-        'Setelah pendaftaran melalui website telah berhasil, panitia akan memberikan email konfirmasi dalam waktu 1 x 24 jam bahwa pendaftaran kalian tervalidasi.',
-        'Sayang sekali jika ada tim yang tidak hadir pada hari-h acara, maka tim tersebut akan didiskualifikasi dan uang deposit tidak akan dikembalikan 🥲🥲',
-        'Tenang aja, setiap peserta akan mendapatkan konsumsi kok 🥰🍴',
-        'Sayang sekali, tetapi pihak Battle of Minds tidak menyediakan fasilitas transportasi untuk peserta 😔😔'
-
-    ]
-
-    var replyUser = function(answer) {
-        const bombyResponse = document.createElement('div');
-        bombyResponse.classList.add('bombyAnswer', 'pt-4', 'flex');
-
-        const bombyProfile = document.createElement('img');
-        bombyProfile.src = 'asset/bomby_profile.png';
-        bombyProfile.alt = 'faq-maskot';
-        bombyProfile.classList.add('rounded-full', 'h-8', 'bg-yellow-400', 'ml-4', 'mr-3');
-
-        const replyText = document.createElement('p');
-        replyText.classList.add('chat', 'overflow-visible', 'text-black', 'sm:text-base', 'max-sm:text-sm',
-            'sm:w-[250px]', 'max-sm:w-[200px]', 'px-3', 'py-2',
-            'bg-white', 'rounded-tr-2xl', 'rounded-br-2xl', 'rounded-bl-2xl', 'my-5');
-        replyText.textContent = answer;
-
-        bombyResponse.appendChild(bombyProfile);
-        bombyResponse.appendChild(replyText);
-
-        chatSection.appendChild(bombyResponse);
-    }
-
-    function makeChat(e) {
-        var questionText = e.currentTarget.innerHTML;
-        var questionCode = e.currentTarget.getAttribute('question-code');
-
-        const userChat = document.createElement('div');
-        userChat.classList.add('userAnswer', 'pt-5', 'flex', 'justify-end');
-        const textChat = document.createElement('p');
-        textChat.classList.add('chat', 'user-chat', 'overflow-visible', 'text-white', 'sm:text-base', 'max-sm:text-sm',
-            'px-3', 'py-2',
-            'backdrop-opacity-80', 'rounded-tr-2xl', 'rounded-bl-2xl', 'rounded-tl-2xl', 'mr-4', 'sm:w-[250px]',
-            'max-sm:w-[200px]');
-        textChat.textContent = questionText;
-
-        userChat.appendChild(textChat);
-        chatSection.appendChild(userChat);
-        chatSection.scrollTop = chatSection.scrollHeight;
-
-        setTimeout(function() {
-            replyUser(answerArray[questionCode]);
-            chatSection.scrollTop = chatSection.scrollHeight;
-        }, 1000);
-    }
-
-    document.querySelectorAll('.question').forEach(item => {
-        item.addEventListener('click', makeChat);
+            const currentlyActiveAccordionItemHeader = document.querySelector(
+                ".accordion-item-header.active");
+            if (currentlyActiveAccordionItemHeader && currentlyActiveAccordionItemHeader !==
+                accordionItemHeader) {
+                currentlyActiveAccordionItemHeader.classList.toggle("active");
+                currentlyActiveAccordionItemHeader.nextElementSibling.style.maxHeight = 0;
+            }
+            accordionItemHeader.classList.toggle("active");
+            const accordionItemBody = accordionItemHeader.nextElementSibling;
+            if (accordionItemHeader.classList.contains("active")) {
+                accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+            } else {
+                accordionItemBody.style.maxHeight = 0;
+            }
+        });
     });
 </script>

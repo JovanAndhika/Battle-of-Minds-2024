@@ -3,39 +3,24 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'asalSekolah',
-        'namaKelompok',
-        'password',
-        'buktiTransaksi',
-        'emailPerwakilan',
-        'namaSatu',
-        'kontakSatu',
-        'kartuPelajarSatu',
-        'namaDua',
-        'kontakDua',
-        'kartuPelajarDua',
-        'namaTiga',
-        'kontakTiga',
-        'kartuPelajarTiga',
+        'nrp',
+        'username',
+        'password'
     ];
-
-    protected $primaryKey = 'id';
 
     /**
      * The attributes that should be hidden for serialization.
@@ -58,10 +43,5 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    public function data_jawaban(): HasMany
-    {
-        return $this->hasMany(Data_jawaban::class);
     }
 }
