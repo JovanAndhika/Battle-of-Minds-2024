@@ -1,6 +1,6 @@
 @extends('layout.mainlayout')
 
-{{-- BOM 2024 | Game Elimination 1 --}}
+{{-- BOM 2024 | MiniGame Elimination 1 --}}
 @section('title', $title)
 
 @section('content')
@@ -412,7 +412,7 @@
 </style>
 
     {{-- CONTENT HERE --}}
-    <h2 class="text-center" id='title'>Game Elimination 1</h2>
+    <h2 class="text-center" id='title'>Mini Game Elimination 1</h2>
 
     {{-- START CARD --}}
     <div style="display: flex; gap: 30px; justify-content: center;">
@@ -422,10 +422,10 @@
                 <h5 class="card-title">Labirin 1</h5>
                 <form onsubmit="return false;">
                     {{-- <label for="password">Password</label> --}}
-                    <input id="password" type="password" pattern="password123" placeholder="Enter your password" required >
+                    <input id="password" type="password" pattern="rzxqfsvhg" placeholder="Enter your password" required >
                     
                     <label class="login-button" for="login">
-                        <span>Next</span>
+                        <a href="{{route('user.soal_labirin1')}}" class="text-white text-decoration-none"> Next </a>
                     </label>
                     
                     <div class="padlock">
@@ -453,10 +453,10 @@
                 <h5 class="card-title">Labirin 2</h5>
                 <form onsubmit="return false;">
                     {{-- <label for="password">Password</label> --}}
-                    <input id="password" type="password" pattern="password123" placeholder="Enter your password" required>
+                    <input id="password" type="password" pattern="otraegpv" placeholder="Enter your password" required>
                     
                     <label class="login-button" for="login">
-                        <span>Next</span>
+                        <a href="{{route('user.soal_labirin2')}}" class="text-white text-decoration-none"> Next </a>
                     </label>
                     
                     <div class="padlock">
@@ -487,7 +487,7 @@
                     <input id="password" type="password" pattern="password123" placeholder="Enter your password" required >
                     
                     <label class="login-button" for="login">
-                        <span>Finish</span>
+                        <a href="{{route('user.soal_labirin3')}}" class="text-white text-decoration-none"> Next </a>
                     </label>
                     
                     <div class="padlock">

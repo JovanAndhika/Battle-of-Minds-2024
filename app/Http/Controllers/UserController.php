@@ -265,12 +265,22 @@ class UserController extends Controller
 
     public function game_elim1()
     {
-        return view('user.mini games elim1.game_elim1', ['title' => 'BOM 2024 | Game Elimination 1']);
+        return view('user.mini games elim1.game_elim1', ['title' => 'BOM 2024 | MiniGame Elimination 1']);
     }
 
-    public function soal_elim1()
+    public function soal_labirin1()
     {
-        return view('user.mini games elim1.soal_elim1', ['title' => 'BOM 2024 | Soal Elimination 1']);
+        return view('user.mini games elim1.soal_labirin1', ['title' => 'BOM 2024 | Soal Labirin 1']);
+    }
+
+    public function soal_labirin2()
+    {
+        return view('user.mini games elim1.soal_labirin2', ['title' => 'BOM 2024 | Soal Labirin 2']);
+    }
+
+    public function soal_labirin3()
+    {
+        return view('user.mini games elim1.soal_labirin3', ['title' => 'BOM 2024 | Soal Labirin 3']);
     }
 
 }
