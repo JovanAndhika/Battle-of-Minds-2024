@@ -64,5 +64,13 @@ Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
     Route::post('/save-jawabanE', [UserController::class, 'simpan_jawabanE'])->name('simpan_jawabanE');
     Route::post('/save-jawabanF', [UserController::class, 'simpan_jawabanF'])->name('simpan_jawabanF');
     // Coming Soon
-    Route::get('/coming-soon', [UserController::class, 'comingSoon'])->name('comingSoon');
+    Route::get('/coming-soon', [UserController::class, 'comingSoon']) -> name ('comingSoon');
+
+    // minigame elim 1
+    Route::get('/game_elim1', [UserController::class, 'game_elim1']) -> name ('game_elim1');
+    // soal minigame elim 1
+    Route::get('/soal_labirin1', [UserController::class, 'soal_labirin1']) -> name ('soal_labirin1');
+    Route::get('/soal_labirin2', [UserController::class, 'soal_labirin2']) -> name ('soal_labirin2');
+    Route::get('/soal_labirin3', [UserController::class, 'soal_labirin3']) -> name ('soal_labirin3');
+
 });
