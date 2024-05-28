@@ -108,7 +108,10 @@ class UserController extends Controller
             ->orderBy('kunci_jawabans_id')
             ->get();
 
-        return view('user.elim_satu', ['title' => $title, 'data_jawaban' => $data_jawaban]);
+        return view('user.elim_satu', [
+            'title' => $title,
+            'data_jawaban' => $data_jawaban
+        ]);
     }
 
 
@@ -275,7 +278,9 @@ class UserController extends Controller
 
     public function soal_labirin2()
     {
-        return view('user.mini games elim1.soal_labirin2', ['title' => 'BOM 2024 | Soal Labirin 2']);
+        return view('user.mini games elim1.soal_labirin2', [
+            'title' => 'BOM 2024 | Soal Labirin 2'
+        ]);
     }
 
     public function soal_labirin3()

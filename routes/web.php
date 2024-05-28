@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PaketAController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\StatusController;
 
 //HOMEPAGE
 Route::get('/', [UserController::class, 'index'])->name('index');
@@ -70,7 +71,8 @@ Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
     Route::get('/game_elim1', [UserController::class, 'game_elim1']) -> name ('game_elim1');
     // soal minigame elim 1
     Route::get('/soal_labirin1', [UserController::class, 'soal_labirin1']) -> name ('soal_labirin1');
-    Route::get('/soal_labirin2', [UserController::class, 'soal_labirin2']) -> name ('soal_labirin2');
-    Route::get('/soal_labirin3', [UserController::class, 'soal_labirin3']) -> name ('soal_labirin3');
+    Route::post('/soal_labirin1', [StatusController::class, 'labirin1']);
+    Route::get('/soal_labirin2', [StatusController::class, 'labirin2']) -> name ('soal_labirin2');
+    Route::get('/soal_labirin3', [StatusController::class, 'labirin3']) -> name ('soal_labirin3');
 
 });

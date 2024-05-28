@@ -95,10 +95,11 @@
   <div class="w-screen h-screen flex flex-col justify-center items-center">
     <div class="container h-[300px] flex flex-col justify-center items-center">
         <div class="form-box">
-            <form>
+            <form method="post" action="/soal_labirin1">
+              @csrf
               <div class="form-group">
                 <label for="formGroupExampleInput">7027 + 8291 + 6207 + 7626 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here" inputmode="numeric" pattern="[0-9]*">
+                <input type="text" class="form-control" name='nama'id="formGroupExampleInput" placeholder="Answer here" inputmode="numeric" pattern="[0-9]*">
                 <!-- 29151 -->
               </div>
               <div class="form-group">
@@ -126,7 +127,7 @@
                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
                 <!--29428  -->
               </div>
-              <div class="form-group">
+              <div clpass="form-group">
                 <label for="formGroupExampleInput">2856 + 8674 + 9326 + 5026 </label>
                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
                 <!--25882  -->
