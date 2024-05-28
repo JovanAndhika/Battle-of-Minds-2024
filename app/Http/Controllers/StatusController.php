@@ -33,10 +33,15 @@ class StatusController extends Controller
     public function labirin1(Request $request)
     {
         $kelompokId = auth()->user()->id;
-        $namaKelompok = User::select('namaKelompok')->where('id',$kelompokId)->first()->value('namaKelompok');
-        $status = new Status();
+        // $namaKelompok = User::select('namaKelompok')->where('id',$kelompokId)->first()->value('namaKelompok');
+        $namaKelompok = User::where('id', $kelompokId)->value('namaKelompok');
+        $status = Status::where('kelompok', $namaKelompok)->first();
+        if (is_null($status)) {
+            // Jika status tidak ditemukan, buat entri baru
+            $status = new Status();
+            $status->kelompok = $namaKelompok;
+        }
         
-        $status->kelompok = $namaKelompok;
         // $status->kelompok = request(['nama']);
         $status->labirin_1 = Carbon::now();
         $status->save();
