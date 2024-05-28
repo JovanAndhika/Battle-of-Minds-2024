@@ -48,6 +48,44 @@ class StatusController extends Controller
         return redirect()->intended('/game_elim1');
     }
 
+
+    public function labirin2(Request $request)
+    {
+        $kelompokId = auth()->user()->id;
+        // $namaKelompok = User::select('namaKelompok')->where('id',$kelompokId)->first()->value('namaKelompok');
+        $namaKelompok = User::where('id', $kelompokId)->value('namaKelompok');
+        $status = Status::where('kelompok', $namaKelompok)->first();
+        if (is_null($status)) {
+            // Jika status tidak ditemukan, buat entri baru
+            $status = new Status();
+            $status->kelompok = $namaKelompok;
+        }
+        
+        // $status->kelompok = request(['nama']);
+        $status->labirin_2 = Carbon::now();
+        $status->save();
+        return redirect()->intended('/game_elim1');
+    }
+
+
+    public function labirin3(Request $request)
+    {
+        $kelompokId = auth()->user()->id;
+        // $namaKelompok = User::select('namaKelompok')->where('id',$kelompokId)->first()->value('namaKelompok');
+        $namaKelompok = User::where('id', $kelompokId)->value('namaKelompok');
+        $status = Status::where('kelompok', $namaKelompok)->first();
+        if (is_null($status)) {
+            // Jika status tidak ditemukan, buat entri baru
+            $status = new Status();
+            $status->kelompok = $namaKelompok;
+        }
+        
+        // $status->kelompok = request(['nama']);
+        $status->labirin_3 = Carbon::now();
+        $status->save();
+        return redirect()->intended('/game_elim1');
+    }
+
     /**
      * Display the specified resource.
      */
