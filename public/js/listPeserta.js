@@ -56,17 +56,17 @@ $(document).on('click', '#dataBtn', function() {
             '<img class="gambar-pembayaran" src="' + response.user.kartuPelajarSatu + '" alt="">' +
             '</p>' + 
             '<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">' +
-            'Nama member 1 :' + response.user.namaDua + '<br>' + 
-            'Kontak member 1 :' + response.user.kontakDua + 
+            'Nama member 2 :' + response.user.namaDua + '<br>' + 
+            'Kontak member 2 :' + response.user.kontakDua + 
             '<br>' + 
-            'Foto kartu pelajar member 1:' + 
+            'Foto kartu pelajar member 2:' + 
             '<img class="gambar-pembayaran" src="' + response.user.kartuPelajarDua + '" alt="">' +
             '</p>' + 
             '<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">' +
-            'Nama member 1 :' + response.user.namaTiga + '<br>' + 
-            'Kontak member 1 :' + response.user.kontakTiga + 
+            'Nama member 3 :' + response.user.namaTiga + '<br>' + 
+            'Kontak member 3 :' + response.user.kontakTiga + 
             '<br>' + 
-            'Foto kartu pelajar member 1:' + 
+            'Foto kartu pelajar member 3:' + 
             '<img class="gambar-pembayaran" src="' + response.user.kartuPelajarTiga + '" alt="">' +
             '</p>'
 
