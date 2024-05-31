@@ -54,10 +54,25 @@ $(document).on('click', '#dataBtn', function() {
             '<br>' + 
             'Foto kartu pelajar member 1:' + 
             '<img class="gambar-pembayaran" src="' + response.user.kartuPelajarSatu + '" alt="">' +
+            '</p>' + 
+            '<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">' +
+            'Nama member 1 :' + response.user.namaDua + '<br>' + 
+            'Kontak member 1 :' + response.user.kontakDua + 
+            '<br>' + 
+            'Foto kartu pelajar member 1:' + 
+            '<img class="gambar-pembayaran" src="' + response.user.kartuPelajarDua + '" alt="">' +
+            '</p>' + 
+            '<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">' +
+            'Nama member 1 :' + response.user.namaTiga + '<br>' + 
+            'Kontak member 1 :' + response.user.kontakTiga + 
+            '<br>' + 
+            'Foto kartu pelajar member 1:' + 
+            '<img class="gambar-pembayaran" src="' + response.user.kartuPelajarTiga + '" alt="">' +
             '</p>'
 
             $('.modal-body').empty();
             $('.modal-body').append(body);
+            $('#modal-peserta').attr('role', 'dialog');
 
 
             $("#modal-peserta").show();
