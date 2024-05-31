@@ -26,6 +26,8 @@ Route::group(['as' => 'session.'], function () {
 // ADMIN
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
     Route::get('/', [AdminController::class, 'peserta'])->name('index');
+    Route::get('/getPembayaranUsers/{user:id}', [AdminController::class, 'getPembayaranUser'])->name('index.get.pembayaran');
+    Route::get('/getDataUsers/{user:id}', [AdminController::class, 'getDataUser'])->name('index.get.user');
 
     // Poin
     Route::get('/poin', [AdminController::class, 'poin'])->name('poin');
