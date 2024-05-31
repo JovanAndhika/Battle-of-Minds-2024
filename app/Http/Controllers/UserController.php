@@ -31,23 +31,23 @@ class UserController extends Controller
     {
         // Validasi input
         $validatedData = $request->validate([
-            'asalSekolah' => 'required|string|max:120',
-            'namaKelompok' => 'required|string|max:30',
-            'password' => 'required|string|min:8|max:20',
-            'buktiTransaksi' => 'image|mimes:jpg,png|max:10240',
-            'emailPerwakilan' => 'required|email:dns|string|max:70',
-            'namaSatu' => 'required|string|max:70',
-            'kontakSatu' => 'required|max:30',
-            'kartuPelajarSatu' => 'file|mimes:jpg,png|max:10240',
-            'namaDua' => 'required|string|max:70',
-            'kontakDua' => 'required|max:30',
-            'kartuPelajarDua' => 'file|mimes:jpg,png|max:10240',
-            'namaTiga' => 'required|string|max:70',
-            'kontakTiga' => 'required|max:30',
-            'kartuPelajarTiga' => 'file|mimes:jpg,png|max:10240',
+            'asalSekolah' => 'required|string|max:200',
+            'namaKelompok' => 'required|string|max:200',
+            'password' => 'required|string|min:8|max:100',
+            'buktiTransaksi' => 'image|file|mimes:jpg,png|max:10240',
+            'emailPerwakilan' => 'required|email:dns|string|max:200',
+            'namaSatu' => 'required|string|max:200',
+            'kontakSatu' => 'required|max:200',
+            'kartuPelajarSatu' => 'image|file|mimes:jpg,png|max:10240',
+            'namaDua' => 'required|string|max:200',
+            'kontakDua' => 'required|max:200',
+            'kartuPelajarDua' => 'image|file|mimes:jpg,png|max:10240',
+            'namaTiga' => 'required|string|max:200',
+            'kontakTiga' => 'required|max:200',
+            'kartuPelajarTiga' => 'image|file|mimes:jpg,png|max:10240',
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
-        $password = $request->input('password');
+        $password = $request->input('confirmPass');
         $booleanCheck = Hash::check($password, $validatedData['password']);
         if (!$booleanCheck) {
             return back()->with('password_not_same', '');
@@ -63,20 +63,20 @@ class UserController extends Controller
         }
         // Scan kartu pelajar
         if ($request->file('kartuPelajarSatu')) {
-            $file_kartu_pelajar = $request->file('kartuPelajarSatu');
-            $nama_kartu_pelajar = pathinfo($file_kartu_pelajar->getClientOriginalName(), PATHINFO_FILENAME);
-            $extension = $file_kartu_pelajar->getClientOriginalExtension();
-            $fileNameToStoreKartu = $nama_kartu_pelajar . '.' . $extension;
-            $validatedData['kartuPelajarSatu'] = $file_kartu_pelajar->storeAs('kartu-pelajar-1/', $fileNameToStoreKartu, 'public');
-            $file_kartu_pelajar->move(public_path('kartu-pelajar-1'), $fileNameToStoreKartu);
+            $file_kartu_pelajarSatu = $request->file('kartuPelajarSatu');
+            $nama_kartu_pelajar = pathinfo($file_kartu_pelajarSatu->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file_kartu_pelajarSatu->getClientOriginalExtension();
+            $fileNameToStoreKartuSatu = $nama_kartu_pelajar . '.' . $extension;
+            $validatedData['kartuPelajarSatu'] = $file_kartu_pelajarSatu->storeAs('kartu-pelajar-1/', $fileNameToStoreKartuSatu, 'public');
+            $file_kartu_pelajarSatu->move(public_path('kartu-pelajar-1'), $fileNameToStoreKartuSatu);
         }
         if ($request->file('kartuPelajarDua')) {
-            $file_kartu_pelajar = $request->file('kartuPelajarDua');
-            $nama_kartu_pelajar = pathinfo($file_kartu_pelajar->getClientOriginalName(), PATHINFO_FILENAME);
-            $extension = $file_kartu_pelajar->getClientOriginalExtension();
-            $fileNameToStoreKartu = $nama_kartu_pelajar . '.' . $extension;
-            $validatedData['kartuPelajarDua'] = $file_kartu_pelajar->storeAs('kartu-pelajar-2/', $fileNameToStoreKartu, 'public');
-            $file_kartu_pelajar->move(public_path('kartu-pelajar-2'), $fileNameToStoreKartu);
+            $file_kartu_pelajarDua = $request->file('kartuPelajarDua');
+            $nama_kartu_pelajar = pathinfo($file_kartu_pelajarDua->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file_kartu_pelajarDua->getClientOriginalExtension();
+            $fileNameToStoreKartuDua = $nama_kartu_pelajar . '.' . $extension;
+            $validatedData['kartuPelajarDua'] = $file_kartu_pelajarDua->storeAs('kartu-pelajar-2/', $fileNameToStoreKartuDua, 'public');
+            $file_kartu_pelajarDua->move(public_path('kartu-pelajar-2'), $fileNameToStoreKartuDua);
         }
         if ($request->file('kartuPelajarTiga')) {
             $file_kartu_pelajar = $request->file('kartuPelajarTiga');
@@ -544,7 +544,7 @@ class UserController extends Controller
         return back()->with('success', 'Jawaban anda telah berhasil tersimpan !');
     }
 
-    public function comingSoon() //elim2
+    public function comingSoon() //for coming soon
     {
         return view('user.coming-soon', ['title' => 'BOM 2024 | COMING SOON']);
     }

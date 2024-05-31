@@ -97,7 +97,7 @@
                 <div class="location row-span-2 flex items-center sm:border-l-2 max-sm:border-t-2 sm:pl-5 max-sm:pt-2">
                     <i class="fa-solid fa-location-dot pr-3 lg:text-2xl md:text-lg max-sm:hidden"></i>
                     <a class="text-white font-bold lg:text-lg flex md:text-sm"
-                        href="https://maps.app.goo.gl/4WiVAX6eAcaynNKz7">
+                        href="https://maps.app.goo.gl/TcPJbtnEP9vcKqceA">
                         Fairway Nine Mall Surabaya
                     </a>
                 </div>
@@ -115,7 +115,7 @@
                 <div class="location row-span-2 flex items-center sm:border-l-2 max-sm:border-t-2 sm:pl-5 max-sm:pt-2">
                     <i class="fa-solid fa-location-dot pr-3 lg:text-2xl md:text-lg max-sm:hidden"></i>
                     <a class="text-white font-bold lg:text-lg flex md:text-sm"
-                        href="https://maps.app.goo.gl/4WiVAX6eAcaynNKz7">
+                        href="https://maps.app.goo.gl/TcPJbtnEP9vcKqceA">
                         Fairway Nine Mall Surabaya
                     </a>
                 </div>

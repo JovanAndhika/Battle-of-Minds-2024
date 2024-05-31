@@ -7,6 +7,10 @@
     <link rel="icon" href="{{ asset('asset/icon-logo-bom.png') }}">
 
     <title>{{ $title }}</title>
+    <meta name="description" content="Battle of Minds 2024 merupakan sebuah lomba dengan bentuk kegiatan Numerical Logical Competition yang memadukan 
+        konsep logika matematika dengan permainan yang seru dan menantang untuk mengasah pola pikir siswa siswi SMA/SMK. 
+        Tahun ini, Battle Of Minds 2024 mengangkat tema “Exploring the Depths of Minds” yang memiliki arti seorang 
+        penjelajah yang sedang mendalami pemahaman akan sesuatu. ">
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"

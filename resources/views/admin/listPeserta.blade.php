@@ -174,36 +174,36 @@
                                                 class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Validate</button>
                                         </form>
 
-                                        <script>
-                                            document.getElementById("form{{ $loop->iteration }}").addEventListener("submit", function(event) {
-                                                event.preventDefault(); // Menghentikan aksi bawaan formulir
-                                                Swal.fire({
-                                                    title: "Confirm Validation?",
-                                                    text: "Click yes to validate",
-                                                    icon: "warning",
-                                                    showCancelButton: true,
-                                                    confirmButtonColor: "#3085d6",
-                                                    cancelButtonColor: "#d33",
-                                                    confirmButtonText: "Yes, Validate"
-                                                }).then((result) => {
-                                                    if (result.isConfirmed) {
-                                                        // Lanjutkan dengan pengiriman formulir jika pengguna menekan tombol "Yes"
-                                                        this.submit();
-                                                    }
-                                                });
-                                            });
-                                        </script>
-                                    @else
-                                        Already Validated
-                                    @endif
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+                            <script>
+                                document.getElementById("form{{ $loop->iteration }}").addEventListener("submit", function(event) {
+                                    event.preventDefault(); // Menghentikan aksi bawaan formulir
+                                    Swal.fire({
+                                        title: "Confirm Validation?",
+                                        text: "Click yes to validate",
+                                        icon: "warning",
+                                        showCancelButton: true,
+                                        confirmButtonColor: "#3085d6",
+                                        cancelButtonColor: "#d33",
+                                        confirmButtonText: "Yes, Validate"
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            // Lanjutkan dengan pengiriman formulir jika pengguna menekan tombol "Yes"
+                                            this.submit();
+                                        }
+                                    });
+                                });
+                            </script>
+                            @else
+                            Already Validated
+                            @endif
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
 @endsection
 
 @section('script')

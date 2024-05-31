@@ -30,18 +30,18 @@
             <form action="logout" method="POST" id="logoutform">
                 @csrf
                 <li class="list-item">
-                        <a href="#" onclick="document.getElementById('logoutform').submit(); return false;">
-                            <i>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out">
-                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-                                    <polyline points="16 17 21 12 16 7" />
-                                    <line x1="21" x2="9" y1="12" y2="12" />
-                                </svg>
-                            </i>
-                            <span class="link-name" style="--i:1">Logout</span>
-                        </a>
+                    <a href="#" onclick="document.getElementById('logoutform').submit(); return false;">
+                        <i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-log-out">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                                <polyline points="16 17 21 12 16 7" />
+                                <line x1="21" x2="9" y1="12" y2="12" />
+                            </svg>
+                        </i>
+                        <span class="link-name" style="--i:1">Logout</span>
+                    </a>
                 </li>
             </form>
         @endif
@@ -137,24 +137,25 @@
                 <span class="link-name" style="--i:6">FAQ</span>
             </a>
         </li>
-        <!-- <li class="list-item">
-            <a href="/view">
-                <i>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="lucide lucide-notebook-pen">
-                        <path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4" />
-                        <path d="M2 6h4" />
-                        <path d="M2 10h4" />
-                        <path d="M2 14h4" />
-                        <path d="M2 18h4" />
-                        <path d="M18.4 2.6a2.17 2.17 0 0 1 3 3L16 11l-4 1 1-4Z" />
-                    </svg>
-                </i>
-                <span class="link-name" style="--i:7">Assessment</span>
-            </a>
-        </li> -->
-
+        @if (session('isGuest') || session('isAdmin'))
+            <li class="list-item">
+                <a href="{{ route('user.comingSoon') }}">
+                    <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-notebook-pen">
+                            <path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4" />
+                            <path d="M2 6h4" />
+                            <path d="M2 10h4" />
+                            <path d="M2 14h4" />
+                            <path d="M2 18h4" />
+                            <path d="M18.4 2.6a2.17 2.17 0 0 1 3 3L16 11l-4 1 1-4Z" />
+                        </svg>
+                    </i>
+                    <span class="link-name" style="--i:7">Elimination</span>
+                </a>
+            </li>
+        @endif
         <li class="list-item">
             <a href="/#footer">
                 <i>

@@ -242,7 +242,7 @@
 
                     </div>
                     <div class="col-12 input-box text-center" id="usernameBox">
-                        <input type="text" name="namaKelompok" id="nrp" required placeholder="Username"
+                        <input type="text" name="namaKelompok" id="nrp" required placeholder="Nama Kelompok"
                             value="{{ Session::get('namaKelompok') }}" autocomplete="off">
                     </div>
 

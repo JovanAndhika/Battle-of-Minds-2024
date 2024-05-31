@@ -126,7 +126,7 @@
                     </div>
                 </li>
                 <li class="py-3 flex w-20 justify-center items-center">
-                    <a data-tooltip-target="tiktok" data-tooltip-placement="bottom" href=""
+                    <a data-tooltip-target="tiktok" data-tooltip-placement="bottom" href="https://www.tiktok.com/@battleofminds.pcu?_t=8mFwGVqUy2r&_r=1"
                         class="contacts rounded-xl w-14 h-16 text-black text-4xl p-5 text-center flex justify-center items-center">
                         <i class="fa-brands fa-tiktok" id="tiktok-logo"></i></a>
                     <div id="tiktok" role="tooltip"
