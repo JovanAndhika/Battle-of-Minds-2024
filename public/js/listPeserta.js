@@ -49,6 +49,7 @@ $(document).on('click', '#dataBtn', function() {
         type: "GET",
         success: function (response) {
             var body = '<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">' +
+            'Email Perwakilan : ' + response.user.emailPerwakilan + '<br>'
             'Nama member 1 :' + response.user.namaSatu + '<br>' + 
             'Kontak member 1 :' + response.user.kontakSatu + 
             '<br>' + 
