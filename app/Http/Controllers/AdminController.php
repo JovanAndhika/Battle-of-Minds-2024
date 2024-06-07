@@ -29,11 +29,22 @@ class AdminController extends Controller
         ]);
     }
 
-    public function getPembayaranUser(User $user)
+    public function getPembayaranUser(User $user, Request $request)
+   
     {
-        $img_pembayaran = User::where('id', $user->id)->first();
+        $img = User::where('id', $user->id)->first();
 
-        return response()->json($img_pembayaran->buktiTransaksi);
+        if ($request->modal == 'bayar') {
+            return response()->json($img->buktiTransaksi);
+        } elseif ($request->modal == 'ktm') {
+            if ($request->nomor == 1) {
+                return response()->json($img->kartuPelajarSatu);
+            } elseif ($request->nomor == 2) {
+                return response()->json($img->kartuPelajarDua);
+            } elseif ($request->nomor == 3) {
+                return response()->json($img->kartuPelajarTiga);
+            }
+        }
     }
 
     public function getDataUser(User $user)

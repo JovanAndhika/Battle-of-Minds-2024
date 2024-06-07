@@ -18,12 +18,12 @@
             Swal.fire({
                 icon: 'success',
                 title: 'Berhasil !',
-                text: '{{ session("success") }}'
+                text: '{{ session('success') }}'
             });
         </script>
     @endif
     <section class="cards">
-        <div class="flex lg:flex-row min-[320px]:flex-col justify-center">
+        <div class="flex lg:flex-row max-[450px]:flex-col justify-center">
             <div
                 class="mx-2 flex items-center max-w-sm p-6 border border-gray-200 rounded-lg shadow bg-gray-900 border-gray-700 mt-5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
@@ -71,7 +71,7 @@
             <div class="relative p-4">
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                     <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        <h3 class="data-header text-xl font-semibold text-gray-900 dark:text-white">
                             Data Pembayaran
                         </h3>
                         <button type="button"
@@ -99,8 +99,8 @@
 
         {{-- ================================== MODAL DATA PESERTA ====================================== --}}
         <div id="modal-peserta" tabindex="-1" aria-hidden="true"
-            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-            <div class="relative p-4 w-full max-w-2xl max-h-full">
+            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-40 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative p-4 w-full max-h-full">
                 <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                     <!-- Modal header -->
@@ -118,9 +118,11 @@
                             <span class="sr-only">Close modal</span>
                         </button>
                     </div>
+                    
                     <!-- Modal body -->
-                    <div class="modal-body p-4 md:p-5 space-y-4">
+                    <div class="modal-body modal-body p-4 md:p-5 space-y-4 relative overflow-x-auto">
                     </div>
+
                     <!-- Modal footer -->
                     <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
                         <button type="button" id="closeData"
@@ -152,7 +154,7 @@
                                 <td>{{ $peserta->asalSekolah }}</td>
                                 <td>{{ $peserta->namaKelompok }}</td>
                                 <td>
-                                    <button type="button" data-user-id='{{ $peserta->id }}' id="buktiBtn"
+                                    <button type="button" data-user-id='{{ $peserta->id }}' id="buktiBtn" data-header="bayar"
                                         class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">View
                                         Bukti</button>
                                 </td>
@@ -174,36 +176,36 @@
                                                 class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Validate</button>
                                         </form>
 
-                            <script>
-                                document.getElementById("form{{ $loop->iteration }}").addEventListener("submit", function(event) {
-                                    event.preventDefault(); // Menghentikan aksi bawaan formulir
-                                    Swal.fire({
-                                        title: "Confirm Validation?",
-                                        text: "Click yes to validate",
-                                        icon: "warning",
-                                        showCancelButton: true,
-                                        confirmButtonColor: "#3085d6",
-                                        cancelButtonColor: "#d33",
-                                        confirmButtonText: "Yes, Validate"
-                                    }).then((result) => {
-                                        if (result.isConfirmed) {
-                                            // Lanjutkan dengan pengiriman formulir jika pengguna menekan tombol "Yes"
-                                            this.submit();
-                                        }
-                                    });
-                                });
-                            </script>
-                            @else
-                            Already Validated
-                            @endif
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                                        <script>
+                                            document.getElementById("form{{ $loop->iteration }}").addEventListener("submit", function(event) {
+                                                event.preventDefault(); // Menghentikan aksi bawaan formulir
+                                                Swal.fire({
+                                                    title: "Confirm Validation?",
+                                                    text: "Click yes to validate",
+                                                    icon: "warning",
+                                                    showCancelButton: true,
+                                                    confirmButtonColor: "#3085d6",
+                                                    cancelButtonColor: "#d33",
+                                                    confirmButtonText: "Yes, Validate"
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                        // Lanjutkan dengan pengiriman formulir jika pengguna menekan tombol "Yes"
+                                                        this.submit();
+                                                    }
+                                                });
+                                            });
+                                        </script>
+                                    @else
+                                        Already Validated
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 @endsection
 
 @section('script')
@@ -244,6 +246,6 @@
             },
         });
     </script>
-    
+
     <script src="{{ asset('js/listPeserta.js') }}"></script>
 @endsection

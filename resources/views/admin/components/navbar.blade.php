@@ -61,7 +61,7 @@
 </nav>
 
 <div class="flex justify-center">
-    <div class="flex flex-col justify-center items-center pt-[85px] pb-2 bg-violet-100 rounded-full shadow-xl w-1/2">
+    <div class="flex flex-col justify-center items-center lg:pt-[85px] pb-2 bg-violet-100 rounded-full shadow-xl w-1/2 md:pt-[50px] pt-[50px]">
         <div class="">
             <h1 class="text-3xl text-center uppercase max-md:text-2xl max-sm:text-xl">BOM 2024 Admin</h1>
         </div>
