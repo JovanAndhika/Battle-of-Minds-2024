@@ -401,6 +401,29 @@
             <div class="title d-flex justify-content-center">
                 REGISTRATION
             </div>
+
+            @if ($errors->any())
+            <script>
+                Swal.fire({
+                    title: "Registration failed",
+                    text: "Please check your input data",
+                    icon: "error",
+                    confirmButtonText: "OK"
+                });
+            </script>
+            @endif
+
+            @if (session()->has('registrationFailed'))
+            <script>
+                Swal.fire({
+                    title: "Registration failed",
+                    text: "Please check your input data",
+                    icon: "error",
+                    confirmButtonText: "OK"
+                });
+            </script>
+            @endif
+
             <div class="form-content">
                 <form method="POST" action="{{ route('storeRegistration') }}" enctype="multipart/form-data" id="registration-form" class="registration-form">
                     @csrf
@@ -507,7 +530,7 @@
                         @error('confirmPass')
                         <div class="" style="margin-top: -1%; color:red;">{{ $message }}</div>
                         @enderror
-                        @if (session()->has('password_not_same'))
+                        @if (session('password_not_same'))
                         <div class="mb-3" style="margin-top: -1%; color:red;">Password confirmation doesn't match</div>
                         @endif
                         <script>
@@ -829,6 +852,13 @@
                     // Lanjutkan dengan pengiriman formulir jika pengguna menekan tombol "Yes"
                     this.submit();
                 }
+            });
+        } else {
+            Swal.fire({
+                title: "Form Tidak Valid",
+                text: "Silakan periksa input Anda.",
+                icon: "error",
+                confirmButtonText: "OK"
             });
         };
     });

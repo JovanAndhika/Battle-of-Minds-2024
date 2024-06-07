@@ -29,6 +29,7 @@ class UserController extends Controller
     }
     public function storeRegistration(Request $request)
     {
+
         // Validasi input
         $validatedData = $request->validate([
             'asalSekolah' => 'required|string|max:200',
@@ -86,7 +87,12 @@ class UserController extends Controller
             $validatedData['kartuPelajarTiga'] = $file_kartu_pelajar->storeAs('kartu-pelajar-3/', $fileNameToStoreKartu, 'public');
             $file_kartu_pelajar->move(public_path('kartu-pelajar-3'), $fileNameToStoreKartu);
         }
-        User::create($validatedData);
+
+        if ($validatedData) {
+            User::create($validatedData);
+        }else{
+            return back()->with('registrationFailed', '');
+        }
         // Kembalikan respons ke halaman yang sesuai
         return redirect()->route('grupwa')->with('registrationSuccess', 'Registration Berhasil!');
     }
