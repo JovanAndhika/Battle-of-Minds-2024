@@ -29,13 +29,15 @@ class AdminController extends Controller
         ]);
     }
 
-    public function getPembayaranUser(User $user) {
+    public function getPembayaranUser(User $user)
+    {
         $img_pembayaran = User::where('id', $user->id)->first();
 
         return response()->json($img_pembayaran->buktiTransaksi);
     }
 
-    public function getDataUser(User $user) {
+    public function getDataUser(User $user)
+    {
         $data_user = User::where('id', $user->id)->first();
 
         $user_1 = $data_user->namaSatu;
