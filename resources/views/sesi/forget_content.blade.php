@@ -10,7 +10,7 @@
 </style>
 
 {{-- Konten pengiriman email untuk reset password --}}
-<img style="max-width: 500px;" src="{{ $message->embed(public_path() . '/asset/logo-main.png') }}" alt="">
+<img style="max-width: 500px;" src="{{ asset('asset/logo-main.png') }}" alt="">
 <br>
 <h1>Hai, Kamu ada permintaan reset password, Silahkan klik link di bawah ini untuk melakukan reset password</h1>
 <br><br>
