@@ -37,6 +37,13 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'],
 
     Route::post('/validate', [AdminController::class, 'validasi'])->name('validate');
     Route::post('/setJawaban', [AdminController::class, 'setReady'])->name('setReady');
+
+
+
+    // ElimDua
+    Route::get('/elimdua', [AdminController::class, 'elimduaView'])->name('elimduaView');
+    Route::post('/elimdua/store', [AdminController::class, 'elimduaStore'])->name('elimduaStore');
+
 });
 
 

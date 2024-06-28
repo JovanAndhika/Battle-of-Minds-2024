@@ -41,6 +41,19 @@
                             <path d="M22 6 2 18" />
                         </svg> Poin</a>
                 </li>
+                <li class="hover:bg-[#9290C3] py-2 my-2 rounded-lg hover:ease-in-out hover:transition-all {{ 'admin/poin' == request()->path() ? 'bg-[#9290C3]' : '' }}">
+                    <a href="{{ route('admin.elimduaView') }}"
+                        class="flex py-2 px-3 text-gray-100 rounded text-md font-bold tracking-wider hover:text-gray-800 {{ 'admin/poin' == request()->path() ? 'text-gray-800' : '' }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-tally-5 me-2">
+                            <path d="M4 4v16" />
+                            <path d="M9 4v16" />
+                            <path d="M14 4v16" />
+                            <path d="M19 4v16" />
+                            <path d="M22 6 2 18" />
+                        </svg> ElimDua</a>
+                </li>
                 <li class="hover:bg-[#9290C3] py-2 my-2 rounded-lg hover:ease-in-out hover:transition-all">
                     <form action="/logout" method="post">
                         @csrf
