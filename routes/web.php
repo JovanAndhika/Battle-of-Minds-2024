@@ -48,6 +48,12 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'],
     Route::get('/final', [AdminController::class, 'finalView'])->name('finalView');
     Route::post('/final/store', [AdminController::class, 'finalStore'])->name('finalStore');
 
+    // Lihat History
+    Route::get('/elimdua/leaderboard', [AdminController::class, 'elimduaLeaderboard'])->name('elimduaLeaderboard');
+    Route::get('/elimdua/history', [AdminController::class, 'elimduaHistory'])->name('elimduaHistory');
+    Route::get('/final/leaderboard', [AdminController::class, 'finalLeaderboard'])->name('finalLeaderboard');
+    Route::get('/final/history', [AdminController::class, 'finalHistory'])->name('finalHistory');
+
 });
 
 

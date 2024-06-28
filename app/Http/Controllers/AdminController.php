@@ -264,4 +264,47 @@ class AdminController extends Controller
             return response()->json(['res' => 'Nama Kelompok is not in the database'], 404);
         }
     }
+
+    // Leaderboard
+    public function elimduaLeaderboard(){
+        $index = array_rand($this->welcome);
+
+        return view('admin.elimDuaLeaderboard', [
+            'title' => 'BOM 2024 | Leaderboard Elim Dua',
+            'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok,
+            'pesertas' => Elim_dua::all(),
+        ]);
+    }
+
+    public function finalLeaderboard(){
+        $index = array_rand($this->welcome);
+
+        return view('admin.finalLeaderboard', [
+            'title' => 'BOM 2024 | Leaderboard Elim Dua',
+            'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok,
+            'pesertas' => Babak_final::all(),
+        ]);
+    }
+
+
+    // History
+    public function elimduaHistory(){
+        $index = array_rand($this->welcome);
+
+        return view('admin.elimDuaHistory', [
+            'title' => 'BOM 2024 | Leaderboard Elim Dua',
+            'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok,
+            'pesertas' => Elim_dua_history::all(),
+        ]);
+    }
+
+    public function finalHistory(){
+        $index = array_rand($this->welcome);
+
+        return view('admin.finalHistory', [
+            'title' => 'BOM 2024 | Leaderboard Elim Dua',
+            'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok,
+            'pesertas' => Babak_final_history::all(),
+        ]);
+    }
 }
