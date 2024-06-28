@@ -185,14 +185,27 @@ class AdminController extends Controller
 
     public function elimduaStore(Request $request)
     {
-        $history = new Elim_dua_history;
-        $history->namaKelompok = $request->namaKelompok;
-        $history->poinDidapat = $request->poinDidapat;
-        $history->save();
 
         $validatedData = $request->validate([
             'namaKelompok' => 'required|max:255',
             'poinDidapat' => 'required',
         ]);
+
+        $exist = Elim_dua::where('namaKelompok', $request->namaKelompok)->exists();
+        $jumlahPoin = Elim_dua::where('namaKelompok', $request->namaKelompok)->value('jumlahPoin');
+
+        if ($exist) {
+            $history = new Elim_dua_history;
+            $history->namaKelompok = $request->namaKelompok;
+            $history->poinDidapat = $request->poinDidapat;
+            $history->save();
+            Elim_dua::where('namaKelompok', $request->namaKelompok)
+                ->update(['jumlahPoin' => $jumlahPoin + intval($request->poinDidapat)]);
+
+            return response()->json(['res' => 'Form submitted successfully!'], 200);
+            
+        } else {
+            return response()->json(['res' => 'Nama Kelompok is not in the database'], 404);
+        }
     }
 }

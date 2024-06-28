@@ -90,23 +90,24 @@
                                 success: function(response) {
                                     Swal.fire({
                                         title: "Success!",
-                                        text: "The point has been added successfully.",
+                                        text: response.res,
                                         icon: "success"
                                     });
+                                    $("#namaKelompok").val("");
+                                    $("#poinDidapat").val("");
                                 },
                                 error: function(e) {
-                                    let errorMessage = e.responseJSON.message || "Terjadi kesalahan. Silakan coba lagi.";
+                                    let errorMessage = e.responseJSON && e.responseJSON.res ? e.responseJSON.res : "An error occurred. Please try again.";
+
                                     // Menampilkan alert menggunakan SweetAlert2
                                     Swal.fire({
                                         title: 'Error',
                                         text: errorMessage,
                                         icon: 'error'
                                     });
-                                }
+                                },
                             });
-
-
-                        }
+                        };
                     });
                 });
             });

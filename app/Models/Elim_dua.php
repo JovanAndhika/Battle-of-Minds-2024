@@ -13,6 +13,4 @@ class Elim_dua extends Model
         'namaKelompok',
         'jumlahPoin',
     ];
-
-    protected $timestamps = true;
 }

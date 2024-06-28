@@ -14,5 +14,4 @@ class Elim_dua_history extends Model
         'poinDidapat',
     ];
 
-    protected $timestamps = true;
 }
