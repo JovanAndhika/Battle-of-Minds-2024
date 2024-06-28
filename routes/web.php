@@ -44,6 +44,10 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'],
     Route::get('/elimdua', [AdminController::class, 'elimduaView'])->name('elimduaView');
     Route::post('/elimdua/store', [AdminController::class, 'elimduaStore'])->name('elimduaStore');
 
+    // Final
+    Route::get('/final', [AdminController::class, 'finalView'])->name('finalView');
+    Route::post('/final/store', [AdminController::class, 'finalStore'])->name('finalStore');
+
 });
 
 

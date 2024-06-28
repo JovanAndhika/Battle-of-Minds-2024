@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Models\Set_jawaban_status;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Babak_final;
+use App\Models\Babak_final_history;
 use App\Models\Elim_dua_history;
 
 class AdminController extends Controller
@@ -200,6 +202,60 @@ class AdminController extends Controller
             $history->poinDidapat = $request->poinDidapat;
             $history->save();
             Elim_dua::where('namaKelompok', $request->namaKelompok)
+                ->update(['jumlahPoin' => $jumlahPoin + intval($request->poinDidapat)]);
+
+            return response()->json(['res' => 'Form submitted successfully!'], 200);
+
+        } else {
+            return response()->json(['res' => 'Nama Kelompok is not in the database'], 404);
+        }
+    }
+
+
+
+    // FINAL
+    public function finalView(Request $request)
+    {
+        $index = array_rand($this->welcome);
+
+        if ($request->ajax()) {
+            $data = Babak_final::where('namaKelompok', 'LIKE', $request->namaKelompok . '%')->get();
+            $output = '';
+            if (count($data) > 0) {
+                $output = '<ul class="w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">';
+                foreach ($data as $row) {
+                    $output .= '<li class="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">' . $row->namaKelompok . '</li>';
+                }
+                $output .= '</ul>';
+            } else {
+                $output .= '<li class="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">No Data Found</li>';
+            }
+            return $output;
+        }
+
+        return view('admin.babakFinal', [
+            'title' => 'BOM 2024 | Poin Final',
+            'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok
+        ]);
+    }
+
+    public function finalStore(Request $request)
+    {
+
+        $validatedData = $request->validate([
+            'namaKelompok' => 'required|max:255',
+            'poinDidapat' => 'required',
+        ]);
+
+        $exist = Babak_final::where('namaKelompok', $request->namaKelompok)->exists();
+        $jumlahPoin = Babak_final::where('namaKelompok', $request->namaKelompok)->value('jumlahPoin');
+
+        if ($exist) {
+            $history = new Babak_final_history;
+            $history->namaKelompok = $request->namaKelompok;
+            $history->poinDidapat = $request->poinDidapat;
+            $history->save();
+            Babak_final::where('namaKelompok', $request->namaKelompok)
                 ->update(['jumlahPoin' => $jumlahPoin + intval($request->poinDidapat)]);
 
             return response()->json(['res' => 'Form submitted successfully!'], 200);
