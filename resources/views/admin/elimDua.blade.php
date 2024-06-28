@@ -42,7 +42,7 @@
                         });
                     });
 
-                    $(document).on('click', 'li', function() {
+                    $(document).on('click', 'li.pilihan', function() {
                         var value = $(this).text();
                         $("#namaKelompok").val(value);
                         $("#namaKelompok_list").html("");
