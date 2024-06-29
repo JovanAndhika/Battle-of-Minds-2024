@@ -72,6 +72,8 @@ Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
     // soal minigame elim 1
     Route::get('/soal_labirin1', [UserController::class, 'soal_labirin1']) -> name ('soal_labirin1');
     Route::post('/soal_labirin1', [StatusController::class, 'labirin1']);
+    Route::post('/soal_labirin2', [StatusController::class, 'labirin2']);
+    Route::post('/soal_labirin3', [StatusController::class, 'labirin3']);
     Route::get('/soal_labirin2', [StatusController::class, 'labirin2']) -> name ('soal_labirin2');
     Route::get('/soal_labirin3', [StatusController::class, 'labirin3']) -> name ('soal_labirin3');
 
