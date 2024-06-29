@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Data_jawaban;
+use App\Models\Kunci_jawaban;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Status;
@@ -31,6 +32,7 @@ class UserController extends Controller
     }
     public function storeRegistration(Request $request)
     {
+
         // Validasi input
         $validatedData = $request->validate([
             'asalSekolah' => 'required|string|max:200',
@@ -88,7 +90,12 @@ class UserController extends Controller
             $validatedData['kartuPelajarTiga'] = $file_kartu_pelajar->storeAs('kartu-pelajar-3/', $fileNameToStoreKartu, 'public');
             $file_kartu_pelajar->move(public_path('kartu-pelajar-3'), $fileNameToStoreKartu);
         }
-        User::create($validatedData);
+
+        if ($validatedData) {
+            User::create($validatedData);
+        }else{
+            return back()->with('registrationFailed', '');
+        }
         // Kembalikan respons ke halaman yang sesuai
         return redirect()->route('grupwa')->with('registrationSuccess', 'Registration Berhasil!');
     }
@@ -186,7 +193,57 @@ class UserController extends Controller
                 ]);
         }
 
-        return back()->with('simpan_success', 'your answer has been saved');
+        $kuncis = Kunci_jawaban::orderBy('id')->get();
+        $count = 0;
+        $iterasi = 1;
+
+
+        foreach ($kuncis as $kunci) {
+            $jawaban = Data_jawaban::where('kunci_jawabans_id', $iterasi++)
+                ->where('jawaban_kelompok', $kunci->jawaban)->first();
+            if (!$jawaban) {
+                $count++;
+            }
+        }
+
+        if ($request->page) {
+            if ($request->page == 1) {
+                return redirect()->route('user.elim_satu')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 2) {
+                return redirect()->route('user.elim_satuB')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 3) {
+                return redirect()->route('user.elim_satuC')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 4) {
+                return redirect()->route('user.elim_satuD')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 5) {
+                return redirect()->route('user.elim_satuE')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 6) {
+                return redirect()->route('user.elim_satuF')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            }
+        }
+
+        return back()->with([
+            'success' => 'Jawaban anda telah berhasil tersimpan !',
+            'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+        ]);
     }
 
     public function simpan_jawabanB(Request $request)
@@ -201,7 +258,54 @@ class UserController extends Controller
                 ]);
         }
 
-        return back()->with('simpan_success', 'your answer has been saved');
+        $kuncis = Kunci_jawaban::orderBy('id')->get();
+        $count = 0;
+        $iterasi = 1;
+
+
+        foreach ($kuncis as $kunci) {
+            $jawaban = Data_jawaban::where('kunci_jawabans_id', $iterasi++)
+                ->where('jawaban_kelompok', $kunci->jawaban)->first();
+            if (!$jawaban) {
+                $count++;
+            }
+        }
+
+        if ($request->page) {
+            if ($request->page == 1) {
+                return redirect()->route('user.elim_satu')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 2) {
+                return redirect()->route('user.elim_satuB')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 3) {
+                return redirect()->route('user.elim_satuC')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 4) {
+                return redirect()->route('user.elim_satuD')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 5) {
+                return redirect()->route('user.elim_satuE')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 6) {
+                return redirect()->route('user.elim_satuF')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            }
+        }
+
+        return back()->with('success', 'Jawaban anda telah berhasil tersimpan !');
     }
 
     public function simpan_jawabanC(Request $request)
@@ -216,7 +320,54 @@ class UserController extends Controller
                 ]);
         }
 
-        return back()->with('simpan_success', 'your answer has been saved');
+        $kuncis = Kunci_jawaban::orderBy('id')->get();
+        $count = 0;
+        $iterasi = 1;
+
+
+        foreach ($kuncis as $kunci) {
+            $jawaban = Data_jawaban::where('kunci_jawabans_id', $iterasi++)
+                ->where('jawaban_kelompok', $kunci->jawaban)->first();
+            if (!$jawaban) {
+                $count++;
+            }
+        }
+
+        if ($request->page) {
+            if ($request->page == 1) {
+                return redirect()->route('user.elim_satu')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 2) {
+                return redirect()->route('user.elim_satuB')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 3) {
+                return redirect()->route('user.elim_satuC')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 4) {
+                return redirect()->route('user.elim_satuD')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 5) {
+                return redirect()->route('user.elim_satuE')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 6) {
+                return redirect()->route('user.elim_satuF')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            }
+        }
+
+        return back()->with('success', 'Jawaban anda telah berhasil tersimpan !');
     }
 
     public function simpan_jawabanD(Request $request)
@@ -231,7 +382,54 @@ class UserController extends Controller
                 ]);
         }
 
-        return back()->with('simpan_success', 'your answer has been saved');
+        $kuncis = Kunci_jawaban::orderBy('id')->get();
+        $count = 0;
+        $iterasi = 1;
+
+
+        foreach ($kuncis as $kunci) {
+            $jawaban = Data_jawaban::where('kunci_jawabans_id', $iterasi++)
+                ->where('jawaban_kelompok', $kunci->jawaban)->first();
+            if (!$jawaban) {
+                $count++;
+            }
+        }
+
+        if ($request->page) {
+            if ($request->page == 1) {
+                return redirect()->route('user.elim_satu')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 2) {
+                return redirect()->route('user.elim_satuB')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 3) {
+                return redirect()->route('user.elim_satuC')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 4) {
+                return redirect()->route('user.elim_satuD')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 5) {
+                return redirect()->route('user.elim_satuE')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 6) {
+                return redirect()->route('user.elim_satuF')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            }
+        }
+
+        return back()->with('success', 'Jawaban anda telah berhasil tersimpan !');
     }
 
     public function simpan_jawabanE(Request $request)
@@ -246,7 +444,54 @@ class UserController extends Controller
                 ]);
         }
 
-        return back()->with('simpan_success', 'your answer has been saved');
+        $kuncis = Kunci_jawaban::orderBy('id')->get();
+        $count = 0;
+        $iterasi = 1;
+
+
+        foreach ($kuncis as $kunci) {
+            $jawaban = Data_jawaban::where('kunci_jawabans_id', $iterasi++)
+                ->where('jawaban_kelompok', $kunci->jawaban)->first();
+            if (!$jawaban) {
+                $count++;
+            }
+        }
+
+        if ($request->page) {
+            if ($request->page == 1) {
+                return redirect()->route('user.elim_satu')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 2) {
+                return redirect()->route('user.elim_satuB')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 3) {
+                return redirect()->route('user.elim_satuC')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 4) {
+                return redirect()->route('user.elim_satuD')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 5) {
+                return redirect()->route('user.elim_satuE')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 6) {
+                return redirect()->route('user.elim_satuF')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            }
+        }
+
+        return back()->with('success', 'Jawaban anda telah berhasil tersimpan !');
     }
 
     public function simpan_jawabanF(Request $request)
@@ -261,7 +506,54 @@ class UserController extends Controller
                 ]);
         }
 
-        return back()->with('simpan_success', 'your answer has been saved');
+        $kuncis = Kunci_jawaban::orderBy('id')->get();
+        $count = 0;
+        $iterasi = 1;
+
+
+        foreach ($kuncis as $kunci) {
+            $jawaban = Data_jawaban::where('kunci_jawabans_id', $iterasi++)
+                ->where('jawaban_kelompok', $kunci->jawaban)->first();
+            if (!$jawaban) {
+                $count++;
+            }
+        }
+
+        if ($request->page) {
+            if ($request->page == 1) {
+                return redirect()->route('user.elim_satu')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 2) {
+                return redirect()->route('user.elim_satuB')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 3) {
+                return redirect()->route('user.elim_satuC')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 4) {
+                return redirect()->route('user.elim_satuD')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 5) {
+                return redirect()->route('user.elim_satuE')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 6) {
+                return redirect()->route('user.elim_satuF')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            }
+        }
+
+        return back()->with('success', 'Jawaban anda telah berhasil tersimpan !');
     }
 
     public function comingSoon() //for coming soon

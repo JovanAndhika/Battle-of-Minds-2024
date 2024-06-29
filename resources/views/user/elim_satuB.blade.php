@@ -19,6 +19,18 @@
                 inputElement.classList.add('checked');
             }
         }
+
+        function submit_pagination() {
+            var input = document.createElement('Input');
+            var simpan_jawaban_form = document.getElementById('simpan-jawaban');
+            input.setAttribute('type', 'hidden');
+            input.setAttribute('name', 'page');
+            input.setAttribute('value', '2');
+
+            simpan_jawaban_form.appendChild(input);
+            simpan_jawaban_form.submit();
+            
+        }
     </script>
     <form method="POST" action="{{ route('user.simpan_jawabanB') }}" id="simpan-jawaban" class="form-simpan-jawaban">
         @csrf
@@ -40,10 +52,7 @@
                         @endphp
                     </div>
                 @endif
-            @endforeach
-            <div class="d-flex justify-content-center mt-3">
-                <button type="submit" id="btn-save-jawaban" class="btn btn-primary">SAVE</button>
-            </div>
+            @endforeach            
         </div>
     </form>
 @endsection

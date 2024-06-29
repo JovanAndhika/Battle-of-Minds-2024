@@ -27,6 +27,8 @@ Route::group(['as' => 'session.'], function () {
 // ADMIN
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
     Route::get('/', [AdminController::class, 'peserta'])->name('index');
+    Route::get('/getPembayaranUsers/{user:id}', [AdminController::class, 'getPembayaranUser'])->name('index.get.pembayaran');
+    Route::get('/getDataUsers/{user:id}', [AdminController::class, 'getDataUser'])->name('index.get.user');
 
     // Poin
     Route::get('/poin', [AdminController::class, 'poin'])->name('poin');
@@ -34,10 +36,25 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'],
 
     Route::get('/jawaban/{user:namaKelompok}', [AdminController::class, 'jawaban'])->name('jawaban');
 
-    Route::get('/selection', [AdminController::class, 'adminSelection'])->name('adminSelection');
-
     Route::post('/validate', [AdminController::class, 'validasi'])->name('validate');
     Route::post('/setJawaban', [AdminController::class, 'setReady'])->name('setReady');
+
+
+
+    // ElimDua
+    Route::get('/elimdua', [AdminController::class, 'elimduaView'])->name('elimduaView');
+    Route::post('/elimdua/store', [AdminController::class, 'elimduaStore'])->name('elimduaStore');
+
+    // Final
+    Route::get('/final', [AdminController::class, 'finalView'])->name('finalView');
+    Route::post('/final/store', [AdminController::class, 'finalStore'])->name('finalStore');
+
+    // Lihat History
+    Route::get('/elimdua/leaderboard', [AdminController::class, 'elimduaLeaderboard'])->name('elimduaLeaderboard');
+    Route::get('/elimdua/history', [AdminController::class, 'elimduaHistory'])->name('elimduaHistory');
+    Route::get('/final/leaderboard', [AdminController::class, 'finalLeaderboard'])->name('finalLeaderboard');
+    Route::get('/final/history', [AdminController::class, 'finalHistory'])->name('finalHistory');
+
 });
 
 

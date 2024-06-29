@@ -1,25 +1,25 @@
 @extends('layout.elim_satu_layout')
 
 @section('form_soal')
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        for (var angka = 1; angka <= 50; angka++) {
-            cekNilai(angka);
-        }
-    });
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            for (var angka = 1; angka <= 50; angka++) {
+                cekNilai(angka);
+            }
+        });
 
-    function cekNilai(questionNumber) {
-        var inputName = 'biggamesanswer' + questionNumber;
-        var nilai = document.getElementById(inputName).value;
-        var inputElement = document.getElementById(inputName);
+        function cekNilai(questionNumber) {
+            var inputName = 'biggamesanswer' + questionNumber;
+            var nilai = document.getElementById(inputName).value;
+            var inputElement = document.getElementById(inputName);
 
-        if (nilai === null || nilai === '') {
-            inputElement.classList.remove('checked');
-        } else {
-            inputElement.classList.add('checked');
+            if (nilai === null || nilai === '') {
+                inputElement.classList.remove('checked');
+            } else {
+                inputElement.classList.add('checked');
+            }
         }
-    }
-</script>
+    </script>
     <form method="POST" action="{{ route('user.simpan_jawabanA') }}" id="simpan-jawaban" class="form-simpan-jawaban">
         @csrf
         <div id="question-container">
@@ -41,9 +41,6 @@
                     </div>
                 @endif
             @endforeach
-            <div class="d-flex justify-content-center mt-3">
-                <button type="submit" id="btn-save-jawaban" class="btn btn-primary">SAVE</button>
-            </div>
         </div>
     </form>
 @endsection
