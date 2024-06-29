@@ -417,7 +417,7 @@
         -webkit-box-shadow: 0px 0px 10px 7px rgba(255, 255, 255, 0.4);
         -moz-box-shadow: 0px 0px 10px 7px rgba(255, 255, 255, 0.4);
     }
-</style>
+</style>s
 {{-- CONTENT HERE --}}
 <h2 class="text-center" id='title'>Mini Game Elimination 1</h2>
 
