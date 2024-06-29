@@ -94,7 +94,7 @@
                 <div class="w-full flex justify-center items-center mt-2">
                     {{-- Real Assessment link --}}
                     <a class="btn border-2 w-11/12 text-center h-[40px] mt-3 flex items-center justify-center rounded-xl !backdrop-blur-xl"
-                        href="{{ route('user.elim_satu', ['id' => $idUser]) }}" type="button">ENTER</a>
+                        href="{{ route('user.elim_satu') }}" type="button">ENTER</a>
 
                     {{-- Coming soon for assessment page --}}
                     {{-- <a class="btn border-2 w-11/12 text-center h-[40px] mt-3 flex items-center justify-center rounded-xl !backdrop-blur-xl"
@@ -108,7 +108,7 @@
                 <div class="w-full flex justify-center items-center mt-2">
                     {{-- Real Assessment link --}}
                     <a class="btn border-2 w-11/12 text-center h-[40px] mt-3 flex items-center justify-center rounded-xl !backdrop-blur-xl"
-                        href="{{ route('user.game_elim1', ['id' => $idUser]) }}" type="button">ENTER</a>
+                        href="{{ route('user.game_elim1') }}" type="button">ENTER</a>
 
                     {{-- Coming soon for assessment page --}}
                     {{-- <a class="btn border-2 w-11/12 text-center h-[40px] mt-3 flex items-center justify-center rounded-xl !backdrop-blur-xl"

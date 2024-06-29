@@ -7,9 +7,7 @@
 </head>
 <body>
     <style>
-        htm{
-            background-image: {{ asset('asset/bg-bom-main.png') }} ;
-        }
+    
     </style>
 </body>
 </html>

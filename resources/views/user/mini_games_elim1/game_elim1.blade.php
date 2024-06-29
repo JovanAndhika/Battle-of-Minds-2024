@@ -7,7 +7,7 @@
 <!-- style -->
 <style>
     body {
-        color: white; 
+        color: white;
         overflow-x: hidden;
         min-width: 100vw;
         min-height: 100vh;
@@ -15,18 +15,18 @@
         background-size: cover;
         background-position: center 30%;
         margin: 0;
-        padding: 0;  
+        padding: 0;
     }
 
-    
+
     .card {
         background: linear-gradient(125deg, rgba(61, 37, 84, 1) 0%, rgba(123, 48, 176, 1) 51%, rgba(120, 27, 55, 1) 100%);
         animation: moveGradient 10s linear infinite;
         box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1);
         -webkit-box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1);
-        -moz-box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1); */
+        -moz-box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1);
         background-size: 400%;
-    
+
     }
 
     @keyframes moveGradient {
@@ -54,8 +54,8 @@
             0 0 38px #8048e0,
             0 0 73px #5f48e0;
     }
-    
-/* GEMBOK styles */
+
+    /* GEMBOK styles */
     *,
     *:after,
     *:before {
@@ -180,10 +180,16 @@
     }
 
     @keyframes blink {
-        0%, 24%, 27%, 100% {
+
+        0%,
+        24%,
+        27%,
+        100% {
             transform: scaleY(1);
         }
-        25%, 26% {
+
+        25%,
+        26% {
             transform: scaleY(0);
         }
     }
@@ -270,14 +276,14 @@
         clip-path: polygon(0 0, 100% 0, 100% calc(var(--clip) * 1%), 50% calc(var(--clip) * 1%), 50% 100%, 0 100%);
     }
 
-    .padlock__hook > div {
+    .padlock__hook>div {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
 
-    .padlock__hook > div:nth-of-type(1) {
+    .padlock__hook>div:nth-of-type(1) {
         width: 100%;
         height: 100%;
         border: 36px solid #000;
@@ -285,7 +291,7 @@
         clip-path: polygon(0 0, 100% 0, 100% calc(calc(var(--clip) * 1%) + 8px), 50% calc(calc(var(--clip) * 1%) + 8px), 50% 100%, 0 100%);
     }
 
-    .padlock__hook > div:nth-of-type(2) {
+    .padlock__hook>div:nth-of-type(2) {
         width: calc(100% - 16px);
         height: calc(100% - 16px);
         border: 20px solid hsl(0, 0%, 75%);
@@ -294,225 +300,238 @@
     }
 
 
-        /* Functionality */
-        [type='password']:valid ~ #login,
-        [type='password']:valid ~ [for='login'] {
-            visibility: visible;
-        }
+    /* Functionality */
+    [type='password']:valid~#login,
+    [type='password']:valid~[for='login'] {
+        visibility: visible;
+    }
 
-        [type='password']:valid ~ [for='login']:hover ~ .padlock .padlock__mouth--one,
-        [type='password']:valid ~ [for='login']:hover ~ .padlock .padlock__mouth--two {
-            display: none;
-        }
+    [type='password']:valid~[for='login']:hover~.padlock .padlock__mouth--one,
+    [type='password']:valid~[for='login']:hover~.padlock .padlock__mouth--two {
+        display: none;
+    }
 
-        [type='password']:valid ~ [for='login']:hover ~ .padlock .padlock__mouth--three {
-            display: block;
-        }
+    [type='password']:valid~[for='login']:hover~.padlock .padlock__mouth--three {
+        display: block;
+    }
 
-        [type='password']:valid ~ .padlock .padlock__mouth--one {
-            display: none;
-        }
+    [type='password']:valid~.padlock .padlock__mouth--one {
+        display: none;
+    }
 
-        [type='password']:valid ~ .padlock .padlock__mouth--two {
-            display: block;
-        }
+    [type='password']:valid~.padlock .padlock__mouth--two {
+        display: block;
+    }
 
-        [type='password']:valid ~ .padlock .padlock__hook {
-            --pos: 60;
-            --delay: 0;
-        }
-        
-        #login,
-        [for='login'],
-        .logout-message {
-            visibility: hidden;
-        }
+    [type='password']:valid~.padlock .padlock__hook {
+        --pos: 60;
+        --delay: 0;
+    }
 
-      
-   
+    #login,
+    [for='login'],
+    .logout-message {
+        visibility: hidden;
+    }
 
 
-     
+
+
+
+
 
     @keyframes float {
         0% {
             transform: translateY(0);
         }
+
         50% {
             transform: translateY(-5px);
         }
+
         100% {
             transform: translateY(0);
         }
     }
 
-    .padlock  {
+    .padlock {
         animation: float 2s ease-in-out infinite;
     }
 
 
-        /* CSS detail dalam card */
-        .card {
-            margin-top: 20px;
-            width: 18rem; 
-            border-radius: 10px;
-          
-          
-        }
-       
-        #password {
-            margin-top: -10px;
-            width: 250px;
-            height: 30px;
-            font-size: 14px;
-        }
+    /* CSS detail dalam card */
+    .card {
+        margin-top: 20px;
+        width: 18rem;
+        border-radius: 10px;
 
-        .padlock {
-            margin-top: 20px;
-        }
 
-        .card-title{
-            font-size: 30px;
-            margin-top: 10px;
-            font-weight: 900;
-            font-weight: bold;
-            letter-spacing: 0.3rem;
-            text-shadow:
-                0 0 4px #fff,
-                0 0 10px #fff,
-                0 0 38px #8048e0,
-                0 0 73px #5f48e0;
-        }
+    }
 
-        .card-body{
-            display: flex; 
-            flex-direction: column; 
-            align-items: center;
+    #password {
+        margin-top: -10px;
+        width: 250px;
+        height: 30px;
+        font-size: 14px;
+    }
 
-        }
+    .padlock {
+        margin-top: 20px;
+    }
 
-        .login-button {
+    .card-title {
+        font-size: 30px;
+        margin-top: 10px;
+        font-weight: 900;
+        font-weight: bold;
+        letter-spacing: 0.3rem;
+        text-shadow:
+            0 0 4px #fff,
+            0 0 10px #fff,
+            0 0 38px #8048e0,
+            0 0 73px #5f48e0;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .login-button {
         width: 100px;
-        height: 30px; 
+        height: 30px;
         margin-top: 12px;
-        background-color: rgba(255, 255, 255, 0.17) ;
-        backdrop-filter: blur(40px) ;
-        border: 1px solid #ccc; 
-        border-radius: 3px; 
-        cursor: pointer; 
+        background-color: rgba(255, 255, 255, 0.17);
+        backdrop-filter: blur(40px);
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        cursor: pointer;
         text-align: center;
-      
-        }
 
-        .login-button:hover {
-            box-shadow: 0px 0px 10px 7px rgba(255, 255, 255, 0.4);
-            -webkit-box-shadow: 0px 0px 10px 7px rgba(255, 255, 255, 0.4);
-            -moz-box-shadow: 0px 0px 10px 7px rgba(255, 255, 255, 0.4);
-        }
+    }
+
+    .login-button:hover {
+        box-shadow: 0px 0px 10px 7px rgba(255, 255, 255, 0.4);
+        -webkit-box-shadow: 0px 0px 10px 7px rgba(255, 255, 255, 0.4);
+        -moz-box-shadow: 0px 0px 10px 7px rgba(255, 255, 255, 0.4);
+    }
 </style>
+{{-- CONTENT HERE --}}
+<h2 class="text-center" id='title'>Mini Game Elimination 1</h2>
 
-    {{-- CONTENT HERE --}}
-    <h2 class="text-center" id='title'>Mini Game Elimination 1</h2>
+{{-- START CARD --}}
+<div style="display: flex; gap: 30px; justify-content: center;">
+    {{-- card 1 --}}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Labirin 1</h5>
+            <form onsubmit="return false;">
+                {{-- <label for="password">Password</label> --}}
+                <input id="password" type="password" pattern="rzxqfsvhg" placeholder="Enter your password" required>
+                @if($lab1 == null)
+                <label class="login-button" for="login">
+                    <a href="{{ route('user.soal_labirin1') }}" class="text-white text-decoration-none"> Next </a>
+                </label>
+                @else
+                <span class="text-muted">Completed Labirin 1</span>
+                @endif
 
-    {{-- START CARD --}}
-    <div style="display: flex; gap: 30px; justify-content: center;">
-        {{-- card 1 --}}
-        <div class="card"> 
-            <div class="card-body">
-                <h5 class="card-title">Labirin 1</h5>
-                <form onsubmit="return false;">
-                    {{-- <label for="password">Password</label> --}}
-                    <input id="password" type="password" pattern="rzxqfsvhg" placeholder="Enter your password" required >
-                    
-                    <label class="login-button" for="login">
-                        <a href="{{route('user.soal_labirin1')}}" class="text-white text-decoration-none"> Next </a>
-                    </label>
-                    
-                    <div class="padlock">
-                        <div class="padlock__hook">
-                            <div class="padlock__hook-body"></div>
-                            <div class="padlock__hook-body"></div>
-                        </div>
-                        <div class="padlock__body">
-                            <div class="padlock__face">
-                                <div class="padlock__eye padlock__eye--left"></div>
-                                <div class="padlock__eye padlock__eye--right"></div>
-                                <div class="padlock__mouth padlock__mouth--one"></div>
-                                <div class="padlock__mouth padlock__mouth--two"></div>
-                                <div class="padlock__mouth padlock__mouth--three"></div>
-                            </div>
+                <div class="padlock">
+                    <div class="padlock__hook">
+                        <div class="padlock__hook-body"></div>
+                        <div class="padlock__hook-body"></div>
+                    </div>
+                    <div class="padlock__body">
+                        <div class="padlock__face">
+                            <div class="padlock__eye padlock__eye--left"></div>
+                            <div class="padlock__eye padlock__eye--right"></div>
+                            <div class="padlock__mouth padlock__mouth--one"></div>
+                            <div class="padlock__mouth padlock__mouth--two"></div>
+                            <div class="padlock__mouth padlock__mouth--three"></div>
                         </div>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
-    
-        {{-- card 2 --}}
-        <div class="card"> 
-            <div class="card-body">
-                <h5 class="card-title">Labirin 2</h5>
-                <form onsubmit="return false;">
-                    {{-- <label for="password">Password</label> --}}
-                    <input id="password" type="password" pattern="otraegpv" placeholder="Enter your password" required>
-                    
-                    <label class="login-button" for="login">
-                        <a href="{{route('user.soal_labirin2')}}" class="text-white text-decoration-none"> Next </a>
-                    </label>
-                    
-                    <div class="padlock">
-                        <div class="padlock__hook">
-                            <div class="padlock__hook-body"></div>
-                            <div class="padlock__hook-body"></div>
-                        </div>
-                        <div class="padlock__body">
-                            <div class="padlock__face">
-                                <div class="padlock__eye padlock__eye--left"></div>
-                                <div class="padlock__eye padlock__eye--right"></div>
-                                <div class="padlock__mouth padlock__mouth--one"></div>
-                                <div class="padlock__mouth padlock__mouth--two"></div>
-                                <div class="padlock__mouth padlock__mouth--three"></div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        {{-- card 3 --}}
-        <div class="card"> 
-            <div class="card-body" >
-                <h5 class="card-title">Labirin 3</h5>
-                <form onsubmit="return false;">
-                    {{-- <label for="password">Password</label> --}}
-                    <input id="password" type="password" pattern="password123" placeholder="Enter your password" required >
-                    
-                    <label class="login-button" for="login">
-                        <a href="{{route('user.soal_labirin3')}}" class="text-white text-decoration-none"> Next </a>
-                    </label>
-                    
-                    <div class="padlock">
-                        <div class="padlock__hook">
-                            <div class="padlock__hook-body"></div>
-                            <div class="padlock__hook-body"></div>
-                        </div>
-                        <div class="padlock__body">
-                            <div class="padlock__face">
-                                <div class="padlock__eye padlock__eye--left"></div>
-                                <div class="padlock__eye padlock__eye--right"></div>
-                                <div class="padlock__mouth padlock__mouth--one"></div>
-                                <div class="padlock__mouth padlock__mouth--two"></div>
-                                <div class="padlock__mouth padlock__mouth--three"></div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        {{-- end card --}}
     </div>
-    
- 
 
-    
+    {{-- card 2 --}}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Labirin 2</h5>
+            <form onsubmit="return false;">
+                {{-- <label for="password">Password</label> --}}
+                <input id="password" type="password" pattern="otraegpv" placeholder="Enter your password" required>
+                @if($lab2 == null)
+                <label class="login-button" for="login">
+                    <a href="{{ route('user.soal_labirin2') }}" class="text-white text-decoration-none"> Next </a>
+                </label>
+                @else
+                <span class="text-muted">Completed Labirin 2</span>
+                @endif
+                <!-- <label class="login-button" for="login">
+                        <a href="{{route('user.soal_labirin2')}}" class="text-white text-decoration-none"> Next </a>
+                    </label> -->
+
+                <div class="padlock">
+                    <div class="padlock__hook">
+                        <div class="padlock__hook-body"></div>
+                        <div class="padlock__hook-body"></div>
+                    </div>
+                    <div class="padlock__body">
+                        <div class="padlock__face">
+                            <div class="padlock__eye padlock__eye--left"></div>
+                            <div class="padlock__eye padlock__eye--right"></div>
+                            <div class="padlock__mouth padlock__mouth--one"></div>
+                            <div class="padlock__mouth padlock__mouth--two"></div>
+                            <div class="padlock__mouth padlock__mouth--three"></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {{-- card 3 --}}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Labirin 3</h5>
+            <form onsubmit="return false;">
+                {{-- <label for="password">Password</label> --}}
+                <input id="password" type="password" pattern="password123" placeholder="Enter your password" required>
+                @if($lab3 == null)
+                <label class="login-button" for="login">
+                    <a href="{{ route('user.soal_labirin3') }}" class="text-white text-decoration-none"> Next </a>
+                </label>
+                @else
+                <span class="text-muted">Completed Labirin 3 </span>
+                @endif
+
+                <div class="padlock">
+                    <div class="padlock__hook">
+                        <div class="padlock__hook-body"></div>
+                        <div class="padlock__hook-body"></div>
+                    </div>
+                    <div class="padlock__body">
+                        <div class="padlock__face">
+                            <div class="padlock__eye padlock__eye--left"></div>
+                            <div class="padlock__eye padlock__eye--right"></div>
+                            <div class="padlock__mouth padlock__mouth--one"></div>
+                            <div class="padlock__mouth padlock__mouth--two"></div>
+                            <div class="padlock__mouth padlock__mouth--three"></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {{-- end card --}}
+</div>
+
+
+
+
 @endsection

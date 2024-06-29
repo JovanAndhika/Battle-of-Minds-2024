@@ -24,7 +24,7 @@
         animation: moveGradient 10s linear infinite;
         box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1);
         -webkit-box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1);
-        -moz-box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1); */
+        -moz-box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1); 
         background-size: 400%;
     
     }
@@ -95,7 +95,8 @@
   <div class="w-screen h-screen flex flex-col justify-center items-center">
     <div class="container h-[300px] flex flex-col justify-center items-center">
         <div class="form-box">
-            <form>
+            <form method="post" action="/soal_labirin3/store">
+              @csrf
               <div class="form-group">
                 <label for="formGroupExampleInput">C(11,5) </label>
                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
