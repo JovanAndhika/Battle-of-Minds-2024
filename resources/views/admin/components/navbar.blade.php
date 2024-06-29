@@ -65,7 +65,7 @@
                 </li>
                 <li
                     class="hover:bg-[#9290C3] py-2 my-2 rounded-lg hover:ease-in-out hover:transition-all {{ 'admin/elimdua/leaderboard' == request()->path() || 'admin/final/leaderboard' == request()->path() ? 'bg-[#9290C3]' : '' }}">
-                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
+                    <button id="dropdownDefaultButtonLeaderboard" data-dropdown-toggle="dropdownLeaderboard"
                         class="flex py-2 px-3 text-gray-100 rounded text-md font-bold tracking-wider hover:text-gray-800 {{ 'admin/elimdua/leaderboard' == request()->path() || 'admin/final/leaderboard' == request()->path() ? 'text-gray-800' : '' }}"
                         type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -81,10 +81,10 @@
                         </svg>
                     </button>
                     <!-- Dropdown menu -->
-                    <div id="dropdown"
+                    <div id="dropdownLeaderboard"
                         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                            aria-labelledby="dropdownDefaultButton">
+                            aria-labelledby="dropdownDefaultButtonLeaderboard">
                             <li>
                                 <a href="{{ route('admin.elimduaLeaderboard') }}"
                                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Elim
@@ -100,7 +100,7 @@
                 </li>
                 <li
                     class="hover:bg-[#9290C3] py-2 my-2 rounded-lg hover:ease-in-out hover:transition-all {{ 'admin/elimdua/history' == request()->path() || 'admin/final/history' == request()->path() ? 'bg-[#9290C3]' : '' }}">
-                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
+                    <button id="dropdownDefaultButtonHistory" data-dropdown-toggle="dropdownHistory"
                         class="flex py-2 px-3 text-gray-100 rounded text-md font-bold tracking-wider hover:text-gray-800 {{ 'admin/elimdua/history' == request()->path() || 'admin/final/history' == request()->path() ? 'text-gray-800' : '' }}"
                         type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -115,10 +115,10 @@
                         </svg>
                     </button>
                     <!-- Dropdown menu -->
-                    <div id="dropdown"
+                    <div id="dropdownHistory"
                         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                            aria-labelledby="dropdownDefaultButton">
+                            aria-labelledby="dropdownDefaultButtonHistory">
                             <li>
                                 <a href="{{ route('admin.elimduaHistory') }}"
                                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Elim
