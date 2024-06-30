@@ -3,6 +3,17 @@
 {{-- BOM 2024 | Soal Labirin 1 --}}
 @section('title', $title)
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Document</title>
+</head>
+<body>
+
 @section('content')
 {{-- style --}}
 <style>
@@ -108,6 +119,9 @@
       background-color: rgba(255, 255, 255, 0.6);
       justify-content: center;
     }
+
+    .incorrect { color: red; }
+    .correct { color: green; }
 </style>
 
 
@@ -126,88 +140,72 @@
   <div class="w-screen h-screen flex flex-col justify-center items-center">
     <div class="container h-[300px] flex flex-col justify-center items-center">
         <div class="form-box">
-            <form method="post" action="/soal_labirin1" name="formlabirin1">
+        <form name="formlabirin1" id="formlabirin1">
               @csrf
-              <div class="form-group">
-                <label for="formGroupExampleInput">7027 + 8291 + 6207 + 7626 </label>
-                <input type="text" class="form-control" name='nama'id="formGroupExampleInput" placeholder="Answer here" onkeyup="checkAnswer()" inputmode="numeric" pattern="[0-9]*">
-                <!-- 29151 -->
-              </div>
-              <div class="form-group">
-                <label for="formGroupExampleInput">9989 + 2373 + 5863 + 8542 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here" onkeyup="checkAnswer()">
-                <!-- 26767 -->
-              </div>
-              <div class="form-group">
-                <label for="formGroupExampleInput">3178 + 5545 + 2667 + 7960 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here" onkeyup="checkAnswer()">
-                <!-- 19350 -->
-              </div>
-              <div class="form-group">
-                <label for="formGroupExampleInput">3812 + 9237 - 1722 + 8901 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here" onkeyup="checkAnswer()">
-                <!-- 20228 -->
-              </div>
-              <div class="form-group">
-                <label for="formGroupExampleInput">8747 + 1492 + 1388 + 5127 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here" onkeyup="checkAnswer()">
-                <!-- 16754 -->
-              </div>
-              <div class="form-group">
-                <label for="formGroupExampleInput">9074 + 6908 + 9851 + 3595 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here" onkeyup="checkAnswer()">
-                <!--29428  -->
-              </div>
-              <div clpass="form-group">
-                <label for="formGroupExampleInput">2856 + 8674 + 9326 + 5026 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here" onkeyup="checkAnswer()">
-                <!--25882  -->
-              </div>
-              <div class="form-group">
-                <label for="formGroupExampleInput">6620 + 7514 + 5993 + 1937 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here" onkeyup="checkAnswer()">
-                <!--22064  -->
-              </div>
-              <div class="form-group">
-                <label for="formGroupExampleInput">4578 + 7660 + 9780 + 1939 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here" onkeyup="checkAnswer()">
-                <!-- 23957 -->
-              </div>
-              <div class="form-group">
-                <label for="formGroupExampleInput">1096 - 4330 + 8701 + 5481 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here" onkeyup="checkAnswer()">
-                <!--10948  -->
-              </div>
-              <div class="form-group">
-                <label for="formGroupExampleInput">3785 + 7378 + 1959 + 9396 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here" onkeyup="checkAnswer()">
-                <!--22518  -->
-              </div>
-              <div class="form-group">
-                <label for="formGroupExampleInput">4845 + 1721 + 7525 + 8693 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here" onkeyup="checkAnswer()">
-                <!-- 22784 -->
-              </div>
-              <div class="form-group">
-                <label for="formGroupExampleInput">5350 + 1636 + 2467 + 5902 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here" onkeyup="checkAnswer()">
-                <!-- 15355 -->
-              </div>
-              <div class="form-group">
-                <label for="formGroupExampleInput">3731 + 1670 + 1644 + 6667 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here" onkeyup="checkAnswer()">
-                <!-- 13712 -->
-              </div>
-              <div class="form-group">
-                <label for="formGroupExampleInput">5372 + 3681 - 1839 - 6265 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here" onkeyup="checkAnswer()">
-                <!--949  -->
-              </div>
-              <div class="form-group">
-                <label for="formGroupExampleInput">2060 + 3174 + 7773 + 4004 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here" onkeyup="checkAnswer()">
-                <!-- 17011 -->
-              </div>
+                <div class="form-group">
+                  <label for="question-1">7027 + 8291 + 6207 + 7626</label>
+                  <input type="number" class="form-control" id="question-1" name="question-1" placeholder="Answer here" onkeyup="checkAnswer()">
+                </div>
+                <div class="form-group">
+                  <label for="question-2">9989 + 2373 + 5863 + 8542</label>
+                  <input type="number" class="form-control" id="question-2" name="question-2" placeholder="Answer here" onkeyup="checkAnswer()">
+                </div>
+                <div class="form-group">
+                  <label for="question-3">3178 + 5545 + 2667 + 7960</label>
+                  <input type="number" class="form-control" id="question-3" name="question-3" placeholder="Answer here" onkeyup="checkAnswer()">
+                </div>
+                <div class="form-group">
+                  <label for="question-4">3812 + 9237 - 1722 + 8901</label>
+                  <input type="number" class="form-control" id="question-4" name="question-4" placeholder="Answer here" onkeyup="checkAnswer()">
+                </div>
+                <div class="form-group">
+                  <label for="question-5">8747 + 1492 + 1388 + 5127</label>
+                  <input type="number" class="form-control" id="question-5" name="question-5" placeholder="Answer here" onkeyup="checkAnswer()">
+                </div>
+                <div class="form-group">
+                  <label for="question-6">9074 + 6908 + 9851 + 3595</label>
+                  <input type="number" class="form-control" id="question-6" name="question-6" placeholder="Answer here" onkeyup="checkAnswer()">
+                </div>
+                <div class="form-group">
+                  <label for="question-7">2856 + 8674 + 9326 + 5026</label>
+                  <input type="number" class="form-control" id="question-7" name="question-7" placeholder="Answer here" onkeyup="checkAnswer()">
+                </div>
+                <div class="form-group">
+                  <label for="question-8">6620 + 7514 + 5993 + 1937</label>
+                  <input type="number" class="form-control" id="question-8" name="question-8" placeholder="Answer here" onkeyup="checkAnswer()">
+                </div>
+                <div class="form-group">
+                  <label for="question-9">4578 + 7660 + 9780 + 1939</label>
+                  <input type="number" class="form-control" id="question-9" name="question-9" placeholder="Answer here" onkeyup="checkAnswer()">
+                </div>
+                <div class="form-group">
+                  <label for="question-10">1096 - 4330 + 8701 + 5481</label>
+                  <input type="number" class="form-control" id="question-10" name="question-10" placeholder="Answer here" onkeyup="checkAnswer()">
+                </div>
+                <div class="form-group">
+                  <label for="question-11">3785 + 7378 + 1959 + 9396</label>
+                  <input type="number" class="form-control" id="question-11" name="question-11" placeholder="Answer here" onkeyup="checkAnswer()">
+                </div>
+                <div class="form-group">
+                  <label for="question-12">4845 + 1721 + 7525 + 8693</label>
+                  <input type="number" class="form-control" id="question-12" name="question-12" placeholder="Answer here" onkeyup="checkAnswer()">
+                </div>
+                <div class="form-group">
+                  <label for="question-13">5350 + 1636 + 2467 + 5902</label>
+                  <input type="number" class="form-control" id="question-13" name="question-13" placeholder="Answer here" onkeyup="checkAnswer()">
+                </div>
+                <div class="form-group">
+                  <label for="question-14">3731 + 1670 + 1644 + 6667</label>
+                  <input type="number" class="form-control" id="question-14" name="question-14" placeholder="Answer here" onkeyup="checkAnswer()">
+                </div>
+                <div class="form-group">
+                  <label for="question-15">5372 + 3681 - 1839 - 6265</label>
+                  <input type="number" class="form-control" id="question-15" name="question-15" placeholder="Answer here" onkeyup="checkAnswer()">
+                </div>
+                <div class="form-group">
+                  <label for="question-16">2060 + 3174 + 7773 + 4004</label>
+                  <input type="number" class="form-control" id="question-16" name="question-16" placeholder="Answer here" onkeyup="checkAnswer()">
+                </div>
 
               {{-- submit --}}
               <button type="submit" class="btn btn-primary mb-2" id="submitBtn" disabled="disabled">Submit</button>
@@ -219,56 +217,63 @@
 </div>
 
 <script>
-  function checkAnswer(){
+// $(document).ready(function() {
+//     var form = document.forms["formlabirin1"].elements;
+
+//     $("formlabirin1").submit(function(event) {
+//       event.preventDefault();
+//       var submit = $submitBtn
+//       for(var i = 0; i < form.length; i++){
+//         if(form[i].type() === "number"){
+//           var userAnswer = form[i].val();
+//         }
+//       }
+
+//       $(".form-message").load("/check-answer", {
+        
+//       })
+
+//     });
+//   });
+  function checkAnswer() {
     var form = document.forms["formlabirin1"].elements;
-    var allAnswerCorrect = true;
-
-    // var answerArray = [ 
-    //   29151,  // 7027 + 8291 + 6207 + 7626
-    //   26767,  // 9989 + 2373 + 5863 + 8542
-    //   19350,  // 3178 + 5545 + 2667 + 7960
-    //   20228,  // 3812 + 9237 - 1722 + 8901
-    //   16754,  // 8747 + 1492 + 1388 + 5127
-    //   29428,  // 9074 + 6908 + 9851 + 3595
-    //   25882,  // 2856 + 8674 + 9326 + 5026
-    //   22064,  // 6620 + 7514 + 5993 + 1937
-    //   23957,  // 4578 + 7660 + 9780 + 1939
-    //   10948,  // 1096 - 4330 + 8701 + 5481
-    //   22518,  // 3785 + 7378 + 1959 + 9396
-    //   22784,  // 4845 + 1721 + 7525 + 8693
-    //   15355,  // 5350 + 1636 + 2467 + 5902
-    //   13712,  // 3731 + 1670 + 1644 + 6667
-    //   949,    // 5372 + 3681 - 1839 - 6265
-    //   17011  // 2060 + 3174 + 7773 + 4004
-    // ];
-
-    var answerArray = [
-      0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-    ]
-    
-    var answerIndex = 0;
-    for (var i = 0; i < form.length; i++){
-      if(form[i].type === "text"){
-        if(parseInt(form[i].value) === answerArray[answerIndex]){
-
-        } 
-        else{
-          form[i].value="";
-          allAnswerCorrect = false;
-        }
-        answerIndex++;
+    var answers = [];
+    for (var i = 0; i < form.length; i++) {
+      if (form[i].type === "number") {
+        answers.push(form[i].value);
       }
     }
-
-    if(allAnswerCorrect){
-      document.getElementById("submitBtn").disabled = false;
-      console.log("true")
-    }
-    else{
-      document.getElementById("submitBtn").disabled = true;
-      console.log("false")
-    }
+    $.ajax({
+      type: "POST",
+      url: "/check-answer",
+      data: {
+        answers: answers,
+        _token: $('meta[name="csrf-token"]').attr('content')
+      },
+      success: function(response) {
+        if (response.status === "success") {
+          // enable submit button if all answers are correct
+          $("#submitBtn").prop("disabled", false);
+        } else {
+          // show error message if any answer is incorrect
+          $(".form-message").html(response.message);
+          // clear incorrect answers
+          $.each(response.incorrectAnswers, function(index, value) {
+            $("#" + value).val("");
+          });
+        }
+      }
+    });
   }
+
+  $(document).ready(function(){
+    $.ajaxSetup({
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+  });
+
 
   function displayModal() {
     var modal = document.getElementById('popupModal');
