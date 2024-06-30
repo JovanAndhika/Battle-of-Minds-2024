@@ -83,6 +83,17 @@
 @section('content')
 
     <body>
+
+        @if (session()->has('success'))
+            <script>
+                Swal.fire({
+                    icon: 'success', 
+                    title: "{{ session('success') }}",
+                    text: "{{ session('count') }}"
+                });
+            </script>
+        @endif
+
         <div class="container">
             <div class="header">
                 <h1 class="text-center title my-4">ASSESSMENT</h1>
@@ -93,6 +104,7 @@
 
             </div>
         </div>
+        <button type="button" onclick="submit_jawaban()" id="btn-save-jawaban" class="btn btn-primary">SAVE</button>
 
         <style>
             #btn-save-jawaban {
@@ -115,22 +127,22 @@
             <div id="timer" class="mb-3 fs-3 d-flex justify-content-center"></div>
             <ul id="pagination" class="pagination d-flex justify-content-center">
                 <li class="page-item">
-                    <a class="page-link" href="{{ route('user.elim_satu') }}" id="pagination1">1</a>
+                    <a class="page-link" onclick="submit_pagination(1)" id="pagination1">1</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="{{ route('user.elim_satuB') }}" id="pagination2">2</a>
+                    <a class="page-link" onclick="submit_pagination(2)" id="pagination2">2</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="{{ route('user.elim_satuC') }}" id="pagination3">3</a>
+                    <a class="page-link" onclick="submit_pagination(3)" id="pagination3">3</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="{{ route('user.elim_satuD') }}" id="pagination4">4</a>
+                    <a class="page-link" onclick="submit_pagination(4)" id="pagination4">4</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="{{ route('user.elim_satuE') }}" id="pagination5">5</a>
+                    <a class="page-link" onclick="submit_pagination(5)" id="pagination5">5</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="{{ route('user.elim_satuF') }}" id="pagination6">6</a>
+                    <a class="page-link" onclick="submit_pagination(6)" id="pagination6">6</a>
                 </li>
             </ul>
         </div>
@@ -138,7 +150,7 @@
 
     <script>
         var now = new Date().getTime();
-        var timer = new Date("May 12, 2024 23:30:00").getTime();
+        var timer = new Date("May 13, 2024 23:30:00").getTime();
 
         var countdownTime = timer - now;; // misalnya, 60 detik
 
@@ -169,6 +181,22 @@
             timerDisplay.innerHTML = (hours < 10 ? "0" : "") + hours + ":" +
                 (minutes < 10 ? "0" : "") + minutes + ":" +
                 (seconds < 10 ? "0" : "") + seconds;
+        }
+
+        function submit_jawaban() {
+            document.getElementById('simpan-jawaban').submit();
+        }
+
+        function submit_pagination(page_value) {
+            var input = document.createElement('Input');
+            var simpan_jawaban_form = document.getElementById('simpan-jawaban');
+            input.setAttribute('type', 'hidden');
+            input.setAttribute('name', 'page');
+            input.setAttribute('value', page_value);
+
+            simpan_jawaban_form.appendChild(input);
+            simpan_jawaban_form.submit();
+            
         }
     </script>
 @endsection

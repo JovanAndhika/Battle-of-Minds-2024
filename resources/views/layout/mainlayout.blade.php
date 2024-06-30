@@ -33,7 +33,7 @@
         integrity="sha512-eyHL1atYNycXNXZMDndxrDhNAegH2BDWt1TmkXJPoGf1WLlNYt08CSjkqF5lnCRmdm3IrkHid8s2jOUY4NIZVQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Geologica&display=swap');
