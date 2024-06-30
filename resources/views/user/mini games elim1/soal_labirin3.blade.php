@@ -24,7 +24,7 @@
         animation: moveGradient 10s linear infinite;
         box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1);
         -webkit-box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1);
-        -moz-box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1); */
+        -moz-box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1); 
         background-size: 400%;
     
     }

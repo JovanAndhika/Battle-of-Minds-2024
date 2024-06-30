@@ -24,7 +24,7 @@
         animation: moveGradient 10s linear infinite;
         box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1);
         -webkit-box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1);
-        -moz-box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1); */
+        -moz-box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1); 
         background-size: 400%;
     
     }
@@ -97,118 +97,118 @@
         <div class="form-box">
             <form>
               <div class="form-group">
-                <label for="formGroupExampleInput">331 × 60 + 1527 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question1">331 × 60 + 1527 </label>
+                <input type="text" class="form-control" id="question1" placeholder="Answer here">
                 <!-- 21387 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">132 × 44 + 1850 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question2">132 × 44 + 1850 </label>
+                <input type="text" class="form-control" id="question2" placeholder="Answer here">
                 <!-- 7658 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">1651 + 240 - 615 + 14312 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question3">1651 + 240 - 615 + 14312 </label>
+                <input type="text" class="form-control" id="question3" placeholder="Answer here">
                 <!-- 15588 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">354 × 61 + 2681 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question4">354 × 61 + 2681 </label>
+                <input type="text" class="form-control" id="question4" placeholder="Answer here">
                 <!-- 24275 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">(88 - 69) × 89 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question5">(88 - 69) × 89 </label>
+                <input type="text" class="form-control" id="question5" placeholder="Answer here">
                 <!-- 1691 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">1999 + 70 × 42 ÷ 15 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question6">1999 + 70 × 42 ÷ 15 </label>
+                <input type="text" class="form-control" id="question6" placeholder="Answer here">
                 <!-- 2195 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">3647 + 763 + 930 + 18614 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question7">3647 + 763 + 930 + 18614 </label>
+                <input type="text" class="form-control" id="question7" placeholder="Answer here">
                 <!-- 23954 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">1117 + 25 × 357 ÷ 17 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question8">1117 + 25 × 357 ÷ 17 </label>
+                <input type="text" class="form-control" id="question8" placeholder="Answer here">
                 <!-- 1642 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">1318 + 327 + 200 + 44384 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question9">1318 + 327 + 200 + 44384 </label>
+                <input type="text" class="form-control" id="question9" placeholder="Answer here">
                 <!-- 46229 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">386 × 47 + 4392 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question10">386 × 47 + 4392 </label>
+                <input type="text" class="form-control" id="question10" placeholder="Answer here">
                 <!-- 22534 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">315 × 56 + 1218 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question11">315 × 56 + 1218 </label>
+                <input type="text" class="form-control" id="question11" placeholder="Answer here">
                 <!-- 18858 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">-509 + 91 × 70 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question12">-509 + 91 × 70 </label>
+                <input type="text" class="form-control" id="question12" placeholder="Answer here">
                 <!-- 5861 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">5462 + 41 × 65 ÷ 13 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question13">5462 + 41 × 65 ÷ 13 </label>
+                <input type="text" class="form-control" id="question13" placeholder="Answer here">
                 <!-- 5667 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">2672 + 428 + 945 + 48974 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question14">2672 + 428 + 945 + 48974 </label>
+                <input type="text" class="form-control" id="question14" placeholder="Answer here">
                 <!-- 53019 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">223 + 14 × 93 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question15">223 + 14 × 93 </label>
+                <input type="text" class="form-control" id="question15" placeholder="Answer here">
                 <!-- 1525 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">110 × 59 - 2425 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question16">110 × 59 - 2425 </label>
+                <input type="text" class="form-control" id="question16" placeholder="Answer here">
                 <!-- 4065 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">2203 - 78 × 15 ÷ 18 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question17">2203 - 78 × 15 ÷ 18 </label>
+                <input type="text" class="form-control" id="question17" placeholder="Answer here">
                 <!-- 2138 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">2344 + 201 + 671 + 14739 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question18">2344 + 201 + 671 + 14739 </label>
+                <input type="text" class="form-control" id="question18" placeholder="Answer here">
                 <!-- 17955 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">(97 - 38) × 56 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question19">(97 - 38) × 56 </label>
+                <input type="text" class="form-control" id="question19" placeholder="Answer here">
                 <!-- 3304 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">973 + 76 × 27 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question20">973 + 76 × 27 </label>
+                <input type="text" class="form-control" id="question20" placeholder="Answer here">
                 <!-- 3025 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">4883 + 81 × 32 ÷ 12 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question21">4883 + 81 × 32 ÷ 12 </label>
+                <input type="text" class="form-control" id="question21" placeholder="Answer here">
                 <!-- 5099 -->
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput">5652 + 24 × 31 ÷ 12 </label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Answer here">
+                <label for="question22">5652 + 24 × 31 ÷ 12 </label>
+                <input type="text" class="form-control" id="question22" placeholder="Answer here">
                 <!-- 5714 -->
               </div>
 
               {{-- submit --}}
-              <button type="submit" class="btn btn-primary mb-2">Submit</button>
+              <button type="submit" id="submitButton" class="btn btn-primary mb-2">Submit</button>
 
               {{-- end form --}}
             </form>
