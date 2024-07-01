@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Status extends Model
 {
-    
+    protected $table = 'statuses';
     protected $guarded = ['id'];
     protected $fillable = ['labirin_1','labirin_2','labirin_3'];
     use HasFactory;

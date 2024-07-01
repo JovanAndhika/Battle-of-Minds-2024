@@ -430,28 +430,28 @@
 
             <!-- INPUT GEMBOK -->
             <form id="labirin-satu">
-                <input name="password-labirin-satu" id="password-labirin-satu" type="password" placeholder="Enter your password" required>
+                <input id="password-labirin-satu" type="password" placeholder="Enter your password" required>
                 @if($lab1 == null)
-                <button type="submit" class="text-white text-decoration-none">Submit</a>
-                    @else
-                    <span class="text-muted">Completed Labirin 1</span>
-                    @endif
+                <button type="submit" class="btn btn-primary text-white text-decoration-none">Submit</button>
+                @else
+                <span class="text-muted">Completed Labirin 1</span>
+                @endif
 
-                    <div class="padlock">
-                        <div class="padlock__hook">
-                            <div class="padlock__hook-body"></div>
-                            <div class="padlock__hook-body"></div>
-                        </div>
-                        <div class="padlock__body">
-                            <div class="padlock__face">
-                                <div class="padlock__eye padlock__eye--left"></div>
-                                <div class="padlock__eye padlock__eye--right"></div>
-                                <div class="padlock__mouth padlock__mouth--one"></div>
-                                <div class="padlock__mouth padlock__mouth--two"></div>
-                                <div class="padlock__mouth padlock__mouth--three"></div>
-                            </div>
+                <div class="padlock">
+                    <div class="padlock__hook">
+                        <div class="padlock__hook-body"></div>
+                        <div class="padlock__hook-body"></div>
+                    </div>
+                    <div class="padlock__body">
+                        <div class="padlock__face">
+                            <div class="padlock__eye padlock__eye--left"></div>
+                            <div class="padlock__eye padlock__eye--right"></div>
+                            <div class="padlock__mouth padlock__mouth--one"></div>
+                            <div class="padlock__mouth padlock__mouth--two"></div>
+                            <div class="padlock__mouth padlock__mouth--three"></div>
                         </div>
                     </div>
+                </div>
             </form>
         </div>
     </div>
@@ -467,7 +467,7 @@
                     type: 'POST',
                     url: '{{ route("user.labirin1_validate") }}', // URL endpoint untuk validasi password
                     data: {
-                        password: inputPassword,
+                        password_labirin_satu: inputPassword,
                         _token: '{{ csrf_token() }}' // Token CSRF untuk keamanan Laravel
                     },
                     success: function(response) {
@@ -490,7 +490,7 @@
                             });
                         }
                     },
-                    error: function() {
+                    error: function(xhr, status, error) {
                         Swal.fire({
                             title: 'Error',
                             text: 'An error occurred. Please try again.',
@@ -509,29 +509,29 @@
 
             <!-- INPUT GEMBOK -->
             <form id="labirin-dua">
-                <input name="password-labirin-dua" id="password-labirin-dua" type="password" placeholder="Enter your password" required>
+                <input id="password-labirin-dua" type="password" placeholder="Enter your password" required>
                 @if($lab2 == null)
-                <button type="submit" class="text-white text-decoration-none">Submit</a>
-                    @else
-                    <span class="text-muted">Completed Labirin 2</span>
-                    @endif
+                <button type="submit" class="btn btn-primary text-white text-decoration-none">Submit</button>
+                @else
+                <span class="text-muted">Completed Labirin 2</span>
+                @endif
 
 
-                    <div class="padlock">
-                        <div class="padlock__hook">
-                            <div class="padlock__hook-body"></div>
-                            <div class="padlock__hook-body"></div>
-                        </div>
-                        <div class="padlock__body">
-                            <div class="padlock__face">
-                                <div class="padlock__eye padlock__eye--left"></div>
-                                <div class="padlock__eye padlock__eye--right"></div>
-                                <div class="padlock__mouth padlock__mouth--one"></div>
-                                <div class="padlock__mouth padlock__mouth--two"></div>
-                                <div class="padlock__mouth padlock__mouth--three"></div>
-                            </div>
+                <div class="padlock">
+                    <div class="padlock__hook">
+                        <div class="padlock__hook-body"></div>
+                        <div class="padlock__hook-body"></div>
+                    </div>
+                    <div class="padlock__body">
+                        <div class="padlock__face">
+                            <div class="padlock__eye padlock__eye--left"></div>
+                            <div class="padlock__eye padlock__eye--right"></div>
+                            <div class="padlock__mouth padlock__mouth--one"></div>
+                            <div class="padlock__mouth padlock__mouth--two"></div>
+                            <div class="padlock__mouth padlock__mouth--three"></div>
                         </div>
                     </div>
+                </div>
             </form>
         </div>
     </div>
@@ -547,7 +547,7 @@
                     type: 'POST',
                     url: '{{ route("user.labirin2_validate") }}', // URL endpoint untuk validasi password
                     data: {
-                        password: inputPassword,
+                        password_labirin_dua: inputPassword,
                         _token: '{{ csrf_token() }}' // Token CSRF untuk keamanan Laravel
                     },
                     success: function(response) {
@@ -570,7 +570,7 @@
                             });
                         }
                     },
-                    error: function() {
+                    error: function(xhr, status, error) {
                         Swal.fire({
                             title: 'Error',
                             text: 'An error occurred. Please try again.',
@@ -589,31 +589,33 @@
 
             <!-- INPUT GEMBOK -->
             <form id="labirin-tiga">
-                <input name="password-labirin-tiga" id="password-labirin-tiga" type="password" placeholder="Enter your password" required>
+                <input id="password-labirin-tiga" type="password" placeholder="Enter your password" required>
                 @if($lab3 == null)
-                <button type="submit" class="text-white text-decoration-none">Submit</a>
-                    @else
-                    <span class="text-muted">Completed Labirin 3</span>
-                    @endif
+                <button type="submit" class="btn btn-primary text-white text-decoration-none">Submit</button>
+                @else
+                <span class="text-muted">Completed Labirin 3</span>
+                @endif
 
-                    <div class="padlock">
-                        <div class="padlock__hook">
-                            <div class="padlock__hook-body"></div>
-                            <div class="padlock__hook-body"></div>
-                        </div>
-                        <div class="padlock__body">
-                            <div class="padlock__face">
-                                <div class="padlock__eye padlock__eye--left"></div>
-                                <div class="padlock__eye padlock__eye--right"></div>
-                                <div class="padlock__mouth padlock__mouth--one"></div>
-                                <div class="padlock__mouth padlock__mouth--two"></div>
-                                <div class="padlock__mouth padlock__mouth--three"></div>
-                            </div>
+                <div class="padlock">
+                    <div class="padlock__hook">
+                        <div class="padlock__hook-body"></div>
+                        <div class="padlock__hook-body"></div>
+                    </div>
+                    <div class="padlock__body">
+                        <div class="padlock__face">
+                            <div class="padlock__eye padlock__eye--left"></div>
+                            <div class="padlock__eye padlock__eye--right"></div>
+                            <div class="padlock__mouth padlock__mouth--one"></div>
+                            <div class="padlock__mouth padlock__mouth--two"></div>
+                            <div class="padlock__mouth padlock__mouth--three"></div>
                         </div>
                     </div>
+                </div>
             </form>
         </div>
     </div>
+
+
 
     <script>
         $(document).ready(function() {
@@ -626,7 +628,7 @@
                     type: 'POST',
                     url: '{{ route("user.labirin3_validate") }}', // URL endpoint untuk validasi password
                     data: {
-                        password: inputPassword,
+                        password_labirin_tiga: inputPassword,
                         _token: '{{ csrf_token() }}' // Token CSRF untuk keamanan Laravel
                     },
                     success: function(response) {
@@ -649,7 +651,7 @@
                             });
                         }
                     },
-                    error: function() {
+                    error: function(xhr, status, error) {
                         Swal.fire({
                             title: 'Error',
                             text: 'An error occurred. Please try again.',
@@ -660,11 +662,9 @@
             });
         });
     </script>
-
     {{-- end card --}}
-</div>
 
 
 
 
-@endsection
+    @endsection

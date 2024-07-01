@@ -87,7 +87,7 @@ Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
 
     // soal minigame elim 1
     Route::get('/soal_labirin1fgkaprWrJ71k9fs7T5hwqriiO82almi4sm0fd', [UserController::class, 'labirin1_soal'])->name('labirin1_soal');
-    Route::get('/soal_labirin2piOffYzjA9cxI5Meq1BN5fr90lW6ax8D6K4y1', [UserController::class, 'labirin2_soal'])->name('labirin2_Soal');
+    Route::get('/soal_labirin2piOffYzjA9cxI5Meq1BN5fr90lW6ax8D6K4y1', [UserController::class, 'labirin2_soal'])->name('labirin2_soal');
     Route::get('/soal_labirin3pRS2wbLeKD067XyA3L5g8hCi05D9Ai8u0R5P0', [UserController::class, 'labirin3_soal'])->name('labirin3_soal');
 
     Route::post('/soal_labirin1/validate', [UserController::class, 'labirin1_validate'])->name('labirin1_validate');

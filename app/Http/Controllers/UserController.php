@@ -105,7 +105,7 @@ class UserController extends Controller
     {
         $user_name = DB::select('select namaKelompok from users where id = ?', [auth()->user()->id]);
         $results = $user_name[0]->namaKelompok;
-        return view('user.view', ['title' => 'BOM 2024 | COMING SOON', 'username' => $results, 'idUser' => auth()->user()->id]);
+        return view('user.view', ['title' => 'BOM 2024 | WELCOME TO ELIM 1', 'username' => $results, 'idUser' => auth()->user()->id]);
     }
     public function grupwa()
     {
@@ -571,13 +571,14 @@ class UserController extends Controller
         $user = auth()->user()->id;
         $namaKelompok = User::where('id', $user)->value('namaKelompok');
         $status = Status::where('kelompok', $namaKelompok)->first();
+        $lab1 = null;
+        $lab2 = null;
+        $lab3 = null;
         if ($status) {
             $lab1 =  $status->labirin_1;
             $lab2 = $status->labirin_2;
             $lab3 = $status->labirin_3;
-        } else {
-        }
-
+        } 
         return view('user.mini_games_elim1.game_elim1', ['title' => 'BOM 2024 | MiniGame Elimination 1', 'lab1' => $lab1, 'lab2' => $lab2, 'lab3' => $lab3]);
     }
 
@@ -636,15 +637,15 @@ class UserController extends Controller
         return redirect()->intended('/game_elim1');
     }
 
-    
+
 
     // Validation Labirin
     public function labirin1_validate(Request $request)
     {
-        $inputPassword = $request->input('password-labirin-satu');
-        $correctPassword = 'AD'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
+        $inputPassword = $request->input('password_labirin_satu');
+        $password_labirin_satu = 'AD'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
 
-        if ($inputPassword === $correctPassword) {
+        if ($inputPassword === $password_labirin_satu) {
             return response()->json(['valid' => true]);
         } else {
             return response()->json(['valid' => false]);
@@ -652,10 +653,10 @@ class UserController extends Controller
     }
     public function labirin2_validate(Request $request)
     {
-        $inputPassword = $request->input('password-labirin-dua');
-        $correctPassword = 'XASK'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
+        $inputPassword = $request->input('password_labirin_dua');
+        $password_labirin_dua = 'XASK'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
 
-        if ($inputPassword === $correctPassword) {
+        if ($inputPassword === $password_labirin_dua) {
             return response()->json(['valid' => true]);
         } else {
             return response()->json(['valid' => false]);
@@ -663,7 +664,7 @@ class UserController extends Controller
     }
     public function labirin3_validate(Request $request)
     {
-        $inputPassword = $request->input('password-labirin-tiga');
+        $inputPassword = $request->input('password_labirin_tiga');
         $correctPassword = 'SLX'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
 
         if ($inputPassword === $correctPassword) {

@@ -95,7 +95,7 @@
   <div class="w-screen h-screen flex flex-col justify-center items-center">
     <div class="container h-[300px] flex flex-col justify-center items-center">
         <div class="form-box">
-            <form method="post" action="/soal_labirin1/store">
+            <form method="post" action="{{ route('user.labirin1_store') }}">
               @csrf
               <div class="form-group">
                 <label for="formGroupExampleInput">7027 + 8291 + 6207 + 7626 </label>
