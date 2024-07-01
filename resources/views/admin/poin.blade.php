@@ -17,6 +17,7 @@
                     <thead class="bg-gray-900 text-gray-50">
                         <tr>
                             <th>No</th>
+                            <th>Asal Sekolah</th>
                             <th>Nama Kelompok</th>
                             <th>Jumlah Poin</th>
                             <th>Jawaban</th>
@@ -26,6 +27,7 @@
                         @foreach ($pesertas as $peserta)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                <td>{{ $peserta->asalSekolah }}</td>
                                 <td>{{ $peserta->namaKelompok }}</td>
                                 <td>
                                     <form class="max-w-md" action="{{ route('admin.poin.update') }}" method="post">
@@ -43,7 +45,7 @@
                                             @enderror
                                             <input type="text" id="default-search" value="{{ $peserta->poin }}"
                                                 name="poin"
-                                                class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+                                                class="block w-full md:ps-10 md:p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                                                 required />
                                             @error('poin')
                                                 <script>
@@ -55,7 +57,7 @@
                                                 </script>
                                             @enderror
                                             <button type="submit"
-                                                class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Update</button>
+                                                class="text-white md:absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Update</button>
                                         </div>
                                     </form>
                                 </td>
