@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PaketAController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\StatusController;
 
 //HOMEPAGE
 Route::get('/', [UserController::class, 'index'])->name('index');
@@ -81,5 +82,17 @@ Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
     Route::post('/save-jawabanE', [UserController::class, 'simpan_jawabanE'])->name('simpan_jawabanE');
     Route::post('/save-jawabanF', [UserController::class, 'simpan_jawabanF'])->name('simpan_jawabanF');
     // Coming Soon
-    Route::get('/coming-soon', [UserController::class, 'comingSoon'])->name('comingSoon');
+    Route::get('/coming-soon', [UserController::class, 'comingSoon']) -> name ('comingSoon');
+    // Masuk Labirin
+    // Route::get('/game_elim1/{id}', [StatusController::class, 'enterLabirin'])->name('user.game_elim1');
+    // minigame elim 1
+    Route::get('/game_elim1', [UserController::class, 'game_elim1']) -> name ('game_elim1');
+    // soal minigame elim 1
+    Route::get('/soal_labirin1', [UserController::class, 'soal_labirin1']) -> name ('soal_labirin1');
+    Route::get('/soal_labirin2', [UserController::class, 'soal_labirin2']) -> name ('soal_labirin2');
+    Route::get('/soal_labirin3', [UserController::class, 'soal_labirin3']) -> name ('soal_labirin3');
+    Route::post('/soal_labirin1/store', [UserController::class, 'labirin1_store']);
+    Route::post('/soal_labirin2/store', [UserController::class, 'labirin2_store']);
+    Route::post('/soal_labirin3/store', [UserController::class, 'labirin3_store']);
+
 });
