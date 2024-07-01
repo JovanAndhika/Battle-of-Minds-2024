@@ -93,7 +93,7 @@ Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
     Route::get('/soal_labirin2', [StatusController::class, 'labirin2']) -> name ('soal_labirin2');
     Route::get('/soal_labirin3', [StatusController::class, 'labirin3']) -> name ('soal_labirin3');
    
-    Route::post('/check-answer', [JawabanLabirinController::class, 'checkAnswer'])->name('check.answer'); 
+    Route::post('/checkAnswer', [jawabanLabirinController::class, 'checkAnswer'])->name('checkAnswer'); 
     // Route::post('/check-answer', [jawabanLabirinController::class, 'labirin2']);
     // Route::post('/check-answer', [jawabanLabirinController::class, 'labirin3']);
 

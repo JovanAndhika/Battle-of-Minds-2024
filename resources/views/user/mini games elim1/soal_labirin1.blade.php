@@ -3,17 +3,6 @@
 {{-- BOM 2024 | Soal Labirin 1 --}}
 @section('title', $title)
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Document</title>
-</head>
-<body>
-
 @section('content')
 {{-- style --}}
 <style>
@@ -98,9 +87,9 @@
 
     .modal {
       display: none;
-      width: 50%;
-      height: 50%;
-      position : sticky;
+      width: 600px;
+      height: 325px;
+      position : fixed;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
@@ -120,95 +109,77 @@
       justify-content: center;
     }
 
-    .incorrect { color: red; }
-    .correct { color: green; }
 </style>
 
 
 
 {{-- content start --}}
 <div id="popupModal" class="modal">
-    <h2 style="margin-bottom: 20px;">Welcome to Labirin 1!</h2>
-    <p style="text-align: left;">1. Semua jawaban berupa angka.</p>
-    <p style="text-align: left;">2. Submit button akan aktif ketika semua jawaban yang dimasukkan sudah benar.</p>
-    <p style="text-align: left;">3. Apabila jawaban salah, maka jawaban akan hilang dari field input.</p>
-    <p style="text-align: left;">4. Sebaliknya, jika benar maka jawaban akan tetap ada di field input.</p>
-    <button onclick="closeModal()" class="closeBtn">Close</button>
+    @if ($errors->any())
+        <h2 style="margin-bottom: 20px; color: red;">Semangat!</h2>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <h3>{{ $error }}</h3>
+                @endforeach
+            </ul>
+        </div>
+        <button onclick="closeModal()" class="closeBtn">Close</button>
+    @else
+        <h2 style="margin-bottom: 20px;">Welcome to Labirin 1!</h2>
+        <p style="text-align: left;">1. Semua jawaban berupa angka.</p>
+        <p style="text-align: left;">2. Tombol submit akan mengecek jawaban anda.</p>
+        <p style="text-align: left;">3. Jika masih ada jawaban yang salah maka anda akan dikembalikan ke page soal hingga semuanya terjawab benar.</p>
+        <button onclick="closeModal()" class="closeBtn">Close</button>
+    @endif
 </div>
 
 <h2 class="text-center" id='title'>Soal Labirin 1 </h2>
   <div class="w-screen h-screen flex flex-col justify-center items-center">
     <div class="container h-[300px] flex flex-col justify-center items-center">
         <div class="form-box">
-        <form name="formlabirin1" id="formlabirin1">
+        <form  id="formLabirin1" action="/checkAnswer" method="post">
               @csrf
-                <div class="form-group">
-                  <label for="question-1">7027 + 8291 + 6207 + 7626</label>
-                  <input type="number" class="form-control" id="question-1" name="question-1" placeholder="Answer here" onkeyup="checkAnswer()">
-                </div>
-                <div class="form-group">
-                  <label for="question-2">9989 + 2373 + 5863 + 8542</label>
-                  <input type="number" class="form-control" id="question-2" name="question-2" placeholder="Answer here" onkeyup="checkAnswer()">
-                </div>
-                <div class="form-group">
-                  <label for="question-3">3178 + 5545 + 2667 + 7960</label>
-                  <input type="number" class="form-control" id="question-3" name="question-3" placeholder="Answer here" onkeyup="checkAnswer()">
-                </div>
-                <div class="form-group">
-                  <label for="question-4">3812 + 9237 - 1722 + 8901</label>
-                  <input type="number" class="form-control" id="question-4" name="question-4" placeholder="Answer here" onkeyup="checkAnswer()">
-                </div>
-                <div class="form-group">
-                  <label for="question-5">8747 + 1492 + 1388 + 5127</label>
-                  <input type="number" class="form-control" id="question-5" name="question-5" placeholder="Answer here" onkeyup="checkAnswer()">
-                </div>
-                <div class="form-group">
-                  <label for="question-6">9074 + 6908 + 9851 + 3595</label>
-                  <input type="number" class="form-control" id="question-6" name="question-6" placeholder="Answer here" onkeyup="checkAnswer()">
-                </div>
-                <div class="form-group">
-                  <label for="question-7">2856 + 8674 + 9326 + 5026</label>
-                  <input type="number" class="form-control" id="question-7" name="question-7" placeholder="Answer here" onkeyup="checkAnswer()">
-                </div>
-                <div class="form-group">
-                  <label for="question-8">6620 + 7514 + 5993 + 1937</label>
-                  <input type="number" class="form-control" id="question-8" name="question-8" placeholder="Answer here" onkeyup="checkAnswer()">
-                </div>
-                <div class="form-group">
-                  <label for="question-9">4578 + 7660 + 9780 + 1939</label>
-                  <input type="number" class="form-control" id="question-9" name="question-9" placeholder="Answer here" onkeyup="checkAnswer()">
-                </div>
-                <div class="form-group">
-                  <label for="question-10">1096 - 4330 + 8701 + 5481</label>
-                  <input type="number" class="form-control" id="question-10" name="question-10" placeholder="Answer here" onkeyup="checkAnswer()">
-                </div>
-                <div class="form-group">
-                  <label for="question-11">3785 + 7378 + 1959 + 9396</label>
-                  <input type="number" class="form-control" id="question-11" name="question-11" placeholder="Answer here" onkeyup="checkAnswer()">
-                </div>
-                <div class="form-group">
-                  <label for="question-12">4845 + 1721 + 7525 + 8693</label>
-                  <input type="number" class="form-control" id="question-12" name="question-12" placeholder="Answer here" onkeyup="checkAnswer()">
-                </div>
-                <div class="form-group">
-                  <label for="question-13">5350 + 1636 + 2467 + 5902</label>
-                  <input type="number" class="form-control" id="question-13" name="question-13" placeholder="Answer here" onkeyup="checkAnswer()">
-                </div>
-                <div class="form-group">
-                  <label for="question-14">3731 + 1670 + 1644 + 6667</label>
-                  <input type="number" class="form-control" id="question-14" name="question-14" placeholder="Answer here" onkeyup="checkAnswer()">
-                </div>
-                <div class="form-group">
-                  <label for="question-15">5372 + 3681 - 1839 - 6265</label>
-                  <input type="number" class="form-control" id="question-15" name="question-15" placeholder="Answer here" onkeyup="checkAnswer()">
-                </div>
-                <div class="form-group">
-                  <label for="question-16">2060 + 3174 + 7773 + 4004</label>
-                  <input type="number" class="form-control" id="question-16" name="question-16" placeholder="Answer here" onkeyup="checkAnswer()">
-                </div>
+              @php
+                $questions = [
+                    '7027 + 8291 + 6207 + 7626',
+                    '9989 + 2373 + 5863 + 8542',
+                    '3178 + 5545 + 2667 + 7960',
+                    '3812 + 9237 - 1722 + 8901',
+                    '8747 + 1492 + 1388 + 5127',
+                    '9074 + 6908 + 9851 + 3595',
+                    '2856 + 8674 + 9326 + 5026',
+                    '6620 + 7514 + 5993 + 1937',
+                    '4578 + 7660 + 9780 + 1939',
+                    '1096 - 4330 + 8701 + 5481',
+                    '3785 + 7378 + 1959 + 9396',
+                    '4845 + 1721 + 7525 + 8693',
+                    '5350 + 1636 + 2467 + 5902',
+                    '3731 + 1670 + 1644 + 6667',
+                    '5372 + 3681 - 1839 - 6265',
+                    '2060 + 3174 + 7773 + 4004'
+                ];
+            @endphp
 
+            @foreach ($questions as $i => $question)
+                <div class="form-group">
+                    <label for="question_{{ $i }}">{{ $question }}</label>
+                    <input 
+                        type="number" 
+                        class="form-control" 
+                        id="question_{{ $i }}" 
+                        name="question_{{ $i }}" 
+                        placeholder="Answer here" 
+                        value="{{ old('question_' . $i) }}"
+                    >
+                    <!-- @error('question_' . $i)
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror -->
+                </div>
+              @endforeach
+            
               {{-- submit --}}
-              <button type="submit" class="btn btn-primary mb-2" id="submitBtn" disabled="disabled">Submit</button>
+              <button type="submit" class="btn btn-primary mb-2">Submit</button>
 
               {{-- end form --}}
             </form>
@@ -217,64 +188,6 @@
 </div>
 
 <script>
-// $(document).ready(function() {
-//     var form = document.forms["formlabirin1"].elements;
-
-//     $("formlabirin1").submit(function(event) {
-//       event.preventDefault();
-//       var submit = $submitBtn
-//       for(var i = 0; i < form.length; i++){
-//         if(form[i].type() === "number"){
-//           var userAnswer = form[i].val();
-//         }
-//       }
-
-//       $(".form-message").load("/check-answer", {
-        
-//       })
-
-//     });
-//   });
-  function checkAnswer() {
-    var form = document.forms["formlabirin1"].elements;
-    var answers = [];
-    for (var i = 0; i < form.length; i++) {
-      if (form[i].type === "number") {
-        answers.push(form[i].value);
-      }
-    }
-    $.ajax({
-      type: "POST",
-      url: "/check-answer",
-      data: {
-        answers: answers,
-        _token: $('meta[name="csrf-token"]').attr('content')
-      },
-      success: function(response) {
-        if (response.status === "success") {
-          // enable submit button if all answers are correct
-          $("#submitBtn").prop("disabled", false);
-        } else {
-          // show error message if any answer is incorrect
-          $(".form-message").html(response.message);
-          // clear incorrect answers
-          $.each(response.incorrectAnswers, function(index, value) {
-            $("#" + value).val("");
-          });
-        }
-      }
-    });
-  }
-
-  $(document).ready(function(){
-    $.ajaxSetup({
-      headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-    });
-  });
-
-
   function displayModal() {
     var modal = document.getElementById('popupModal');
     modal.style.display = 'block';
