@@ -84,19 +84,107 @@
     .form-group{
         margin-bottom:30px;
     }
+
+    .modal {
+      display: none;
+      width: 600px;
+      height: 325px;
+      position : fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(125deg, rgba(61, 37, 84, 1) 0%, rgba(123, 48, 176, 1) 51%, rgba(120, 27, 55, 1) 100%);
+      animation: moveGradient 10s linear infinite;
+      box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1);
+      -webkit-box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1);
+      -moz-box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1); 
+      background-size: 400%;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .closeBtn {
+      padding: 10px 20px; 
+      background-color: rgba(255, 255, 255, 0.6);
+      justify-content: center;
+    }
 </style>
 
 
 
 {{-- content start --}}
+<div id="popupModal" class="modal">
+    @if ($errors->any())
+        <h2 style="margin-bottom: 20px; color: red;">Semangat!</h2>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <h3>{{ $error }}</h3>
+                @endforeach
+            </ul>
+        </div>
+        <button onclick="closeModal()" class="closeBtn">Close</button>
+    @else
+        <h2 style="margin-bottom: 20px;">Welcome to Labirin 1!</h2>
+        <p style="text-align: left;">1. Semua jawaban berupa angka.</p>
+        <p style="text-align: left;">2. Tombol submit akan mengecek jawaban anda.</p>
+        <p style="text-align: left;">3. Jika masih ada jawaban yang salah maka anda akan dikembalikan ke page soal hingga semuanya terjawab benar.</p>
+        <button onclick="closeModal()" class="closeBtn">Close</button>
+    @endif
+</div>
 
 <h2 class="text-center" id='title'>Soal Labirin 2 </h2>
 
   <div class="w-screen h-screen flex flex-col justify-center items-center">
     <div class="container h-[300px] flex flex-col justify-center items-center">
         <div class="form-box">
-            <form method="post" action="{{ route('user.labirin2_store') }}">
+            <form method="post" action='/checkAnswer2'>
             @csrf
+              @php
+                $questions = [
+                    '331 × 60 + 1527',
+                    '132 × 44 + 1850',
+                    '1651 + 240 - 615 + 14312',
+                    '354 × 61 + 2681',
+                    ' (88 - 69) × 89',
+                    '1999 + 70 × 42 ÷ 15',
+                    '3647 + 763 + 930 + 18614',
+                    '1117 + 25 × 357 ÷ 17',
+                    '1318 + 327 + 200 + 44384',
+                    '386 × 47 + 4392',
+                    '315 × 56 + 1218',
+                    '-509 + 91 × 70',
+                    '5462 + 41 × 65 ÷ 13',
+                    '2672 + 428 + 945 + 48974',
+                    '223 + 14 × 93',
+                    '110 × 59 - 2425',
+                    '2203 - 78 × 15 ÷ 18',
+                    '2344 + 201 + 671 + 14739',
+                    '(97 - 38) × 56',
+                    '973 + 76 × 27',
+                    '4883 + 81 × 32 ÷ 12',
+                    '5652 + 24 × 31 ÷ 12',
+                ];
+            @endphp
+
+            @foreach ($questions as $i => $question)
+                <div class="form-group">
+                    <label for="question{{ $i + 1 }}">{{ $question }}</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="question{{ $i + 1 }}"
+                        name="question{{ $i + 1 }}"
+                        placeholder="Answer here"
+                        value="{{ old('question' . ($i + 1)) }}"
+                    >
+                    <!-- Include any validation errors here if needed -->
+                    {{-- @error('question' . ($i + 1))
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror --}}
+                </div>
+            @endforeach
+
               <div class="form-group">
                 <label for="question1">331 × 60 + 1527 </label>
                 <input type="text" class="form-control" id="question1" placeholder="Answer here">
@@ -216,5 +304,21 @@
           </div>
     </div>
 </div>
+
+<script>
+  function displayModal() {
+    var modal = document.getElementById('popupModal');
+    modal.style.display = 'block';
+  }
+
+  function closeModal() {
+    var modal = document.getElementById('popupModal');
+    modal.style.display = 'none';
+  }
+
+  window.onload = function() {
+    displayModal();
+  };
+</script>
 
 @endsection
