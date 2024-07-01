@@ -17,6 +17,7 @@
                     <thead class="bg-gray-900 text-gray-50">
                         <tr>
                             <th>No</th>
+                            <th>Asal Sekolah</th>
                             <th>Nama Kelompok</th>
                             <th>Jumlah Poin</th>
                             <th>Jawaban</th>
@@ -26,6 +27,7 @@
                         @foreach ($pesertas as $peserta)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                <td>{{ $peserta->asalSekolah }}</td>
                                 <td>{{ $peserta->namaKelompok }}</td>
                                 <td>
                                     <form class="max-w-md" action="{{ route('admin.poin.update') }}" method="post">
