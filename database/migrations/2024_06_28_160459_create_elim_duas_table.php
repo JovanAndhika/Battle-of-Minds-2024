@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('elim_duas', function (Blueprint $table) {
             $table->id();
             $table->string('namaKelompok');
-            $table->integer('jumlahPoin');
+            $table->double('jumlahPoin');
             $table->timestamps();
         });
     }

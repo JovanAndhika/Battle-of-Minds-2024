@@ -202,7 +202,7 @@ class AdminController extends Controller
             $history->poinDidapat = $request->poinDidapat;
             $history->save();
             Elim_dua::where('namaKelompok', $request->namaKelompok)
-                ->update(['jumlahPoin' => $jumlahPoin + intval($request->poinDidapat)]);
+                ->update(['jumlahPoin' => $jumlahPoin + floatval($request->poinDidapat)]);
 
             return response()->json(['res' => 'Form submitted successfully!'], 200);
 
@@ -256,7 +256,7 @@ class AdminController extends Controller
             $history->poinDidapat = $request->poinDidapat;
             $history->save();
             Babak_final::where('namaKelompok', $request->namaKelompok)
-                ->update(['jumlahPoin' => $jumlahPoin + intval($request->poinDidapat)]);
+                ->update(['jumlahPoin' => $jumlahPoin + floatval($request->poinDidapat)]);
 
             return response()->json(['res' => 'Form submitted successfully!'], 200);
             

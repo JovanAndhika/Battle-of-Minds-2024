@@ -53,7 +53,7 @@
 
             <div class="mb-4">
                 <label for="poinDidapat" class="block text-sm font-medium text-gray-700">Jumlah Poin</label>
-                <input type="number" name="poinDidapat" id="poinDidapat" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                <input type="number" name="poinDidapat" step="0.001" id="poinDidapat" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
                 @if ($errors->has('poinDidapat'))
                 <span class="text-red-600">{{ $errors->first('poinDidapat') }}</span>
                 @endif
