@@ -21,20 +21,20 @@ class AdminController extends Controller
     // Nanti admin bisa validasi peserta yang mendaftar
     public function peserta()
     {
-
         $index = array_rand($this->welcome);
+        $stsSetJawaban = Data_jawaban::select('kelompok_id')->limit(10)->count();
         return view('admin.listPeserta', [
             'title' => 'BOM 2024 | List Peserta BOM',
             'active' => 'peserta',
             'pesertas' => User::where('is_admin', '0')->get(),
             'jumlah_peserta' => DB::table('users')
                 ->where('is_admin', '==', '0')->count(),
-            'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok
+            'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok,
+            'stsSetJawaban' => $stsSetJawaban,
         ]);
     }
 
     public function getPembayaranUser(User $user, Request $request)
-
     {
         $img = User::where('id', $user->id)->first();
 
@@ -114,21 +114,6 @@ class AdminController extends Controller
             'title' => 'BOM 2024 | Data Jawaban Peserta',
             'jawabans' => $jawabans,
             'information' => 'Data Jawaban ' . $user->namaKelompok
-        ]);
-    }
-
-
-    // MENU SET SOAL
-    public function adminSelection()
-    {
-        $pesertas = User::all();
-        $selectionStatus = Set_jawaban_status::all();
-        return view('admin.adminSelectionSelect', [
-            'title' => 'Selection',
-            'pesertas' => $pesertas,
-            'active' => 'peserta',
-            'selectionStatus' => $selectionStatus,
-            'information' => 'Welcome ' . auth()->user()->namaKelompok
         ]);
     }
 

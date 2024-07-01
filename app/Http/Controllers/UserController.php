@@ -113,7 +113,7 @@ class UserController extends Controller
     }
     public function elim_satu()
     {
-        $title = 'BOM 2024 | COMING SOON';
+        $title = 'BOM 2024 | Eliminasi 1';
 
         $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
             ->orderBy('kunci_jawabans_id')
@@ -128,7 +128,7 @@ class UserController extends Controller
 
     public function elim_satuB()
     {
-        $title = 'BOM 2024 | COMING SOON';
+        $title = 'BOM 2024 | Eliminasi 1';
 
         $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
             ->orderBy('kunci_jawabans_id')
@@ -140,7 +140,7 @@ class UserController extends Controller
 
     public function elim_satuC()
     {
-        $title = 'BOM 2024 | COMING SOON';
+        $title = 'BOM 2024 | Eliminasi 1';
 
         $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
             ->orderBy('kunci_jawabans_id')
@@ -151,7 +151,7 @@ class UserController extends Controller
 
     public function elim_satuD()
     {
-        $title = 'BOM 2024 | COMING SOON';
+        $title = 'BOM 2024 | Eliminasi 1';
 
         $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
             ->orderBy('kunci_jawabans_id')
@@ -162,7 +162,7 @@ class UserController extends Controller
 
     public function elim_satuE()
     {
-        $title = 'BOM 2024 | COMING SOON';
+        $title = 'BOM 2024 | Eliminasi 1';
 
         $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
             ->orderBy('kunci_jawabans_id')
@@ -173,7 +173,7 @@ class UserController extends Controller
 
     public function elim_satuF()
     {
-        $title = 'BOM 2024 | COMING SOON';
+        $title = 'BOM 2024 | Eliminasi 1';
 
         $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
             ->orderBy('kunci_jawabans_id')
