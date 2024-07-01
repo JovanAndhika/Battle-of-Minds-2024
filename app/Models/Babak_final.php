@@ -12,5 +12,6 @@ class Babak_final extends Model
     protected $fillable = [
         'namaKelompok',
         'jumlahPoin',
+        'asalSekolah',
     ];
 }

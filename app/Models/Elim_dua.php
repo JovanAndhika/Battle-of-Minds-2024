@@ -12,5 +12,6 @@ class Elim_dua extends Model
     protected $fillable = [
         'namaKelompok',
         'jumlahPoin',
+        'asalSekolah',
     ];
 }

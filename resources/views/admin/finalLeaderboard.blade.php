@@ -14,6 +14,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Kelompok</th>
+                        <th>Asal Sekolah</th>
                         <th>Jumlah Poin</th>
                         <th>Updated at</th>
                     </tr>
@@ -23,6 +24,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $peserta->namaKelompok }}</td>
+                        <td>{{ $peserta->asalSekolah }}</td>
                         <td>{{ $peserta->jumlahPoin }}</td>
                         <td>{{ $peserta->updated_at}}</td>
                     </tr>
@@ -49,6 +51,9 @@
         }],
         columns: [{
                 width: '5%'
+            },
+            {
+                width: '10%'
             },
             {
                 width: '10%'
