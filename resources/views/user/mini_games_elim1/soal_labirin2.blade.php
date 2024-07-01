@@ -95,7 +95,8 @@
   <div class="w-screen h-screen flex flex-col justify-center items-center">
     <div class="container h-[300px] flex flex-col justify-center items-center">
         <div class="form-box">
-            <form>
+            <form method="post" action="{{ route('user.labirin2_store') }}">
+            @csrf
               <div class="form-group">
                 <label for="question1">331 × 60 + 1527 </label>
                 <input type="text" class="form-control" id="question1" placeholder="Answer here">

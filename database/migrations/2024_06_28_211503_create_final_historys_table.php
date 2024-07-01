@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('final_historys', function (Blueprint $table) {
             $table->id();
             $table->string('namaKelompok');
-            $table->integer('poinDidapat');
+            $table->double('poinDidapat');
             $table->timestamps();
         });
     }

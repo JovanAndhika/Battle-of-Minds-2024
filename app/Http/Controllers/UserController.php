@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -10,6 +11,9 @@ use App\Models\Data_jawaban;
 use App\Models\Kunci_jawaban;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Status;
+
+use function Laravel\Prompts\progress;
 
 class UserController extends Controller
 {
@@ -90,7 +94,7 @@ class UserController extends Controller
 
         if ($validatedData) {
             User::create($validatedData);
-        }else{
+        } else {
             return back()->with('registrationFailed', '');
         }
         // Kembalikan respons ke halaman yang sesuai
@@ -101,7 +105,7 @@ class UserController extends Controller
     {
         $user_name = DB::select('select namaKelompok from users where id = ?', [auth()->user()->id]);
         $results = $user_name[0]->namaKelompok;
-        return view('user.view', ['title' => 'BOM 2024 | COMING SOON', 'username' => $results, 'idUser' => auth()->user()->id]);
+        return view('user.view', ['title' => 'BOM 2024 | WELCOME TO ELIM 1', 'username' => $results, 'idUser' => auth()->user()->id]);
     }
     public function grupwa()
     {
@@ -109,7 +113,7 @@ class UserController extends Controller
     }
     public function elim_satu()
     {
-        $title = 'BOM 2024 | COMING SOON';
+        $title = 'BOM 2024 | Eliminasi 1';
 
         $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
             ->orderBy('kunci_jawabans_id')
@@ -124,7 +128,7 @@ class UserController extends Controller
 
     public function elim_satuB()
     {
-        $title = 'BOM 2024 | COMING SOON';
+        $title = 'BOM 2024 | Eliminasi 1';
 
         $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
             ->orderBy('kunci_jawabans_id')
@@ -136,7 +140,7 @@ class UserController extends Controller
 
     public function elim_satuC()
     {
-        $title = 'BOM 2024 | COMING SOON';
+        $title = 'BOM 2024 | Eliminasi 1';
 
         $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
             ->orderBy('kunci_jawabans_id')
@@ -147,7 +151,7 @@ class UserController extends Controller
 
     public function elim_satuD()
     {
-        $title = 'BOM 2024 | COMING SOON';
+        $title = 'BOM 2024 | Eliminasi 1';
 
         $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
             ->orderBy('kunci_jawabans_id')
@@ -158,7 +162,7 @@ class UserController extends Controller
 
     public function elim_satuE()
     {
-        $title = 'BOM 2024 | COMING SOON';
+        $title = 'BOM 2024 | Eliminasi 1';
 
         $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
             ->orderBy('kunci_jawabans_id')
@@ -169,7 +173,7 @@ class UserController extends Controller
 
     public function elim_satuF()
     {
-        $title = 'BOM 2024 | COMING SOON';
+        $title = 'BOM 2024 | Eliminasi 1';
 
         $data_jawaban = Data_jawaban::where('kelompok_id', auth()->user()->id)
             ->orderBy('kunci_jawabans_id')
@@ -558,26 +562,134 @@ class UserController extends Controller
         return view('user.coming-soon', ['title' => 'BOM 2024 | COMING SOON']);
     }
 
+
+
+
+    // VIEW MINI GAME
     public function game_elim1()
     {
-        return view('user.mini games elim1.game_elim1', ['title' => 'BOM 2024 | MiniGame Elimination 1']);
+        $user = auth()->user()->id;
+        $namaKelompok = User::where('id', $user)->value('namaKelompok');
+        $status = Status::where('kelompok', $namaKelompok)->first();
+        $lab1 = null;
+        $lab2 = null;
+        $lab3 = null;
+        if ($status) {
+            $lab1 =  $status->labirin_1;
+            $lab2 = $status->labirin_2;
+            $lab3 = $status->labirin_3;
+        } 
+        return view('user.mini_games_elim1.game_elim1', ['title' => 'BOM 2024 | MiniGame Elimination 1', 'lab1' => $lab1, 'lab2' => $lab2, 'lab3' => $lab3]);
     }
 
-    public function soal_labirin1()
+    // Store Jawaban Labirin
+    public function labirin1_store()
     {
-        return view('user.mini games elim1.soal_labirin1', ['title' => 'BOM 2024 | Soal Labirin 1']);
-    }
+        $kelompokId = auth()->user()->id;
 
-    public function soal_labirin2()
+        $namaKelompok = User::where('id', $kelompokId)->value('namaKelompok');
+        $status = Status::where('kelompok', $namaKelompok)->first();
+        if (is_null($status)) {
+            // Jika status tidak ditemukan, buat entri baru
+            $status = new Status();
+            $status->kelompok = $namaKelompok;
+        }
+
+        $status->labirin_1 = Carbon::now();
+        $status->save();
+
+        return redirect()->intended('/game_elim1');
+    }
+    public function labirin2_store()
     {
-        return view('user.mini games elim1.soal_labirin2', [
-            'title' => 'BOM 2024 | Soal Labirin 2'
-        ]);
-    }
+        $kelompokId = auth()->user()->id;
+        // $namaKelompok = User::select('namaKelompok')->where('id',$kelompokId)->first()->value('namaKelompok');
+        $namaKelompok = User::where('id', $kelompokId)->value('namaKelompok');
+        $status = Status::where('kelompok', $namaKelompok)->first();
+        if (is_null($status)) {
+            // Jika status tidak ditemukan, buat entri baru
+            $status = new Status();
+            $status->kelompok = $namaKelompok;
+        }
 
-    public function soal_labirin3()
+        // $status->kelompok = request(['nama']);
+        $status->labirin_2 = Carbon::now();
+        $status->save();
+
+        return redirect()->intended('/game_elim1');
+    }
+    public function labirin3_store()
     {
-        return view('user.mini games elim1.soal_labirin3', ['title' => 'BOM 2024 | Soal Labirin 3']);
+        $kelompokId = auth()->user()->id;
+        // $namaKelompok = User::select('namaKelompok')->where('id',$kelompokId)->first()->value('namaKelompok');
+        $namaKelompok = User::where('id', $kelompokId)->value('namaKelompok');
+        $status = Status::where('kelompok', $namaKelompok)->first();
+        if (is_null($status)) {
+            // Jika status tidak ditemukan, buat entri baru
+            $status = new Status();
+            $status->kelompok = $namaKelompok;
+        }
+
+        // $status->kelompok = request(['nama']);
+        $status->labirin_3 = Carbon::now();
+        $status->save();
+
+        return redirect()->intended('/game_elim1');
     }
 
+
+
+    // Validation Labirin
+    public function labirin1_validate(Request $request)
+    {
+        $inputPassword = $request->input('password_labirin_satu');
+        $password_labirin_satu = '$2y$10$ltBzk1oN/0G3OMbP51ipY.N9NQ3ofjnuTop.kp0WM7r47e900Glxy'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
+
+        if (Hash::check($inputPassword, $password_labirin_satu)) {
+            $redirectUrl = route('user.labirin1_soal'); // Dapatkan URL tujuan
+            return response()->json(['valid' => true, 'url' => $redirectUrl]);
+        } else {
+            return response()->json(['valid' => false]);
+        }
+    }
+    public function labirin2_validate(Request $request)
+    {
+        $inputPassword = $request->input('password_labirin_dua');
+        $password_labirin_dua = '$2y$10$nrNdeOodTZwXNEfyHITbweTtUcpmZ7RSinJaMcaJk8roto8.K4SGm'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
+
+        if (Hash::check($inputPassword, $password_labirin_dua)) {
+            $redirectUrl = route('user.labirin2_soal'); // Dapatkan URL tujuan
+            return response()->json(['valid' => true, 'url' => $redirectUrl]);
+        } else {
+            return response()->json(['valid' => false]);
+        }
+    }
+    public function labirin3_validate(Request $request)
+    {
+        $inputPassword = $request->input('password_labirin_tiga');
+        $password_labirin_tiga = '$2y$10$S0DrjVT77iTHGEpg4MgyF.DM8dVMvbKHwSx/6Qdwf7kIk9PrwQDgK'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
+
+        if (Hash::check($inputPassword, $password_labirin_tiga)) {
+            $redirectUrl = route('user.labirin3_soal'); // Dapatkan URL tujuan
+            return response()->json(['valid' => true, 'url' => $redirectUrl]);
+        } else {
+            return response()->json(['valid' => false]);
+        }
+    }
+
+
+    public function labirin1_soal()
+    {
+        return view('user.mini_games_elim1.soal_labirin1', ['title' => 'BOM 2024 | Soal Labirin 1']);
+    }
+
+    public function labirin2_soal()
+    {
+        return view('user.mini_games_elim1.soal_labirin2', ['title' => 'BOM 2024 | Soal Labirin 2']);
+    }
+
+    public function labirin3_soal()
+    {
+        return view('user.mini_games_elim1.soal_labirin3', ['title' => 'BOM 2024 | Soal Labirin 3']);
+    }
 }

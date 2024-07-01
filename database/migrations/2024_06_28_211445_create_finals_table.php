@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('finals', function (Blueprint $table) {
             $table->id();
             $table->string('namaKelompok');
-            $table->integer('jumlahPoin');
+            $table->string('asalSekolah');
+            $table->double('jumlahPoin');
             $table->timestamps();
         });
     }

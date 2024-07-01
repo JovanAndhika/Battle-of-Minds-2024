@@ -3,10 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\PaketAController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\StatusController;
-use App\Http\Controllers\jawabanLabirinController;
 
 //HOMEPAGE
 Route::get('/', [UserController::class, 'index'])->name('index');
@@ -84,10 +82,22 @@ Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
     Route::post('/save-jawabanF', [UserController::class, 'simpan_jawabanF'])->name('simpan_jawabanF');
     // Coming Soon
     Route::get('/coming-soon', [UserController::class, 'comingSoon']) -> name ('comingSoon');
-
-    // minigame elim 1
+    
+    // View mini game
     Route::get('/game_elim1', [UserController::class, 'game_elim1']) -> name ('game_elim1');
+
     // soal minigame elim 1
+    Route::get('/soal_labirin1fgkaprWrJ71k9fs7T5hwqriiO82almi4sm0fd', [UserController::class, 'labirin1_soal'])->name('labirin1_soal');
+    Route::get('/soal_labirin2piOffYzjA9cxI5Meq1BN5fr90lW6ax8D6K4y1', [UserController::class, 'labirin2_soal'])->name('labirin2_soal');
+    Route::get('/soal_labirin3pRS2wbLeKD067XyA3L5g8hCi05D9Ai8u0R5P0', [UserController::class, 'labirin3_soal'])->name('labirin3_soal');
+
+    Route::post('/soal_labirin1/validate', [UserController::class, 'labirin1_validate'])->name('labirin1_validate');
+    Route::post('/soal_labirin2/validate', [UserController::class, 'labirin2_validate'])->name('labirin2_validate');
+    Route::post('/soal_labirin3/validate', [UserController::class, 'labirin3_validate'])->name('labirin3_validate');
+
+    Route::post('/soal_labirin1/store', [UserController::class, 'labirin1_store'])->name('labirin1_store');
+    Route::post('/soal_labirin2/store', [UserController::class, 'labirin2_store'])->name('labirin2_store');
+    Route::post('/soal_labirin3/store', [UserController::class, 'labirin3_store'])->name('labirin3_store');
     Route::get('/soal_labirin1', [UserController::class, 'soal_labirin1']) -> name ('soal_labirin1');
     Route::post('/soal_labirin1', [StatusController::class, 'labirin1']);
     Route::get('/soal_labirin2', [StatusController::class, 'labirin2']) -> name ('soal_labirin2');
