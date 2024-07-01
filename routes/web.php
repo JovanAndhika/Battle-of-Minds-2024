@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SessionController;
-use App\Http\Controllers\StatusController;
+use App\Http\Controllers\jawabanLabirinController;
 
 //HOMEPAGE
 Route::get('/', [UserController::class, 'index'])->name('index');
@@ -99,11 +99,10 @@ Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
     Route::post('/soal_labirin2/store', [UserController::class, 'labirin2_store'])->name('labirin2_store');
     Route::post('/soal_labirin3/store', [UserController::class, 'labirin3_store'])->name('labirin3_store');
     Route::get('/soal_labirin1', [UserController::class, 'soal_labirin1']) -> name ('soal_labirin1');
-    Route::post('/soal_labirin1', [StatusController::class, 'labirin1']);
-    Route::get('/soal_labirin2', [StatusController::class, 'labirin2']) -> name ('soal_labirin2');
-    Route::get('/soal_labirin3', [StatusController::class, 'labirin3']) -> name ('soal_labirin3');
    
     Route::post('/checkAnswer', [jawabanLabirinController::class, 'checkAnswer'])->name('checkAnswer'); 
+    Route::post('/checkAnswer2', [jawabanLabirinController::class, 'checkAnswer2'])->name('checkAnswer2'); 
+    Route::post('/checkAnswer3', [jawabanLabirinController::class, 'checkAnswer3'])->name('checkAnswer3'); 
     // Route::post('/check-answer', [jawabanLabirinController::class, 'labirin2']);
     // Route::post('/check-answer', [jawabanLabirinController::class, 'labirin3']);
 
