@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -93,7 +94,7 @@ class UserController extends Controller
 
         if ($validatedData) {
             User::create($validatedData);
-        }else{
+        } else {
             return back()->with('registrationFailed', '');
         }
         // Kembalikan respons ke halaman yang sesuai
@@ -561,29 +562,30 @@ class UserController extends Controller
         return view('user.coming-soon', ['title' => 'BOM 2024 | COMING SOON']);
     }
 
+
+
+
+    // VIEW MINI GAME
     public function game_elim1()
     {
         $user = auth()->user()->id;
-        $namaKelompok = User::where('id',$user)->value('namaKelompok');
-        $progress = Status::where('kelompok', $namaKelompok)->get();
+        $namaKelompok = User::where('id', $user)->value('namaKelompok');
         $status = Status::where('kelompok', $namaKelompok)->first();
-        if($status){
+        if ($status) {
             $lab1 =  $status->labirin_1;
             $lab2 = $status->labirin_2;
             $lab3 = $status->labirin_3;
+        } else {
         }
-        else {
 
-        }
-    
-        return view('user.mini_games_elim1.game_elim1', ['title' => 'BOM 2024 | MiniGame Elimination 1','progress'=> $progress, 'lab1' => $lab1, 'lab2' => $lab2, 'lab3' => $lab3]);
+        return view('user.mini_games_elim1.game_elim1', ['title' => 'BOM 2024 | MiniGame Elimination 1', 'lab1' => $lab1, 'lab2' => $lab2, 'lab3' => $lab3]);
     }
 
-
-    public function labirin1_store(Request $request)
+    // Store Jawaban Labirin
+    public function labirin1_store()
     {
         $kelompokId = auth()->user()->id;
-        // $namaKelompok = User::select('namaKelompok')->where('id',$kelompokId)->first()->value('namaKelompok');
+
         $namaKelompok = User::where('id', $kelompokId)->value('namaKelompok');
         $status = Status::where('kelompok', $namaKelompok)->first();
         if (is_null($status)) {
@@ -591,15 +593,13 @@ class UserController extends Controller
             $status = new Status();
             $status->kelompok = $namaKelompok;
         }
-        
-        // $status->kelompok = request(['nama']);
+
         $status->labirin_1 = Carbon::now();
         $status->save();
-       return redirect()->intended('/game_elim1');
+
+        return redirect()->intended('/game_elim1');
     }
-
-
-    public function labirin2_store(Request $request)
+    public function labirin2_store()
     {
         $kelompokId = auth()->user()->id;
         // $namaKelompok = User::select('namaKelompok')->where('id',$kelompokId)->first()->value('namaKelompok');
@@ -610,16 +610,14 @@ class UserController extends Controller
             $status = new Status();
             $status->kelompok = $namaKelompok;
         }
-        
+
         // $status->kelompok = request(['nama']);
         $status->labirin_2 = Carbon::now();
         $status->save();
-       
+
         return redirect()->intended('/game_elim1');
     }
-
-
-    public function labirin3_store(Request $request)
+    public function labirin3_store()
     {
         $kelompokId = auth()->user()->id;
         // $namaKelompok = User::select('namaKelompok')->where('id',$kelompokId)->first()->value('namaKelompok');
@@ -630,30 +628,64 @@ class UserController extends Controller
             $status = new Status();
             $status->kelompok = $namaKelompok;
         }
-        
+
         // $status->kelompok = request(['nama']);
         $status->labirin_3 = Carbon::now();
         $status->save();
 
         return redirect()->intended('/game_elim1');
     }
-   
 
-    public function soal_labirin1()
+    
+
+    // Validation Labirin
+    public function labirin1_validate(Request $request)
+    {
+        $inputPassword = $request->input('password-labirin-satu');
+        $correctPassword = 'AD'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
+
+        if ($inputPassword === $correctPassword) {
+            return response()->json(['valid' => true]);
+        } else {
+            return response()->json(['valid' => false]);
+        }
+    }
+    public function labirin2_validate(Request $request)
+    {
+        $inputPassword = $request->input('password-labirin-dua');
+        $correctPassword = 'XASK'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
+
+        if ($inputPassword === $correctPassword) {
+            return response()->json(['valid' => true]);
+        } else {
+            return response()->json(['valid' => false]);
+        }
+    }
+    public function labirin3_validate(Request $request)
+    {
+        $inputPassword = $request->input('password-labirin-tiga');
+        $correctPassword = 'SLX'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
+
+        if ($inputPassword === $correctPassword) {
+            return response()->json(['valid' => true]);
+        } else {
+            return response()->json(['valid' => false]);
+        }
+    }
+
+
+    public function labirin1_soal()
     {
         return view('user.mini_games_elim1.soal_labirin1', ['title' => 'BOM 2024 | Soal Labirin 1']);
     }
 
-    public function soal_labirin2()
+    public function labirin2_soal()
     {
-        return view('user.mini_games_elim1.soal_labirin2', [
-            'title' => 'BOM 2024 | Soal Labirin 2'
-        ]);
+        return view('user.mini_games_elim1.soal_labirin2', ['title' => 'BOM 2024 | Soal Labirin 2']);
     }
 
-    public function soal_labirin3()
+    public function labirin3_soal()
     {
         return view('user.mini_games_elim1.soal_labirin3', ['title' => 'BOM 2024 | Soal Labirin 3']);
     }
-    
 }
