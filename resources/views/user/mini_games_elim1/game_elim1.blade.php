@@ -473,15 +473,16 @@
                     success: function(response) {
                         if (response.valid) {
                             Swal.fire({
-                                title: 'Success',
-                                text: 'Password is correct!',
-                                icon: 'success'
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    // Aksi setelah password benar, misalnya redirect ke halaman lain
-                                    window.location.href = '{{ route("user.labirin1_soal") }}';
-                                }
-                            });
+                                    title: 'Success',
+                                    text: 'Password is correct!',
+                                    icon: 'success'
+                                })
+                                .then((result) => {
+                                    if (result.isConfirmed) {
+                                        // Aksi setelah password benar
+                                        window.location.href = response.url; // Redirect ke URL yang dikirim dari backend
+                                    }
+                                });
                         } else {
                             Swal.fire({
                                 title: 'Error',
@@ -558,8 +559,8 @@
                                 icon: 'success'
                             }).then((result) => {
                                 if (result.isConfirmed) {
-                                    // Aksi setelah password benar, misalnya redirect ke halaman lain
-                                    window.location.href = '{{ route("user.labirin2_soal") }}';
+                                    // Aksi setelah password benar
+                                    window.location.href = response.url; // Redirect ke URL yang dikirim dari backend
                                 }
                             });
                         } else {
@@ -639,8 +640,8 @@
                                 icon: 'success'
                             }).then((result) => {
                                 if (result.isConfirmed) {
-                                    // Aksi setelah password benar, misalnya redirect ke halaman lain
-                                    window.location.href = '{{ route("user.labirin3_soal") }}';
+                                    // Aksi setelah password benar
+                                    window.location.href = response.url; // Redirect ke URL yang dikirim dari backend
                                 }
                             });
                         } else {

@@ -643,10 +643,11 @@ class UserController extends Controller
     public function labirin1_validate(Request $request)
     {
         $inputPassword = $request->input('password_labirin_satu');
-        $password_labirin_satu = 'AD'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
+        $password_labirin_satu = '$2y$10$ltBzk1oN/0G3OMbP51ipY.N9NQ3ofjnuTop.kp0WM7r47e900Glxy'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
 
-        if ($inputPassword === $password_labirin_satu) {
-            return response()->json(['valid' => true]);
+        if (Hash::check($inputPassword, $password_labirin_satu)) {
+            $redirectUrl = route('user.labirin1_soal'); // Dapatkan URL tujuan
+            return response()->json(['valid' => true, 'url' => $redirectUrl]);
         } else {
             return response()->json(['valid' => false]);
         }
@@ -654,10 +655,11 @@ class UserController extends Controller
     public function labirin2_validate(Request $request)
     {
         $inputPassword = $request->input('password_labirin_dua');
-        $password_labirin_dua = 'XASK'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
+        $password_labirin_dua = '$2y$10$nrNdeOodTZwXNEfyHITbweTtUcpmZ7RSinJaMcaJk8roto8.K4SGm'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
 
-        if ($inputPassword === $password_labirin_dua) {
-            return response()->json(['valid' => true]);
+        if (Hash::check($inputPassword, $password_labirin_dua)) {
+            $redirectUrl = route('user.labirin2_soal'); // Dapatkan URL tujuan
+            return response()->json(['valid' => true, 'url' => $redirectUrl]);
         } else {
             return response()->json(['valid' => false]);
         }
@@ -665,10 +667,11 @@ class UserController extends Controller
     public function labirin3_validate(Request $request)
     {
         $inputPassword = $request->input('password_labirin_tiga');
-        $correctPassword = 'SLX'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
+        $password_labirin_tiga = '$2y$10$S0DrjVT77iTHGEpg4MgyF.DM8dVMvbKHwSx/6Qdwf7kIk9PrwQDgK'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
 
-        if ($inputPassword === $correctPassword) {
-            return response()->json(['valid' => true]);
+        if (Hash::check($inputPassword, $password_labirin_tiga)) {
+            $redirectUrl = route('user.labirin3_soal'); // Dapatkan URL tujuan
+            return response()->json(['valid' => true, 'url' => $redirectUrl]);
         } else {
             return response()->json(['valid' => false]);
         }
