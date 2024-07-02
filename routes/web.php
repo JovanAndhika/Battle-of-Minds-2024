@@ -94,11 +94,6 @@ Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
     Route::post('/soal_labirin1/validate', [UserController::class, 'labirin1_validate'])->name('labirin1_validate');
     Route::post('/soal_labirin2/validate', [UserController::class, 'labirin2_validate'])->name('labirin2_validate');
     Route::post('/soal_labirin3/validate', [UserController::class, 'labirin3_validate'])->name('labirin3_validate');
-
-    Route::post('/soal_labirin1/store', [UserController::class, 'labirin1_store'])->name('labirin1_store');
-    Route::post('/soal_labirin2/store', [UserController::class, 'labirin2_store'])->name('labirin2_store');
-    Route::post('/soal_labirin3/store', [UserController::class, 'labirin3_store'])->name('labirin3_store');
-    Route::get('/soal_labirin1', [UserController::class, 'soal_labirin1']) -> name ('soal_labirin1');
    
     Route::post('/checkAnswer', [jawabanLabirinController::class, 'checkAnswer'])->name('checkAnswer'); 
     Route::post('/checkAnswer2', [jawabanLabirinController::class, 'checkAnswer2'])->name('checkAnswer2'); 

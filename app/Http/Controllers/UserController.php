@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Data_jawaban;
 use App\Models\Kunci_jawaban;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Status;
 
@@ -582,62 +581,7 @@ class UserController extends Controller
         return view('user.mini_games_elim1.game_elim1', ['title' => 'BOM 2024 | MiniGame Elimination 1', 'lab1' => $lab1, 'lab2' => $lab2, 'lab3' => $lab3]);
     }
 
-    // Store Jawaban Labirin
-    public function labirin1_store()
-    {
-        $kelompokId = auth()->user()->id;
-
-        $namaKelompok = User::where('id', $kelompokId)->value('namaKelompok');
-        $status = Status::where('kelompok', $namaKelompok)->first();
-        if (is_null($status)) {
-            // Jika status tidak ditemukan, buat entri baru
-            $status = new Status();
-            $status->kelompok = $namaKelompok;
-        }
-
-        $status->labirin_1 = Carbon::now();
-        $status->save();
-
-        return redirect()->intended('/game_elim1');
-    }
-    public function labirin2_store()
-    {
-        $kelompokId = auth()->user()->id;
-        // $namaKelompok = User::select('namaKelompok')->where('id',$kelompokId)->first()->value('namaKelompok');
-        $namaKelompok = User::where('id', $kelompokId)->value('namaKelompok');
-        $status = Status::where('kelompok', $namaKelompok)->first();
-        if (is_null($status)) {
-            // Jika status tidak ditemukan, buat entri baru
-            $status = new Status();
-            $status->kelompok = $namaKelompok;
-        }
-
-        // $status->kelompok = request(['nama']);
-        $status->labirin_2 = Carbon::now();
-        $status->save();
-
-        return redirect()->intended('/game_elim1');
-    }
-    public function labirin3_store()
-    {
-        $kelompokId = auth()->user()->id;
-        // $namaKelompok = User::select('namaKelompok')->where('id',$kelompokId)->first()->value('namaKelompok');
-        $namaKelompok = User::where('id', $kelompokId)->value('namaKelompok');
-        $status = Status::where('kelompok', $namaKelompok)->first();
-        if (is_null($status)) {
-            // Jika status tidak ditemukan, buat entri baru
-            $status = new Status();
-            $status->kelompok = $namaKelompok;
-        }
-
-        // $status->kelompok = request(['nama']);
-        $status->labirin_3 = Carbon::now();
-        $status->save();
-
-        return redirect()->intended('/game_elim1');
-    }
-
-
+    
 
     // Validation Labirin
     public function labirin1_validate(Request $request)

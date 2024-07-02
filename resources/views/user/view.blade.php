@@ -64,57 +64,59 @@
 
 
 @section('content')
-    @if (session('error'))
-        <script>
-            Swal.fire({
-                title: "Warning !",
-                text: "{{ session('error') }}",
-                icon: "warning"
-            });
-        </script>
-    @endif
-    <div class="w-screen flex justify-center items-center py-7">
-        <h1 class="text-center" id='title'>Welcome, {{ $username }}</h1>
-    </div>
-    <div class="w-screen flex justify-center items-center my-7">
-        <div class="flex">
-            <div class="card w-[400px] h-[400px] mx-10 rounded-xl">
-                <h3 class="text-center text-2xl font-bold py-3">Elimination One</h3>
-                <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Menguji kecepatan dan ketepatan</p>
-                <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Terdiri dari 300 butir soal</p>
-                <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Soal tidak wajib dikerjakan semua
-                </p>
-                <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Poin diperoleh dari setiap soal yang
-                    dijawab
-                    dan benar</p>
-                <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Jenis soal berupa penyelesaian
-                    operasi
-                    penjumlahan, perkalian,
-                    pembagian, pengurangan, perpangkatan, dan faktorial.</p>
-                <div class="w-full flex justify-center items-center mt-2">
-                    {{-- Real Assessment link --}}
-                    <a class="btn border-2 w-11/12 text-center h-[40px] mt-3 flex items-center justify-center rounded-xl !backdrop-blur-xl"
-                        href="{{ route('user.elim_satu') }}" type="button">ENTER</a>
+@if (session('error'))
+<script>
+    Swal.fire({
+        title: "Warning !",
+        text: "{{ session('error') }}",
+        icon: "warning"
+    });
+</script>
+@endif
+<div class="w-screen flex justify-center items-center py-7">
+    <h1 class="text-center" id='title'>Welcome, {{ $username }}</h1>
+</div>
+<div class="w-screen flex justify-center items-center my-7">
+    <div class="flex">
+        <div class="card w-[400px] h-[400px] mx-10 rounded-xl">
+            <h3 class="text-center text-2xl font-bold py-3">Elimination One</h3>
+            <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Menguji kecepatan dan ketepatan</p>
+            <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Terdiri dari 300 butir soal</p>
+            <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Soal tidak wajib dikerjakan semua
+            </p>
+            <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Poin diperoleh dari setiap soal yang
+                dijawab
+                dan benar</p>
+            <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Jenis soal berupa penyelesaian
+                operasi
+                penjumlahan, perkalian,
+                pembagian, pengurangan, perpangkatan, dan faktorial.</p>
+            <div class="w-full flex justify-center items-center mt-2">
+                {{-- Real Assessment link --}}
+                <a class="btn border-2 w-11/12 text-center h-[40px] mt-3 flex items-center justify-center rounded-xl !backdrop-blur-xl" href="{{ route('user.elim_satu') }}" type="button">ENTER</a>
 
-                    {{-- Coming soon for assessment page --}}
-                    {{-- <a class="btn border-2 w-11/12 text-center h-[40px] mt-3 flex items-center justify-center rounded-xl !backdrop-blur-xl"
+                {{-- Coming soon for assessment page --}}
+                {{-- <a class="btn border-2 w-11/12 text-center h-[40px] mt-3 flex items-center justify-center rounded-xl !backdrop-blur-xl"
                         href="{{ route('user.comingSoon') }}" type="button">ENTER</a> --}}
-                </div>
             </div>
+        </div>
 
-            <div class="card w-[400px] h-[400px] mx-12 rounded-xl ">
-                <h3 class="text-center text-2xl font-bold py-3">Elimination One Minigame</h3>
-                <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Coming soon</p>
-                <div class="w-full flex justify-center items-center mt-2">
-                    {{-- Real Assessment link --}}
-                    <a class="btn border-2 w-11/12 text-center h-[40px] mt-3 flex items-center justify-center rounded-xl !backdrop-blur-xl"
-                        href="{{ route('user.game_elim1') }}" type="button">ENTER</a>
+        <div class="card w-[400px] h-[400px] mx-12 rounded-xl ">
+            <h3 class="text-center text-2xl font-bold py-3">Elimination One Minigame</h3>
+            <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Menguji kecepatan dan ketepatan</p>
+            <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Terdiri dari beberapa butir soal</p>
+            <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Soal wajib dikerjakan semua</p>
+            <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Tim yang sudah menyelesaikan semua labirin akan mendapat benefit</p>
+            <br><br><br><br>
+            <div class="w-full flex justify-center items-center mt-2">
+                {{-- Real Assessment link --}}
+                <a class="btn border-2 w-11/12 text-center h-[40px] mt-3 flex items-center justify-center rounded-xl !backdrop-blur-xl" href="{{ route('user.game_elim1') }}" type="button">ENTER</a>
 
-                    {{-- Coming soon for assessment page --}}
-                    {{-- <a class="btn border-2 w-11/12 text-center h-[40px] mt-3 flex items-center justify-center rounded-xl !backdrop-blur-xl"
+                {{-- Coming soon for assessment page --}}
+                {{-- <a class="btn border-2 w-11/12 text-center h-[40px] mt-3 flex items-center justify-center rounded-xl !backdrop-blur-xl"
                         href="{{ route('user.comingSoon') }}" type="button">ENTER</a> --}}
-                </div>
             </div>
         </div>
     </div>
+</div>
 @endsection

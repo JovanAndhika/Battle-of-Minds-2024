@@ -125,7 +125,7 @@
         </div>
         <button onclick="closeModal()" class="closeBtn">Close</button>
     @else
-        <h2 style="margin-bottom: 20px;">Welcome to Labirin 1!</h2>
+        <h2 style="margin-bottom: 20px;">Welcome to Labirin 2!</h2>
         <p style="text-align: left;">1. Semua jawaban berupa angka.</p>
         <p style="text-align: left;">2. Tombol submit akan mengecek jawaban anda.</p>
         <p style="text-align: left;">3. Jika masih ada jawaban yang salah maka anda akan dikembalikan ke page soal hingga semuanya terjawab benar.</p>
@@ -142,28 +142,28 @@
             @csrf
               @php
                 $questions = [
-                    '331 × 60 + 1527',
-                    '132 × 44 + 1850',
-                    '1651 + 240 - 615 + 14312',
-                    '354 × 61 + 2681',
-                    ' (88 - 69) × 89',
-                    '1999 + 70 × 42 ÷ 15',
-                    '3647 + 763 + 930 + 18614',
-                    '1117 + 25 × 357 ÷ 17',
-                    '1318 + 327 + 200 + 44384',
-                    '386 × 47 + 4392',
-                    '315 × 56 + 1218',
-                    '-509 + 91 × 70',
-                    '5462 + 41 × 65 ÷ 13',
-                    '2672 + 428 + 945 + 48974',
-                    '223 + 14 × 93',
-                    '110 × 59 - 2425',
-                    '2203 - 78 × 15 ÷ 18',
-                    '2344 + 201 + 671 + 14739',
-                    '(97 - 38) × 56',
-                    '973 + 76 × 27',
-                    '4883 + 81 × 32 ÷ 12',
-                    '5652 + 24 × 31 ÷ 12',
+                    '582 + 458 × 43',
+                    '191 + 263 × 54',
+                    '452 + 513 × 27',
+                    '987 + 391 × 57',
+                    '183 + 729 × 34',
+                    '804 + 333 × 12',
+                    '872 + 540 × 22',
+                    '923 + 453 × 93',
+                    '118 + 659 × 66',
+                    '101 + 657 × 48',
+                    '223 + 857 × 51',
+                    '226 + 415 × 33',
+                    '139 + 986 × 61',
+                    '656 + 163 × 65',
+                    '351 + 605 × 77',
+                    '900 + 146 × 28',
+                    '611 + 329 × 37',
+                    '131 + 295 × 58',
+                    '151 + 555 × 91',
+                    '778 + 872 × 63',
+                    '886 + 838 × 46',
+                    '753 + 402 × 33',
                 ];
             @endphp
 
