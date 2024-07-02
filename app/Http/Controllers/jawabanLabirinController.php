@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\JawabanLabirin;
-use Symfony\Component\Console\Input\Input;
 
 class jawabanLabirinController extends Controller
 {
@@ -14,6 +13,8 @@ class jawabanLabirinController extends Controller
             $correctAnswers = JawabanLabirin::all();
             $allInput = $request->except('_token');
 
+            // dd($allInput);
+            
             for ($i = 0; $i < 16; $i++) {
                 $input = $request->input('question_' . $i);
 
@@ -26,7 +27,7 @@ class jawabanLabirinController extends Controller
                     }
                 }
             } 
-
+    
             if ($count > 0) {
                 return redirect()->back()->withInput($allInput)->withErrors(['errors' => 'Masih ada jawaban yang Salah atau Kosong.']);
             }
@@ -38,10 +39,10 @@ class jawabanLabirinController extends Controller
             $count = 0;
             $correctAnswers = JawabanLabirin::all();
             $allInput = $request->except('_token');
-
+          
             for ($i = 0; $i < 22; $i++) {
                 $input = $request->input('question_' . $i);
-
+             
                 if (is_null($input) || $input === '') {
                     $count++;
                 } else {

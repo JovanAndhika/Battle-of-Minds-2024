@@ -178,19 +178,19 @@
 
               @foreach ($questions as $i => $question)
                   <div class="form-group">
-                      <label for="question{{ $i + 1 }}">{{ $question }}</label>
+                      <label for="question_{{ $i }}">{{ $question }}</label>
                       <input
                           type="text"
                           class="form-control"
-                          id="question{{ $i + 1 }}"
-                          name="question{{ $i + 1 }}"
+                          id="question_{{ $i  }}"
+                          name="question_{{ $i }}"
                           placeholder="Answer here"
-                          value="{{ old('question' . ($i + 1)) }}"
+                          value="{{ old('question_' . ($i)) }}"
                       >
                       <!-- Include any validation errors here if needed -->
-                      {{-- @error('question' . ($i + 1))
+                      <!-- {{-- @error('question' . ($i + 1))
                           <div class="invalid-feedback">{{ $message }}</div>
-                      @enderror --}}
+                      @enderror --}} -->
                   </div>
               @endforeach
 

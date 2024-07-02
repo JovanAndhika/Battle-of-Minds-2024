@@ -103,7 +103,4 @@ Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
     Route::post('/checkAnswer', [jawabanLabirinController::class, 'checkAnswer'])->name('checkAnswer'); 
     Route::post('/checkAnswer2', [jawabanLabirinController::class, 'checkAnswer2'])->name('checkAnswer2'); 
     Route::post('/checkAnswer3', [jawabanLabirinController::class, 'checkAnswer3'])->name('checkAnswer3'); 
-    // Route::post('/check-answer', [jawabanLabirinController::class, 'labirin2']);
-    // Route::post('/check-answer', [jawabanLabirinController::class, 'labirin3']);
-
 });
