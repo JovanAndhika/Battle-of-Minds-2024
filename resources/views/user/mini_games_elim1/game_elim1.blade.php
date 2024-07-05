@@ -180,7 +180,6 @@
     }
 
     @keyframes blink {
-
         0%,
         24%,
         27%,
@@ -300,7 +299,7 @@
     }
 
 
-    /* Functionality */
+    /* functionality */
     [type='password']:valid~#login,
     [type='password']:valid~[for='login'] {
         visibility: visible;
@@ -336,10 +335,6 @@
 
 
 
-
-
-
-
     @keyframes float {
         0% {
             transform: translateY(0);
@@ -355,7 +350,7 @@
     }
 
     .padlock {
-        animation: float 2s ease-in-out infinite;
+        animation: float 2s ease- -out infinite;
     }
 
 
@@ -417,6 +412,19 @@
         -webkit-box-shadow: 0px 0px 10px 7px rgba(255, 255, 255, 0.4);
         -moz-box-shadow: 0px 0px 10px 7px rgba(255, 255, 255, 0.4);
     }
+
+    .input-pass {
+        width: 80%;
+        height: 80%;
+
+    }
+
+    .input-pass::placeholder {
+        font-size: 13px;
+        text-align: center; 
+        justify-content: center;
+    }
+
 </style>s
 {{-- CONTENT HERE --}}
 <h2 class="text-center" id='title'>Mini Game Elimination 1</h2>
@@ -430,11 +438,11 @@
 
             <!-- INPUT GEMBOK -->
             <form id="labirin-satu">
-                <input id="password-labirin-satu" type="password" placeholder="Enter your password" required>
+                <input id="password-labirin-satu" class="input-pass" type="password" placeholder="Enter your password" required>
                 @if($lab1 == null)
                 <button type="submit" class="btn btn-primary text-white text-decoration-none">Submit</button>
                 @else
-                <span class="text-muted">Completed Labirin 1</span>
+                <span class="text-white">Completed Labirin 1</span>
                 @endif
 
                 <div class="padlock">
@@ -510,11 +518,11 @@
 
             <!-- INPUT GEMBOK -->
             <form id="labirin-dua">
-                <input id="password-labirin-dua" type="password" placeholder="Enter your password" required>
+                <input id="password-labirin-dua" class="input-pass" type="password" placeholder="Enter your password" required>
                 @if($lab2 == null)
                 <button type="submit" class="btn btn-primary text-white text-decoration-none">Submit</button>
                 @else
-                <span class="text-muted">Completed Labirin 2</span>
+                <span class="text-white">Completed Labirin 2</span>
                 @endif
 
 
@@ -590,11 +598,11 @@
 
             <!-- INPUT GEMBOK -->
             <form id="labirin-tiga">
-                <input id="password-labirin-tiga" type="password" placeholder="Enter your password" required>
+                <input id="password-labirin-tiga" class="input-pass" type="password" placeholder="Enter your password" required>
                 @if($lab3 == null)
                 <button type="submit" class="btn btn-primary text-white text-decoration-none">Submit</button>
                 @else
-                <span class="text-muted">Completed Labirin 3</span>
+                <span class="text-white">Completed Labirin 3</span>
                 @endif
 
                 <div class="padlock">
