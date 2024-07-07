@@ -226,6 +226,16 @@
                 });
             </script>
         @endif
+
+        @if (session('success'))
+            <script>
+                Swal.fire({
+                    title: "Success",
+                    text: "{{ session('success') }}",
+                    icon: "success"
+                });
+            </script>
+        @endif
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
         {{-- <script src="js/loader.js" defer></script> --}}
         <script src="js/footer.js" defer></script>

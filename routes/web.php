@@ -20,6 +20,9 @@ Route::group(['as' => 'session.'], function () {
     Route::post('/forget', [SessionController::class, 'forget_act'])->name('forget.act');
     Route::get('/forget/{token}', [SessionController::class, 'forget_content'])->name('forget.form');
     Route::post('/forget-form', [SessionController::class, 'forget_form'])->name('forget.form.act');
+
+    Route::get('/pass', [SessionController::class, 'change_pass'])->name('changePass');
+    Route::post('/pass/change', [SessionController::class, 'pass_change'])->name('pass.change');
 });
 
 
