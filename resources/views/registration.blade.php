@@ -11,8 +11,8 @@
     body {
         color: white;
         min-height: 100vh;
-        /* background: linear-gradient(180deg, rgb(26, 0, 36) 0%, rgb(63, 9, 121) 49%, rgb(96, 10, 255) 100%); */
-        background: url(asset/bg-bom-main.png);
+        background: linear-gradient(180deg, rgb(26, 0, 36) 0%, rgb(63, 9, 121) 49%, rgb(96, 10, 255) 100%);
+        /* background: url({{ asset('asset/bg-bom-main.png') }}); */
         background-attachment: fixed;
         background-position: center 93%;
     }
@@ -425,7 +425,7 @@
             @endif
 
             <div class="form-content">
-                <form method="POST" action="{{ route('storeRegistration') }}" enctype="multipart/form-data" id="registration-form" class="registration-form">
+                <form method="POST" action="{{ route('admin.storeRegistration') }}" enctype="multipart/form-data" id="registration-form" class="registration-form">
                     @csrf
 
 

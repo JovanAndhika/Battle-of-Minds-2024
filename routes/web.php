@@ -25,6 +25,10 @@ Route::group(['as' => 'session.'], function () {
 
 // ADMIN
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
+    // Registration
+    Route::get('/registration', [UserController::class, 'registration'])->name('registration');
+    Route::post('/registration/store', [UserController::class, 'storeRegistration'])->name('storeRegistration');
+
     Route::get('/', [AdminController::class, 'peserta'])->name('index');
     Route::get('/getPembayaranUsers/{user:id}', [AdminController::class, 'getPembayaranUser'])->name('index.get.pembayaran');
     Route::get('/getDataUsers/{user:id}', [AdminController::class, 'getDataUser'])->name('index.get.user');
@@ -53,16 +57,15 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'],
     Route::get('/elimdua/history', [AdminController::class, 'elimduaHistory'])->name('elimduaHistory');
     Route::get('/final/leaderboard', [AdminController::class, 'finalLeaderboard'])->name('finalLeaderboard');
     Route::get('/final/history', [AdminController::class, 'finalHistory'])->name('finalHistory');
-
 });
 
 
 //PESERTA
 //REGISTRATION
-Route::get('/registration', [UserController::class, 'registration'])->name('registration');
-Route::post('/registration/store', [UserController::class, 'storeRegistration'])->name('storeRegistration');
+
 //grup WA
 Route::get('/grupwa', [UserController::class, 'grupwa'])->name('grupwa');
+Route::get('/close_regist', [UserController::class, 'closeReg'])->name('closeReg');
 
 Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
     Route::get('/view', [UserController::class, 'view'])->name('view');
@@ -81,10 +84,10 @@ Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
     Route::post('/save-jawabanE', [UserController::class, 'simpan_jawabanE'])->name('simpan_jawabanE');
     Route::post('/save-jawabanF', [UserController::class, 'simpan_jawabanF'])->name('simpan_jawabanF');
     // Coming Soon
-    Route::get('/coming-soon', [UserController::class, 'comingSoon']) -> name ('comingSoon');
-    
+    Route::get('/coming-soon', [UserController::class, 'comingSoon'])->name('comingSoon');
+
     // View mini game
-    Route::get('/game_elim1', [UserController::class, 'game_elim1']) -> name ('game_elim1');
+    Route::get('/game_elim1', [UserController::class, 'game_elim1'])->name('game_elim1');
 
     // soal minigame elim 1
     Route::get('/soal_labirin1fgkaprWrJ71k9fs7T5hwqriiO82almi4sm0fd', [UserController::class, 'labirin1_soal'])->name('labirin1_soal');
@@ -94,8 +97,8 @@ Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
     Route::post('/soal_labirin1/validate', [UserController::class, 'labirin1_validate'])->name('labirin1_validate');
     Route::post('/soal_labirin2/validate', [UserController::class, 'labirin2_validate'])->name('labirin2_validate');
     Route::post('/soal_labirin3/validate', [UserController::class, 'labirin3_validate'])->name('labirin3_validate');
-   
-    Route::post('/checkAnswer', [jawabanLabirinController::class, 'checkAnswer'])->name('checkAnswer'); 
-    Route::post('/checkAnswer2', [jawabanLabirinController::class, 'checkAnswer2'])->name('checkAnswer2'); 
-    Route::post('/checkAnswer3', [jawabanLabirinController::class, 'checkAnswer3'])->name('checkAnswer3'); 
+
+    Route::post('/checkAnswer', [jawabanLabirinController::class, 'checkAnswer'])->name('checkAnswer');
+    Route::post('/checkAnswer2', [jawabanLabirinController::class, 'checkAnswer2'])->name('checkAnswer2');
+    Route::post('/checkAnswer3', [jawabanLabirinController::class, 'checkAnswer3'])->name('checkAnswer3');
 });
