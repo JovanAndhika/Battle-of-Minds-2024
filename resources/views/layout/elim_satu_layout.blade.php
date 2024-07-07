@@ -150,7 +150,7 @@
 
     <script>
         var now = new Date().getTime();
-        var timer = new Date("May 13, 2024 23:30:00").getTime();
+        var timer = new Date("July 7, 2024 01:00:00").getTime();
 
         var countdownTime = timer - now;; // misalnya, 60 detik
 
@@ -163,7 +163,16 @@
                 countdownTime--;
                 if (countdownTime <= 0) {
                     clearInterval(countdownInterval);
-                    alert("Countdown selesai!");
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Waktu telah habis !',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    
+                    setTimeout(() => {
+                        window.location = '/view'
+                    }, 2000);
                 }
                 displayTime();
             }, 1000);

@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Support\Facades\Redis;
+use Illuminate\Validation\ValidationException;
+
+use function Laravel\Prompts\error;
 
 class SessionController extends Controller
 {
@@ -94,9 +98,14 @@ class SessionController extends Controller
 
         $validate = $request->validate([
             'namaKelompok' => 'required|string|max:255|exists:users',
-            'emailPerwakilan' => 'email:dns|required|string|max:255|exists:users'
         ], $custom_messages);
 
+        $checkUser = User::where('namaKelompok', $request->namaKelompok)
+                        ->where('emailPerwakilan', $request->emailPerwakilan)
+        ->get();
+        if ($checkUser->count() <= 0) {
+            throw ValidationException::withMessages(['emailPerwakilan' => 'Email tidak valid']);
+        }
 
         $token = Str::random(60);
 
@@ -140,7 +149,7 @@ class SessionController extends Controller
         if ($validasi_token) {
             $user = User::where('emailPerwakilan', $validasi_token->email)->first();
             if ($user) {
-                $user->update([
+                User::where('emailPerwakilan', $validasi_token->email)->update([
                     'password' => Hash::make($request->password),
                 ]);
                 $validasi_token->delete();
@@ -150,6 +159,34 @@ class SessionController extends Controller
         }
 
         return redirect()->route('session.forget')->with('error', 'Data invalid');
+    }
+
+    public function change_pass() {
+        return view('sesi.change_pass', [
+            'title' => 'Change Password'
+        ]);
+    }
+
+    public function pass_change(Request $request) {
+        $custom_messages = [
+            'exists' => 'Data tidak terdaftar.'
+        ];
+
+        $validate = $request->validate([
+            'namaKelompok' => 'required|string|max:255|exists:users',
+        ], $custom_messages);
+
+        $user = User::where('namaKelompok', $request->namaKelompok)->first();
+
+        $passCheck = Hash::check($request->old_pass, $user->password);
+
+        if (!$passCheck) {
+            throw ValidationException::withMessages(['old_pass' => 'Password lama masih salah.']);
+        }
+
+        User::where('namaKelompok', $request->namaKelompok)->update(['password' => Hash::make($request->new_pass)]);
+
+        return redirect()->route('index')->with('success', 'Berhasil mengupdate password !');
     }
 
 
