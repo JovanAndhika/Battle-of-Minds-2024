@@ -113,7 +113,7 @@ class AdminController extends Controller
         return view('admin.jawaban', [
             'title' => 'BOM 2024 | Data Jawaban Peserta',
             'jawabans' => $jawabans,
-            'information' => 'Data Jawaban ' . $user->namaKelompok
+            'information' => 'Data Jawaban ' . $user->namaKelompok . '. total poin : ' . $user->poin
         ]);
     }
 

@@ -206,6 +206,9 @@ class UserController extends Controller
             }
         }
 
+        // Update poin
+        User::where('id', $kelompokId)->update(['poin' => 300 - $count]);
+
         if ($request->page) {
             if ($request->page == 1) {
                 return redirect()->route('user.elim_satu')->with([
@@ -270,6 +273,9 @@ class UserController extends Controller
                 $count++;
             }
         }
+
+        // Update poin
+        User::where('id', $kelompokId)->update(['poin' => 300 - $count]);
 
         if ($request->page) {
             if ($request->page == 1) {
@@ -336,6 +342,9 @@ class UserController extends Controller
             }
         }
 
+        // Update poin
+        User::where('id', $kelompokId)->update(['poin' => 300 - $count]);
+
         if ($request->page) {
             if ($request->page == 1) {
                 return redirect()->route('user.elim_satu')->with([
@@ -400,6 +409,9 @@ class UserController extends Controller
                 $count++;
             }
         }
+
+        // Update poin
+        User::where('id', $kelompokId)->update(['poin' => 300 - $count]);
 
         if ($request->page) {
             if ($request->page == 1) {
@@ -466,6 +478,9 @@ class UserController extends Controller
             }
         }
 
+        // Update poin
+        User::where('id', $kelompokId)->update(['poin' => 300 - $count]);
+
         if ($request->page) {
             if ($request->page == 1) {
                 return redirect()->route('user.elim_satu')->with([
@@ -530,6 +545,9 @@ class UserController extends Controller
                 $count++;
             }
         }
+
+        // Update poin
+        User::where('id', $kelompokId)->update(['poin' => 300 - $count]);
 
         if ($request->page) {
             if ($request->page == 1) {

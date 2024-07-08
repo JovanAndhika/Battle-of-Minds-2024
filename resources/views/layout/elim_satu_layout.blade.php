@@ -150,7 +150,7 @@
 
     <script>
         var now = new Date().getTime();
-        var timer = new Date("July 7, 2024 01:00:00").getTime();
+        var timer = new Date("July 9, 2024 01:00:00").getTime();
 
         var countdownTime = timer - now;; // misalnya, 60 detik
 
