@@ -79,9 +79,8 @@
 <div class="w-screen flex justify-center items-center my-7">
     <div class="flex">
         <div class="card w-[400px] h-[400px] mx-10 rounded-xl">
-            <h3 class="text-center text-2xl font-bold py-3">Elimination One</h3>
+            <h3 class="text-center text-2xl font-bold py-3">Elimination 1 Big Game</h3>
             <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Menguji kecepatan dan ketepatan</p>
-            <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Terdiri dari 300 butir soal</p>
             <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Soal tidak wajib dikerjakan semua
             </p>
             <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Poin diperoleh dari setiap soal yang
@@ -102,7 +101,7 @@
         </div>
 
         <div class="card w-[400px] h-[400px] mx-12 rounded-xl ">
-            <h3 class="text-center text-2xl font-bold py-3">Elimination One Minigame</h3>
+            <h3 class="text-center text-2xl font-bold py-3">Elimination 1 Mini game</h3>
             <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Menguji kecepatan dan ketepatan</p>
             <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Terdiri dari beberapa butir soal</p>
             <p class="text-sm px-5 py-2"><i class="fa-solid fa-circle text-xs"></i> Soal wajib dikerjakan semua</p>

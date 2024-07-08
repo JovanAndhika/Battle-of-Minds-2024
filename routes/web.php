@@ -64,13 +64,14 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'],
 
 
 //PESERTA
-//REGISTRATION
-
 //grup WA
 Route::get('/grupwa', [UserController::class, 'grupwa'])->name('grupwa');
+//Close Reg
 Route::get('/close_regist', [UserController::class, 'closeReg'])->name('closeReg');
+// Coming Soon
+Route::get('/coming-soon', [UserController::class, 'comingSoon'])->name('comingSoon');
 
-Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
+Route::group(['as' => 'user.', 'middleware' => ['isGuest', 'isPanit']], function () {
     Route::get('/view', [UserController::class, 'view'])->name('view');
     // 300 soal
     Route::get('/assessment', [UserController::class, 'elim_satu'])->name('elim_satu');
@@ -86,8 +87,6 @@ Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
     Route::post('/save-jawabanD', [UserController::class, 'simpan_jawabanD'])->name('simpan_jawabanD');
     Route::post('/save-jawabanE', [UserController::class, 'simpan_jawabanE'])->name('simpan_jawabanE');
     Route::post('/save-jawabanF', [UserController::class, 'simpan_jawabanF'])->name('simpan_jawabanF');
-    // Coming Soon
-    Route::get('/coming-soon', [UserController::class, 'comingSoon'])->name('comingSoon');
 
     // View mini game
     Route::get('/game_elim1', [UserController::class, 'game_elim1'])->name('game_elim1');
