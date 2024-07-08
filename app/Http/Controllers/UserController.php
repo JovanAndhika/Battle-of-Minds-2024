@@ -594,6 +594,11 @@ class UserController extends Controller
         return view('user.coming-soon', ['title' => 'BOM 2024 | COMING SOON']);
     }
 
+    public function closeReg() //for coming soon
+    {
+        return view('user.closereg', ['title' => 'BOM 2024 | REGISTRATION CLOSED']);
+    }
+
 
 
 
