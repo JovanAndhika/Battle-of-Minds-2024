@@ -159,7 +159,7 @@
 
 <script>
     var now = new Date().getTime();
-    var timer = new Date("July 9, 2024 03:27:00").getTime();
+    var timer = new Date("July 9, 2024 12:15:00").getTime();
 
     var countdownTime = timer - now;; // misalnya, 60 detik
 
@@ -170,8 +170,6 @@
     function startCountdown() {
         var countdownInterval = setInterval(function() {
             countdownTime--;
-
-            console.log(countdownTime)
 
             if (countdownTime <= 0) {
                 for (var i = 1; i <= 300; i++) {
@@ -191,7 +189,7 @@
                 }, 2000);
 
 
-            } else if (countdownTime <= 60) {
+            } else if (countdownTime <= 1800000) {
                 // Menghapus atribut hidden dari tombol saat dokumen siap
                 console.log(countdownTime);
                 $('#btn-soalbom').prop('hidden', false);
