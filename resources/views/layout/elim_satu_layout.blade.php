@@ -106,12 +106,20 @@
         </div>
     </div>
     <button type="button" onclick="submit_jawaban()" id="btn-save-jawaban" class="btn btn-primary">SAVE</button>
-
+    <a href="{{ route('user.soalBom') }}" type="button" id="btn-soalbom" class="btn btn-secondary" hidden>BOMB Quest</a>
     <style>
         #btn-save-jawaban {
             position: fixed;
             z-index: 99;
             left: 80%;
+            top: 90%;
+            width: 150px;
+        }
+
+        #btn-soalbom {
+            position: fixed;
+            z-index: 99;
+            left: 15%;
             top: 90%;
             width: 150px;
         }
@@ -151,18 +159,9 @@
 
 <script>
     var now = new Date().getTime();
-    var timer = new Date("July 9, 2024 12:15:00").getTime();
+    var timer = new Date("July 9, 2024 03:27:00").getTime();
 
     var countdownTime = timer - now;; // misalnya, 60 detik
-
-    if (countdownTime === 0) {
-        $(document).ready(function() {
-            for (var i = 1; i <= 300; i++) {
-                $('#biggamesanswer' + i).prop('disabled', true);
-            }
-        });
-
-    }
 
     window.onload = function() {
         startCountdown();
@@ -171,8 +170,15 @@
     function startCountdown() {
         var countdownInterval = setInterval(function() {
             countdownTime--;
+
+            console.log(countdownTime)
+
             if (countdownTime <= 0) {
+                for (var i = 1; i <= 300; i++) {
+                    $('#biggamesanswer' + i).prop('disabled', true);
+                }
                 clearInterval(countdownInterval);
+
                 Swal.fire({
                     icon: 'info',
                     title: 'Waktu telah habis !',
@@ -183,10 +189,18 @@
                 setTimeout(() => {
                     window.location = '/view'
                 }, 2000);
+
+
+            } else if (countdownTime <= 60) {
+                // Menghapus atribut hidden dari tombol saat dokumen siap
+                console.log(countdownTime);
+                $('#btn-soalbom').prop('hidden', false);
             }
+
             displayTime();
         }, 1000);
     }
+
 
     function displayTime() {
         var hours = Math.floor(countdownTime / (1000 * 60 * 60));
