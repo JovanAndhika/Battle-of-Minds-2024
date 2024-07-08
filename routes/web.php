@@ -55,7 +55,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'],
     Route::get('/final', [AdminController::class, 'finalView'])->name('finalView');
     Route::post('/final/store', [AdminController::class, 'finalStore'])->name('finalStore');
 
-    // Lihat History
+    // Lihat History & Leaderboard
+    Route::get('/elimsatu/leaderboard', [AdminController::class, 'elimsatuLeaderboard'])->name('elimsatuLeaderboard');
     Route::get('/elimdua/leaderboard', [AdminController::class, 'elimduaLeaderboard'])->name('elimduaLeaderboard');
     Route::get('/elimdua/history', [AdminController::class, 'elimduaHistory'])->name('elimduaHistory');
     Route::get('/final/leaderboard', [AdminController::class, 'finalLeaderboard'])->name('finalLeaderboard');
