@@ -14,7 +14,7 @@ class SoalbomController extends Controller
     {
         return view('user.soal_bom.show_soalbom', [
             'title' => 'BOM 2024 | Bomb Questions',
-            'jawaban' => Data_bomsoal::where('id', auth()->user()->id)->first(),
+            'jawaban' => Data_bomsoal::where('kelompok_id', auth()->user()->id)->first(),
         ]);
     }
 
@@ -29,7 +29,7 @@ class SoalbomController extends Controller
         $jawabanNomor2 = '$2y$10$5vZDRS9fvwPkt/JY6PeKf.DudCN0etGhPcGzIXZsbP4e0zZQNOFR.';
 
         Data_bomsoal::updateOrCreate(
-            ['id' => $idPeserta],
+            ['kelompok_id' => $idPeserta],
             ['jawaban_bom1' => $inputJawaban1, 'jawaban_bom2' => $inputJawaban2]
         );
 

@@ -20,8 +20,8 @@ class DataSoalBomSeeder extends Seeder
 
         foreach ($dataPesertas as $data) {
             Data_bomsoal::updateOrCreate(
-                ['id' => $data->id],
-                ['kelompok_id' => $data->id, 'jawaban_bom1' => '0', 'jawaban_bom2' => '0']
+                ['kelompok_id' => $data->id],
+                ['jawaban_bom1' => '0', 'jawaban_bom2' => '0']
             );
         }
     }
