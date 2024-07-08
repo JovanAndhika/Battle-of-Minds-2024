@@ -305,7 +305,10 @@ class UserController extends Controller
             }
         }
 
-        return back()->with('success', 'Jawaban anda telah berhasil tersimpan !');
+        return back()->with([
+            'success' => 'Jawaban anda telah berhasil tersimpan !',
+            'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+        ]);
     }
 
     public function simpan_jawabanC(Request $request)
@@ -367,7 +370,10 @@ class UserController extends Controller
             }
         }
 
-        return back()->with('success', 'Jawaban anda telah berhasil tersimpan !');
+        return back()->with([
+            'success' => 'Jawaban anda telah berhasil tersimpan !',
+            'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+        ]);
     }
 
     public function simpan_jawabanD(Request $request)
@@ -429,7 +435,10 @@ class UserController extends Controller
             }
         }
 
-        return back()->with('success', 'Jawaban anda telah berhasil tersimpan !');
+        return back()->with([
+            'success' => 'Jawaban anda telah berhasil tersimpan !',
+            'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+        ]);
     }
 
     public function simpan_jawabanE(Request $request)
@@ -491,7 +500,10 @@ class UserController extends Controller
             }
         }
 
-        return back()->with('success', 'Jawaban anda telah berhasil tersimpan !');
+        return back()->with([
+            'success' => 'Jawaban anda telah berhasil tersimpan !',
+            'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+        ]);
     }
 
     public function simpan_jawabanF(Request $request)
@@ -553,7 +565,10 @@ class UserController extends Controller
             }
         }
 
-        return back()->with('success', 'Jawaban anda telah berhasil tersimpan !');
+        return back()->with([
+            'success' => 'Jawaban anda telah berhasil tersimpan !',
+            'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+        ]);
     }
 
     public function comingSoon() //for coming soon
@@ -577,11 +592,11 @@ class UserController extends Controller
             $lab1 =  $status->labirin_1;
             $lab2 = $status->labirin_2;
             $lab3 = $status->labirin_3;
-        } 
+        }
         return view('user.mini_games_elim1.game_elim1', ['title' => 'BOM 2024 | MiniGame Elimination 1', 'lab1' => $lab1, 'lab2' => $lab2, 'lab3' => $lab3]);
     }
 
-    
+
 
     // Validation Labirin
     public function labirin1_validate(Request $request)
