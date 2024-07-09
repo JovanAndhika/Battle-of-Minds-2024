@@ -200,6 +200,7 @@ class UserController extends Controller
 
         foreach ($kuncis as $kunci) {
             $jawaban = Data_jawaban::where('kunci_jawabans_id', $iterasi++)
+                ->where('kelompok_id', $kelompokId)
                 ->where('jawaban_kelompok', $kunci->jawaban)->first();
             if (!$jawaban) {
                 $count++;
@@ -268,6 +269,7 @@ class UserController extends Controller
 
         foreach ($kuncis as $kunci) {
             $jawaban = Data_jawaban::where('kunci_jawabans_id', $iterasi++)
+                ->where('kelompok_id', $kelompokId)
                 ->where('jawaban_kelompok', $kunci->jawaban)->first();
             if (!$jawaban) {
                 $count++;
@@ -336,6 +338,7 @@ class UserController extends Controller
 
         foreach ($kuncis as $kunci) {
             $jawaban = Data_jawaban::where('kunci_jawabans_id', $iterasi++)
+                ->where('kelompok_id', $kelompokId)
                 ->where('jawaban_kelompok', $kunci->jawaban)->first();
             if (!$jawaban) {
                 $count++;
@@ -404,6 +407,7 @@ class UserController extends Controller
 
         foreach ($kuncis as $kunci) {
             $jawaban = Data_jawaban::where('kunci_jawabans_id', $iterasi++)
+                ->where('kelompok_id', $kelompokId)
                 ->where('jawaban_kelompok', $kunci->jawaban)->first();
             if (!$jawaban) {
                 $count++;
@@ -472,6 +476,7 @@ class UserController extends Controller
 
         foreach ($kuncis as $kunci) {
             $jawaban = Data_jawaban::where('kunci_jawabans_id', $iterasi++)
+                ->where('kelompok_id', $kelompokId)
                 ->where('jawaban_kelompok', $kunci->jawaban)->first();
             if (!$jawaban) {
                 $count++;
@@ -540,6 +545,7 @@ class UserController extends Controller
 
         foreach ($kuncis as $kunci) {
             $jawaban = Data_jawaban::where('kunci_jawabans_id', $iterasi++)
+                ->where('kelompok_id', $kelompokId)
                 ->where('jawaban_kelompok', $kunci->jawaban)->first();
             if (!$jawaban) {
                 $count++;
