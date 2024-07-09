@@ -250,6 +250,16 @@ class AdminController extends Controller
     }
 
     // Leaderboard
+    public function elimsatuLeaderboard(){
+        $index = array_rand($this->welcome);
+
+        return view('admin.elimSatuLeaderboard', [
+            'title' => 'BOM 2024 | Leaderboard Elim Dua',
+            'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok,
+            'pesertas' => User::all(),
+        ]);
+    }
+
     public function elimduaLeaderboard(){
         $index = array_rand($this->welcome);
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\jawabanLabirinController;
+use App\Http\Controllers\SoalbomController;
 
 //HOMEPAGE
 Route::get('/', [UserController::class, 'index'])->name('index');
@@ -45,8 +46,6 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'],
     Route::post('/validate', [AdminController::class, 'validasi'])->name('validate');
     Route::post('/setJawaban', [AdminController::class, 'setReady'])->name('setReady');
 
-
-
     // ElimDua
     Route::get('/elimdua', [AdminController::class, 'elimduaView'])->name('elimduaView');
     Route::post('/elimdua/store', [AdminController::class, 'elimduaStore'])->name('elimduaStore');
@@ -55,7 +54,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'],
     Route::get('/final', [AdminController::class, 'finalView'])->name('finalView');
     Route::post('/final/store', [AdminController::class, 'finalStore'])->name('finalStore');
 
-    // Lihat History
+    // Lihat History & Leaderboard
+    Route::get('/elimsatu/leaderboard', [AdminController::class, 'elimsatuLeaderboard'])->name('elimsatuLeaderboard');
     Route::get('/elimdua/leaderboard', [AdminController::class, 'elimduaLeaderboard'])->name('elimduaLeaderboard');
     Route::get('/elimdua/history', [AdminController::class, 'elimduaHistory'])->name('elimduaHistory');
     Route::get('/final/leaderboard', [AdminController::class, 'finalLeaderboard'])->name('finalLeaderboard');
@@ -64,13 +64,14 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'],
 
 
 //PESERTA
-//REGISTRATION
-
 //grup WA
 Route::get('/grupwa', [UserController::class, 'grupwa'])->name('grupwa');
+//Close Reg
 Route::get('/close_regist', [UserController::class, 'closeReg'])->name('closeReg');
+// Coming Soon
+Route::get('/coming-soon', [UserController::class, 'comingSoon'])->name('comingSoon');
 
-Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
+Route::group(['as' => 'user.', 'middleware' => ['isGuest', 'isPanit']], function () {
     Route::get('/view', [UserController::class, 'view'])->name('view');
     // 300 soal
     Route::get('/assessment', [UserController::class, 'elim_satu'])->name('elim_satu');
@@ -86,8 +87,10 @@ Route::group(['as' => 'user.', 'middleware' => 'isGuest'], function () {
     Route::post('/save-jawabanD', [UserController::class, 'simpan_jawabanD'])->name('simpan_jawabanD');
     Route::post('/save-jawabanE', [UserController::class, 'simpan_jawabanE'])->name('simpan_jawabanE');
     Route::post('/save-jawabanF', [UserController::class, 'simpan_jawabanF'])->name('simpan_jawabanF');
-    // Coming Soon
-    Route::get('/coming-soon', [UserController::class, 'comingSoon'])->name('comingSoon');
+
+    // Soal Bom
+    Route::get('/soalBom$2y$10$667Kvfk21J4g2QHqRop3r.Mk37i6R0B./CXR3kYFqPpN0rlO7bbta', [SoalbomController::class, 'showSoal'])->name('soalBom');
+    Route::post('/soalBom/store', [SoalbomController::class, 'storeSoal'])->name('soalBomStore');
 
     // View mini game
     Route::get('/game_elim1', [UserController::class, 'game_elim1'])->name('game_elim1');

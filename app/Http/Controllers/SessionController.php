@@ -75,11 +75,22 @@ class SessionController extends Controller
                 if (Auth::attempt($credentials) && auth()->user()->is_validated == 1) {
                     $request->session()->regenerate();
                     session(['isGuest' => true]);
+
+
+                    // SESI KHUSUS PANITIA BOM
+                    $cekKelompokPanit = User::Where('namaKelompok', $request->namaKelompok)
+                    ->Where('is_panit', 1)
+                    ->count();
+                    if ($cekKelompokPanit == 1){
+                        session(['isPanit' => true]);
+                    }
+
+
                     return redirect()->intended(route('index'))->with('login_success', 'Welcome, ' . $request->namaKelompok);
                 }
             }
         }
-        return redirect()->route('session.index')->with('not_validated', 'Invalid login credentials or maybe you haven\'t validated yet');
+        return redirect()->route('session.index')->with('not_validated', 'Invalid login credentials or maybe you are not validated yet');
     }
 
     public function forget()
