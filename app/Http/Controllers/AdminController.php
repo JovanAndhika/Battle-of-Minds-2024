@@ -255,9 +255,9 @@ class AdminController extends Controller
     {
         $index = array_rand($this->welcome);
 
-        $first = User::where('is_admin', 0)->orderBy('poin')->first();
-        $second = User::where('is_admin', 0)->orderBy('poin')->skip(1)->first();
-        $third = User::where('is_admin', 0)->orderBy('poin')->skip(2)->first();
+        $first = User::with('data_bomsoal')->where('is_admin', 0)->orderBy('poin')->first();
+        $second = User::with('data_bomsoal')->where('is_admin', 0)->orderBy('poin')->skip(1)->first();
+        $third = User::with('data_bomsoal')->where('is_admin', 0)->orderBy('poin')->skip(2)->first();
 
         // $testData = User::where('id', 1)->get();
         // dd($testData[0]->data_bomsoal->poinBom);
