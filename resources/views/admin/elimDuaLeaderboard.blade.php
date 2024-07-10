@@ -16,7 +16,6 @@
                         <th>Nama Kelompok</th>
                         <th>Asal Sekolah</th>
                         <th>Jumlah Poin</th>
-                        <th>Updated at</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,7 +25,6 @@
                         <td>{{ $peserta->namaKelompok }}</td>
                         <td>{{ $peserta->asalSekolah }}</td>
                         <td>{{ $peserta->jumlahPoin }}</td>
-                        <td>{{ $peserta->updated_at}}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -51,9 +49,6 @@
         }],
         columns: [{
                 width: '5%'
-            },
-            {
-                width: '10%'
             },
             {
                 width: '10%'

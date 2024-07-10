@@ -43,7 +43,7 @@
                                                     });
                                                 </script>
                                             @enderror
-                                            <input type="text" id="default-search" value="{{ $peserta->poin }}"
+                                            <input type="text" id="default-search" value="{{ $peserta->poin + $peserta->data_bomsoal->poinBom ?? 0 }}"
                                                 name="poin"
                                                 class="block w-full md:ps-10 md:p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                                                 required />

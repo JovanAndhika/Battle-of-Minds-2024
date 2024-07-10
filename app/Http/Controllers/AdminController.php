@@ -86,7 +86,10 @@ class AdminController extends Controller
         $index = array_rand($this->welcome);
         return view('admin.poin', [
             'title' => 'BOM 2024 | Poin kelompok',
-            'pesertas' => User::where('is_admin', '0')->get(),
+            'pesertas' => User::with('data_bomsoal')
+            ->where('is_admin', '0')
+            ->orderBy('poin', 'DESC')
+            ->get(),
             'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok
         ]);
     }
@@ -189,7 +192,6 @@ class AdminController extends Controller
                 ->update(['jumlahPoin' => $jumlahPoin + floatval($request->poinDidapat)]);
 
             return response()->json(['res' => 'Form submitted successfully!'], 200);
-
         } else {
             return response()->json(['res' => 'Nama Kelompok is not in the database'], 404);
         }
@@ -243,46 +245,55 @@ class AdminController extends Controller
                 ->update(['jumlahPoin' => $jumlahPoin + floatval($request->poinDidapat)]);
 
             return response()->json(['res' => 'Form submitted successfully!'], 200);
-            
         } else {
             return response()->json(['res' => 'Nama Kelompok is not in the database'], 404);
         }
     }
 
     // Leaderboard
-    public function elimsatuLeaderboard(){
+    public function elimsatuLeaderboard()
+    {
         $index = array_rand($this->welcome);
+
+        // $testData = User::where('id', 1)->get();
+        // dd($testData[0]->data_bomsoal->poinBom);
 
         return view('admin.elimSatuLeaderboard', [
             'title' => 'BOM 2024 | Leaderboard Elim Dua',
             'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok,
-            'pesertas' => User::all(),
+            'pesertas' => User::with('data_bomsoal')
+            ->where('is_admin', 0)
+            ->orderBy('poin', 'DESC')
+            ->get(),
         ]);
     }
 
-    public function elimduaLeaderboard(){
+    public function elimduaLeaderboard()
+    {
         $index = array_rand($this->welcome);
 
         return view('admin.elimDuaLeaderboard', [
             'title' => 'BOM 2024 | Leaderboard Elim Dua',
             'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok,
-            'pesertas' => Elim_dua::all(),
+            'pesertas' => Elim_dua::orderBy('jumlahPoin', 'DESC')->get(),
         ]);
     }
 
-    public function finalLeaderboard(){
+    public function finalLeaderboard()
+    {
         $index = array_rand($this->welcome);
 
         return view('admin.finalLeaderboard', [
             'title' => 'BOM 2024 | Leaderboard Elim Dua',
             'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok,
-            'pesertas' => Babak_final::all(),
+            'pesertas' => Babak_final::orderBy('jumlahPoin', 'DESC')->get(),
         ]);
     }
 
 
     // History
-    public function elimduaHistory(){
+    public function elimduaHistory()
+    {
         $index = array_rand($this->welcome);
 
         return view('admin.elimDuaHistory', [
@@ -292,7 +303,8 @@ class AdminController extends Controller
         ]);
     }
 
-    public function finalHistory(){
+    public function finalHistory()
+    {
         $index = array_rand($this->welcome);
 
         return view('admin.finalHistory', [

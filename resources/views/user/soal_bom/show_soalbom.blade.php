@@ -41,7 +41,7 @@
         height: 30px;
     }
 
-    img{
+    img {
         height: 200px;
     }
 </style>
@@ -56,7 +56,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6 form-content">
-                <form id="soalBom" method="post">
+                <form action="{{ route('user.soalBomStore') }}" method="post">
                     @csrf
                     <div class="mb-4">
                         <img src="{{ asset('soalBom/soalBom (1).jpg') }}" alt="Question Image 1" class="w-100 rounded-lg shadow-md mb-3">
@@ -75,54 +75,14 @@
             </div>
         </div>
     </div>
+
+    <a href="{{ route('user.elim_satu') }}" type="button" class="btn btn-secondary" style="position:absolute; right:30%; bottom:-18%;">Back</button>
 </body>
 
 
 <script>
-    $(document).ready(function() {
-        $('#soalBom').on('submit', function(event) {
-            event.preventDefault();
-
-            var inputJawaban1 = $('#answer1').val();
-            var inputJawaban2 = $('#answer2').val();
-
-            $.ajax({
-                type: 'POST',
-                url: '{{ route("user.soalBomStore") }}',
-                data: {
-                    answer1: inputJawaban1,
-                    answer2: inputJawaban2,
-                    _token: '{{ csrf_token() }}' // Token CSRF untuk keamanan Laravel
-                },
-                success: function(response) {
-                    if (response.bomDone) {
-                        Swal.fire({
-                                title: 'Success',
-                                text: 'Answer is saved',
-                                icon: 'success'
-                            })
-                            .then((result) => {
-                                if (result.isConfirmed) {
-                                    window.location.href = response.url; // Redirect ke URL yang dikirim dari backend
-                                }
-                            });
-                    }
-                },
-                error: function(xhr, status, error) {
-                    Swal.fire({
-                        title: 'Error',
-                        text: 'An error occurred. Please try again.',
-                        icon: 'error'
-                    });
-                }
-            });
-        });
-    });
-
-
-
     var now = new Date().getTime();
-    var timer = new Date("July 9, 2024 12:15:00").getTime();
+    var timer = new Date("July 23, 2024 14:00:00").getTime();
 
     var countdownTime = timer - now;; // misalnya, 60 detik
 

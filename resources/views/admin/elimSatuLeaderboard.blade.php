@@ -16,7 +16,6 @@
                         <th>Nama Kelompok</th>
                         <th>Asal Sekolah</th>
                         <th>Jumlah Poin</th>
-                        <th>Updated at</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,8 +24,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $peserta->namaKelompok }}</td>
                         <td>{{ $peserta->asalSekolah }}</td>
-                        <td>{{ $peserta->poin }}</td>
-                        <td>{{ $peserta->updated_at}}</td>
+                        <td>{{ $peserta->poin + $peserta->data_bomsoal->poinBom ?? 0}}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -51,9 +49,6 @@
         }],
         columns: [{
                 width: '5%'
-            },
-            {
-                width: '10%'
             },
             {
                 width: '10%'

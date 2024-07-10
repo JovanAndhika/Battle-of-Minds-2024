@@ -23,49 +23,38 @@ class SoalbomController extends Controller
         $idPeserta = auth()->user()->id;
 
         $inputJawaban1 = $request->input('answer1');
-        $jawabanNomor1 = '$2y$10$fd.aTKQVYGt4qbbfgLB/8exBfsN6w.mEHHNmSE40jNUx5.7sJ/kte'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
-
+        $jawabanNomor1 = '$2y$10$NsKc7vHSwFYYFcBzbyDiV.I2uVTRq/CF6Z4HfqOM2VmEdm2C5JUpC'; // Jawaban yang benar
         $inputJawaban2 = $request->input('answer2');
-        $jawabanNomor2 = '$2y$10$5vZDRS9fvwPkt/JY6PeKf.DudCN0etGhPcGzIXZsbP4e0zZQNOFR.';
+        $jawabanNomor2 = '$2y$10$FDIQ7jWPXeiNHnGFT.ORju0/Z7ERzvTTZd7S691qZRksy61iNqGDm';
 
         Data_bomsoal::updateOrCreate(
             ['kelompok_id' => $idPeserta],
             ['jawaban_bom1' => $inputJawaban1, 'jawaban_bom2' => $inputJawaban2]
         );
 
-        if (Hash::check($inputJawaban1, $jawabanNomor1) || $inputJawaban1 != null) {
-            $poinPeserta = User::where('id', $idPeserta)->limit(1)->value('poin');
-            $newPoint = $poinPeserta + 5;
+        $cekUser = Data_bomsoal::where('kelompok_id', $idPeserta)->count();
 
-            User::where('id', $idPeserta)
-                ->limit(1)
-                ->update(['poin' => intval($newPoint)]);
-        } else if (!Hash::check($inputJawaban1, $jawabanNomor1) || $inputJawaban1 == null){
-            $poinPeserta = User::where('id', $idPeserta)->limit(1)->value('poin');
-            $newPoint = $poinPeserta - 10;
+        $countBenar = 0;
 
-            User::where('id', $idPeserta)
-                ->limit(1)
-                ->update(['poin' => intval($newPoint)]);
+        if (Hash::check($inputJawaban1, $jawabanNomor1)) {
+            $countBenar = $countBenar + 1;
+        }
+        if (Hash::check($inputJawaban2, $jawabanNomor2)) {
+            $countBenar = $countBenar + 1;
+        }
+
+        $selisihBenar = 2 - $countBenar;
+
+        $poin = $countBenar * 5;
+        $salah = $selisihBenar * (-5);
+
+        $total_poin = $poin + $salah;
+
+        if ($cekUser === 1) {
+            Data_bomsoal::where('kelompok_id', $idPeserta)->update(['poinBom' => $total_poin]);
         }
 
 
-        if (Hash::check($inputJawaban2, $jawabanNomor2) || $inputJawaban2 != null) {
-            $poinPeserta = User::where('id', $idPeserta)->limit(1)->value('poin');
-            $newPoint = $poinPeserta + 5;
-
-            User::where('id', $idPeserta)
-                ->limit(1)
-                ->update(['poin' => intval($newPoint)]);
-        } else if(!Hash::check($inputJawaban2, $jawabanNomor2) || $inputJawaban2 == null){
-            $poinPeserta = User::where('id', $idPeserta)->limit(1)->value('poin');
-            $newPoint = $poinPeserta - 10;
-
-            User::where('id', $idPeserta)
-                ->limit(1)
-                ->update(['poin' => intval($newPoint)]);
-        }
-
-        return response()->json(['bomDone' => true, 'url' => route('user.elim_satu')]);
+        return redirect()->route("user.elim_satu")->with(session()->flash('saveBom', 'Save BOM DOR successfull!'));
     }
 }

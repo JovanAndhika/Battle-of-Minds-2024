@@ -188,9 +188,9 @@
     @if (session('success'))
         <script>
             Swal.fire({
-                icon: 'success',
-                title: 'Berhasil !',
-                text: '{{ session('success') }}'
+                title: "Berhasil !",
+                text: '{{ session("success") }}',
+                icon: "success"
             });
         </script>
     @endif
@@ -198,9 +198,9 @@
     @if (session('error'))
         <script>
             Swal.fire({
-                icon: 'warning',
                 title: 'Warning !',
-                text: '{{ session('error') }}'
+                text: '{{ session("error") }}',
+                icon: 'warning',
             });
         </script>
     @endif
@@ -234,7 +234,7 @@
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Login Failed',
-                                text: '{{ session('not_validated') }}',
+                                text: '{{ session("not_validated") }}',
                             })
                         </script>
                     @endif

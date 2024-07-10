@@ -106,7 +106,7 @@
         </div>
     </div>
     <button type="button" onclick="submit_jawaban()" id="btn-save-jawaban" class="btn btn-primary">SAVE</button>
-    <a href="{{ route('user.soalBom') }}" type="button" id="btn-soalbom" class="btn btn-secondary" hidden>BOMB Quest</a>
+    <a href="{{ route('user.soalBom') }}" type="button" id="btn-soalbom" class="btn btn-secondary">BOMB Quest</a>
     <style>
         #btn-save-jawaban {
             position: fixed;
@@ -159,7 +159,7 @@
 
 <script>
     var now = new Date().getTime();
-    var timer = new Date("July 9, 2024 12:15:00").getTime();
+    var timer = new Date("July 23, 2024 14:00:00").getTime();
 
     var countdownTime = timer - now;; // misalnya, 60 detik
 
