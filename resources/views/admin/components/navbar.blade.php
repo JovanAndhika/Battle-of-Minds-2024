@@ -171,6 +171,7 @@
     </div>
 </nav>
 
+@if ('admin/elimsatu/leaderboard' != request()->path())
 <div class="flex justify-center">
     <div
         class="flex flex-col justify-center items-center lg:pt-[85px] pb-2 bg-violet-100 md:rounded-full rounded-lg shadow-xl md:w-2/3 w-11/12 md:pt-[50px] pt-[50px]">
@@ -182,3 +183,4 @@
         </div>
     </div>
 </div>
+@endif

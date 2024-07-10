@@ -87,9 +87,9 @@ class AdminController extends Controller
         return view('admin.poin', [
             'title' => 'BOM 2024 | Poin kelompok',
             'pesertas' => User::with('data_bomsoal')
-            ->where('is_admin', '0')
-            ->orderBy('poin', 'DESC')
-            ->get(),
+                ->where('is_admin', '0')
+                ->orderBy('poin', 'DESC')
+                ->get(),
             'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok
         ]);
     }
@@ -255,6 +255,10 @@ class AdminController extends Controller
     {
         $index = array_rand($this->welcome);
 
+        $first = User::where('is_admin', 0)->orderBy('poin')->first();
+        $second = User::where('is_admin', 0)->orderBy('poin')->skip(1)->first();
+        $third = User::where('is_admin', 0)->orderBy('poin')->skip(2)->first();
+
         // $testData = User::where('id', 1)->get();
         // dd($testData[0]->data_bomsoal->poinBom);
 
@@ -262,9 +266,12 @@ class AdminController extends Controller
             'title' => 'BOM 2024 | Leaderboard Elim Dua',
             'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok,
             'pesertas' => User::with('data_bomsoal')
-            ->where('is_admin', 0)
-            ->orderBy('poin', 'DESC')
-            ->get(),
+                ->where('is_admin', 0)
+                ->orderBy('poin', 'DESC')
+                ->get(),
+            'first' => $first,
+            'second' => $second,
+            'third' => $third
         ]);
     }
 
