@@ -299,7 +299,7 @@ class AdminController extends Controller
         return view('admin.elimDuaHistory', [
             'title' => 'BOM 2024 | Leaderboard Elim Dua',
             'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok,
-            'pesertas' => Elim_dua_history::all(),
+            'pesertas' => Elim_dua_history::orderBy('created_at', 'DESC')->get(),
         ]);
     }
 
@@ -310,7 +310,7 @@ class AdminController extends Controller
         return view('admin.finalHistory', [
             'title' => 'BOM 2024 | Leaderboard Elim Dua',
             'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok,
-            'pesertas' => Babak_final_history::all(),
+            'pesertas' => Babak_final_history::orderBy('created_at', 'DESC')->get(),
         ]);
     }
 }
