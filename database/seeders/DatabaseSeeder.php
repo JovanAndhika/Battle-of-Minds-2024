@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
             'namaTiga' => 'Adi',
             'kontakTiga' => 'normal',
             'kartuPelajarTiga' => '-',
+            'is_panit' => 1,
 
             'created_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s')
@@ -87,6 +88,7 @@ class DatabaseSeeder extends Seeder
             'namaTiga' => 'Adi',
             'kontakTiga' => 'normal',
             'kartuPelajarTiga' => '-',
+            'is_panit' => 0,
 
             'created_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s')
