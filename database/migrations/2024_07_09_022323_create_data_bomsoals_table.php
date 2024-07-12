@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('kelompok_id')->references('id')->on('users');
             $table->string('jawaban_bom1')->nullable(true);
             $table->string('jawaban_bom2')->nullable(true);
+            $table->string('poinBom')->default(0);
             $table->timestamps();
         });
     }
