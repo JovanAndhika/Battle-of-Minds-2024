@@ -9,9 +9,9 @@
         .animated-background {
             background-size: 400%;
 
-            -webkit-animation: animation 10s ease infinite;
-            -moz-animation: animation 10s ease infinite;
-            animation: animation 10s ease infinite;
+            -webkit-animation: animation 3s ease infinite;
+            -moz-animation: animation 3s ease infinite;
+            animation: animation 3s ease infinite;
         }
 
         @keyframes animation {
@@ -34,7 +34,8 @@
                 <img src="{{ asset('asset/maskot_bom.png') }}" alt="">
             </div>
             <h5 class="text-center text-white mb-10">{{ $second->namaKelompok }}</h5>
-            <h5 class="text-white flex justify-end self-end">Poin : {{ $second->poin + $second->data_bomsoal->poinBom ?? 0 }}</h5>
+            <h5 class="text-white flex justify-end self-end">Poin : {{ $second->poin + $second->data_bomsoal->poinBom ?? 0 }}
+            </h5>
         </div>
         <div
             class="animated-background bg-white bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 w-1/4 rounded-lg p-5 max-h-[250px]">
@@ -43,7 +44,8 @@
                 <img src="{{ asset('asset/maskot_bom.png') }}" alt="">
             </div>
             <h5 class="text-center text-white font-bold mb-12">{{ $first->namaKelompok }}</h5>
-            <h5 class="text-white flex justify-end self-end">Poin : {{ $first->poin + $first->data_bomsoal->poinBom ?? 0}}</h5>
+            <h5 class="text-white flex justify-end self-end">Poin : {{ $first->poin + $first->data_bomsoal->poinBom ?? 0 }}
+            </h5>
         </div>
         <div class="p-5 my-10 w-1/4 bg-blue-500 rounded-lg">
             <h1 class="text-white ms-5">Rank 3</h1>
@@ -51,7 +53,8 @@
                 <img src="{{ asset('asset/maskot_bom.png') }}" alt="">
             </div>
             <h5 class="text-center text-white mb-10">{{ $third->namaKelompok }}</h5>
-            <h5 class="text-white flex justify-end self-end">Poin: {{ $third->poin + $third->data_bomsoal->poinBom ?? 0}}</h5>
+            <h5 class="text-white flex justify-end self-end">Poin: {{ $third->poin + $third->data_bomsoal->poinBom ?? 0 }}
+            </h5>
         </div>
     </div>
 
@@ -61,7 +64,7 @@
                 <table id="myTable" class="display stripe" style="width: 100%">
                     <thead class="bg-gray-900 text-gray-50">
                         <tr>
-                            <th>No</th>
+                            <th>Rank</th>
                             <th>Nama Kelompok</th>
                             <th>Asal Sekolah</th>
                             <th>Jumlah Poin</th>
