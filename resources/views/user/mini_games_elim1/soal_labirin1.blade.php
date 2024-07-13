@@ -171,6 +171,7 @@
                         name="question_{{ $i }}" 
                         placeholder="Answer here" 
                         value="{{ old('question_' . $i) }}"
+                        required
                     >
                     <!-- @error('question_' . $i)
                         <div class="invalid-feedback">{{ $message }}</div>
