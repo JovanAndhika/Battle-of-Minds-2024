@@ -15,7 +15,7 @@
                         <th>No</th>
                         <th>Nama Kelompok</th>
                         <th>Poin didapat</th>
-                        <th>Updated at</th>
+                        <th>Created at</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,7 +24,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $peserta->namaKelompok }}</td>
                         <td>{{ $peserta->poinDidapat}}</td>
-                        <td>{{ $peserta->updated_at}}</td>
+                        <td>{{ $peserta->created_at}}</td>
                     </tr>
                     @endforeach
                 </tbody>
