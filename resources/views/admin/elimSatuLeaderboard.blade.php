@@ -34,7 +34,7 @@
                 <img src="{{ asset('asset/maskot_bom.png') }}" alt="">
             </div>
             <h5 class="text-center text-white mb-10">{{ $second->namaKelompok }}</h5>
-            <h5 class="text-white flex justify-end self-end">Poin : {{ $second->poin + $second->data_bomsoal->poinBom ?? 0 }}
+            <h5 class="text-white flex justify-end self-end">Poin : {{ $second->poin }}
             </h5>
         </div>
         <div
@@ -44,7 +44,7 @@
                 <img src="{{ asset('asset/maskot_bom.png') }}" alt="">
             </div>
             <h5 class="text-center text-white font-bold mb-12">{{ $first->namaKelompok }}</h5>
-            <h5 class="text-white flex justify-end self-end">Poin : {{ $first->poin + $first->data_bomsoal->poinBom ?? 0 }}
+            <h5 class="text-white flex justify-end self-end">Poin : {{ $first->poin }}
             </h5>
         </div>
         <div class="p-5 my-10 w-1/4 bg-blue-500 rounded-lg">
@@ -53,7 +53,7 @@
                 <img src="{{ asset('asset/maskot_bom.png') }}" alt="">
             </div>
             <h5 class="text-center text-white mb-10">{{ $third->namaKelompok }}</h5>
-            <h5 class="text-white flex justify-end self-end">Poin: {{ $third->poin + $third->data_bomsoal->poinBom ?? 0 }}
+            <h5 class="text-white flex justify-end self-end">Poin: {{ $third->poin }}
             </h5>
         </div>
     </div>
@@ -77,7 +77,7 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $peserta->namaKelompok }}</td>
                                     <td>{{ $peserta->asalSekolah }}</td>
-                                    <td>{{ $peserta->poin + $peserta->data_bomsoal->poinBom ?? 0 }}</td>
+                                    <td>{{ $peserta->poin }}</td>
                                 </tr>
                             @endif
                         @endforeach
