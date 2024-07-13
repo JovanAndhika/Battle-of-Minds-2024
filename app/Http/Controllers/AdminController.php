@@ -262,7 +262,7 @@ class AdminController extends Controller
 
         $data = (collect($pesertas));
         $data->each(function($peserta) {
-            $peserta['poin'] = $peserta['poin'] + $peserta['data_bomsoal']['bomPoin'];
+            $peserta['poin'] = $peserta['poin'] + $peserta['data_bomsoal']['poinBom'];
         });
 
         $data->sortBy(['poin', 'DESC']);
