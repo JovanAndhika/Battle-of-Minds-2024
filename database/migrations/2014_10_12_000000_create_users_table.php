@@ -33,7 +33,7 @@ return new class extends Migration
 
             $table->boolean('is_validated')->default(0);
             $table->boolean('is_admin')->default(0);
-            $table->boolean('is_panit')->default(1);
+            $table->boolean('is_panit')->default(0);
             $table->integer('poin')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

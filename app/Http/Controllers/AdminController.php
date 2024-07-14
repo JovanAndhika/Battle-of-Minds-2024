@@ -26,9 +26,14 @@ class AdminController extends Controller
         return view('admin.listPeserta', [
             'title' => 'BOM 2024 | List Peserta BOM',
             'active' => 'peserta',
-            'pesertas' => User::where('is_admin', '0')->get(),
+            'pesertas' => User::where('is_admin', 0)
+            ->where('is_panit', 0)
+            ->orderBy('namaSatu', 'ASC')
+            ->get(),
             'jumlah_peserta' => DB::table('users')
-                ->where('is_admin', '==', '0')->count(),
+                ->where('is_admin', '==', 0)
+                ->where('is_panit', '==', 0)
+                ->count(),
             'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok,
             'stsSetJawaban' => $stsSetJawaban,
         ]);
