@@ -74,7 +74,7 @@
     }
 
     .checked {
-        background-color: green !important;
+        background-color: lightskyblue !important;
         /* Atur gaya CSS yang sesuai */
         color: white;
     }

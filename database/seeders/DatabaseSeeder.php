@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Kunci_jawaban;
 use App\Models\Data_jawaban;
+use App\Models\JawabanLabirin;
 use App\Models\Status;
 use Carbon\Carbon;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -102,5 +103,10 @@ class DatabaseSeeder extends Seeder
                 'jawaban' => 'kunci' . $i
             ]);
         }
+
+        $this->call([
+            DataSoalBomSeeder::class,
+            JawabanLabirinSeeder::class
+        ]);
     }
 }
