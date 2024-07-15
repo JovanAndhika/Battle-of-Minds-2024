@@ -106,8 +106,16 @@
         </div>
     </div>
     <button type="button" onclick="submit_jawaban()" id="btn-save-jawaban" class="btn btn-primary">SAVE</button>
-    <a href="{{ route('user.soalBom') }}" type="button" id="btn-soalbom" class="btn btn-secondary">BOMB Quest</a>
+    <a href="{{ route('user.soalBom') }}" type="button" id="btn-soalbom" class="btn btn-warning">BOM DOR</a>
+    <a href="{{ route('user.view') }}" type="button" id="btn-back" class="btn btn-secondary">Back</a>
     <style>
+        #btn-back{
+            position:fixed;
+            z-index: 99;
+            top: 10%;
+            left: 8%;
+        }
+
         #btn-save-jawaban {
             position: fixed;
             z-index: 99;

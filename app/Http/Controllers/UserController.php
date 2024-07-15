@@ -185,12 +185,31 @@ class UserController extends Controller
     {
         $kelompokId = auth()->user()->id;
 
-        for ($i = 1; $i <= 50; $i++) {
-            Data_jawaban::where('kelompok_id', $kelompokId)
-                ->where('kunci_jawabans_id', $i)
-                ->update([
-                    'jawaban_kelompok' => $request->input('biggamesanswer' . $i),
-                ]);
+
+        $maxRetries = 3;
+        $attempts = 0;
+
+        while ($attempts < $maxRetries) {
+            try {
+                DB::transaction(function () use ($request, $kelompokId) {
+                    for ($i = 1; $i <= 50; $i++) {
+                        Data_Jawaban::where('kelompok_id', $kelompokId)
+                            ->where('kunci_jawabans_id', $i)
+                            ->lockForUpdate()
+                            ->update([
+                                'jawaban_kelompok' => $request->input('biggamesanswer' . $i),
+                            ]);
+                    }
+                });
+                break; // Exit the loop if successful
+            } catch (\Exception $e) {
+                $attempts++;
+                if ($attempts >= $maxRetries) {
+                    return response()->json(['error' => 'A deadlock occurred, please try again later.'], 500);
+                }
+                // Optional: wait a bit before retrying
+                usleep(100000); // 100 milliseconds
+            }
         }
 
         $kuncis = Kunci_jawaban::orderBy('id')->get();
@@ -254,12 +273,30 @@ class UserController extends Controller
     {
         $kelompokId = auth()->user()->id;
 
-        for ($i = 51; $i <= 100; $i++) {
-            Data_jawaban::where('kelompok_id', $kelompokId)
-                ->where('kunci_jawabans_id', $i)
-                ->update([
-                    'jawaban_kelompok' => $request->input('biggamesanswer' . $i),
-                ]);
+        $maxRetries = 3;
+        $attempts = 0;
+
+        while ($attempts < $maxRetries) {
+            try {
+                DB::transaction(function () use ($request, $kelompokId) {
+                    for ($i = 51; $i <= 100; $i++) {
+                        Data_Jawaban::where('kelompok_id', $kelompokId)
+                            ->where('kunci_jawabans_id', $i)
+                            ->lockForUpdate()
+                            ->update([
+                                'jawaban_kelompok' => $request->input('biggamesanswer' . $i),
+                            ]);
+                    }
+                });
+                break; // Exit the loop if successful
+            } catch (\Exception $e) {
+                $attempts++;
+                if ($attempts >= $maxRetries) {
+                    return response()->json(['error' => 'A deadlock occurred, please try again later.'], 500);
+                }
+                // Optional: wait a bit before retrying
+                usleep(100000); // 100 milliseconds
+            }
         }
 
         $kuncis = Kunci_jawaban::orderBy('id')->get();
@@ -323,12 +360,30 @@ class UserController extends Controller
     {
         $kelompokId = auth()->user()->id;
 
-        for ($i = 101; $i <= 150; $i++) {
-            Data_jawaban::where('kelompok_id', $kelompokId)
-                ->where('kunci_jawabans_id', $i)
-                ->update([
-                    'jawaban_kelompok' => $request->input('biggamesanswer' . $i),
-                ]);
+        $maxRetries = 3;
+        $attempts = 0;
+
+        while ($attempts < $maxRetries) {
+            try {
+                DB::transaction(function () use ($request, $kelompokId) {
+                    for ($i = 101; $i <= 150; $i++) {
+                        Data_Jawaban::where('kelompok_id', $kelompokId)
+                            ->where('kunci_jawabans_id', $i)
+                            ->lockForUpdate()
+                            ->update([
+                                'jawaban_kelompok' => $request->input('biggamesanswer' . $i),
+                            ]);
+                    }
+                });
+                break; // Exit the loop if successful
+            } catch (\Exception $e) {
+                $attempts++;
+                if ($attempts >= $maxRetries) {
+                    return response()->json(['error' => 'A deadlock occurred, please try again later.'], 500);
+                }
+                // Optional: wait a bit before retrying
+                usleep(100000); // 100 milliseconds
+            }
         }
 
         $kuncis = Kunci_jawaban::orderBy('id')->get();
@@ -392,12 +447,30 @@ class UserController extends Controller
     {
         $kelompokId = auth()->user()->id;
 
-        for ($i = 151; $i <= 200; $i++) {
-            Data_jawaban::where('kelompok_id', $kelompokId)
-                ->where('kunci_jawabans_id', $i)
-                ->update([
-                    'jawaban_kelompok' => $request->input('biggamesanswer' . $i),
-                ]);
+        $maxRetries = 3;
+        $attempts = 0;
+
+        while ($attempts < $maxRetries) {
+            try {
+                DB::transaction(function () use ($request, $kelompokId) {
+                    for ($i = 151; $i <= 200; $i++) {
+                        Data_Jawaban::where('kelompok_id', $kelompokId)
+                            ->where('kunci_jawabans_id', $i)
+                            ->lockForUpdate()
+                            ->update([
+                                'jawaban_kelompok' => $request->input('biggamesanswer' . $i),
+                            ]);
+                    }
+                });
+                break; // Exit the loop if successful
+            } catch (\Exception $e) {
+                $attempts++;
+                if ($attempts >= $maxRetries) {
+                    return response()->json(['error' => 'A deadlock occurred, please try again later.'], 500);
+                }
+                // Optional: wait a bit before retrying
+                usleep(100000); // 100 milliseconds
+            }
         }
 
         $kuncis = Kunci_jawaban::orderBy('id')->get();
@@ -461,12 +534,30 @@ class UserController extends Controller
     {
         $kelompokId = auth()->user()->id;
 
-        for ($i = 201; $i <= 250; $i++) {
-            Data_jawaban::where('kelompok_id', $kelompokId)
-                ->where('kunci_jawabans_id', $i)
-                ->update([
-                    'jawaban_kelompok' => $request->input('biggamesanswer' . $i),
-                ]);
+        $maxRetries = 3;
+        $attempts = 0;
+
+        while ($attempts < $maxRetries) {
+            try {
+                DB::transaction(function () use ($request, $kelompokId) {
+                    for ($i = 201; $i <= 250; $i++) {
+                        Data_Jawaban::where('kelompok_id', $kelompokId)
+                            ->where('kunci_jawabans_id', $i)
+                            ->lockForUpdate()
+                            ->update([
+                                'jawaban_kelompok' => $request->input('biggamesanswer' . $i),
+                            ]);
+                    }
+                });
+                break; // Exit the loop if successful
+            } catch (\Exception $e) {
+                $attempts++;
+                if ($attempts >= $maxRetries) {
+                    return response()->json(['error' => 'A deadlock occurred, please try again later.'], 500);
+                }
+                // Optional: wait a bit before retrying
+                usleep(100000); // 100 milliseconds
+            }
         }
 
         $kuncis = Kunci_jawaban::orderBy('id')->get();

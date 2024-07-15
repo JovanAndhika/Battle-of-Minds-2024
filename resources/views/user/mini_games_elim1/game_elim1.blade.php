@@ -180,6 +180,7 @@
     }
 
     @keyframes blink {
+
         0%,
         24%,
         27%,
@@ -421,13 +422,21 @@
 
     .input-pass::placeholder {
         font-size: 13px;
-        text-align: center; 
+        text-align: center;
         justify-content: center;
     }
 
+    #btn-back {
+        position: fixed;
+        z-index: 99;
+        top: 10%;
+        left: 8%;
+    }
 </style>s
 {{-- CONTENT HERE --}}
 <h2 class="text-center" id='title'>Mini Game Elimination 1</h2>
+
+<a href="{{ route('user.view') }}" type="button" id="btn-back" class="btn btn-secondary">Back</a>
 
 {{-- START CARD --}}
 <div style="display: flex; gap: 30px; justify-content: center;">
