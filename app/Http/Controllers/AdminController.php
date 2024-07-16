@@ -27,9 +27,14 @@ class AdminController extends Controller
         return view('admin.listPeserta', [
             'title' => 'BOM 2024 | List Peserta BOM',
             'active' => 'peserta',
-            'pesertas' => User::where('is_admin', '0')->get(),
+            'pesertas' => User::where('is_admin', 0)
+            ->where('is_panit', 0)
+            ->orderBy('namaSatu', 'ASC')
+            ->get(),
             'jumlah_peserta' => DB::table('users')
-                ->where('is_admin', '==', '0')->count(),
+                ->where('is_admin', '==', 0)
+                ->where('is_panit', '==', 0)
+                ->count(),
             'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok,
             'stsSetJawaban' => $stsSetJawaban,
         ]);
@@ -284,10 +289,15 @@ class AdminController extends Controller
     {
         $index = array_rand($this->welcome);
 
+        $data = Elim_dua::orderBy('jumlahPoin', 'DESC')->get();
+
         return view('admin.elimDuaLeaderboard', [
             'title' => 'BOM 2024 | Leaderboard Elim Dua',
             'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok,
-            'pesertas' => Elim_dua::orderBy('jumlahPoin', 'DESC')->get(),
+            'pesertas' => $data,
+            'first' => $data->first(),
+            'second' => $data->skip(1)->first(),
+            'third' => $data->skip(2)->first()
         ]);
     }
 
@@ -295,10 +305,15 @@ class AdminController extends Controller
     {
         $index = array_rand($this->welcome);
 
+        $data = Babak_final::orderBy('jumlahPoin', 'DESC')->get();
+
         return view('admin.finalLeaderboard', [
             'title' => 'BOM 2024 | Leaderboard Elim Dua',
             'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok,
-            'pesertas' => Babak_final::orderBy('jumlahPoin', 'DESC')->get(),
+            'pesertas' => $data,
+            'first' => $data->first(),
+            'second' => $data->skip(1)->first(),
+            'third' => $data->skip(2)->first()
         ]);
     }
 
