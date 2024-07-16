@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Babak_final;
 use App\Models\Babak_final_history;
 use App\Models\Elim_dua_history;
+Use App\Models\Data_bomsoal;
 
 class AdminController extends Controller
 {
@@ -113,10 +114,12 @@ class AdminController extends Controller
         $jawabans = Data_jawaban::where('kelompok_id', $user->id)
             ->get();
 
+        $poin_bomsoal = Data_bomsoal::where('kelompok_id', $user->id)->first();
+
         return view('admin.jawaban', [
             'title' => 'BOM 2024 | Data Jawaban Peserta',
             'jawabans' => $jawabans,
-            'information' => 'Data Jawaban ' . $user->namaKelompok . '. total poin : ' . $user->poin
+            'information' => 'Data Jawaban ' . $user->namaKelompok . '. total poin : ' . ($user->poin + $poin_bomsoal->poinBom)
         ]);
     }
 
@@ -256,12 +259,12 @@ class AdminController extends Controller
         $index = array_rand($this->welcome);
 
         $pesertas = User::with('data_bomsoal')
-        ->where('is_admin', 0)
-        ->orderBy('poin', 'DESC')
-        ->get();
+            ->where('is_admin', 0)
+            ->orderBy('poin', 'DESC')
+            ->get();
 
         $data = (collect($pesertas));
-        $data->each(function($peserta) {
+        $data->each(function ($peserta) {
             $peserta['poin'] = $peserta['poin'] + $peserta['data_bomsoal']['poinBom'];
         });
 
