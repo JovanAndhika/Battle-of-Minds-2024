@@ -28,32 +28,35 @@
 </style>
 
 <div class="winner-container flex flex-row justify-around mt-[100px] mb-0">
-    <div class="p-2 mb-5 mt-14 w-1/5 bg-pink-500 rounded-lg">
+    <div class="p-2 mb-5 mt-14 w-1/4 bg-pink-500 rounded-lg max-h-[240px]">
         <h1 class="text-white ms-2 text-lg">Rank 2</h1>
-        <div class="bg-white rounded rounded-full w-2/5 flex justify-center mx-auto border-white p-3">
+        <div class="bg-white rounded rounded-full w-1/4 flex justify-center mx-auto border-white p-3">
             <img src="{{ asset('asset/maskot_bom.png') }}" alt="">
         </div>
-        <h5 class="text-center text-white text-2xl mb-5">{{ $second->namaKelompok }}</h5>
+        <h5 class="text-center text-white text-3xl font-bold">{{ $second->namaKelompok }}</h5>
+        <h5 class="text-center text-white text-1xl mb-2">{{ $second->asalSekolah }}</h5>
         <h5 class="text-white text-xl flex justify-end self-end">Poin : {{ $second->poin }}
         </h5>
     </div>
 
-    <div class="animated-background bg-white bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 w-1/4 rounded-lg p-4 max-h-[230px]">
+    <div class="animated-background bg-white bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 w-1/4 rounded-lg p-4 max-h-[260px]">
         <h1 class="text-white ms-3 text-xl">Rank 1</h1>
         <div class="bg-white rounded rounded-full w-1/4 flex justify-center mx-auto border-white p-4">
             <img src="{{ asset('asset/maskot_bom.png') }}" alt="">
         </div>
-        <h5 class="text-center text-white text-3xl font-bold mb-6">{{ $first->namaKelompok }}</h5>
+        <h5 class="text-center text-white text-3xl font-bold">{{ $first->namaKelompok }}</h5>
+        <h5 class="text-center text-white text-1xl mb-6">{{ $first->asalSekolah }}</h5>
         <h5 class="text-white text-xl flex justify-end self-end">Poin : {{ $first->poin }}
         </h5>
     </div>
 
-    <div class="p-2 mb-5 mt-14 w-1/5 bg-blue-500 rounded-lg">
+    <div class="p-2 mb-5 mt-14 w-1/4 bg-blue-500 rounded-lg max-h-[240px]">
         <h1 class="text-white ms-2 text-lg">Rank 3</h1>
-        <div class="bg-white rounded rounded-full w-2/5 flex justify-center mx-auto border-white p-3">
+        <div class="bg-white rounded rounded-full w-1/4 flex justify-center mx-auto border-white p-3">
             <img src="{{ asset('asset/maskot_bom.png') }}" alt="">
         </div>
-        <h5 class="text-center text-white text-2xl mb-5">{{ $third->namaKelompok }}</h5>
+        <h5 class="text-center text-white text-3xl font-bold">{{ $third->namaKelompok }}</h5>
+        <h5 class="text-center text-white text-1xl mb-2">{{ $third->asalSekolah }}</h5>
         <h5 class="text-white text-xl flex justify-end self-end">Poin: {{ $third->poin }}
         </h5>
     </div>

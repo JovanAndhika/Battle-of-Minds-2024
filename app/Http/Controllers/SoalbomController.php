@@ -23,9 +23,9 @@ class SoalbomController extends Controller
         $idPeserta = auth()->user()->id;
 
         $inputJawaban1 = $request->input('answer1');
-        $jawabanNomor1 = '$2y$10$NsKc7vHSwFYYFcBzbyDiV.I2uVTRq/CF6Z4HfqOM2VmEdm2C5JUpC'; // Jawaban yang benar
+        $jawabanNomor1 = '$2y$10$QCG9hw6nFsKpHTV70TpV2OoInhqnFEq.ad.D44l9MqmgkZCQVZeiS'; // Jawaban yang benar
         $inputJawaban2 = $request->input('answer2');
-        $jawabanNomor2 = '$2y$10$FDIQ7jWPXeiNHnGFT.ORju0/Z7ERzvTTZd7S691qZRksy61iNqGDm';
+        $jawabanNomor2 = '$2y$10$uSKNBp5YtoZgK9NrRUbkuOoFhThXrypLzTKaGGFUaW8C8kXgT3n4q';
 
         Data_bomsoal::updateOrCreate(
             ['kelompok_id' => $idPeserta],

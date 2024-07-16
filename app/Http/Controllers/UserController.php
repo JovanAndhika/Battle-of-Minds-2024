@@ -722,7 +722,7 @@ class UserController extends Controller
     public function labirin1_validate(Request $request)
     {
         $inputPassword = $request->input('password_labirin_satu');
-        $password_labirin_satu = '$2y$10$ltBzk1oN/0G3OMbP51ipY.N9NQ3ofjnuTop.kp0WM7r47e900Glxy'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
+        $password_labirin_satu = '$2y$10$fv/yEfagkjqbAGdCENhTlOBsyVrrxueu.6iOU05bQBI.t54OhVG/K'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
 
         if (Hash::check($inputPassword, $password_labirin_satu)) {
             $redirectUrl = route('user.labirin1_soal'); // Dapatkan URL tujuan
@@ -734,7 +734,7 @@ class UserController extends Controller
     public function labirin2_validate(Request $request)
     {
         $inputPassword = $request->input('password_labirin_dua');
-        $password_labirin_dua = '$2y$10$nrNdeOodTZwXNEfyHITbweTtUcpmZ7RSinJaMcaJk8roto8.K4SGm'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
+        $password_labirin_dua = '$2y$10$7FhK6pyFPCIbeNESRkiBuOkH.Xim8iOcRj.kt9s6usYLDigl/a4ee'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
 
         if (Hash::check($inputPassword, $password_labirin_dua)) {
             $redirectUrl = route('user.labirin2_soal'); // Dapatkan URL tujuan
@@ -746,7 +746,7 @@ class UserController extends Controller
     public function labirin3_validate(Request $request)
     {
         $inputPassword = $request->input('password_labirin_tiga');
-        $password_labirin_tiga = '$2y$10$S0DrjVT77iTHGEpg4MgyF.DM8dVMvbKHwSx/6Qdwf7kIk9PrwQDgK'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
+        $password_labirin_tiga = '$2y$10$52aXp3ZECVYbZ.REPbGBQeSbqlrHqJjgQ6hT4B1Yfkl9NvEdiPGHC'; // Password yang benar (harus dienkripsi dalam aplikasi nyata)
 
         if (Hash::check($inputPassword, $password_labirin_tiga)) {
             $redirectUrl = route('user.labirin3_soal'); // Dapatkan URL tujuan
