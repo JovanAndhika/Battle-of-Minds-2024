@@ -45,6 +45,11 @@ class jawabanLabirinController extends Controller
         }
 
         $status->labirin_1 = Carbon::now();
+
+        if ($status->labirin_1 != NULL && $status->labirin_2 != NULL && $status->labirin_3 != NULL) {
+            $status->is_finished = Carbon::now();
+        }
+
         $status->save();
 
         return redirect()->intended('/game_elim1');
@@ -84,6 +89,11 @@ class jawabanLabirinController extends Controller
 
         // $status->kelompok = request(['nama']);
         $status->labirin_2 = Carbon::now();
+
+        if ($status->labirin_1 != NULL && $status->labirin_2 != NULL && $status->labirin_3 != NULL) {
+            $status->is_finished = Carbon::now();
+        }
+
         $status->save();
 
         return redirect()->intended('/game_elim1');
@@ -123,6 +133,11 @@ class jawabanLabirinController extends Controller
 
         // $status->kelompok = request(['nama']);
         $status->labirin_3 = Carbon::now();
+
+        if ($status->labirin_1 != NULL && $status->labirin_2 != NULL && $status->labirin_3 != NULL) {
+            $status->is_finished = Carbon::now();
+        }
+
         $status->save();
 
         return redirect()->intended('/game_elim1');

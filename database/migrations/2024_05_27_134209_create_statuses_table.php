@@ -17,6 +17,7 @@ return new class extends Migration
             $table->timestamp('labirin_1')->nullable();
             $table->timestamp('labirin_2')->nullable();
             $table->timestamp('labirin_3')->nullable();
+            $table->timestamp('is_finished')->nullable(true);
             $table->timestamps();
         });
     }
