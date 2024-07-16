@@ -205,4 +205,5 @@
     };
 </script>
 
+@include('user.mini_games_elim1.timer_minigames')
 @endsection

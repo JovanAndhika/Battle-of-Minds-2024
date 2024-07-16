@@ -106,7 +106,7 @@
         </div>
     </div>
     <button type="button" onclick="submit_jawaban()" id="btn-save-jawaban" class="btn btn-primary">SAVE</button>
-    <a href="{{ route('user.soalBom') }}" type="button" id="btn-soalbom" class="btn btn-warning">BOM DOR</a>
+    <a href="{{ route('user.soalBom') }}" type="button" id="btn-soalbom" class="btn btn-warning" hidden>BOM DOR</a>
     <a href="{{ route('user.view') }}" type="button" id="btn-back" class="btn btn-secondary">Back</a>
     <style>
         #btn-back{
@@ -167,7 +167,7 @@
 
 <script>
     var now = new Date().getTime();
-    var timer = new Date("July 23, 2024 14:00:00").getTime();
+    var timer = new Date("July 23, 2024 12:47:00").getTime();
 
     var countdownTime = timer - now;; // misalnya, 60 detik
 
@@ -198,8 +198,6 @@
 
 
             } else if (countdownTime <= 1800000) {
-                // Menghapus atribut hidden dari tombol saat dokumen siap
-                console.log(countdownTime);
                 $('#btn-soalbom').prop('hidden', false);
             }
 
