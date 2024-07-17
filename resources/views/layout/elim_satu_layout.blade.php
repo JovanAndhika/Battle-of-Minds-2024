@@ -197,7 +197,7 @@
                 }, 2000);
 
 
-            } else if (countdownTime <= 1800000) {
+            } else if (countdownTime <= 3600000) {
                 $('#btn-soalbom').prop('hidden', false);
             }
 

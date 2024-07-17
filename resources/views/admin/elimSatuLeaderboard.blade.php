@@ -35,8 +35,8 @@
         </div>
         <h5 class="text-center text-white text-3xl font-bold">{{ $second->namaKelompok }}</h5>
         <h5 class="text-center text-white text-1xl mb-2">{{ $second->asalSekolah }}</h5>
-        <h5 class="text-white text-xl flex justify-end self-end">Poin : {{ $second->poin }}
-        </h5>
+        <h5 class="text-white text-xl flex justify-end self-end">
+            @if ($second->poin < 0) Poin: 0 @else Poin: {{ $second->poin }} @endif </h5>
     </div>
 
     <div class="animated-background bg-white bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 w-1/4 rounded-lg p-4 max-h-[260px]">
@@ -46,8 +46,8 @@
         </div>
         <h5 class="text-center text-white text-3xl font-bold">{{ $first->namaKelompok }}</h5>
         <h5 class="text-center text-white text-1xl mb-6">{{ $first->asalSekolah }}</h5>
-        <h5 class="text-white text-xl flex justify-end self-end">Poin : {{ $first->poin }}
-        </h5>
+        <h5 class="text-white text-xl flex justify-end self-end">
+            @if ($first->poin < 0) Poin: 0 @else Poin : {{ $first->poin }} @endif </h5>
     </div>
 
     <div class="p-2 mb-5 mt-14 w-1/4 bg-blue-500 rounded-lg max-h-[240px]">
@@ -57,8 +57,8 @@
         </div>
         <h5 class="text-center text-white text-3xl font-bold">{{ $third->namaKelompok }}</h5>
         <h5 class="text-center text-white text-1xl mb-2">{{ $third->asalSekolah }}</h5>
-        <h5 class="text-white text-xl flex justify-end self-end">Poin: {{ $third->poin }}
-        </h5>
+        <h5 class="text-white text-xl flex justify-end self-end">
+            @if ($third->poin < 0) Poin: 0 @else Poin: {{ $third->poin }} @endif</h5>
     </div>
 
 </div>
@@ -89,7 +89,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $peserta->namaKelompok }}</td>
                         <td>{{ $peserta->asalSekolah }}</td>
-                        <td>{{ $peserta->poin }}</td>
+                        <td>@if ($peserta->poin < 0) 0 @else {{ $peserta->poin }} @endif</td>
                     </tr>
                     @endif
                     @endforeach
