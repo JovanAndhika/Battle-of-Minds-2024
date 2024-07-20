@@ -9,6 +9,6 @@ class Status extends Model
 {
     protected $table = 'statuses';
     protected $guarded = ['id'];
-    protected $fillable = ['labirin_1','labirin_2','labirin_3'];
+    protected $fillable = ['kelompok_id','namaKelompok','asalSekolah','labirin_1','labirin_2','labirin_3','is_completed'];
     use HasFactory;
 }

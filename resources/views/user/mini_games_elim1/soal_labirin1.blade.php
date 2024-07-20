@@ -141,7 +141,7 @@
     @endif
 </div>
 
-<a href="{{ route('user.view') }}" type="button" id="btn-back" class="btn btn-secondary">Back</a>
+<a href="{{ route('user.game_elim1') }}" type="button" id="btn-back" class="btn btn-secondary">Back</a>
 
 <h2 class="text-center" id='title'>Soal Labirin 1 </h2>
 <div class="w-screen h-screen flex flex-col justify-center items-center">
@@ -201,6 +201,7 @@
 
     window.onload = function() {
         displayModal();
+        startCountdown();
     };
 </script>
 

@@ -29,6 +29,14 @@
         box-shadow: 2px 10px 10px 2px #ffffff;
     }
 
+    .btn {
+        margin-top: 10px;
+        background: linear-gradient(125deg, rgba(120, 27, 55, 1), rgba(123, 48, 176, 1) 51%, rgba(61, 37, 84, 1) 100%);
+        box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1);
+        -webkit-box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1);
+        -moz-box-shadow: 1px 0px 14px 4px rgba(255, 255, 255, 1);
+    }
+
     #question-container {
         display: grid;
         grid-template-columns: auto auto auto;

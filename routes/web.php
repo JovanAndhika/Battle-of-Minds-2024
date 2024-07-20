@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LabirinLeadController;
 use App\Http\Controllers\SessionController;
-use App\Http\Controllers\jawabanLabirinController;
 use App\Http\Controllers\SoalbomController;
+use App\Http\Controllers\jawabanLabirinController;
 
 //HOMEPAGE
 Route::get('/', [UserController::class, 'index'])->name('index');
@@ -60,6 +61,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'],
     Route::get('/elimdua/history', [AdminController::class, 'elimduaHistory'])->name('elimduaHistory');
     Route::get('/final/leaderboard', [AdminController::class, 'finalLeaderboard'])->name('finalLeaderboard');
     Route::get('/final/history', [AdminController::class, 'finalHistory'])->name('finalHistory');
+    Route::get('/minigame/leaderboard', [LabirinLeadController::class, 'index'])->name('labirinLeaderboard');
 });
 
 

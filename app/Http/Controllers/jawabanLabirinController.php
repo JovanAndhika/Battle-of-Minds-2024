@@ -16,9 +16,7 @@ class jawabanLabirinController extends Controller
         $correctAnswers = JawabanLabirin::all();
         $allInput = $request->except('_token');
 
-        // dd($allInput);
-
-        for ($i = 0; $i < 16; $i++) {
+        for ($i = 0; $i < 15; $i++) {
             $input = $request->input('question_' . $i);
 
             if (is_null($input) || $input === '') {
@@ -30,29 +28,32 @@ class jawabanLabirinController extends Controller
                 }
             }
         }
-
+        
         if ($count > 0) {
             return redirect()->back()->withInput($allInput)->withErrors(['errors' => 'Masih ada jawaban yang Salah atau Kosong.']);
+        } else {
+            $kelompokId = auth()->user()->id;
+            $data_user = User::select('id', 'namaKelompok', 'asalSekolah')->where('id', $kelompokId)->first();
+            $namaKelompok = $data_user->namaKelompok;
+            $status = Status::where('kelompok_id', $kelompokId)->where('namaKelompok', $namaKelompok)->first();
+            if (is_null($status)) {
+                // Jika status tidak ditemukan, buat entri baru
+                $status = new Status();
+                $status->kelompok_id = $data_user->id;
+                $status->namaKelompok = $data_user->namaKelompok;
+                $status->asalSekolah = $data_user->asalSekolah;
+            }
+
+            $status->labirin_1 = Carbon::now();
+
+            if ($status->labirin_1 != NULL && $status->labirin_2 != NULL && $status->labirin_3 != NULL) {
+                $status->is_completed = Carbon::now();
+            }
+
+            $status->save();
+
+            return redirect()->intended('/game_elim1');
         }
-        $kelompokId = auth()->user()->id;
-
-        $namaKelompok = User::where('id', $kelompokId)->value('namaKelompok');
-        $status = Status::where('kelompok', $namaKelompok)->first();
-        if (is_null($status)) {
-            // Jika status tidak ditemukan, buat entri baru
-            $status = new Status();
-            $status->kelompok = $namaKelompok;
-        }
-
-        $status->labirin_1 = Carbon::now();
-
-        if ($status->labirin_1 != NULL && $status->labirin_2 != NULL && $status->labirin_3 != NULL) {
-            $status->is_finished = Carbon::now();
-        }
-
-        $status->save();
-
-        return redirect()->intended('/game_elim1');
     }
 
     public function checkAnswer2(Request $request)
@@ -61,7 +62,7 @@ class jawabanLabirinController extends Controller
         $correctAnswers = JawabanLabirin::all();
         $allInput = $request->except('_token');
 
-        for ($i = 0; $i < 22; $i++) {
+        for ($i = 0; $i < 15; $i++) {
             $input = $request->input('question_' . $i);
 
             if (is_null($input) || $input === '') {
@@ -76,27 +77,29 @@ class jawabanLabirinController extends Controller
 
         if ($count > 0) {
             return redirect()->back()->withInput($allInput)->withErrors(['errors' => 'Masih ada jawaban yang Salah atau Kosong.']);
+        } else {
+            $kelompokId = auth()->user()->id;
+            $data_user = User::select('id', 'namaKelompok', 'asalSekolah')->where('id', $kelompokId)->first();
+            $namaKelompok = $data_user->namaKelompok;
+            $status = Status::where('kelompok_id', $kelompokId)->where('namaKelompok', $namaKelompok)->first();
+            if (is_null($status)) {
+                // Jika status tidak ditemukan, buat entri baru
+                $status = new Status();
+                $status->kelompok_id = $data_user->id;
+                $status->namaKelompok = $data_user->namaKelompok;
+                $status->asalSekolah = $data_user->asalSekolah;
+            }
+
+            $status->labirin_2 = Carbon::now();
+
+            if ($status->labirin_1 != NULL && $status->labirin_2 != NULL && $status->labirin_3 != NULL) {
+                $status->is_completed = Carbon::now();
+            }
+
+            $status->save();
+
+            return redirect()->intended('/game_elim1');
         }
-        $kelompokId = auth()->user()->id;
-        // $namaKelompok = User::select('namaKelompok')->where('id',$kelompokId)->first()->value('namaKelompok');
-        $namaKelompok = User::where('id', $kelompokId)->value('namaKelompok');
-        $status = Status::where('kelompok', $namaKelompok)->first();
-        if (is_null($status)) {
-            // Jika status tidak ditemukan, buat entri baru
-            $status = new Status();
-            $status->kelompok = $namaKelompok;
-        }
-
-        // $status->kelompok = request(['nama']);
-        $status->labirin_2 = Carbon::now();
-
-        if ($status->labirin_1 != NULL && $status->labirin_2 != NULL && $status->labirin_3 != NULL) {
-            $status->is_finished = Carbon::now();
-        }
-
-        $status->save();
-
-        return redirect()->intended('/game_elim1');
     }
 
     public function checkAnswer3(Request $request)
@@ -105,7 +108,7 @@ class jawabanLabirinController extends Controller
         $correctAnswers = JawabanLabirin::all();
         $allInput = $request->except('_token');
 
-        for ($i = 0; $i < 31; $i++) {
+        for ($i = 0; $i < 15; $i++) {
             $input = $request->input('question_' . $i);
 
             if (is_null($input) || $input === '') {
@@ -120,26 +123,29 @@ class jawabanLabirinController extends Controller
 
         if ($count > 0) {
             return redirect()->back()->withInput($allInput)->withErrors(['errors' => 'Masih ada jawaban yang Salah atau Kosong.']);
+        } else {
+            $kelompokId = auth()->user()->id;
+            $data_user = User::select('id', 'namaKelompok', 'asalSekolah')->where('id', $kelompokId)->first();
+            $namaKelompok = $data_user->namaKelompok;
+            $status = Status::where('kelompok_id', $kelompokId)->where('namaKelompok', $namaKelompok)->first();
+            if (is_null($status)) {
+                // Jika status tidak ditemukan, buat entri baru
+                $status = new Status();
+                $status->kelompok_id = $data_user->id;
+                $status->namaKelompok = $data_user->namaKelompok;
+                $status->asalSekolah = $data_user->asalSekolah;
+            }
+
+            // $status->kelompok = request(['nama']);
+            $status->labirin_3 = Carbon::now();
+
+            if ($status->labirin_1 != NULL && $status->labirin_2 != NULL && $status->labirin_3 != NULL) {
+                $status->is_completed = Carbon::now();
+            }
+
+            $status->save();
+
+            return redirect()->intended('/game_elim1');
         }
-        $kelompokId = auth()->user()->id;
-        // $namaKelompok = User::select('namaKelompok')->where('id',$kelompokId)->first()->value('namaKelompok');
-        $namaKelompok = User::where('id', $kelompokId)->value('namaKelompok');
-        $status = Status::where('kelompok', $namaKelompok)->first();
-        if (is_null($status)) {
-            // Jika status tidak ditemukan, buat entri baru
-            $status = new Status();
-            $status->kelompok = $namaKelompok;
-        }
-
-        // $status->kelompok = request(['nama']);
-        $status->labirin_3 = Carbon::now();
-
-        if ($status->labirin_1 != NULL && $status->labirin_2 != NULL && $status->labirin_3 != NULL) {
-            $status->is_finished = Carbon::now();
-        }
-
-        $status->save();
-
-        return redirect()->intended('/game_elim1');
     }
 }

@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('statuses', function (Blueprint $table) {
             $table->id();
-            $table->text('kelompok');
-            $table->timestamp('labirin_1')->nullable();
-            $table->timestamp('labirin_2')->nullable();
-            $table->timestamp('labirin_3')->nullable();
-            $table->timestamp('is_finished')->nullable(true);
+            $table->unsignedBigInteger('kelompok_id');
+            $table->string('namaKelompok');
+            $table->string('asalSekolah');
+            $table->timestamp('labirin_1')->nullable(true);
+            $table->timestamp('labirin_2')->nullable(true);
+            $table->timestamp('labirin_3')->nullable(true);
+            $table->timestamp('is_completed')->nullable(true);
             $table->timestamps();
         });
     }

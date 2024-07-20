@@ -703,8 +703,7 @@ class UserController extends Controller
     public function game_elim1()
     {
         $user = auth()->user()->id;
-        $namaKelompok = User::where('id', $user)->value('namaKelompok');
-        $status = Status::where('kelompok', $namaKelompok)->first();
+        $status = Status::where('kelompok_id', $user)->first();
         $lab1 = null;
         $lab2 = null;
         $lab3 = null;

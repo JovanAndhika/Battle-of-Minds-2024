@@ -51,26 +51,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::where('namaKelompok', 'peserta')->update(['is_validated' => 1]);
-
-        Status::create([
-            'kelompok'=> 'Kelompok 1',
-            'labirin_1'=> Carbon::now(),
-
-        ]);
-        Status::create([
-            'kelompok'=> 'Kelompok 2',
-            
-            'labirin_1'=>Carbon::now(),
-            'labirin_2'=>Carbon::now(),
-            
-        ]);
-        Status::create([
-            'kelompok'=> 'Kelompok 3',
-            'labirin_1'=> Carbon::now(),
-            'labirin_2'=> Carbon::now(),
-            'labirin_3'=> Carbon::now(),
-        
-        ]);
+    
         User::create([
             'asalSekolah' => 'admin',
             'namaKelompok' => 'C14220001',
