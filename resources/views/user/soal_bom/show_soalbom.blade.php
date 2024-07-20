@@ -59,14 +59,16 @@
                 <form action="{{ route('user.soalBomStore') }}" method="post">
                     @csrf
                     <div class="mb-4">
+                        <p>301. Please answer the question below</p>
                         <img src="{{ asset('soalBom/soalBom (1).jpg') }}" alt="Question Image 1" class="w-100 rounded-lg shadow-md mb-3">
-                        <label for="answer1" class="form-label">Your Answer for Question 1</label>
+                        <label for="answer1" class="form-label">Your Answer for Question 301</label>
                         <input type="text" id="answer1" name="answer1" placeholder="Type your answer for Question 1" class="form-control answer-input" value="{{ $jawaban->jawaban_bom1 }}" required>
                     </div>
 
                     <div class="mb-4">
+                        <p>302. Please answer the question below</p>
                         <img src="{{ asset('soalBom/soalBom (2).jpg') }}" alt="Question Image 2" class="w-100 rounded-lg shadow-md mb-3">
-                        <label for="answer2" class="form-label">Your Answer for Question 2</label>
+                        <label for="answer2" class="form-label">Your Answer for Question 302</label>
                         <input type="text" id="answer2" name="answer2" placeholder="Type your answer for Question 2" class="form-control answer-input" value="{{ $jawaban->jawaban_bom2 }}" required>
                     </div>
 
@@ -76,13 +78,13 @@
         </div>
     </div>
 
-    <a href="{{ route('user.elim_satu') }}" type="button" class="btn btn-secondary" style="position:absolute; right:30%; bottom:-18%;">Back</button>
+    <a href="{{ route('user.elim_satu') }}" type="button" class="btn btn-secondary" style="position:fixed; top:10%; left:8%; z-index:99;">Back</button>
 </body>
 
 
 <script>
     var now = new Date().getTime();
-    var timer = new Date("July 23, 2024 14:00:00").getTime();
+    var timer = new Date("July 23, 2024 12:47:00").getTime();
 
     var countdownTime = timer - now;; // misalnya, 60 detik
 
