@@ -95,6 +95,7 @@ class AdminController extends Controller
             'pesertas' => User::with('data_bomsoal')
                 ->where('is_admin', '0')
                 ->orderBy('poin', 'DESC')
+                ->orderBy('updated_at', 'ASC')
                 ->get(),
             'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok
         ]);
@@ -266,6 +267,7 @@ class AdminController extends Controller
         $pesertas = User::with('data_bomsoal')
             ->where('is_admin', 0)
             ->orderBy('poin', 'DESC')
+            ->orderBy('updated_at', 'ASC')
             ->get();
 
         $data = (collect($pesertas));
@@ -275,6 +277,7 @@ class AdminController extends Controller
         });
 
         $data->sortBy(['poin', 'DESC']);
+        $data->sortBy(['updated_at', 'ASC']);
 
         return view('admin.elimSatuLeaderboard', [
             'title' => 'BOM 2024 | Leaderboard Elim Dua',

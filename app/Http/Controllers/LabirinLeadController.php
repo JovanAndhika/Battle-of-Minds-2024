@@ -14,10 +14,10 @@ class LabirinLeadController extends Controller
     {
         $index = array_rand($this->welcome);
 
-        $data_completion = Status::orderByDesc('is_completed')
-        ->orderByDesc('labirin_3')
-        ->orderByDesc('labirin_2')
-        ->orderByDesc('labirin_1')
+        $data_completion = Status::orderBy('is_completed', 'ASC')
+        ->orderBy('labirin_3', 'ASC')
+        ->orderBy('labirin_2', 'ASC')
+        ->orderBy('labirin_1', 'ASC')
         ->get();
         return view('admin.labirinLeaderboard', [
             'title' => 'BOM 2024 | Leaderboard Labirin',
