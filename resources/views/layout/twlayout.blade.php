@@ -48,6 +48,15 @@
             justify-content: center;
         }
 
+        .swal2-confirm {
+            background: rgb(46, 143, 255) !important;
+        }
+
+        .swal2-deny,
+        .swal2-cancel {
+            background: rgb(255, 79, 79) !important;
+        }
+
 
         #loading_svg path,
         #loading_svg rect {

@@ -7,7 +7,8 @@
     <link rel="icon" href="{{ asset('asset/icon-logo-bom.png') }}">
 
     <title>{{ $title }}</title>
-    <meta name="description" content="Battle of Minds 2024 merupakan sebuah lomba dengan bentuk kegiatan Numerical Logical Competition yang memadukan 
+    <meta name="description"
+        content="Battle of Minds 2024 merupakan sebuah lomba dengan bentuk kegiatan Numerical Logical Competition yang memadukan 
         konsep logika matematika dengan permainan yang seru dan menantang untuk mengasah pola pikir siswa siswi SMA/SMK. 
         Tahun ini, Battle Of Minds 2024 mengangkat tema “Exploring the Depths of Minds” yang memiliki arti seorang 
         penjelajah yang sedang mendalami pemahaman akan sesuatu. ">
@@ -88,6 +89,15 @@
         #loading_svg path,
         #loading_svg rect {
             fill: white;
+        }
+
+        .swal2-confirm {
+            background: rgb(46, 143, 255) !important;
+        }
+
+        .swal2-deny,
+        .swal2-cancel {
+            background: rgb(255, 79, 79) !important;
         }
     </style>
     <script>

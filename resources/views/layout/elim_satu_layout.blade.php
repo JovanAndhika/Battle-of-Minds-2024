@@ -59,6 +59,7 @@
     .pagination .page-link:hover {
         background-color: #fff;
         color: #5f48e0;
+        cursor: pointer;
     }
 
     .pagination .page-link,
@@ -106,7 +107,7 @@
         </div>
     </div>
     <button type="button" onclick="submit_jawaban()" id="btn-save-jawaban" class="btn btn-primary">SAVE</button>
-    <a href="{{ route('user.soalBom') }}" type="button" id="btn-soalbom" class="btn btn-warning" hidden>BOM DORR</a>
+    <a onclick="submit_pagination(100)" type="button" id="btn-soalbom" class="btn btn-warning" hidden>BOM DORR</a>
     <a href="{{ route('user.view') }}" type="button" id="btn-back" class="btn btn-secondary">Back</a>
     <style>
         #btn-back{
@@ -167,7 +168,7 @@
 
 <script>
     var now = new Date().getTime();
-    var timer = new Date("July 23, 2024 12:47:00").getTime();
+    var timer = new Date("July 22, 2024 12:47:00").getTime();
 
     var countdownTime = timer - now;; // misalnya, 60 detik
 

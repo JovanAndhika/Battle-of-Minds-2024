@@ -260,6 +260,11 @@ class UserController extends Controller
                     'success' => 'Jawaban anda telah berhasil tersimpan !',
                     'count' => 'Jumlah jawaban yang masih salah : ' . $count,
                 ]);
+            } elseif ($request->page == 100) {
+                return redirect()->route('user.soalBom')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
             }
         }
 
@@ -344,6 +349,11 @@ class UserController extends Controller
                 ]);
             } elseif ($request->page == 6) {
                 return redirect()->route('user.elim_satuF')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 100) {
+                return redirect()->route('user.soalBom')->with([
                     'success' => 'Jawaban anda telah berhasil tersimpan !',
                     'count' => 'Jumlah jawaban yang masih salah : ' . $count,
                 ]);
@@ -434,6 +444,11 @@ class UserController extends Controller
                     'success' => 'Jawaban anda telah berhasil tersimpan !',
                     'count' => 'Jumlah jawaban yang masih salah : ' . $count,
                 ]);
+            } elseif ($request->page == 100) {
+                return redirect()->route('user.soalBom')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
             }
         }
 
@@ -518,6 +533,11 @@ class UserController extends Controller
                 ]);
             } elseif ($request->page == 6) {
                 return redirect()->route('user.elim_satuF')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 100) {
+                return redirect()->route('user.soalBom')->with([
                     'success' => 'Jawaban anda telah berhasil tersimpan !',
                     'count' => 'Jumlah jawaban yang masih salah : ' . $count,
                 ]);
@@ -608,6 +628,11 @@ class UserController extends Controller
                     'success' => 'Jawaban anda telah berhasil tersimpan !',
                     'count' => 'Jumlah jawaban yang masih salah : ' . $count,
                 ]);
+            } elseif ($request->page == 100) {
+                return redirect()->route('user.soalBom')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
             }
         }
 
@@ -674,6 +699,11 @@ class UserController extends Controller
                 ]);
             } elseif ($request->page == 6) {
                 return redirect()->route('user.elim_satuF')->with([
+                    'success' => 'Jawaban anda telah berhasil tersimpan !',
+                    'count' => 'Jumlah jawaban yang masih salah : ' . $count,
+                ]);
+            } elseif ($request->page == 100) {
+                return redirect()->route('user.soalBom')->with([
                     'success' => 'Jawaban anda telah berhasil tersimpan !',
                     'count' => 'Jumlah jawaban yang masih salah : ' . $count,
                 ]);
