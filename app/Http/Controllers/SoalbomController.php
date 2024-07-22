@@ -6,6 +6,7 @@ use App\Models\Data_bomsoal;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class SoalbomController extends Controller
 {
@@ -27,10 +28,27 @@ class SoalbomController extends Controller
         $inputJawaban2 = $request->input('answer2');
         $jawabanNomor2 = '$2y$10$uSKNBp5YtoZgK9NrRUbkuOoFhThXrypLzTKaGGFUaW8C8kXgT3n4q';
 
-        Data_bomsoal::updateOrCreate(
-            ['kelompok_id' => $idPeserta],
-            ['jawaban_bom1' => $inputJawaban1, 'jawaban_bom2' => $inputJawaban2]
-        );
+        $maxRetries = 3;
+        $attempts = 0;
+
+        while ($attempts < $maxRetries) {
+            try {
+                DB::transaction(function () use ($idPeserta, $inputJawaban1, $inputJawaban2) {
+                    Data_bomsoal::updateOrCreate(
+                        ['kelompok_id' => $idPeserta],
+                        ['jawaban_bom1' => $inputJawaban1, 'jawaban_bom2' => $inputJawaban2]
+                    );
+                });
+                break; // Exit the loop if successful
+            } catch (\Exception $e) {
+                $attempts++;
+                if ($attempts >= $maxRetries) {
+                    return response()->json(['error' => 'A deadlock occurred, please try again later.'], 500);
+                }
+                // Optional: wait a bit before retrying
+                usleep(100000); // 100 milliseconds
+            }
+        }
 
         $cekUser = Data_bomsoal::where('kelompok_id', $idPeserta)->count();
 
@@ -51,7 +69,24 @@ class SoalbomController extends Controller
         $total_poin = $poin + $salah;
 
         if ($cekUser === 1) {
-            Data_bomsoal::where('kelompok_id', $idPeserta)->update(['poinBom' => $total_poin]);
+            $maxRetries = 3;
+            $attempts = 0;
+
+            while ($attempts < $maxRetries) {
+                try {
+                    DB::transaction(function () use ($idPeserta, $total_poin) {
+                        Data_bomsoal::where('kelompok_id', $idPeserta)->update(['poinBom' => $total_poin]);
+                    });
+                    break; // Exit the loop if successful
+                } catch (\Exception $e) {
+                    $attempts++;
+                    if ($attempts >= $maxRetries) {
+                        return response()->json(['error' => 'A deadlock occurred, please try again later.'], 500);
+                    }
+                    // Optional: wait a bit before retrying
+                    usleep(100000); // 100 milliseconds
+                }
+            }
         }
 
 
