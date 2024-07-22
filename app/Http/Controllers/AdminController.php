@@ -13,6 +13,7 @@ use App\Models\Babak_final;
 use App\Models\Babak_final_history;
 use App\Models\Elim_dua_history;
 Use App\Models\Data_bomsoal;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -343,5 +344,18 @@ class AdminController extends Controller
             'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok,
             'pesertas' => Babak_final_history::orderBy('created_at', 'DESC')->get(),
         ]);
+    }
+
+    public function pass() {
+        return view('admin.resetPassword', [
+            'title' => 'BOM 2024 | Reset Password',
+            'information' => 'Reset Password',
+        ]);
+    } 
+
+    public function reset_password(Request $request) {
+        User::where('namaKelompok', $request->namaKelompok)->update(['password' => Hash::make($request->newPass)]);
+
+        return back()->with('success', 'Berhasil Melakukan Reset Password !');
     }
 }
