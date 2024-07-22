@@ -73,7 +73,7 @@ Route::get('/close_regist', [UserController::class, 'closeReg'])->name('closeReg
 // Coming Soon
 Route::get('/coming-soon', [UserController::class, 'comingSoon'])->name('comingSoon');
 
-Route::group(['as' => 'user.', 'middleware' => ['isGuest', 'isPanit']], function () {
+Route::group(['as' => 'user.', 'middleware' => ['isGuest']], function () {
     Route::get('/view', [UserController::class, 'view'])->name('view');
     // 300 soal
     Route::get('/assessment', [UserController::class, 'elim_satu'])->name('elim_satu');
