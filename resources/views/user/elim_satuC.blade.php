@@ -31,7 +31,7 @@
             simpan_jawaban_form.submit();
         }
     </script>
-    <form method="POST" action="{{ route('user.simpan_jawabanC') }}" id="simpan-jawaban" class="form-simpan-jawaban">
+    <form method="POST" action="{{ route('user.simpan_jawabanC') }}" id="simpan-jawaban" class="form-simpan-jawaban" autocomplete="off">
         @csrf
         <div id="question-container">
             @php
@@ -44,7 +44,7 @@
                         <div class="mt-3">
                             <input class="answer-input" type="text" name="biggamesanswer{{ $questionNumber }}"
                                 id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}' required
-                                placeholder="Answer here">
+                                placeholder="Answer here" autocomplete="off">
                         </div>
                         @php
                             $questionNumber++;

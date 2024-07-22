@@ -32,7 +32,7 @@
 @endif
 
 
-<form method="POST" action="{{ route('user.simpan_jawabanA') }}" id="simpan-jawaban" class="form-simpan-jawaban">
+<form method="POST" action="{{ route('user.simpan_jawabanA') }}" id="simpan-jawaban" class="form-simpan-jawaban" autocomplete="off">
     @csrf
     <div id="question-container">
         @php
@@ -42,7 +42,7 @@
         @if ($data->kunci_jawabans_id >= 1 && $data->kunci_jawabans_id <= 50) <div id="page-1" class="page">
             <h1 class="mt-5 fs-3">Question {{ $questionNumber }}:</h1>
             <div class="mt-3">
-                <input class="answer-input" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}' required placeholder="Answer here">
+                <input class="answer-input" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}' required placeholder="Answer here" autocomplete="off">
             </div>
             @php
             $questionNumber++;
