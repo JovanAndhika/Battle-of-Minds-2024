@@ -447,8 +447,8 @@
 
             <!-- INPUT GEMBOK -->
             <form id="labirin-satu">
-                <input id="password-labirin-satu" class="input-pass" type="password" placeholder="Enter your password" required>
                 @if($lab1 == null)
+                <input id="password-labirin-satu" class="input-pass" type="password" placeholder="Enter your password" required>
                 <button type="submit" class="btn btn-primary text-white text-decoration-none">Submit</button>
                 @else
                 <span class="text-white">Completed Labirin 1</span>
@@ -527,8 +527,8 @@
 
             <!-- INPUT GEMBOK -->
             <form id="labirin-dua">
-                <input id="password-labirin-dua" class="input-pass" type="password" placeholder="Enter your password" required>
                 @if($lab2 == null)
+                <input id="password-labirin-dua" class="input-pass" type="password" placeholder="Enter your password" required>
                 <button type="submit" class="btn btn-primary text-white text-decoration-none">Submit</button>
                 @else
                 <span class="text-white">Completed Labirin 2</span>
@@ -607,8 +607,8 @@
 
             <!-- INPUT GEMBOK -->
             <form id="labirin-tiga">
-                <input id="password-labirin-tiga" class="input-pass" type="password" placeholder="Enter your password" required>
                 @if($lab3 == null)
+                <input id="password-labirin-tiga" class="input-pass" type="password" placeholder="Enter your password" required>
                 <button type="submit" class="btn btn-primary text-white text-decoration-none">Submit</button>
                 @else
                 <span class="text-white">Completed Labirin 3</span>
