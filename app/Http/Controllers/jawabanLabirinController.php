@@ -7,6 +7,7 @@ use App\Models\Status;
 use Illuminate\Http\Request;
 use App\Models\JawabanLabirin;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class jawabanLabirinController extends Controller
 {
@@ -28,7 +29,7 @@ class jawabanLabirinController extends Controller
                 }
             }
         }
-        
+
         if ($count > 0) {
             return redirect()->back()->withInput($allInput)->withErrors(['errors' => 'Masih ada jawaban yang Salah atau Kosong.']);
         } else {
@@ -50,7 +51,25 @@ class jawabanLabirinController extends Controller
                 $status->is_completed = Carbon::now();
             }
 
-            $status->save();
+            $maxRetries = 3;
+            $attempts = 0;
+
+            while ($attempts < $maxRetries) {
+                try {
+                    DB::transaction(function () use ($status) {
+                        $status->save();
+                    });
+                    // If successful, break out of the loop
+                    break;
+                } catch (\Exception $e) {
+                    $attempts++;
+                    if ($attempts >= $maxRetries) {
+                        return redirect()->back()->withInput($allInput)->withErrors(['errors' => 'Terjadi Kesalahan ! Silahkan coba submit ulang !.']);
+                    }
+                    // Optional: wait a bit before retrying
+                    usleep(100000); // 100 milliseconds
+                }
+            }
 
             return redirect()->intended('/game_elim1');
         }
@@ -96,7 +115,25 @@ class jawabanLabirinController extends Controller
                 $status->is_completed = Carbon::now();
             }
 
-            $status->save();
+            $maxRetries = 3;
+            $attempts = 0;
+
+            while ($attempts < $maxRetries) {
+                try {
+                    DB::transaction(function () use ($status) {
+                        $status->save();
+                    });
+                    // If successful, break out of the loop
+                    break;
+                } catch (\Exception $e) {
+                    $attempts++;
+                    if ($attempts >= $maxRetries) {
+                        return redirect()->back()->withInput($allInput)->withErrors(['errors' => 'Terjadi Kesalahan ! Silahkan coba submit ulang !.']);
+                    }
+                    // Optional: wait a bit before retrying
+                    usleep(100000); // 100 milliseconds
+                }
+            }
 
             return redirect()->intended('/game_elim1');
         }
@@ -143,7 +180,25 @@ class jawabanLabirinController extends Controller
                 $status->is_completed = Carbon::now();
             }
 
-            $status->save();
+            $maxRetries = 3;
+            $attempts = 0;
+
+            while ($attempts < $maxRetries) {
+                try {
+                    DB::transaction(function () use ($status) {
+                        $status->save();
+                    });
+                    // If successful, break out of the loop
+                    break;
+                } catch (\Exception $e) {
+                    $attempts++;
+                    if ($attempts >= $maxRetries) {
+                        return redirect()->back()->withInput($allInput)->withErrors(['errors' => 'Terjadi Kesalahan ! Silahkan coba submit ulang !.']);
+                    }
+                    // Optional: wait a bit before retrying
+                    usleep(100000); // 100 milliseconds
+                }
+            }
 
             return redirect()->intended('/game_elim1');
         }
