@@ -147,7 +147,7 @@
 <div class="w-screen h-screen flex flex-col justify-center items-center">
     <div class="container h-[300px] flex flex-col justify-center items-center">
         <div class="form-box">
-            <form id="formLabirin1" action="/checkAnswer" method="post">
+            <form id="formLabirin1" action="/checkAnswer" method="post" autocomplete="off">
                 @csrf
                 @php
                 $questions = [
@@ -172,7 +172,7 @@
                 @foreach ($questions as $i => $question)
                 <div class="form-group">
                     <label for="question_{{ $i }}">{{ $question }}</label>
-                    <input type="number" class="form-control" id="question_{{ $i }}" name="question_{{ $i }}" placeholder="Answer here" value="{{ old('question_' . $i) }}" required>
+                    <input type="number" class="form-control" id="question_{{ $i }}" name="question_{{ $i }}" placeholder="Answer here" value="{{ old('question_' . $i) }}" required autocomplete="off">
                     <!-- @error('question_' . $i)
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror -->

@@ -73,7 +73,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-6 form-content">
-                    <form action="{{ route('user.soalBomStore') }}" method="post">
+                    <form action="{{ route('user.soalBomStore') }}" method="post" autocomplete="off">
                         @csrf
                         <div class="mb-4">
                             <p>301. Please answer the question below</p>
@@ -82,7 +82,7 @@
                             <label for="answer1" class="form-label">Your Answer for Question 301</label>
                             <input type="text" id="answer1" name="answer1"
                                 placeholder="Type your answer for Question 1" class="form-control answer-input"
-                                value="{{ $jawaban->jawaban_bom1 ?? '0' }}" required>
+                                value="{{ $jawaban->jawaban_bom1 ?? '0' }}" required autocomplete="off">
                         </div>
 
                         <div class="mb-4">
@@ -92,7 +92,7 @@
                             <label for="answer2" class="form-label">Your Answer for Question 302</label>
                             <input type="text" id="answer2" name="answer2"
                                 placeholder="Type your answer for Question 2" class="form-control answer-input"
-                                value="{{ $jawaban->jawaban_bom2 ?? '0' }}" required>
+                                value="{{ $jawaban->jawaban_bom2 ?? '0' }}" required autocomplete="off">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>

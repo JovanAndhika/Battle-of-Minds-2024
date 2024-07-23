@@ -446,8 +446,8 @@
             <h5 class="card-title">Labirin 1</h5>
 
             <!-- INPUT GEMBOK -->
-            <form id="labirin-satu">
-                <input id="password-labirin-satu" class="input-pass" type="password" placeholder="Enter your password" required>
+            <form id="labirin-satu" autocomplete="off">
+                <input id="password-labirin-satu" class="input-pass" type="password" placeholder="Enter your password" required autocomplete="off">
                 @if($lab1 == null)
                 <button type="submit" class="btn btn-primary text-white text-decoration-none">Submit</button>
                 @else
@@ -526,8 +526,8 @@
             <h5 class="card-title">Labirin 2</h5>
 
             <!-- INPUT GEMBOK -->
-            <form id="labirin-dua">
-                <input id="password-labirin-dua" class="input-pass" type="password" placeholder="Enter your password" required>
+            <form id="labirin-dua" autocomplete="off">
+                <input id="password-labirin-dua" class="input-pass" type="password" placeholder="Enter your password" required autocomplete="off">
                 @if($lab2 == null)
                 <button type="submit" class="btn btn-primary text-white text-decoration-none">Submit</button>
                 @else
@@ -606,8 +606,8 @@
             <h5 class="card-title">Labirin 3</h5>
 
             <!-- INPUT GEMBOK -->
-            <form id="labirin-tiga">
-                <input id="password-labirin-tiga" class="input-pass" type="password" placeholder="Enter your password" required>
+            <form id="labirin-tiga" autocomplete="off">
+                <input id="password-labirin-tiga" class="input-pass" type="password" placeholder="Enter your password" required autocomplete="off">
                 @if($lab3 == null)
                 <button type="submit" class="btn btn-primary text-white text-decoration-none">Submit</button>
                 @else
