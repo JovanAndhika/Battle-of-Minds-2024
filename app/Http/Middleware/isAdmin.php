@@ -15,7 +15,7 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(session()->has('isAdmin')){
+        if(session()->has('')){
             return $next($request);
         }
         return redirect()->intended(route('session.index'));

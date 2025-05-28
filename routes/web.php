@@ -29,7 +29,7 @@ Route::group(['as' => 'session.'], function () {
 
 
 // ADMIN
-Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
+Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
     // Registration
     Route::get('/registration', [UserController::class, 'registration'])->name('registration');
     Route::post('/registration/store', [UserController::class, 'storeRegistration'])->name('storeRegistration');

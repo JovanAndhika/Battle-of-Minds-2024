@@ -103,14 +103,12 @@
                 </thead>
                 <tbody>
                     @foreach ($pesertas as $peserta)
-                    @if ($loop->iteration > 3)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $peserta->namaKelompok }}</td>
                         <td>{{ $peserta->asalSekolah }}</td>
-                        <td>@if ($peserta->poin < 0) 0 @else {{ $peserta->poin }} @endif</td>
+                        <td>@if ($peserta->poin < 0) 0 @else {{ $peserta->poin + $peserta->data_bomsoal->poinBom }} @endif</td>
                     </tr>
-                    @endif
                     @endforeach
                 </tbody>
             </table>
