@@ -20,6 +20,10 @@
         @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
 
+        html{
+            background-color: rgb(176, 51, 130);
+        }
+
         ::selection {
             background-color: rgb(62, 26, 189);
             color: white;
