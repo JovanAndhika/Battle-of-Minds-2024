@@ -48,6 +48,7 @@
 
         html {
             scroll-behavior: smooth;
+            background-color: rgba(123, 48, 176, 1);
         }
 
         ::-webkit-scrollbar {
