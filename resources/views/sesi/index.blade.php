@@ -242,11 +242,13 @@
 
                     </div>
                     <div class="col-12 input-box text-center" id="usernameBox">
+                        <label>Nama Kelompok (user / admin)</label>
                         <input type="text" name="namaKelompok" id="nrp" required placeholder="Nama Kelompok"
                             value="{{ Session::get('namaKelompok') }}" autocomplete="off">
                     </div>
 
                     <div class="col-12 input-box text-center mb-4" id="passwordBox">
+                        <label for="password">Password (12345678)</label>
                         <input type="password" name="password" id="password" placeholder="Password" required>
                     </div>
                     <a href="{{ route('session.forget') }}" class="link-forgot">Forgot Password? Click Here</a>
