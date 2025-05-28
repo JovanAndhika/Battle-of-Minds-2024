@@ -173,6 +173,54 @@
     </ul>
 </nav>
 
+<style>
+.sidebar {
+    display: flex;
+    justify-content: center; /* Center secara horizontal */
+    align-items: center;      /* Center secara vertical (opsional) */
+    height: 100vh;            /* Penuh tinggi layar */
+    background: #111;         /* Sesuai desain kamu */
+}
+
+.sidebar .list {
+    display: flex;
+    flex-wrap: wrap;          /* Jika terlalu banyak, turun ke baris berikutnya */
+    gap: 1rem;                /* Spasi antar kotak */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-item {
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    min-width: 120px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.list-item:hover {
+    transform: scale(1.05);
+}
+
+.list-item svg {
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.list-item .link-name {
+    color: white;
+    font-weight: bold;
+}
+</style>
+
 
 <script>
     const sidebar = document.querySelector('.sidebar');
