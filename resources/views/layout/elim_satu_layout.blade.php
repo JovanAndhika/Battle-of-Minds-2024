@@ -1,4 +1,4 @@
-@extends('layout.mainlayout')
+@extends('layout.twlayout')
 @section('head')
 <style>
     body {

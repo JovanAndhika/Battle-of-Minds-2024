@@ -1,265 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assetsEric/login.css') }}">
-    <!-- Bootstrap icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login BOM</title>
 
-    <!-- SweetAlerts2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Tailwind + Flowbite -->
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@2.3.0/dist/flowbite.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="stylesheet" href="css/sidebar.css">
-    <title>LOGIN BOM</title>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <style>
-        body {
-            background: url(asset/bg-bom-main.png);
-            background-position: center 0%;
-            background-size: cover;
-        }
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-        .login {
-            padding: 0;
-        }
-
-        .login-button {
-            border-radius: 40px;
-            width: 200px;
-        }
-
-        .maskot {
-            position: absolute;
-            width: 500px;
-            height: auto;
-            /* padding-left: 6rem; */
-            border-top-left-radius: 40px;
-            animation: fadeUpDown 2.5s forwards;
-        }
-
-
-        @keyframes fadeUpDown {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            50% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            70% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            100% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-        }
-
-        @keyframes fadeLeftDown {
-            0% {
-                opacity: 0;
-                /* Awal dengan keadaan tidak terlihat */
-                transform: translateY(20px);
-                /* Mulai dari posisi 20px di bawah */
-            }
-
-            10% {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-
-            50% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-
-            70% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-
-            100% {
-                opacity: 0;
-                /* Akhir dengan keadaan tidak terlihat */
-                transform: translateY(-20px);
-                /* Berakhir 20px di atas */
-            }
-        }
-
-        p {
-            margin: 0;
-            padding: 12px
-        }
-
-        .speech-bubble {
-            width: 200px;
-            height: auto;
-            margin: 0 0 250px 450px;
-            position: absolute;
-            -moz-border-radius: 10px;
-            -webkit-border-radius: 10px;
-            border-radius: 10px;
-            background-color: white;
-            animation: fadeLeftDown 2.5s forwards;
-
-        }
-
-        .speech-bubble:after {
-            content: "";
-            position: absolute;
-            left: 5px;
-            top: 50px;
-            border-top: 30px solid transparent;
-            border-right: 21px solid white;
-            border-bottom: 0px solid transparent;
-            margin: -25px;
-        }
-
-        @media (max-width: 768px) {
-
-            #nrp,
-            #password {
-                font-size: 0.8rem;
-            }
-
-            .maskot {
-                width: 300px;
-            }
-
-            .speech-bubble {
-                width: 200px;
-                height: auto;
-                margin: 0 0 400px 0;
-                position: absolute;
-                -moz-border-radius: 10px;
-                -webkit-border-radius: 10px;
-                border-radius: 10px;
-                background-color: white;
-                animation: fadeLeftDown 2.5s forwards;
-
-            }
-
-            .speech-bubble:after {
-                content: "";
-                position: absolute;
-                left: 35px;
-                z-index: -1;
-                top: 60px;
-                border-top: 30px solid transparent;
-                border-right: 21px solid white;
-                border-right: 21px solid white;
-                border-bottom: 30px solid transparent;
-                margin: -25px;
-            }
-
-            .login-button {
-                border-radius: 20px;
-                width: 150px;
-                font-size: 0.85rem;
-            }
-        }
-
-        .link-forgot {
-            text-decoration: none;
-        }
-
-        .link-forgot:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <!-- Flowbite -->
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.3.0/dist/flowbite.min.js"></script>
 </head>
 
-<body>
-    @include('partials.sidebar')
-    @if (session('success'))
-        <script>
-            Swal.fire({
-                title: "Berhasil !",
-                text: '{{ session("success") }}',
-                icon: "success"
-            });
-        </script>
-    @endif
+<body class="bg-gradient-to-br from-purple-900 via-violet-800 to-fuchsia-800 min-h-screen text-white relative">
 
-    @if (session('error'))
-        <script>
-            Swal.fire({
-                title: 'Warning !',
-                text: '{{ session("error") }}',
-                icon: 'warning',
-            });
-        </script>
-    @endif
-    <video src="{{ asset('asset/waving.webm') }}" autoplay muted class="maskot"></video>
-    {{-- <img src="{{ asset('asset/waving.png') }}" alt="faq-maskot"
-                class="maskot"> --}}
-    <div class='speech-bubble'>
-        <p>Silahkan login terlebih dahulu</p>
-    </div>
+  {{-- Sidebar --}}
+  @include('partials.sidebar')
 
-    <div class="box  border border-blue">
-        <form action="{{ route('session.login') }}" method="post">
-            @csrf
-            <div class="row center">
-                <div class=" col-lg-5 m-0 text-center">
-                    <img src="{{ asset('asset/logo-main.png') }}" class="text-center logo-bom" alt="">
-                </div>
+  <!-- Topbar for Mobile -->
+  <div class="md:hidden flex justify-between items-center p-4 bg-white/10 backdrop-blur-sm fixed w-full z-30">
+    <button data-drawer-target="sidebar" data-drawer-toggle="sidebar" aria-controls="sidebar" class="text-white">
+      <i class="lucide lucide-menu w-6 h-6"></i>
+    </button>
+    <span class="text-lg font-bold">Login</span>
+  </div>
 
-                <div class="col-lg-5 m-0 text-center">
+  <!-- SweetAlert Notifications -->
+  @if (session('success'))
+  <script>
+    Swal.fire({
+      title: "Berhasil!",
+      text: '{{ session("success") }}',
+      icon: "success"
+    });
+  </script>
+  @endif
 
-                    @if (session()->has('loginError'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            {{ session('loginError') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                aria-label="Close"></button>
-                        </div>
-                    @endif
+  @if (session('error'))
+  <script>
+    Swal.fire({
+      title: 'Warning!',
+      text: '{{ session("error") }}',
+      icon: 'warning',
+    });
+  </script>
+  @endif
 
-                    @if (session()->has('not_validated'))
-                        <script>
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Login Failed',
-                                text: '{{ session("not_validated") }}',
-                            })
-                        </script>
-                    @endif
-                    <div>
+  @if (session('not_validated'))
+  <script>
+    Swal.fire({
+      icon: 'error',
+      title: 'Login Failed',
+      text: '{{ session("not_validated") }}',
+    });
+  </script>
+  @endif
 
-                    </div>
-                    <div class="col-12 input-box text-center" id="usernameBox">
-                        <label>Nama Kelompok (user / admin)</label>
-                        <input type="text" name="namaKelompok" id="nrp" required placeholder="Nama Kelompok"
-                            value="{{ Session::get('namaKelompok') }}" autocomplete="off">
-                    </div>
+  <!-- Login Container -->
+  <main class="flex items-center justify-center min-h-screen px-4 pt-20 z-10">
+    <div class="w-full max-w-4xl bg-white/10 backdrop-blur-md shadow-xl rounded-2xl p-8">
+      <form action="{{ route('session.login') }}" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        @csrf
 
-                    <div class="col-12 input-box text-center mb-4" id="passwordBox">
-                        <label for="password">Password (12345678)</label>
-                        <input type="password" name="password" id="password" placeholder="Password" required>
-                    </div>
-                    <a href="{{ route('session.forget') }}" class="link-forgot">Forgot Password? Click Here</a>
-                    <div class="col-12 text-center my-4 px-4 py-1">
-                        <button type="submit" class="button border login-button" style="color: white;">Login</button>
-                    </div>
-                </div>
+        <!-- Left: Form -->
+        <div>
+          @if (session('loginError'))
+          <div class="mb-4">
+            <div class="bg-red-500/80 text-white p-3 rounded-md">
+              {{ session('loginError') }}
             </div>
-        </form>
-    </div>
+          </div>
+          @endif
 
+          <div class="mb-4">
+            <label for="namaKelompok" class="block mb-2 text-sm font-medium text-white">Nama Kelompok (user / admin)</label>
+            <input type="text" name="namaKelompok" id="namaKelompok"
+              value="{{ Session::get('namaKelompok') }}"
+              class="bg-white/10 border border-gray-300 text-white text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5"
+              placeholder="Nama Kelompok" required />
+          </div>
+
+          <div class="mb-4">
+            <label for="password" class="block mb-2 text-sm font-medium text-white">Password (12345678)</label>
+            <input type="password" name="password" id="password"
+              class="bg-white/10 border border-gray-300 text-white text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5"
+              placeholder="Password" required />
+          </div>
+
+          <div class="text-sm mb-4">
+            <a href="{{ route('session.forget') }}" class="text-yellow-400 hover:underline">Forgot Password? Click Here</a>
+          </div>
+
+          <button type="submit"
+            class="w-full text-white bg-purple-500 hover:bg-purple-600 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition">
+            Login
+          </button>
+        </div>
+
+        <!-- Right: Illustration -->
+        <div class="hidden md:flex items-center justify-center">
+          <img src="{{ asset('assetsEric/login-image.svg') }}" alt="Login Illustration" class="w-3/4" />
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 
 </html>

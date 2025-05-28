@@ -1,4 +1,4 @@
-@extends('layout.mainlayout')
+@extends('layout.twlayout')
 
 {{-- BOM 2024 | Soal Labirin 3 --}}
 @section('title', $title)

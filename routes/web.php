@@ -12,9 +12,6 @@ use App\Http\Controllers\jawabanLabirinController;
 Route::get('/', [UserController::class, 'index'])->name('index');
 Route::post('/logout', [SessionController::class, 'logout'])->name('logoutss');
 
-// Registration
-Route::get('/registration', [UserController::class, 'registration'])->name('registration');
-Route::post('/registration/store', [UserController::class, 'storeRegistration'])->name('storeRegistration');
 
 //SESSION
 Route::group(['as' => 'session.'], function () {
@@ -70,6 +67,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
 
 
 //PESERTA
+// Registration
+Route::get('/registration', [UserController::class, 'registration'])->name('registration');
+Route::post('/registration/store', [UserController::class, 'storeRegistration'])->name('storeRegistration');
 //grup WA
 Route::get('/grupwa', [UserController::class, 'grupwa'])->name('grupwa');
 //Close Reg

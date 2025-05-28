@@ -394,6 +394,7 @@
 <link rel="stylesheet" href="css/sidebarRegister.css">
 @endsection
 
+
 @section('content')
 <div class="body2">
     <section class="regist-section">
@@ -425,7 +426,7 @@
             @endif
 
             <div class="form-content">
-                <form method="POST" action="{{ route('admin.storeRegistration') }}" enctype="multipart/form-data" id="registration-form" class="registration-form">
+                <form method="POST" action="{{ route('storeRegistration') }}" enctype="multipart/form-data" id="registration-form" class="registration-form">
                     @csrf
 
 

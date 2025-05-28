@@ -1,16 +1,13 @@
 <nav class="sidebar">
     <div class="logo-menu">
         <svg class="ham ham6 toggle-btn" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
-            <path class="line top"
-                d="m 30,33 h 40 c 13.100415,0 14.380204,31.80258 6.899646,33.421777 -24.612039,5.327373 9.016154,-52.337577 -12.75751,-30.563913 l -28.284272,28.284272" />
-            <path class="line middle"
-                d="m 70,50 c 0,0 -32.213436,0 -40,0 -7.786564,0 -6.428571,-4.640244 -6.428571,-8.571429 0,-5.895471 6.073743,-11.783399 12.286435,-5.570707 6.212692,6.212692 28.284272,28.284272 28.284272,28.284272" />
-            <path class="line bottom"
-                d="m 69.575405,67.073826 h -40 c -13.100415,0 -14.380204,-31.80258 -6.899646,-33.421777 24.612039,-5.327373 -9.016154,52.337577 12.75751,30.563913 l 28.284272,-28.284272" />
+            <path class="line top" d="m 30,33 h 40 c 13.1,0 14.4,31.8 6.9,33.4 -24.6,5.3 9,-52.3 -12.8,-30.6 l -28.3,28.3" />
+            <path class="line middle" d="m 70,50 c 0,0 -32.2,0 -40,0 -7.8,0 -6.4,-4.6 -6.4,-8.6 0,-5.9 6.1,-11.8 12.3,-5.6 6.2,6.2 28.3,28.3 28.3,28.3" />
+            <path class="line bottom" d="m 69.6,67.1 h -40 c -13.1,0 -14.4,-31.8 -6.9,-33.4 24.6,-5.3 -9,52.3 12.8,30.6 l 28.3,-28.3" />
         </svg>
     </div>
-    <ul class="list">
 
+    <ul class="list">
         @if (!session('isGuest') && !session('isAdmin'))
             <li class="list-item">
                 <a href="{{ route('session.index') }}">
@@ -169,58 +166,71 @@
                 <span class="link-name" style="--i:8">Contacts</span>
             </a>
         </li>
-
     </ul>
 </nav>
 
 <style>
 .sidebar {
     display: flex;
-    justify-content: center; /* Center secara horizontal */
-    align-items: center;      /* Center secara vertical (opsional) */
-    height: 100vh;            /* Penuh tinggi layar */
-    background: #111;         /* Sesuai desain kamu */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(145deg, #2b0a3d, #1c042b); /* ungu gelap modern */
+    box-shadow: inset 0 0 60px #3a0ca3;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+    z-index: 1000;
 }
 
 .sidebar .list {
     display: flex;
-    flex-wrap: wrap;          /* Jika terlalu banyak, turun ke baris berikutnya */
-    gap: 1rem;                /* Spasi antar kotak */
+    flex-wrap: wrap;
+    gap: 1rem;
     list-style: none;
-    padding: 0;
+    padding: 2rem;
     margin: 0;
+    justify-content: center;
 }
 
 .list-item {
-    background-color: #222;
-    border: 1px solid #444;
-    border-radius: 8px;
+    background-color: #3c096c;
+    border: 2px solid #9d4edd;
+    border-radius: 12px;
     padding: 1rem;
     text-align: center;
-    min-width: 120px;
-    min-height: 100px;
+    min-width: 130px;
+    min-height: 110px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px #9d4edd50;
 }
 
 .list-item:hover {
-    transform: scale(1.05);
+    transform: scale(1.07);
+    box-shadow: 0 0 20px #c77dff, 0 0 40px #7b2cbf;
 }
 
 .list-item svg {
     margin-bottom: 0.5rem;
-    color: white;
+    color: #fff;
 }
 
 .list-item .link-name {
-    color: white;
+    color: #fff;
     font-weight: bold;
+    font-size: 0.95rem;
+}
+
+/* Toggle class for active (hide/show behavior if diperlukan) */
+.sidebar.active {
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
 }
 </style>
-
 
 <script>
     const sidebar = document.querySelector('.sidebar');

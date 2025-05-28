@@ -1,5 +1,4 @@
 @extends('layout.twlayout')
-<link rel="stylesheet" href="css/sidebar.css">
 <style>
     body {
         color: white;

@@ -1,4 +1,4 @@
-@extends('layout.mainlayout')
+@extends('layout.twlayout')
 
 {{-- BOM 2024 | MiniGame Elimination 1 --}}
 @section('title', $title)
