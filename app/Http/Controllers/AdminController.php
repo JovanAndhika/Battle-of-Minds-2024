@@ -29,9 +29,9 @@ class AdminController extends Controller
             'title' => 'BOM 2024 | List Peserta BOM',
             'active' => 'peserta',
             'pesertas' => User::where('is_admin', 0)
-            ->where('is_panit', 0)
-            ->orderBy('namaSatu', 'ASC')
-            ->get(),
+                ->where('is_panit', 0)
+                ->orderBy('namaSatu', 'ASC')
+                ->get(),
             'jumlah_peserta' => DB::table('users')
                 ->where('is_admin', '==', 0)
                 ->where('is_panit', '==', 0)
@@ -271,14 +271,20 @@ class AdminController extends Controller
             ->orderBy('updated_at', 'ASC')
             ->get();
 
-        // $data = (collect($pesertas));
-        // $data->each(function ($peserta) {
-        // $peserta['poin'] = $peserta['poin'];
-        //     $peserta['poin'] = $peserta['poin'] + $peserta['data_bomsoal']['poinBom'];
-        // });
+        $data = collect($pesertas);
 
-        // $data->sortBy(['poin', 'DESC']);
-        // $data->sortBy(['updated_at', 'ASC']);
+        $data->each(function ($peserta) {
+            $peserta['poin'] = $peserta['poin'] + ($peserta['data_bomsoal']['poinBom'] ?? 0);
+        });
+
+        $data = $data->sort(function ($a, $b) {
+            if ($a['poin'] === $b['poin']) {
+                return $a['updated_at'] <=> $b['updated_at'];
+            }
+            return $b['poin'] <=> $a['poin'];
+        })->values();
+
+        // dd($data->select('poin'));
 
         return view('admin.elimSatuLeaderboard', [
             'title' => 'BOM 2024 | Leaderboard Elim Dua',
@@ -346,14 +352,16 @@ class AdminController extends Controller
         ]);
     }
 
-    public function pass() {
+    public function pass()
+    {
         return view('admin.resetPassword', [
             'title' => 'BOM 2024 | Reset Password',
             'information' => 'Reset Password',
         ]);
-    } 
+    }
 
-    public function reset_password(Request $request) {
+    public function reset_password(Request $request)
+    {
         User::where('namaKelompok', $request->namaKelompok)->update(['password' => Hash::make($request->newPass)]);
 
         return back()->with('success', 'Berhasil Melakukan Reset Password !');

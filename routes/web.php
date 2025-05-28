@@ -62,6 +62,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
     Route::get('/final/leaderboard', [AdminController::class, 'finalLeaderboard'])->name('finalLeaderboard');
     Route::get('/final/history', [AdminController::class, 'finalHistory'])->name('finalHistory');
     Route::get('/minigame/leaderboard', [LabirinLeadController::class, 'index'])->name('labirinLeaderboard');
+
+    Route::get('/pass', [AdminController::class, 'pass'])->name('pass');
+    Route::post('/pass/reset', [AdminController::class, 'reset_password'])->name('pass.reset');
 });
 
 

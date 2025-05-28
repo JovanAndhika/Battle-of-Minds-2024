@@ -446,9 +446,9 @@
             <h5 class="card-title">Labirin 1</h5>
 
             <!-- INPUT GEMBOK -->
-            <form id="labirin-satu" autocomplete="off">
-                <input id="password-labirin-satu" class="input-pass" type="password" placeholder="Enter your password" required autocomplete="off">
+            <form id="labirin-satu">
                 @if($lab1 == null)
+                <input id="password-labirin-satu" class="input-pass" type="password" placeholder="Enter your password" required>
                 <button type="submit" class="btn btn-primary text-white text-decoration-none">Submit</button>
                 @else
                 <span class="text-white">Completed Labirin 1</span>
@@ -526,9 +526,9 @@
             <h5 class="card-title">Labirin 2</h5>
 
             <!-- INPUT GEMBOK -->
-            <form id="labirin-dua" autocomplete="off">
-                <input id="password-labirin-dua" class="input-pass" type="password" placeholder="Enter your password" required autocomplete="off">
+            <form id="labirin-dua">
                 @if($lab2 == null)
+                <input id="password-labirin-dua" class="input-pass" type="password" placeholder="Enter your password" required>
                 <button type="submit" class="btn btn-primary text-white text-decoration-none">Submit</button>
                 @else
                 <span class="text-white">Completed Labirin 2</span>
@@ -606,9 +606,9 @@
             <h5 class="card-title">Labirin 3</h5>
 
             <!-- INPUT GEMBOK -->
-            <form id="labirin-tiga" autocomplete="off">
-                <input id="password-labirin-tiga" class="input-pass" type="password" placeholder="Enter your password" required autocomplete="off">
+            <form id="labirin-tiga">
                 @if($lab3 == null)
+                <input id="password-labirin-tiga" class="input-pass" type="password" placeholder="Enter your password" required>
                 <button type="submit" class="btn btn-primary text-white text-decoration-none">Submit</button>
                 @else
                 <span class="text-white">Completed Labirin 3</span>
