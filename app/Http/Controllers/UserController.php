@@ -91,13 +91,21 @@ class UserController extends Controller
             $file_kartu_pelajar->move(public_path('kartu-pelajar-3'), $fileNameToStoreKartu);
         }
 
+        // Check password confirmation manual
+        if ($request->input('password') !== $request->input('confirmPass')) {
+            return back()->withErrors(['confirmPass' => 'Password konfirmasi tidak cocok'])->withInput();
+        }
+
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
+        // Proses file dan simpan seperti kode kamu...
+
         if ($validatedData) {
             User::create($validatedData);
+            return redirect()->route('index')->with('registrationSuccess', 'Pendaftaran berhasil!');
         } else {
-            return back()->with('registrationFailed', '');
+            return back()->with('registrationFailed', 'Pendaftaran gagal, silakan coba lagi.');
         }
-        // Kembalikan respons ke halaman yang sesuai
-        return redirect()->route('grupwa')->with('registrationSuccess', 'Registration Berhasil!');
     }
     // TAMPILAN USER
     public function view()
