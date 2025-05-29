@@ -200,7 +200,7 @@ class UserController extends Controller
         while ($attempts < $maxRetries) {
             try {
                 DB::transaction(function () use ($request, $kelompokId) {
-                    for ($i = 1; $i <= 50; $i++) {
+                    for ($i = 1; $i <= 20; $i++) {
                         Data_Jawaban::where('kelompok_id', $kelompokId)
                             ->where('kunci_jawabans_id', $i)
                             ->lockForUpdate()
