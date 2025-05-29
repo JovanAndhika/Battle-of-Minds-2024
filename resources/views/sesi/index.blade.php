@@ -65,7 +65,7 @@
   @endif
 
   <!-- Login Container -->
-  <main class="flex items-center justify-center min-h-screen px-4 pt-20 z-10">
+  <main class="main-container flex items-center justify-center min-h-screen px-4 pt-20 z-10">
     <div class="w-full max-w-4xl bg-white/10 backdrop-blur-md shadow-xl rounded-2xl p-8">
       <form action="{{ route('session.login') }}" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         @csrf
@@ -81,7 +81,7 @@
           @endif
 
           <div class="mb-4">
-            <label for="namaKelompok" class="block mb-2 text-sm font-medium text-white">Nama Kelompok (user / admin)</label>
+            <label for="namaKelompok" class="block mb-2 text-sm font-medium text-white">Nama Kelompok (peserta / admin)</label>
             <input type="text" name="namaKelompok" id="namaKelompok"
               value="{{ Session::get('namaKelompok') }}"
               class="bg-white/10 border border-gray-300 text-white text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5"
@@ -107,7 +107,7 @@
 
         <!-- Right: Illustration -->
         <div class="hidden md:flex items-center justify-center">
-          <img src="{{ asset('assetsEric/login-image.svg') }}" alt="Login Illustration" class="w-3/4" />
+          <img src="{{ asset('asset/icon-logo-bom.png') }}" alt="Login Illustration" class="w-3/4" />
         </div>
       </form>
     </div>
@@ -116,6 +116,14 @@
   <script>
     lucide.createIcons();
   </script>
+
+
+
+<style>
+  .main-container{
+    padding-top: 0%;
+  }
+</style>
 </body>
 
 </html>
