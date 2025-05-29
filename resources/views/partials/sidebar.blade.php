@@ -171,16 +171,26 @@
 
 <style>
 .sidebar {
+    position: absolute; /* atau fixed jika ingin tetap di tempat saat scroll */
+    top: 0; /* agar berada di atas secara vertikal */
+    left: 50%; /* geser ke tengah secara horizontal */
+    transform: translateX(-50%); /* benar-benar pusatkan horizontal */
+    
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(145deg, #2b0a3d, #1c042b); /* ungu gelap modern */
+    align-items: flex-start; /* posisikan konten di atas */
+    padding-top: 2rem; /* beri jarak dari atas */
+
+    width: max-content; /* agar lebarnya mengikuti konten */
+    height: auto; /* hanya setinggi kontennya */
+
+    background: linear-gradient(145deg, #2b0a3d, #1c042b);
     box-shadow: inset 0 0 60px #3a0ca3;
     transition: all 0.3s ease;
-    overflow-y: auto;
     z-index: 1000;
+    border-radius: 20px;
 }
+
 
 .sidebar .list {
     display: flex;

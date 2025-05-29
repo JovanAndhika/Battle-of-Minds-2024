@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'asalSekolah' => 'SMAK ABCD',
             'namaKelompok' => 'peserta',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('12345678'),
             'buktiTransaksi' => 'bukti-transaksi//komal.jpg',
 
             'emailPerwakilan' => 'asssss',
@@ -45,17 +45,94 @@ class DatabaseSeeder extends Seeder
             'kontakTiga' => 'normal',
             'kartuPelajarTiga' => '-',
             'is_panit' => 1,
+            'is_validated' => 1,
 
             'created_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s')
         ]);
 
-        User::where('namaKelompok', 'peserta')->update(['is_validated' => 1]);
+
+        User::create([
+            'asalSekolah' => 'SMAK ABCD',
+            'namaKelompok' => 'pesertaDua',
+            'password' => Hash::make('12345678'),
+            'buktiTransaksi' => 'bukti-transaksi//komal.jpg',
+
+            'emailPerwakilan' => 'asssss',
+            'namaSatu' => 'Hasan Surabaya ABCDEFGH',
+            'kontakSatu' => 'abcsefg@gmail.com',
+            'kartuPelajarSatu' => 'debu',
+
+            'namaDua' => 'Jevon',
+            'kontakDua' => '2022',
+            'kartuPelajarDua' => 'angin',
+
+            'namaTiga' => 'Adi',
+            'kontakTiga' => 'normal',
+            'kartuPelajarTiga' => '-',
+            'is_panit' => 1,
+            'is_validated' => 1,
+
+            'created_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s')
+        ]);
+
+
+        User::create([
+            'asalSekolah' => 'SMAK ABCD',
+            'namaKelompok' => 'pesertaTiga',
+            'password' => Hash::make('12345678'),
+            'buktiTransaksi' => 'bukti-transaksi//komal.jpg',
+
+            'emailPerwakilan' => 'asssss',
+            'namaSatu' => 'Hasan Surabaya ABCDEFGH',
+            'kontakSatu' => 'abcsefg@gmail.com',
+            'kartuPelajarSatu' => 'debu',
+
+            'namaDua' => 'Jevon',
+            'kontakDua' => '2022',
+            'kartuPelajarDua' => 'angin',
+
+            'namaTiga' => 'Adi',
+            'kontakTiga' => 'normal',
+            'kartuPelajarTiga' => '-',
+            'is_panit' => 1,
+            'is_validated' => 1,
+
+            'created_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s')
+        ]);
+
+        User::create([
+            'asalSekolah' => 'SMAK ABCD',
+            'namaKelompok' => 'pesertaEmpat',
+            'password' => Hash::make('12345678'),
+            'buktiTransaksi' => 'bukti-transaksi//komal.jpg',
+
+            'emailPerwakilan' => 'asssss',
+            'namaSatu' => 'Hasan Surabaya ABCDEFGH',
+            'kontakSatu' => 'abcsefg@gmail.com',
+            'kartuPelajarSatu' => 'debu',
+
+            'namaDua' => 'Jevon',
+            'kontakDua' => '2022',
+            'kartuPelajarDua' => 'angin',
+
+            'namaTiga' => 'Adi',
+            'kontakTiga' => 'normal',
+            'kartuPelajarTiga' => '-',
+            'is_panit' => 1,
+            'is_validated' => 1,
+
+            'created_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s')
+        ]);
+
     
         User::create([
             'asalSekolah' => 'admin',
-            'namaKelompok' => 'C14220001',
-            'password' => Hash::make('password'),
+            'namaKelompok' => 'admin',
+            'password' => Hash::make('12345678'),
             'buktiTransaksi' => 'bukti-transaksi//komal.jpg',
 
             'emailPerwakilan' => 'asssss',
@@ -76,7 +153,7 @@ class DatabaseSeeder extends Seeder
             'updated_at' => Carbon::now()->setTime(23, 59, 59)->format('Y-m-d H:i:s')
         ]);
 
-        User::where('namaKelompok', 'C14220001')->update(['is_admin' => 1]);
+        User::where('namaKelompok', 'admin')->update(['is_admin' => 1]);
 
         for ($i = 1; $i <= 300; $i++) {
             Kunci_jawaban::create([

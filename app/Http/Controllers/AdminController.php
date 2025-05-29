@@ -290,9 +290,9 @@ class AdminController extends Controller
             'title' => 'BOM 2024 | Leaderboard Elim Dua',
             'information' => $this->welcome[$index] . ' ' . auth()->user()->namaKelompok,
             'pesertas' => $pesertas,
-            // 'first' => $pesertas->first(),
-            // 'second' => $pesertas->skip(1)->first(),
-            // 'third' => $pesertas->skip(2)->first()
+            'first' => $pesertas->first(),
+            'second' => $pesertas->skip(1)->first(),
+            'third' => $pesertas->skip(2)->first()
         ]);
     }
 

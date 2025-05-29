@@ -74,6 +74,7 @@
         filter: drop-shadow(4px 4px 15px rgb(81, 226, 247));
         user-select: none;
         -webkit-user-drag: none;
+        margin-top: 10%;
     }
 
     .description {
