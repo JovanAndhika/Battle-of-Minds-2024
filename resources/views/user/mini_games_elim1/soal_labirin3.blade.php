@@ -172,7 +172,7 @@
                 @foreach ($questions as $i => $question)
                 <div class="form-group">
                     <label for="question_{{ $i }}">{{ $question }}</label>
-                    <input type="text" class="form-control" id="question_{{ $i  }}" name="question_{{ $i }}" placeholder="Answer here" value="{{ old('question_' . ($i)) }}" autocomplete="off">
+                    <input type="text" class="form-control" id="question_{{ $i  }}" name="question_{{ $i }}" placeholder="Answer here" value="{{ old('question_' . ($i)) }}" autocomplete="off" style="color: black;">
                     <!-- Include any validation errors here if needed -->
                     <!-- {{-- @error('question' . ($i + 1))
                           <div class="invalid-feedback">{{ $message }}</div>

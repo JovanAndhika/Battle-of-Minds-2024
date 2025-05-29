@@ -139,7 +139,7 @@ class AdminController extends Controller
             ->get();
 
         foreach ($pesertas as $p) {
-            for ($j = 1; $j <= 300; $j++) {
+            for ($j = 1; $j <= 20; $j++) {
                 Data_jawaban::create([
                     'kelompok_id' => $p->id,
                     'kunci_jawabans_id' => intval($j), // Mengonversi $j menjadi integer

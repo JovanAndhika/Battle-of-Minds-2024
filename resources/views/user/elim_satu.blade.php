@@ -39,7 +39,7 @@
         $questionNumber = 1;
         @endphp
         @foreach ($data_jawaban as $data)
-        @if ($data->kunci_jawabans_id >= 1 && $data->kunci_jawabans_id <= 50) <div id="page-1" class="page">
+        @if ($data->kunci_jawabans_id >= 1 && $data->kunci_jawabans_id <= 30) <div id="page-1" class="page">
             <h1 class="mt-5 fs-3">Question {{ $questionNumber }}:</h1>
             <div class="mt-3">
                 <input class="answer-input" type="text" name="biggamesanswer{{ $questionNumber }}" id="biggamesanswer{{ $questionNumber }}" value='{{ $data->jawaban_kelompok }}' required placeholder="Answer here" autocomplete="off">
@@ -52,4 +52,11 @@
     @endforeach
     </div>
 </form>
+
+
+<style>
+    input{
+        color: black;
+    }
+</style>
 @endsection

@@ -436,7 +436,15 @@
 {{-- CONTENT HERE --}}
 <h2 class="text-center" id='title'>Mini Game Elimination 1</h2>
 
-<a href="{{ route('user.view') }}" type="button" id="btn-back" class="btn btn-secondary">Back</a>
+<a href="{{ route('user.view') }}"
+    id="btn-back"
+    class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-gray-900 bg-white border border-gray-300 
+          rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none 
+          focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-white 
+          dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+    Back
+</a>
+
 
 {{-- START CARD --}}
 <div style="display: flex; gap: 30px; justify-content: center;">
@@ -448,8 +456,13 @@
             <!-- INPUT GEMBOK -->
             <form id="labirin-satu">
                 @if($lab1 == null)
-                <input id="password-labirin-satu" class="input-pass" type="password" placeholder="Enter your password" required>
-                <button type="submit" class="btn btn-primary text-white text-decoration-none">Submit</button>
+                <input id="password-labirin-satu" class="input-pass" type="password" placeholder="Enter your password" required style="color: black;">
+                <button type="submit"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
+           font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 
+           dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Submit
+                </button>
                 @else
                 <span class="text-white">Completed Labirin 1</span>
                 @endif
@@ -528,8 +541,13 @@
             <!-- INPUT GEMBOK -->
             <form id="labirin-dua">
                 @if($lab2 == null)
-                <input id="password-labirin-dua" class="input-pass" type="password" placeholder="Enter your password" required>
-                <button type="submit" class="btn btn-primary text-white text-decoration-none">Submit</button>
+                <input id="password-labirin-dua" class="input-pass" type="password" placeholder="Enter your password" required style="color: black;">
+                <button type="submit"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
+           font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 
+           dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Submit
+                </button>
                 @else
                 <span class="text-white">Completed Labirin 2</span>
                 @endif
@@ -608,8 +626,13 @@
             <!-- INPUT GEMBOK -->
             <form id="labirin-tiga">
                 @if($lab3 == null)
-                <input id="password-labirin-tiga" class="input-pass" type="password" placeholder="Enter your password" required>
-                <button type="submit" class="btn btn-primary text-white text-decoration-none">Submit</button>
+                <input id="password-labirin-tiga" class="input-pass" type="password" placeholder="Enter your password" required style="color: black;">
+                <button type="submit"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
+           font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 
+           dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Submit
+                </button>
                 @else
                 <span class="text-white">Completed Labirin 3</span>
                 @endif

@@ -155,7 +155,7 @@ class DatabaseSeeder extends Seeder
 
         User::where('namaKelompok', 'admin')->update(['is_admin' => 1]);
 
-        for ($i = 1; $i <= 300; $i++) {
+        for ($i = 1; $i <= 20; $i++) {
             Kunci_jawaban::create([
                 'id' => $i,
                 'jawaban' => 'kunci' . $i
