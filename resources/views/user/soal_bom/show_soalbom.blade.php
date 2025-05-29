@@ -104,44 +104,4 @@
         <a href="{{ route('user.elim_satu') }}" type="button" class="btn btn-secondary"
             style="position:fixed; top:10%; left:8%; z-index:99;">Back</button>
     </body>
-
-
-    <script>
-        var now = new Date().getTime();
-        var timer = new Date("July 23, 2024 12:47:00").getTime();
-
-        var countdownTime = timer - now;; // misalnya, 60 detik
-
-        window.onload = function() {
-            startCountdown();
-        };
-
-
-        function startCountdown() {
-            var countdownInterval = setInterval(function() {
-                countdownTime--;
-                if (countdownTime <= 0) {
-                    clearInterval(countdownInterval);
-                    Swal.fire({
-                        icon: 'info',
-                        title: 'Waktu telah habis !',
-                        showConfirmButton: false,
-                        timer: 2000
-                    });
-
-                    setTimeout(() => {
-                        window.location = '/view'
-                    }, 2000);
-                }
-                displayTime();
-            }, 1000);
-        }
-
-        if (countdownTime <= 0) {
-            $(document).ready(function() {
-                $('#answer1').prop('disabled', true);
-                $('#answer2').prop('disabled', true);
-            });
-        }
-    </script>
 @endsection
